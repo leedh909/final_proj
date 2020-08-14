@@ -1,0 +1,14 @@
+SELECT * FROM USERS  U FULL OUTER JOIN REVIEW R ON U.USER_ID = R.RV_USER_ID FULL OUTER JOIN GAME G ON R.RV_GAME_NO = G.GAME_NO WHERE USER_NO=1;
+
+
+
+./img/${list.m_game_no}/${list.image1}.jpg
+
+
+dto.setM_game_no(rs.getInt("m_game_no"));
+				dto.setM_game_platform(rs.getInt("m_game_platform"));
+				dto.setM_game_name(rs.getString("m_game_name"));
+				dto.setM_game_company(rs.getString("m_game_company"));
+				dto.setM_game_summary(rs.getString("m_game_summary"));
+				dto.setM_game_slideimage(rs.getString("m_game_slideimage"));
+				dto.setM_game_image(rs.getString("m_game_image"));
