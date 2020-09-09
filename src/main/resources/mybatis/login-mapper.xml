@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="login">
+
+	<select id="login" parameterType="map" resultType="loginDto">
+		SELECT * 
+		FROM MEMBER 
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
+
+	<insert id="registUser" parameterType="loginDto">
+		INSERT INTO MEMBER 
+		VALUES(SEQ_M.NEXTVAL,#{id},#{pw},#{name},#{gender},#{age},#{email},#{phone},#{profile},'N')
+	</insert>
+
+	<select id="idchk" parameterType="String" resultType="String">
+		SELECT * 
+		FROM MEMBER 
+		WHERE ID = #{id}
+	</select>
+	
+	<select id="selectAll" parameterType="loginDto">
+		SELECT * 
+		FROM MEMBER
+		ORDER BY MYNO DESC
+	</select>
+	
+	<delete id="deleteMem" parameterType="String" >
+		DELETE FROM MEMBER 
+		WHERE ID=#{id}
+	</delete>
+	
+	
+	
+	
+	
+	
+</mapper> 
+
+
+
