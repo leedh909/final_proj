@@ -47,7 +47,6 @@
  </div>
  <div class="hero-wrap" style="background-image: url('images/bg_2.jpg'); height:100px;"></div>
 
-<h1>수정사항~~</h1>
  <c:choose>
   	<%--  관리자 Page --%>
   	<c:when test="${login  eq 'ADMIN'}">
@@ -247,10 +246,7 @@
  		</div>
  		
  		<!-- 찜목록 -->
- 		<!-- 만들어야하는데... 하루종일 깃만하네 -->
- 		<h1>여기다가 추가</h1>
- 		
- 		<!-- 시험잘봤니 -->
+
  		
   	
   	</c:otherwise>
