@@ -101,6 +101,9 @@
                                    <br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
+                                   <h4 style= "margin-left:30px;" ><strong>소개 글</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >등록하신 숙소를 소개해주세요</h5>
+                                   <textarea rows="5" cols="50" placeholder="소개글을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
                                </div>
                             </div>
                       
