@@ -47,7 +47,7 @@
  </div>
  <div class="hero-wrap" style="background-image: url('images/bg_2.jpg'); height:100px;"></div>
 
-
+<h1>수정사항~~</h1>
  <c:choose>
   	<%--  관리자 Page --%>
   	<c:when test="${login  eq 'ADMIN'}">
