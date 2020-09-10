@@ -80,9 +80,7 @@
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5 style="color:#f85959;">5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>6. 숙소 소개</h5>
-	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>7. 등록 확인 및 완료</h5>
+	               <h5>6. 숙소 소개 및 등록 완료</h5>
 	            </div>
         	</div>
           </div>
@@ -93,15 +91,27 @@
                 
                       </div>
                   
-                         <h5 align="left"><strong>등록하실 숙소의 종류를 선택해주세요</strong></h5>
+                         <h1 align="left"><strong>숙소 규정 등록</strong></h1>
                          	
                         
                          <div>
-                              		<h5 style= "margin-left:30px;" ><strong>숙소유형</strong></h5>       
-                                   <div style="float:left; padding:20px; margin-left:30px; border:1px solid;" ><h1>숙소</h1></div>
-                                    <div style="float:left; padding:20px; margin-left:30px; border:1px solid; "><h1>빌라</h1></div>
-                                     <div style="float:left; padding:20px; margin-left:30px; border:1px solid;"><h1>오피스텔</h1></div>
-                                      <div style="float:left; padding:20px;  margin-left:30px; border:1px solid; "><h1>단독주택</h1></div>
+                              		<h4 style= "margin-left:30px;" ><strong>어린이 / 유아 규정</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >어린이 및 유아 입실 가능 여부 체크해주세요(두개 체크 가능합니다.)</h5>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="kid" ><label><h5>어린이(2~12세) 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="baby"><label><h5>유아(0~2세) 가능</h5></label> &nbsp;
+                                 <br>
+                                 <hr style= "margin-left:30px; width:150%; ">
+                                 <br>
+                                 <h4 style= "margin-left:30px;" ><strong>반려동물 / 흡연 규정</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >반려동물 입실 및 흡연 가능 여부 체크해주세요(두개 체크 가능합니다.)</h5>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="pet" ><label><h5>반려동물(강아지,고양이,기타 등등) 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="smoking"><label><h5>흡연 가능</h5></label> &nbsp;
+                                 <br>
+                                 <hr style= "margin-left:30px; width:150%; ">
+                                 <br>
+                                 <h4 style= "margin-left:30px;" ><strong>행사 및 파티 규정</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >행사 및 파티 관련 규정사항을 입력해주세요</h5>
+                                   <textarea rows="4" cols="70" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
                                </div>
                             </div>
                       
@@ -113,8 +123,8 @@
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
-		                <li><a href="rooms4.jsp"><span>이전</span></a></li>
-		                <li><a href="rooms6.jsp"><span>다음</span></a></li>
+		                <li><a href="rooms4.do"><span>이전</span></a></li>
+		                <li><a href="rooms6.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>

@@ -80,9 +80,7 @@
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>6. 숙소 소개</h5>
-	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>7. 등록 확인 및 완료</h5>
+	               <h5>6. 숙소 소개 및 등록 완료</h5>
 	            </div>
         	</div>
           </div>
@@ -93,15 +91,29 @@
                 
                       </div>
                   
-                         <h5 align="left"><strong>등록하실 숙소의 종류를 선택해주세요</strong></h5>
+                         <h1 align="left"><strong>편의 시설 / 안전 시설 등록</strong></h1>
                          	
                         
                          <div>
-                              		<h5 style= "margin-left:30px;" ><strong>숙소유형</strong></h5>       
-                                   <div style="float:left; padding:20px; margin-left:30px; border:1px solid;" ><h1>숙소</h1></div>
-                                    <div style="float:left; padding:20px; margin-left:30px; border:1px solid; "><h1>빌라</h1></div>
-                                     <div style="float:left; padding:20px; margin-left:30px; border:1px solid;"><h1>오피스텔</h1></div>
-                                      <div style="float:left; padding:20px;  margin-left:30px; border:1px solid; "><h1>단독주택</h1></div>
+                              		<h4 style= "margin-left:30px;" ><strong>편의시설</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >등록할 숙소에 있는 편의시설에 모두 체크해주세요</h5>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="washer" ><label><h5>세탁기</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="dryer"><label><h5>건조기</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="kitchen"><label><h5>주방</h5></label>
+                                 <br>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="pool" ><label><h5>수영장</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="fitness"><label><h5>헬스장</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="parking"><label><h5>주차장</h5></label>
+                                 
+                                 <hr style= "margin-left:30px; width:150%; ">
+                                 
+                                 <br>
+                                 <h4 style= "margin-left:30px;" ><strong>안전시설</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >등록할 숙소에 있는 안전시설에 모두 체크해주세요</h5>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="fire_sensor" ><label><h5>화재 감지기</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="co_sensor"><label><h5>일산화탄소 감지기</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="e_kit"><label><h5>구급상자</h5></label>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="fire_off" ><label><h5>소화기</h5></label> &nbsp;
                                </div>
                             </div>
                       
@@ -113,8 +125,8 @@
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
-		                <li><a href="rooms3.jsp"><span>이전</span></a></li>
-		                <li><a href="rooms5.jsp"><span>다음</span></a></li>
+		                <li><a href="rooms3.do"><span>이전</span></a></li>
+		                <li><a href="rooms5.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>

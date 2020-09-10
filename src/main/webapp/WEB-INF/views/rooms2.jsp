@@ -29,6 +29,60 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  </head>
+   <script>
+      $(function() {   
+         $("#bt1").click(function() {      // 모든 <button>요소에 click 이벤트를 설정함.
+            
+            $("#bt1").css("background-color", "#f85959"),
+            $("#bt1").css( "color", "white").bind("click").unbind("click"),
+            $("#bt2").css("background-color", "#white"),
+            $("#bt2").css( "color", "white").bind("click").unbind("click");
+            $("#bt3").css("background-color", "#white"),
+            $("#bt3").css( "color", "white").bind("click").unbind("click");
+            $("#bt4").css("background-color", "#white"),
+            $("#bt4").css( "color", "white").bind("click").unbind("click");
+               
+         });
+         
+         $("#bt2").click(function() {      // 모든 <button>요소에 click 이벤트를 설정함.
+            $("#bt1").css("background-color", "#white"),
+            $("#bt1").css( "color", "white").bind("click").unbind("click");
+            $("#bt2").css("background-color", "#f85959"),
+            $("#bt2").css( "color", "white").bind("click").unbind("click");
+            $("#bt3").css("background-color", "#white"),
+            $("#bt3").css( "color", "white").bind("click").unbind("click");
+            $("#bt4").css("background-color", "#white"),
+            $("#bt4").css( "color", "white").bind("click").unbind("click");
+         
+         });
+         $("#bt3").click(function() {      // 모든 <button>요소에 click 이벤트를 설정함.
+            $("#bt1").css("background-color", "#white"),
+            $("#bt1").css( "color", "white").bind("click").unbind("click");
+            $("#bt2").css("background-color", "#white"),
+            $("#bt2").css( "color", "white").bind("click").unbind("click");
+            $("#bt3").css("background-color", "#f85959"),
+            $("#bt3").css( "color", "white").bind("click").unbind("click");
+            $("#bt4").css("background-color", "#white"),
+            $("#bt4").css( "color", "white").bind("click").unbind("click");
+         
+         });
+         $("#bt4").click(function() {      // 모든 <button>요소에 click 이벤트를 설정함.
+            $("#bt1").css("background-color", "#white"),
+            $("#bt1").css( "color", "white").bind("click").unbind("click");
+            $("#bt2").css("background-color", "#white"),
+            $("#bt2").css( "color", "white").bind("click").unbind("click");
+            $("#bt3").css("background-color", "#white"),
+            $("#bt3").css( "color", "white").bind("click").unbind("click");
+            $("#bt4").css("background-color", "#f85959"),
+            $("#bt4").css( "color", "white").bind("click").unbind("click");
+         
+         });
+         
+         
+      });
+   </script>
   <style type="text/css">
      .bt:hover{
           color: white;
@@ -74,15 +128,13 @@
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>6. 숙소 소개</h5>
-	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>7. 등록 확인 및 완료</h5>
+	               <h5>6. 숙소 소개 및 등록 완료</h5>
 	            </div>
         	</div>
           </div>
           
            <div class="col-lg-9">
-             <div class="row">q
+             <div class="row">
                 <div class="col-md-4 ftco-animate">
                 
                       </div>
@@ -93,21 +145,21 @@
                          <div style="width:1200px;">
                               		<h4 style= "margin-left:30px;" ><strong>숙소</strong></h4 >
                               		<br> 
-                                   <button class="bt" type="button" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;" ><b>원룸</b></button>
-                                    <button class="bt" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>빌라</b></button>
-                                     <button class="bt" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>오피스텔</b></button>
-                                      <button class="bt" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>단독주택</b></button>
+                                   <button id="bt1" type="button" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;" ><b>원룸</b></button>
+                                    <button id="bt2" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>빌라</b></button>
+                                     <button id="bt3" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>오피스텔</b></button>
+                                      <button id="bt4" style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"><b>단독주택</b></button>
                                       <br><br><br><br><br><br><br>
+                                      <hr style= "margin-left:30px; width:108%; ">
+                                      <br>
                               <div style="float:left; margin-left:30px;"><h5>숙소 이름: </h5></div>
                                    <textarea rows="2" cols="50" placeholder="이름을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
-                                   <br><br><br><br><br> 
-                            </div>
-                            <div style="float:left; margin-left:30px;"><h5>숙소 소개: </h5></div>
-                                   <textarea rows="2" cols="50" placeholder="자신만의 숙소를 소개해주세요" style="float:left; margin-left:30px;" ></textarea>
-                                    <br><br><br><br><br> 
+                                   <br><br><br><br>
+                                   <hr style= "margin-left:30px; width:108%; ">
+                                      <br>
                             </div>
                             <br><br>
-                            <div style="float:left; margin-left:20px;"><h5>숙소 가격: </h5></div>
+                            <div style="float:left; margin-left:30px;"><h5>숙소 가격: </h5></div>
                                 <textarea rows="1" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;
                                 <label><h4>₩</h4></label>
                             </div>
@@ -119,8 +171,8 @@
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
-		                <li><a href="rooms.jsp"><span>이전</span></a></li>
-		                <li><a href="rooms3.jsp"><span>다음</span></a></li>
+		                <li><a href="rooms.do"><span>이전</span></a></li>
+		                <li><a href="rooms3.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>

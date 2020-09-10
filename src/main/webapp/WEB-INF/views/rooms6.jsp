@@ -80,9 +80,7 @@
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5 style="color:#f85959;">6. 숙소 소개</h5>
-	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>7. 등록 확인 및 완료</h5>
+	               <h5 style="color:#f85959;">6. 숙소 소개 및 등록 완료</h5>
 	            </div>
         	</div>
           </div>
@@ -93,15 +91,16 @@
                 
                       </div>
                   
-                         <h5 align="left"><strong>등록하실 숙소의 종류를 선택해주세요</strong></h5>
+                         <h1 align="left"><strong>숙소 소개 등록</strong></h1>
                          	
                         
                          <div>
-                              		<h5 style= "margin-left:30px;" ><strong>숙소유형</strong></h5>       
-                                   <div style="float:left; padding:20px; margin-left:30px; border:1px solid;" ><h1>숙소</h1></div>
-                                    <div style="float:left; padding:20px; margin-left:30px; border:1px solid; "><h1>빌라</h1></div>
-                                     <div style="float:left; padding:20px; margin-left:30px; border:1px solid;"><h1>오피스텔</h1></div>
-                                      <div style="float:left; padding:20px;  margin-left:30px; border:1px solid; "><h1>단독주택</h1></div>
+                              		<h4 style= "margin-left:30px;" ><strong>소개 제목</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >숙소소개를 위한 제목을 입력해주세요</h5>
+                                   <textarea rows="2" cols="50" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <br><br><br>
+                                   <hr style= "margin-left:30px; width:150%; ">
+                                   <br>
                                </div>
                             </div>
                       
@@ -113,8 +112,8 @@
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
-		                <li><a href="rooms.jsp"><span>이전</span></a></li>
-		                <li><a href="rooms.jsp"><span>다음</span></a></li>
+		                <li><a href="rooms5.do"><span>이전</span></a></li>
+		                <li><a href="main.do"><span>완료</span></a></li>
 		              </ul>
 		            </div>
 		          </div>

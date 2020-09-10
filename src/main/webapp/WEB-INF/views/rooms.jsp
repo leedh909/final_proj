@@ -97,9 +97,7 @@
                      <h4 style="float: left; margin-left: 30px;">
                         <strong>위치</strong>
                      </h4>
-                     <script>
-                     
-                     </script>
+   
                      <br>
                      <br>
                      <div style="float: left; margin-left: 30px;">
@@ -109,21 +107,17 @@
                      <textarea rows="2" cols="120" placeholder="주소를 입력해주세요"
                         style="float: left; margin-left: 30px;"></textarea>&nbsp;
                         <button onclick =test1(); >검색</button>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
+                     <br><br><br><br><br>
+                     <hr style= "margin-left:30px; width:108%; ">
                      <br>
                      <div style="float: left; margin-left: 30px;">
                         <h5>건물/빌딩/동, 층, 호수 (선택 사항)</h5>
                      </div>
                      <textarea rows="2" cols="120" placeholder="선택사항을 입력해주세요"
                         style="float: left; margin-left: 30px;"></textarea>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
+                     <br><br><br><br><br>
+                      <hr style= "margin-left:30px; width:108%; ">
+                      <br>
                      <div style="float: left; margin-left: 30px;">
                         <h5>시/도</h5>
                      </div>

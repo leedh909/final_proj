@@ -80,9 +80,7 @@
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>6. 숙소 소개</h5>
-	               <h3 style= "margin-left:40px;">|</h3>
-	               <h5>7. 등록 확인 및 완료</h5>
+	               <h5>6. 숙소 소개 및 등록 완료</h5>
 	            </div>
         	</div>
           </div>
@@ -101,14 +99,20 @@
                               		<h5 style= "margin-left:30px;" >travelmate와 같이 머무를 것도 고려해주세요</h5>
                               		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
+                              		 <hr style= "margin-left:30px; width:108%; ">
+                              		 <br>
                               		<h4 style= "margin-left:30px;" ><strong>욕실 수</strong></h4>
                               		<h5 style= "margin-left:30px;" >숙소 건물/빌딩 혹은 단지에 있는 공용/공동 욕실이 아닌, 해당 숙소에 있는 욕실만을 세어 설정하세요.</h5>
                               		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
+                              		<hr style= "margin-left:30px; width:108%; ">
+                              		 <br>
                               		<h4 style= "margin-left:30px;" ><strong>침실 수</strong></h4>
                               		<h5 style= "margin-left:30px;" >숙소가 로프트 혹은 스튜디오인 경우 침실 수는 0개입니다.</h5>
                               		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
+                              		<hr style= "margin-left:30px; width:108%; ">
+                              		 <br>
                                   <h4 style= "margin-left:30px;" ><strong>세부사항</strong></h4>
                                  <h5 style= "margin-left:30px;" >등록할 숙소에 있는 모든 시설에 체크해주세요</h5>
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="baseball" value="bb"><label><h5>난방</h5></label> &nbsp;
@@ -135,8 +139,8 @@
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
-		                <li><a href="rooms2.jsp"><span>이전</span></a></li>
-		                <li><a href="rooms4.jsp"><span>다음</span></a></li>
+		                <li><a href="rooms2.do"><span>이전</span></a></li>
+		                <li><a href="rooms4.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>
