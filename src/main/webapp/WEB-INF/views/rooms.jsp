@@ -127,37 +127,6 @@
                  // 지도를 생성합니다    
                  var map = new kakao.maps.Map(Container1, Option1); 
 
-                 // 주소-좌표 변환 객체를 생성합니다
-                 var geocoder = new kakao.maps.services.Geocoder();
-
-                 // 주소로 좌표를 검색합니다
-                 function test1(){
-                       var abc = $("#tt").val();
-                    
-                 geocoder.addressSearch(abc, function(result, status) {
-                    
-                     // 정상적으로 검색이 완료됐으면 
-                      if (status === kakao.maps.services.Status.OK) {
-                         var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                         // 결과값으로 받은 위치를 마커로 표시합니다
-                         var marker = new kakao.maps.Marker({
-                             map: map,
-                             position: coords
-                         });
-
-                         // 인포윈도우로 장소에 대한 설명을 표시합니다
-                         var infowindow = new kakao.maps.InfoWindow({
-                             content: '<div style="width:150px;text-align:center;padding:6px 0;">숙소위치</div>'
-                         });
-                         infowindow.open(map, marker);
-
-                         // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                         map.setCenter(coords);
-                     } 
-                 })
-                 };    
-                     
                      </script>
                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                      <div style="float: left; margin-left: 30px;">
@@ -165,7 +134,6 @@
                      </div>
                      &nbsp;
                      <textarea id="tt" rows="2" cols="120" placeholder="주소를 입력해주세요" style="float: left; margin-left: 30px;"></textarea>
-                       <button onclick="test1()"; >검색</button>
                      <br><br><br><br><br>
                      <hr style= "margin-left:30px; width:108%; ">
                      <br>
