@@ -28,7 +28,7 @@ public class HomeController {
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("START MAIN", locale);
-		return "mainview";
+		return "main";
 	}
 	
 	@RequestMapping("/againlogin.do")
@@ -51,5 +51,26 @@ public class HomeController {
 	public String hostpage() {
 		logger.info("HostPage");
 		return "hostpage";
+	}
+	@RequestMapping("/aboutAzanda.do")
+	public String aboutAzanda() {
+		logger.info("About Azanda");
+		return "aboutAzanda";
+	}
+	@RequestMapping("/HowToHosting.do")
+	public String howToHosting() {
+		logger.info("How to Hosing");
+		return"HowToHosting";
+	}
+	
+	@RequestMapping("/becomeHost.do")
+	public String becomeHost() {
+		logger.info("becomeHost");
+		return "becomeHost";	
+	}
+	@RequestMapping("/income.do")
+	public String income() {
+		logger.info("Income");
+		return "income";
 	}
 }
