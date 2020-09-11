@@ -60,4 +60,10 @@ public class HomeController {
 		logger.info("HostPage");
 		return "hostpage";
 	}
+	
+	@RequestMapping("/travelmate.do")
+	public String travelmate() {
+		logger.info("TravelMate");
+		return "travelmate";
+	}
 }

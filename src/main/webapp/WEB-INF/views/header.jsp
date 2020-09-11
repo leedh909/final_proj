@@ -96,9 +96,10 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="travelmate.jsp" class="nav-link">TravelMate</a></li>
+
+          <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
           <li class="nav-item"><a href="rooms.do" class="nav-link">Rooms</a></li>
-          
+       
           <c:choose>
           	<c:when test="${login eq 'null'||login==null }">
           		 <li class="nav-item cta"><a class="nav-link"><span onclick="loginPopup();">LOGIN</span></a></li>
