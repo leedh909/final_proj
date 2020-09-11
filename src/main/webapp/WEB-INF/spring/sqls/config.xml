@@ -9,6 +9,7 @@
   		<typeAlias type="com.mvc.Final.model.dto.LoginDto" alias="loginDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.HostDto" alias="hostDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.RequireDto" alias="rqDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.ReservationDto" alias="reservationDto"/>
   	</typeAliases>
   
   

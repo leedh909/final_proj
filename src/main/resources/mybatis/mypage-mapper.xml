@@ -6,13 +6,13 @@
 
 <mapper namespace="mypage">
 
-	<select id="selectHost" resultType="HostDto">
+	<select id="selectHost" resultType="hostDto">
 		SELECT H.SEQ_H seq_h, M.ID id, M.NAME name, M.PHONE phone
 		FROM HOST H , MEMBER M 
 		WHERE M.SEQ_M = H.SEQ_M AND H.STATE ='Y'
 	</select>
 	
-	<select id="selectHostChk" resultType="HostDto">
+	<select id="selectHostChk" resultType="hostDto">
 		SELECT H.SEQ_H seq_h, M.SEQ_M seq_m, R.ROOM_NAME room_name, H.STATE state  
 		FROM MEMBER M, HOST H, ROOM R 
 		WHERE M.SEQ_M = H.SEQ_M AND H.STATE='N'AND R.SEQ_H = H.SEQ_H
@@ -24,7 +24,11 @@
 		ORDER BY SEQ_RQ DESC
 	</select>
 
-
+	<select id="selectReservation" parameterType="String" resultType="reservationDto">
+		SELECT R.SEQ_RE seq_re, R2.ROOM_NAME room_name, R.R_DATE check_in, R.PEOPLE people, R2.PRICE price 
+		FROM MEMBER M , RESERVATION R , ROOM R2 
+		WHERE M.SEQ_M = R.SEQ_M AND R.SEQ_RM = R2.SEQ_RM AND M.ID = #{login}
+	</select>
 
 
 

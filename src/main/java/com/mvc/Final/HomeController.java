@@ -2,6 +2,8 @@ package com.mvc.Final;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,12 +40,18 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/mypage.do")
-	public String mypage(Model model) {
+	public String mypage(Model model, HttpSession session) {
 		logger.info("MyPage");
+		String login = (String)session.getAttribute("login");
 		
+
+		//ADMIN의 데이터
 		model.addAttribute("hclist",mbiz.selectHostChk());
 		model.addAttribute("hlist",mbiz.selectHost());
 		model.addAttribute("rqlist",mbiz.selectRequire());
+		
+		//Guest의 데이터
+		model.addAttribute("relist",mbiz.selectReservation(login));
 		return "mypage";
 	}
 	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mvc.Final.model.dto.HostDto;
 import com.mvc.Final.model.dto.RequireDto;
+import com.mvc.Final.model.dto.ReservationDto;
 
 @Repository
 public class MypageDaoImpl implements MypageDao{
@@ -55,6 +56,15 @@ public class MypageDaoImpl implements MypageDao{
 		}
 		
 		return rqdto;
+	}
+
+	@Override
+	public List<ReservationDto> selectReservation(String login) {
+		List<ReservationDto> redto = new ArrayList<ReservationDto>();
+		
+		redto = sqlSession.selectList(NAMESPACE+"selectReservation",login);
+		
+		return redto;
 	}
 	
 	

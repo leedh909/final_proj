@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -47,6 +48,7 @@
  </div>
  <div class="hero-wrap" style="background-image: url('images/bg_2.jpg'); height:100px;"></div>
 
+
  <c:choose>
   	<%--  관리자 Page --%>
   	<c:when test="${login  eq 'ADMIN'}">
@@ -71,7 +73,7 @@
 		        <c:choose>
 					<c:when test="${empty hclist }">
 						<tr>
-							<td colspan="5"	align="center"> --------등록할 호스트가 없습니다.--------</td>
+							<td colspan="5"	align="center" style="padding-top: 50px"> --------등록할 호스트가 없습니다.--------</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
@@ -128,7 +130,7 @@
                <c:choose>
 					<c:when test="${empty hlist }">
 						<tr>
-							<td colspan="5"	align="center"> --------등록된 호스트가 없습니다.--------</td>
+							<td colspan="5"	align="center" style="padding-top: 50px"> --------등록된 호스트가 없습니다.--------</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
@@ -181,7 +183,7 @@
                <c:choose>
 					<c:when test="${empty rqlist }">
 						<tr>
-							<td colspan="4"	align="center"> --------등록된 요구사항이 없습니다.--------</td>
+							<td colspan="4"	align="center" style="padding-top: 50px"> --------등록된 요구사항이 없습니다.--------</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
@@ -212,9 +214,10 @@
  		<div style="padding:100px;">
  		  <h1 align="center">예약현황</h1>
  		  <table border="0" align="center" style="text-align: center">
-               <col width="500px"><col width="200px">
-               <col width="200px"><col width="200px">
+               <col width="200px"><col width="400px">
+               <col width="200px"><col width="200px"><col width="200px">
                <thead>
+                  <th class="table_th">예약번호</th>
                   <th class="table_th">숙소이름</th> <!-- 이름을 누르면 숙소정보보기? -->
                   <th class="table_th">체크인 날짜</th>
                   <th class="table_th">인원수</th>  
@@ -223,30 +226,28 @@
                
                <!-- 해당 ID에 저장된 예약정보 불러오기 -->
                <c:choose>
-					<c:when test="${empty rqlist }">
+					<c:when test="${empty relist }">
 						<tr>
-							<td colspan="4"	align="center"> --------등록된 요구사항이 없습니다.--------</td>
+							<td colspan="5"	align="center" style="padding-top: 50px"> --------등록된 예약정보가 없습니다.--------</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
-						<c:forEach items="${rqlist}" var="rqdto">
+						<c:forEach items="${relist}" var="redto">
 							<tr>
-								<td>${rqdto.rq_id }</td>
-								<td>${rqdto.rq_name }</td>
-								<td>${rqdto.rq_title }</td>
-								<td>${rqdto.rq_context }</td>
+								<td>${redto.seq_re }</td>
+								<td>${redto.room_name }</td>
+								<td> <fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${redto.check_in }"/></td>
+								<td>${redto.people }명</td>
+								<td>${redto.price }원</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
-               
-               
-               
             </table>
  		</div>
  		
  		<!-- 찜목록 -->
-
+ 		
  		
   	
   	</c:otherwise>

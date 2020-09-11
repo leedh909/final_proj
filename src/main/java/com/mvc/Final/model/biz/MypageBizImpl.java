@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mvc.Final.model.dao.MypageDao;
 import com.mvc.Final.model.dto.HostDto;
 import com.mvc.Final.model.dto.RequireDto;
+import com.mvc.Final.model.dto.ReservationDto;
 
 @Service
 public class MypageBizImpl implements MypageBiz{
@@ -27,8 +28,12 @@ public class MypageBizImpl implements MypageBiz{
 
 	@Override
 	public List<HostDto> selectHost() {
-		
 		return dao.selectHost();
+	}
+
+	@Override
+	public List<ReservationDto> selectReservation(String login) {
+		return dao.selectReservation(login);
 	}
 	
 }
