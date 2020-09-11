@@ -15,7 +15,6 @@
   --green: #28a745;
   --teal: #20c997;
   --cyan: #17a2b8;
-  --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #78d5ef;
@@ -53,6 +52,13 @@ html {
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
+  
+.location {
+	color:black;
+	font-weight: bold;
+	margin-left:25px;
+	padding-top : 10px;
+}
 
 body {
   margin: 0;
@@ -5181,7 +5187,7 @@ button.bg-dark:focus {
     display: none !important; }
   .d-lg-inline {
     display: inline !important; }
-  .d-lg-inline-block {
+  .d-lg-inline-block { 
     display: inline-block !important; }
   .d-lg-block {
     display: block !important; }
@@ -7487,8 +7493,8 @@ h1, h2, h3, h4, h5,
   .slider-text p {
     font-size: 20px;
     line-height: 1.5;
-    font-weight: 300;
-    color: rgba(255, 255, 255, 0.8); }
+    font-weight: bold;
+    color: white; }
     .slider-text p strong {
       font-weight: 700; }
       .slider-text p strong a {
@@ -7748,7 +7754,7 @@ h1, h2, h3, h4, h5,
 
 .destination {
   display: block;
-  width: 100%;
+  width: 110%;
   margin-bottom: 30px; }
   @media (max-width: 991.98px) {
     .destination {
@@ -8648,13 +8654,14 @@ textarea.form-control {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
-  border-radius: 2px; }
+  border-radius: 50px; }
   .block-17 form .fields {
     width: calc(100% - 80px);
     position: relative; }
     .block-17 form .fields .one-third {
       width: 50%;
       background: #fff; }
+      
       .block-17 form .fields .one-third:last-child {
         border-right: none;
         border-left: 1px solid rgba(0, 0, 0, 0.1); }
