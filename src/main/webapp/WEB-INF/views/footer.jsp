@@ -52,10 +52,9 @@
           </div>
           <div class="col-md">
              <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">환불 정책 및 지원</h2>
+              <h2 class="ftco-heading-2">환불 정책 </h2>
               <ul class="list-unstyled">
                 <li><a href="#" class="py-2 d-block">Azanda.의 환불 정책</a></li>
-                <li><a href="#" class="py-2 d-block">예약 취소 옵션</a></li>
               </ul>
             </div>
           </div>

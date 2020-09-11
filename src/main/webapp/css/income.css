@@ -47,3 +47,292 @@
     padding-bottom: 2px !important;
     font-weight: normal !important;
 }
+
+.vertical-lane {
+	border-bottom: 1px solid black;
+    width: 15%;
+    border-bottom-width: 3px;
+    margin-left: 42%;
+}
+
+._93jfumr_a {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    min-height: 1px !important;
+    position: relative !important;
+    width: 25.33333333333333% !important;
+    margin: 0px 0px 0px 13%;
+}
+
+._93jfumr_b {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    min-height: 1px !important;
+    position: relative !important;
+    width: 25.33333333333333% !important;
+    margin: -223px 0px 0px 40%;
+}
+
+._93jfumr_c {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    min-height: 1px !important;
+    position: relative !important;
+    width: 25.33333333333333% !important;
+    margin: -276px 0px 0px 68%;
+}
+
+._1i4y508h {
+    margin-left: 0px !important;
+    margin-right: 37px !important;
+}
+
+._1h6n1zu {
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
+._9ofhsl {
+    height: 100% !important;
+    width: 100% !important;
+    position: static !important;
+}
+
+._s1tlw0m {
+    margin: 0px !important;
+    word-wrap: break-word !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    line-height: 1.25em !important;
+    color: #484848 !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+}
+
+._1ezjrwzo {
+    margin: 0px !important;
+    word-wrap: break-word !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.75em !important;
+    color: #484848 !important;
+}
+
+.vertical-lane2 {
+	border-bottom: 1px solid black;
+    width: 15%;
+    border-bottom-width: 3px;
+    margin-left: 42%;
+    margin-top : 10%;
+}
+
+._1sqzxks {
+	width: 21%;
+    margin-left: 20%;
+    padding-top : 10%;
+}
+
+._1image_1 {
+	width: 30%;
+    margin-left: 50%;
+    margin-top: -270px;
+}
+
+._x6yudic_1 {
+	width: 27%;
+    margin-top: -225px;
+    margin-left: 55%;
+}
+
+._x6yudic {
+	width: 27%;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+
+._gi8hr2n {
+	margin-top: 2%;
+	margin-left: 15%;
+}
+._s1tlw0m {
+	font-size : 27px;
+}
+._s1tlw0m_2 {
+	margin: 0px !important;
+	word-wrap: break-word !important;
+	font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+		Helvetica Neue, sans-serif !important;
+	font-size: 24px !important;
+	font-weight: 800 !important;
+	line-height: 1.25em !important;
+	color: #484848 !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+}
+
+._6qkc42f_1>p {
+	font-size: 20px;
+	color: black;
+}
+
+._93jfumr_1 {
+	width: 20%;
+	margin-left: 15%;
+	margin-top: 3%;
+}
+
+._93jfumr_2 {
+	width: 20%;
+	margin-left: 39%;
+	margin-top: -280px;
+}
+
+._93jfumr_3 {
+	width: 20%;
+	margin-left: 63%;
+	margin-top: -280px;
+}
+
+._b0ybw8s {
+	color: var(- -color-text-link, #008489) !important;
+	font-family: var(- -font-font_family, Circular, -apple-system,
+		BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif) !important;
+	text-decoration: var(- -font-link-text-decoration, none) !important;
+	color: #008489 !important;
+    font: inherit !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    text-decoration: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0px !important;
+    outline : 0px !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    -webkit-user-select: auto !important;
+    -moz-user-select: auto !important;
+    -ms-user-select: auto !important;
+    user-select: auto !important;
+    text-align: left !important;
+}
+
+._6304x0 {
+	font-size : 20px;
+	font-weight : bold;
+}
+
+._1okh7pi0 {
+	width: 60%;
+    border-bottom: 1px solid #EBEBEB !important;
+    padding-top: 24px !important;
+    padding-bottom: 24px !important;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content_1 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height : 400px;
+}
+
+.close_1 {
+  color: #aaaaaa;
+  float: right;
+  margin-top : -3%;
+  font-size: 40px;
+  font-weight: bold;
+}
+.close_1:hover,
+.close_1:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+._965fne {
+   height: 375px !important;
+    max-width: 1280px !important;
+    background-size: cover !important;
+    background-position: center !important;
+    margin: auto !important;
+    position: relative !important;
+}
+
+._18xfr7x {
+    background-repeat: no-repeat !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    border-radius : 5px;
+}
+
+
+._xviceb {
+    font-size: 50px !important;
+    line-height: 64px !important;
+    letter-spacing: -2.5px !important;
+    max-width: 430px !important;
+    font-weight : 600;
+    margin-left: 5%;
+    padding-top: 5%;
+    color : white;
+}
+
+._1ho3i4mw {
+    cursor: pointer !important;
+    display: inline-block !important;
+    margin: 0px !important;
+    position: relative !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    width: auto !important;
+    -ms-touch-action: manipulation !important;
+    touch-action: manipulation !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    letter-spacing: normal !important;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif !important;
+    text-transform: undefined !important;
+    color: #484848 !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-weight: 800 !important;
+    border-radius: 4px !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    border-color: transparent !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    min-width: 71.19349550499538px !important;
+}
+
+.h101 {
+	margin-top: 3%;
+	font-size: 55px !important;
+	line-height: 64px !important;
+	letter-spacing: -2.5px !important;
+	padding-left: 36%;
+}
