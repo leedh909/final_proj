@@ -35,5 +35,17 @@ public class MypageBizImpl implements MypageBiz{
 	public List<ReservationDto> selectReservation(String login) {
 		return dao.selectReservation(login);
 	}
+
+	@Override
+	public List<ReservationDto> selectReservation_host(String login) {
+		return dao.selectReservation_host(login);
+	}
+
+	@Override
+	public String host(String login) {
+		return dao.host(login);
+	}
+	
+	
 	
 }

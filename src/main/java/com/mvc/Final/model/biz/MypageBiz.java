@@ -11,4 +11,6 @@ public interface MypageBiz {
 	public List<HostDto> selectHostChk();
 	public List<RequireDto> selectRequire();
 	public List<ReservationDto> selectReservation(String login);
+	public List<ReservationDto> selectReservation_host(String login);
+	public String host(String login);
 }
