@@ -45,6 +45,11 @@ public class MypageBizImpl implements MypageBiz{
 	public String host(String login) {
 		return dao.host(login);
 	}
+
+	@Override
+	public int approve(int seq_h) {
+		return dao.approve(seq_h);
+	}
 	
 	
 	

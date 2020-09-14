@@ -16,4 +16,5 @@ public interface MypageDao {
 	public List<ReservationDto> selectReservation(String login);
 	public List<ReservationDto> selectReservation_host(String login);
 	public String host(String login);
+	public int approve(int seq_h);
 }

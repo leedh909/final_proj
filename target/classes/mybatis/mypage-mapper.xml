@@ -44,6 +44,11 @@
 		WHERE M.SEQ_M = H.SEQ_M AND M.ID = #{login}
 	</select>
 
+	<update id="approve" parameterType="int">
+		UPDATE HOST 
+		SET STATE = 'Y' 
+		WHERE SEQ_H = #{seq_h}
+	</update>
 
 </mapper>
 

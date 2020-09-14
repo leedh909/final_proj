@@ -82,6 +82,13 @@ public class MypageDaoImpl implements MypageDao{
 		host = sqlSession.selectOne(NAMESPACE+"hostcheck",login);
 		return host;
 	}
+
+	@Override
+	public int approve(int seq_h) {
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"approve",seq_h);
+		return res;
+	}
 	
 	
 	

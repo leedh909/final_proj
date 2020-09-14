@@ -71,6 +71,18 @@ public class HomeController {
 		return "hostpage";
 	}
 	
+	@RequestMapping("/approve.do")
+	public String approve(int seq_h) {
+		logger.info("Approve");
+		int res = mbiz.approve(seq_h);
+		System.out.println("res:"+res);
+		if(res>0) {
+			return "redirect:mypage.do";
+		}else {
+			return "redirect:mypage.do";
+		}
+	}
+	
 	@RequestMapping("/travelmate.do")
 	public String travelmate() {
 		logger.info("TravelMate");
@@ -98,4 +110,7 @@ public class HomeController {
 		logger.info("Income");
 		return "income";
 	}
+	
+	
+	
 }
