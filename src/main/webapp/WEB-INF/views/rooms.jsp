@@ -5,7 +5,7 @@
 <head>
 <title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d53ad4e4b4f5dd4d2b5d63c9681b5f93"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d53ad4e4b4f5dd4d2b5d63c9681b5f93&libraries=services,clusterer,drawing"></script>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -35,8 +35,6 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d53ad4e4b4f5dd4d2b5d63c9681b5f93&libraries=services"></script>
 
 <body>
 
@@ -89,28 +87,11 @@
                <div class="row">
                   <div class="col-md-4 ftco-animate"></div>
 
-                  <h1 align="left"><strong>숙소 위치 표시/설정</strong></h1>
+                  <h1 align="left"><strong>숙소 위치 설정</strong></h1>
 
                   <div>
                      <h4 style="float: left; margin-left: 30px;"><strong>위치</strong></h4>
                      <br><br>
-                     
-                     <div style="float: left; margin-left: 30px;">
-                        <h5>시/도</h5>
-                     </div>
-                     &nbsp; <select style="width: 120px; height: 50px;">
-                        <option value="seoul">서울특별시</option>
-                        <option value="busan">부산광역시</option>
-                        <option value="daegu">대구광역시</option>
-                        <option value="daejeon">대전광역시</option>
-                        <option value="jeju">제주도</option>
-                        <option value="gangneung">강릉시</option>
-                        <option value="gyoungju">경주시</option>
-                        <option value="yeosu">여수시</option>
-                     </select>
-                     <br><br>
-                     <hr style= "margin-left:30px; width:108%; ">
-                     <br>
                      <div style="float: left; margin-left: 30px;">
                         <h5>지도상의 위치</h5>
                      </div>
@@ -124,16 +105,49 @@
                          level: 3 // 지도의 확대 레벨
                      };  
 
-                 // 지도를 생성합니다    
-                 var map = new kakao.maps.Map(Container1, Option1); 
+                     // 지도를 생성합니다    
+                     var map = new kakao.maps.Map(Container1, Option1);
+                     
+                  // 주소-좌표 변환 객체를 생성합니다
+                     var geocoder2 = new kakao.maps.services.Geocoder();
 
+                     // 주소로 좌표를 검색합니다
+                     function test1(){
+                           var map2 = $("#search").val();
+                        
+                     geocoder2.addressSearch(map2, function(result, status) {
+                        
+                         // 정상적으로 검색이 완료됐으면 
+                          if (status === kakao.maps.services.Status.OK) {
+                             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                             // 결과값으로 받은 위치를 마커로 표시합니다
+                             var marker = new kakao.maps.Marker({
+                                 map: map,
+                                 position: coords
+                             });
+
+                             // 인포윈도우로 장소에 대한 설명을 표시합니다
+                             var infowindow = new kakao.maps.InfoWindow({
+                                 content: '<div style="width:150px;text-align:center;padding:6px 0;">숙소위치</div>'
+                             });
+                             infowindow.open(map, marker);
+
+                             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                             map.setCenter(coords);
+                         } 
+                     })
+                     };     
+
+                     
                      </script>
                      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                      <div style="float: left; margin-left: 30px;">
                         <h5>주소</h5>
                      </div>
                      &nbsp;
-                     <textarea id="tt" rows="2" cols="120" placeholder="주소를 입력해주세요" style="float: left; margin-left: 30px;"></textarea>
+                     <textarea id="search" rows="2" cols="120" placeholder="주소를 입력해주세요" style="float: left; margin-left: 30px;"></textarea>
+                     <button onclick =test1(); >검색</button>
                      <br><br><br><br><br>
                      <hr style= "margin-left:30px; width:108%; ">
                      <br>

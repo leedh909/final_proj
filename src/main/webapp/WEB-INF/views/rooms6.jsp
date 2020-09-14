@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -104,6 +107,13 @@
                                    <h4 style= "margin-left:30px;" ><strong>소개 글</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >등록하신 숙소를 소개해주세요</h5>
                                    <textarea rows="5" cols="70" placeholder="소개글을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <br><br><br><br><br><br><br>
+                                   <hr style= "margin-left:30px; width:150%; ">
+                                   <br>
+                                   <h4 style= "margin-left:30px;" ><strong>숙소 사진 등록</strong></h4>       
+                                   <h5 style= "margin-left:30px;" >화면에 보여질 나만의 숙소사진을 등록해주세요</h5>
+                                   <input style="margin-left:30px;" type="file" name="imagefile">
+                                   <p style="color:red; font-weight: bold"></p>
                                </div>
                             </div>
                       
