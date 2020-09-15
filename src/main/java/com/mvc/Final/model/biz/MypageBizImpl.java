@@ -50,6 +50,12 @@ public class MypageBizImpl implements MypageBiz{
 	public int approve(int seq_h) {
 		return dao.approve(seq_h);
 	}
+
+	@Override
+	public String email(int seq_m) {
+		return dao.email(seq_m);
+	}
+	
 	
 	
 	

@@ -50,6 +50,16 @@
 		WHERE SEQ_H = #{seq_h}
 	</update>
 
+	<select id="emailinfo" parameterType="int" resultType="String">
+		SELECT EMAIL
+		FROM MEMBER
+		WHERE SEQ_M = #{seq_h}
+	</select>
+
+
+
+
+
 </mapper>
 
 

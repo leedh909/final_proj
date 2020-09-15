@@ -89,6 +89,19 @@ public class MypageDaoImpl implements MypageDao{
 		res = sqlSession.update(NAMESPACE+"approve",seq_h);
 		return res;
 	}
+
+	@Override
+	public String email(int seq_m) {
+		String email ="";
+		try {
+			email = sqlSession.selectOne(NAMESPACE+"emailinfo",seq_m);
+		} catch (Exception e) {
+			System.out.println("[error] : email");
+			e.printStackTrace();
+		}
+		return email;
+	}
+	
 	
 	
 	
