@@ -40,10 +40,10 @@
 	dialoWidth: 600px;
 }
 
-#kkomap{
-	width:100%;
-	height:300px;
-	border-radius:5px;
+#kkomap {
+	width: 100%;
+	height: 300px;
+	border-radius: 5px;
 }
 </style>
 
@@ -72,7 +72,79 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<!-- 숙소 사진 -->
+					<div class="col-md-12 ftco-animate fadeInUp ftco-animated">
+						<div class="single-slider owl-carousel owl-loaded owl-drag">
 
+							<div class="owl-stage-outer">
+								<div class="owl-stage"
+									style="transform: translate3d(-1380px, 0px, 0px); transition: all 0s ease 0s; width: 4830px;">
+									<div class="owl-item cloned" style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-3.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item cloned animated owl-animated-out fadeOut"
+										style="width: 690px; left: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-4.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item animated owl-animated-in fadeIn active"
+										style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-2.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-3.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item" style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-4.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item cloned" style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-2.jpg);"></div>
+										</div>
+									</div>
+									<div class="owl-item cloned" style="width: 690px;">
+										<div class="item">
+											<div class="hotel-img"
+												style="background-image: url(images/hotel-3.jpg);"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="owl-nav">
+								<button role="presentation" class="owl-prev">
+									<span class="ion-ios-arrow-back"></span>
+								</button>
+								<button role="presentation" class="owl-next">
+									<span class="ion-ios-arrow-forward"></span>
+								</button>
+							</div>
+							<div class="owl-dots">
+								<button class="owl-dot active">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+								<button class="owl-dot">
+									<span></span>
+								</button>
+							</div>
+						</div>
+					</div>
 					<!-- 숙소 이름 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<div>
@@ -155,8 +227,10 @@
 							</div>
 							<form action="">
 								<div>
-									<input type="text" id="checkin_date" class="form-control" placeholder="Date from"> ~ 
-									<input type="text" id="checkout_date" class="form-control" placeholder="Date from">
+									<input type="text" id="checkin_date" class="form-control"
+										placeholder="Date from"> ~ <input type="text"
+										id="checkout_date" class="form-control"
+										placeholder="Date from">
 								</div>
 								<div class="col-lg-12 mt-2">
 									<input type="submit" value="예약하기" class="btn btn-primary py-2"
@@ -182,7 +256,7 @@
 				<section class="col-lg-12" style="position: relative;">
 					<!-- 위치 -->
 					<h2 class="pl-3">위치</h2>
-					
+
 					<div id="kkomap" style="width: 100%; height: 500px;"></div>
 					<script type="text/javascript"
 						src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35"></script>

@@ -3,53 +3,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
+<title>Azanda.</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <style type="text/css">
-
 #kkomap {
 	width: 100%;
-	height: 80%;
+	height: 800px;
 	clear: both;
-	overflow:hidden;
+	overflow: hidden;
 	display: inline-block;
 	position: sticky;
-	
-	z-index: 3;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0px;
-    border-width: 0px;
-    margin: 0px;
-    left: 0px;
-    top: 0px;
-    touch-action: pan-x pan-y;
-
 }
 
 p {
 	margin-top: 0;
 	margin-bottom: 0;
 }
-.map_wrap {position:relative;overflow:hidden;}
-.radius_border{border:1px solid #919191;border-radius:5px;}     
-.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
-.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
-.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
-.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
-.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
-.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
-.custom_typecontrol .selected_btn:hover {color:#fff;}   
-.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
-.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
-.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
-.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}
-</style>
 
+.map_wrap {
+	position: relative;
+	overflow: hidden;
+}
+
+.radius_border {
+	border: 1px solid #919191;
+	border-radius: 5px;
+}
+
+.custom_typecontrol {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	overflow: hidden;
+	width: 130px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	font-size: 12px;
+	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+}
+
+.custom_typecontrol span {
+	display: block;
+	width: 65px;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+.custom_typecontrol .btn {
+	background: #fff;
+	background: linear-gradient(#fff, #e6e6e6);
+}
+
+.custom_typecontrol .btn:hover {
+	background: #f5f5f5;
+	background: linear-gradient(#f5f5f5, #e3e3e3);
+}
+
+.custom_typecontrol .btn:active {
+	background: #e6e6e6;
+	background: linear-gradient(#e6e6e6, #fff);
+}
+
+.custom_typecontrol .selected_btn {
+	color: #fff;
+	background: #425470;
+	background: linear-gradient(#425470, #5b6d8a);
+}
+
+.custom_typecontrol .selected_btn:hover {
+	color: #fff;
+}
+
+.custom_zoomcontrol {
+	position: absolute;
+	top: 50px;
+	right: 10px;
+	width: 36px;
+	height: 80px;
+	overflow: hidden;
+	z-index: 1;
+	background-color: #f5f5f5;
+}
+
+.custom_zoomcontrol span {
+	display: block;
+	width: 36px;
+	height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.custom_zoomcontrol span img {
+	width: 15px;
+	height: 15px;
+	padding: 12px 0;
+	border: none;
+}
+
+.custom_zoomcontrol span:first-child {
+	border-bottom: 1px solid #bfbfbf;
+}
+</style>
+<script type="text/javascript">
+	
+
+
+</script>
 <body>
 
 	<!--================ Header =================-->
@@ -70,25 +137,61 @@ p {
 		<div class="col-lg-6">
 			<div class="container">
 				<div class="row">
-					
+
 					<div class="col-lg-12">
 						<div class="col-lg-12">
 							<p>여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인 할 수 있습니다.</p>
-						<hr>
+							<hr>
 						</div>
 						<!-- 집 시작 -->
 						<hr>
-						<div class="col-lg-5">
-						<div class="destination">
-							<a href="#"
-								class="img img-2 d-flex justify-content-center align-items-center"
-								style="background-image: url(images/restaurant-4.jpg);">
-								<div class="icon d-flex justify-content-center align-items-center">
-									<span class="icon-search2"></span>
+						<div class="row">
+							<div class="col-lg-5">
+								<div class="destination">
+									<a href="room_detail.do" target="_blank"
+										class="img img-2 d-flex justify-content-center align-items-center"
+										style="background-image: url(images/restaurant-4.jpg);">
+											<span class="icon-search2"></span>
+									</a>
 								</div>
-							</a>
 
+								</div>
+							</div>
+							<div class="col-lg-7 text">
+								<div>
+									Yeosu의 집 전체
+									<h5>Luxury Restaurant</h5>
+								</div>
+
+
+								<p>Far far away, behind the word mountains, far from the
+									countries</p>
+								<hr>
+								<p class="bottom-area d-flex">
+									<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
+										class="ml-auto"><a href="#">Book Now</a></span>
+								</p>
+							</div>
 						</div>
+						<!-- 집끝 -->
+					</div>
+
+
+					
+					<div class="col-lg-7 text">
+						<div>
+							Yeosu의 집 전체
+							<h5>Luxury Restaurant</h5>
+						</div>
+
+
+						<p>Far far away, behind the word mountains, far from the
+							countries</p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
+								class="ml-auto"><a href="#">Book Now</a></span>
+						</p>
 					</div>
 					<div class="col-lg-7 text">
 						<div>
@@ -105,9 +208,6 @@ p {
 								class="ml-auto"><a href="#">Book Now</a></span>
 						</p>
 					</div>
-					</div>
-					
-					<!-- 집끝 -->
 					<div class="col-lg-7 text">
 						<div>
 							Yeosu의 집 전체
@@ -122,63 +222,8 @@ p {
 							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
 								class="ml-auto"><a href="#">Book Now</a></span>
 						</p>
-					</div><div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div><div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div><div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div><div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div><div class="col-lg-7 text">
+					</div>
+					<div class="col-lg-7 text">
 						<div>
 							Yeosu의 집 전체
 							<h5>Luxury Restaurant</h5>
@@ -193,9 +238,39 @@ p {
 								class="ml-auto"><a href="#">Book Now</a></span>
 						</p>
 					</div>
-					
-					
-					
+					<div class="col-lg-7 text">
+						<div>
+							Yeosu의 집 전체
+							<h5>Luxury Restaurant</h5>
+						</div>
+
+
+						<p>Far far away, behind the word mountains, far from the
+							countries</p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
+								class="ml-auto"><a href="#">Book Now</a></span>
+						</p>
+					</div>
+					<div class="col-lg-7 text">
+						<div>
+							Yeosu의 집 전체
+							<h5>Luxury Restaurant</h5>
+						</div>
+
+
+						<p>Far far away, behind the word mountains, far from the
+							countries</p>
+						<hr>
+						<p class="bottom-area d-flex">
+							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
+								class="ml-auto"><a href="#">Book Now</a></span>
+						</p>
+					</div>
+
+
+
 				</div>
 			</div>
 
@@ -220,7 +295,7 @@ p {
 		<!--================ 숙소 리스트 끝 =================-->
 
 		<!--================ 지도 api =================-->
-		<div class="col-lg-6 map_wrap" >
+		<div class="col-lg-6 map_wrap">
 			<div id="kkomap"></div>
 			<!-- 지도타입 컨트롤 div 입니다 -->
 			<div class="custom_typecontrol radius_border">
