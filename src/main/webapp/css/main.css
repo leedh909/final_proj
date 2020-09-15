@@ -2,6 +2,90 @@
 
 @charset "UTF-8";
 
+._1sx1020z {
+    margin: 0px auto !important;
+    position: relative !important;
+    max-width: 1760px !important;
+    padding-right: 80px !important;
+    padding-left: 80px !important;
+}
+
+._5zlxqj {
+    padding-top: 40px !important;
+    padding-bottom: 25px !important;
+}
+
+._keptov {
+    font-size: 22px !important;
+    line-height: 26px !important;
+    color: rgb(34, 34, 34) !important;
+    font-weight: 600 !important;
+    margin-bottom: 32px !important;
+    margin-left: 24px !important;
+}
+
+._ktl7q1k {
+    scroll-padding: 16px !important;
+    height: 351px !important;
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    overflow-x: auto !important;
+    display: flex !important;
+    flex-flow: column wrap !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding: 18px !important;
+    height: 339px !important;
+}
+
+._wrsmntf {
+    width: calc(25% - 4px) !important;
+    padding-left: 0px !important;
+    padding-right: 8px !important;
+    padding-bottom: 16px !important;
+    padding-right: 8px !important;
+    padding-left: 24px !important;
+    width: calc(50% - 20px) !important;
+    scroll-snap-align: start !important;
+    overflow: hidden !important;
+    padding-right: 6px !important;
+    padding-bottom: 12px !important;
+    padding-left: 24px !important;
+    width: calc(100% - 54px) !important;
+}
+
+._9ofhsl {
+    height: 100% !important;
+    width: 100% !important;
+    position: static !important;
+}
+
+._1tp1o9s {
+    -webkit-box-align: center !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: rgb(34, 34, 34) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+._1h6n1zu {
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
+._15p4g025 {
+    display: none !important;
+    background-image: none !important;
+    display: inline-block !important;
+    vertical-align: bottom !important;
+    height: 100% !important;
+    width: 100% !important;
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
+/**************************************************************************/
+
 .block-17 form .fields .one-third:nth-child(2) {
 	border-right: none;
 	border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -499,7 +583,16 @@
   padding: 20px;
   border: 1px solid #888;
   width: 40%;
-  height : 400px;
+  height : 320px;
+}
+
+.modal-content_2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height : 450px;
 }
 
 .close_1 {
@@ -509,6 +602,7 @@
   font-size: 40px;
   font-weight: bold;
 }
+
 .close_1:hover,
 .close_1:focus {
   color: #000;

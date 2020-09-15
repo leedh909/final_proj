@@ -459,7 +459,12 @@
 
 										<div class="modal-content_1">
 											<span class="close_1" onclick="closeModal();">&times;</span>
-											<p>Some text in the Modal.11.</p>
+											<h3 style="margin-top: 10%;">
+													<b>숙소 등록 비용은 얼마인가요?</b>
+												</h3>
+												<p style="margin-top: 5%; font-size: 17px;">Azanda. 회원
+													가입과 숙소 등록은 100% 무료입니다. 예약을 받은 호스트에게는 일반적인 수준의 서비스 수수료가
+													부과되어, Azanda. 운영 비용을 충당하는 데 사용됩니다.</p>
 										</div>
 
 									</div>
@@ -482,7 +487,9 @@
 
 											<div class="modal-content_1">
 												<span class="close_1" onclick="closeModal_1();">&times;</span>
-												<p>Some text in the Modal.22.</p>
+												<h3 style="margin-top:10%"><b>대금은 언제 받을 수 있나요?</b></h3>
+												<p style="margin-top:5%; font-size:17px;">일반적으로 게스트의 체크인 예정 시간에서 24시간이 지나면 Azanda. 에서 대금을 지급합니다.
+												다만, 대금이 입금되는데 소요되는 시간은 요청 금액 규모에 따라 달라져요</p>
 											</div>
 
 										</div>
@@ -504,9 +511,15 @@
 										</div>
 										<div id="myModal_2" class="modal">
 
-											<div class="modal-content_1">
+											<div class="modal-content_2">
 												<span class="close_1" onclick="closeModal_2();">&times;</span>
-												<p>Some text in the Modal.33.</p>
+												<h3 style="margin-top:8%;"><b>1박 예상 수입은 어떻게 확인 하나요?</b></h3>
+												<p style="margin-top:5%; font-size : 15px;">호스트가 수령하는 대금은 1박 요금에서 호스트 서비스 수수료를 차감한 금액입니다.
+													<br><br>게스트는 숙소 요금에 더하여 Azanda. 서비스 수수료를 지급합니다. <br>그래서 게스트에게 표시되는 총 요금이 호스트가 수령하는 대금보다 높습니다.
+													<br><br> 다음과 같은 상황이 회원님의 수령 대금에 영향을 줄 수 있습니다.
+													<br><br> 주 또는 월 단위 할인 예약에 영향을 줄 수 있습니다. 주말 또는 맞춤 요금이 예약에 영향을 줄 수있습니다. 
+													해당되는 경우 에어비앤비 서비스 수수료에 부가가치세가 부과될 수 있습니다.
+												</p>
 											</div>
 
 										</div>
@@ -531,7 +544,15 @@
 
 											<div class="modal-content_1">
 												<span class="close_1" onclick="closeModal_3();">&times;</span>
-												<p>Some text in the Modal.44.</p>
+												<h3 style="margin-top:5%;">
+													<b>숙소 요금은 어떻게 결정해야 하나요?</b>
+												</h3>
+												<p style="font-size:15px;">숙소 요금 책정은 전적으로 호스트의 권한입니다. 숙소가 있는 도시나 지역의 유사한 숙소를 검색해
+													시장에 형성된 요금을 파악하고 요금 책정에 참고하실 수 있습니다.<br><br>
+													추가 수수료 > - 청소비: 1박 요금에 청소비를 포함하거나 요금 설정에 청소비 항목을 추가하실 수 있습니다. 
+													> - 기타 수수료: 숙소 요금 외에
+													추가로 수수료(늦은 체크인 또는 반려동물 동반 수수료)를 부과하려면, 예약 전에 먼저 이러한 추가 수수료에
+													대해 게스트에게 안내하고 안전하게 결제를 요청하세요.</p>
 											</div>
 
 										</div>

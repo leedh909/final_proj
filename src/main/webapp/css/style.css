@@ -7317,14 +7317,14 @@ h1, h2, h3, h4, h5,
       position: relative;
       top: 0; } }
   .ftco-navbar-light .navbar-brand {
-    color: #fff; }
+    color: black; }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
     font-size: 14px;
     padding-top: .9rem;
     padding-bottom: .9rem;
     padding-left: 20px;
     padding-right: 20px;
-    color: #fff;
+    color: black;
     font-weight: 400;
     opacity: 1 !important; }
     .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
@@ -7355,8 +7355,9 @@ h1, h2, h3, h4, h5,
         .ftco-navbar-light .navbar-nav > .nav-item.ftco-seperator:before {
           display: none; } }
   .ftco-navbar-light .navbar-nav > .nav-item.cta > a {
+  	background : #f85959;
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid #f85959;
     padding-top: .5rem;
     padding-bottom: .5rem;
     padding-left: 20px;
@@ -7365,13 +7366,16 @@ h1, h2, h3, h4, h5,
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     -ms-border-radius: 30px;
-    border-radius: 30px; }
+    border-radius: 30px; 
+    cursor : pointer;}
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a span {
       display: inline-block;
-      color: #fff; }
+      color: #fff;
+      cursor:pointer; }
     .ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover {
       background: #f85959;
-      border: 1px solid #f85959; }
+      border: 1px solid #f85959; 
+      box-shadow: 3px 3px 3px black;}
   .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored span {
     border-color: #f85959; }
   .ftco-navbar-light .navbar-nav > .nav-item.active > a {
@@ -7730,7 +7734,9 @@ h1, h2, h3, h4, h5,
       font-size: 60px;
       color: #f85959; }
   .services .media-body h3 {
-    font-size: 20px; }
+    font-size: 17px;
+    font-weight: bold;
+    }
   .services:hover {
     background: #f85959;
     color: #fff; }

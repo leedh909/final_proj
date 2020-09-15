@@ -435,7 +435,12 @@
 
 										<div class="modal-content_1">
 											<span class="close_1" onclick="closeModal();">&times;</span>
-											<p>Some text in the Modal.11.</p>
+											<h3 style="margin-top: 10%;">
+												<b>Azanda. 호스트가 되기 위한 조건이 있나요?</b>
+											</h3>
+											<p style="margin-top: 5%; font-size: 17px;">대부분의 지역에서 쉽게
+												Azanda.의 호스트가 될 수 있고, 숙소는 언제든지 100% 무료로 등록할 수 있습니다. Azanda.를
+												통해 아파트와 집 전체, 개인실 등 다양한 숙소를 공유할 수 있습니다.</p>
 										</div>
 
 									</div>
@@ -457,9 +462,19 @@
 										</div>
 										<div id="myModal_1" class="modal">
 
-											<div class="modal-content_1">
+											<div class="modal-content_2">
 												<span class="close_1" onclick="closeModal_1();">&times;</span>
-												<p>Some text in the Modal.22.</p>
+												<h3 style="margin-top: 8%;">
+													<b>예약하기 전에 게스트에게 요구되는 조건이 있나요?</b>
+												</h3>
+												<p style="margin-top: 5%; font-size: 15px;">
+													Azanda.는 예약하는 모든 게스트에게 몇 가지 정보를 요청하고 있습니다. 게스트는 예약 요청을 보내기
+													전에 이 정보를 모두 제공해야 합니다. 이 정보를 통해 호스트는 숙소에 묵을 게스트의 신원과 연락처를
+													확인할 수 있습니다.<br> <br> Azanda.가 게스트에게 요구하는 정보는 다음과
+													같습니다. • 성명 • 이메일 주소 • 인증된 전화번호 • 자기소개 메시지 • 숙소 이용규칙 동의 • 결제
+													정보 <br> <br>프로필 사진은 권장 사항이지만 필수는 아닙니다. 호스트는 숙소 예약
+													전에 게스트에게 신분증 제출을 요구할 수 있습니다.
+												</p>
 											</div>
 
 										</div>
@@ -484,7 +499,12 @@
 
 											<div class="modal-content_1">
 												<span class="close_1" onclick="closeModal_2();">&times;</span>
-												<p>Some text in the Modal.33.</p>
+												<h3 style="margin-top: 10%;">
+													<b>숙소 등록 비용은 얼마인가요?</b>
+												</h3>
+												<p style="margin-top: 5%; font-size: 17px;">Azanda. 회원
+													가입과 숙소 등록은 100% 무료입니다. 예약을 받은 호스트에게는 일반적인 수준의 서비스 수수료가
+													부과되어, Azanda. 운영 비용을 충당하는 데 사용됩니다.</p>
 											</div>
 
 										</div>
@@ -509,7 +529,15 @@
 
 											<div class="modal-content_1">
 												<span class="close_1" onclick="closeModal_3();">&times;</span>
-												<p>Some text in the Modal.44.</p>
+												<h3 style="margin-top:5%;">
+													<b>숙소 요금은 어떻게 결정해야 하나요?</b>
+												</h3>
+												<p style="font-size:15px;">숙소 요금 책정은 전적으로 호스트의 권한입니다. 숙소가 있는 도시나 지역의 유사한 숙소를 검색해
+													시장에 형성된 요금을 파악하고 요금 책정에 참고하실 수 있습니다.<br><br>
+													추가 수수료 > - 청소비: 1박 요금에 청소비를 포함하거나 요금 설정에 청소비 항목을 추가하실 수 있습니다. 
+													> - 기타 수수료: 숙소 요금 외에
+													추가로 수수료(늦은 체크인 또는 반려동물 동반 수수료)를 부과하려면, 예약 전에 먼저 이러한 추가 수수료에
+													대해 게스트에게 안내하고 안전하게 결제를 요청하세요.</p>
 											</div>
 
 										</div>
