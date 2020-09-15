@@ -17,6 +17,7 @@ public class SearchDao {
 		int count = 0;
 		
 		
+		
 		return count;
 	}
 }

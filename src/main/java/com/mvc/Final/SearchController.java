@@ -1,5 +1,7 @@
 package com.mvc.Final;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,10 @@ import com.mvc.Final.model.dto.SearchOption;
 @Controller
 public class SearchController {
 
+	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
+	
 	@Autowired
-	SearchBiz searchB;
+	private SearchBiz searchB;
 	
 	@RequestMapping("/search.do")
 	public String search(SearchOption searchO,@RequestParam(defaultValue="1") int curPage, Model model) {

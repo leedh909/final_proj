@@ -10,7 +10,7 @@ import com.mvc.Final.model.dto.SearchOption;
 public class SearchBiz {
 	
 	@Autowired
-	SearchDao dao;
+	private SearchDao dao;
 	
 	public int countRoom(SearchOption searchO) {
 		return dao.countRoom(searchO) ;
