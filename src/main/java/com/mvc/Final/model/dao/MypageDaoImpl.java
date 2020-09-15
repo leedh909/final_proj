@@ -66,6 +66,42 @@ public class MypageDaoImpl implements MypageDao{
 		
 		return redto;
 	}
+
+	@Override
+	public List<ReservationDto> selectReservation_host(String login) {
+
+		List<ReservationDto> redto = new ArrayList<ReservationDto>();
+		
+		redto = sqlSession.selectList(NAMESPACE+"selectReservation_host",login);
+		return redto;
+	}
+
+	@Override
+	public String host(String login) {
+		String host = "";
+		host = sqlSession.selectOne(NAMESPACE+"hostcheck",login);
+		return host;
+	}
+
+	@Override
+	public int approve(int seq_h) {
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"approve",seq_h);
+		return res;
+	}
+
+	@Override
+	public String email(int seq_m) {
+		String email ="";
+		try {
+			email = sqlSession.selectOne(NAMESPACE+"emailinfo",seq_m);
+		} catch (Exception e) {
+			System.out.println("[error] : email");
+			e.printStackTrace();
+		}
+		return email;
+	}
+	
 	
 	
 	
