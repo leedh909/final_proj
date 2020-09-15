@@ -64,7 +64,7 @@ public class HomeController {
 	
 	@RequestMapping("/travelmate.do")
 	public String travelmate() {
-		logger.info("TravelMate");
+		logger.info("Travelmate");
 		return "travelmate";
 	}
 	
