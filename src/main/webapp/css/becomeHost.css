@@ -387,7 +387,16 @@
   padding: 20px;
   border: 1px solid #888;
   width: 40%;
-  height : 400px;
+  height : 320px;
+}
+
+.modal-content_2 {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height : 450px;
 }
 
 .close_1 {

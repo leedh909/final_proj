@@ -89,4 +89,15 @@ public class HomeController {
 		logger.info("Income");
 		return "income";
 	}
+	@RequestMapping("/refundPolicy.do")
+	public String refundPolicy() {
+		logger.info("Refund Policy");
+		return "refundPolicy";
+	}
+	
+	@RequestMapping("/contactus.do")
+	public String contactUs() {
+		logger.info("Contact Us");
+		return "contactus";
+	}
 }

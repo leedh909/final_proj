@@ -47,21 +47,20 @@
 <!-- Booking part -->
 <script src="js/Bookingscript.js"></script>
 <script type="text/javascript">
-	
 	$(document).ready(function() {
 
 		/*인원 수 선택 */
 		var guestAmount = $('#guestNo');
 
 		$('#cnt-up').click(function() {
-			guestAmount.val(parseInt($('#guestNo').val()) +1);
+			guestAmount.val(parseInt($('#guestNo').val()) + 1);
 		});
 		$('#cnt-down').click(function() {
-			if(guestAmount.val() > 0) {
-				guestAmount.val(parseInt($('#guestNo').val()) -1);
+			if (guestAmount.val() > 0) {
+				guestAmount.val(parseInt($('#guestNo').val()) - 1);
 			} else {
 				guestAmount.val(parseInt($('#gusetNo').val()) = 1);
-		}
+			}
 		});
 
 		/*지난 날짜 선택 못하게 막음*/
@@ -77,68 +76,76 @@
 		});
 
 	});
-	
+
 	function locationPopup() {
 		$(".location-container").show();
 	};
-	
+
 	//목적지 선택 div onclick Events
-	function clickSeoul(){
+	function clickSeoul() {
 		$(".location-container").hide();
 		var seoul = $(".seoulText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(seoul);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	};
-	
+
 	function clickBusan() {
 		$(".location-container").hide();
 		var busan = $("#busanText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(busan);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickDaejeon() {
 		$(".location-container").hide();
 		var dae = $("#daejeonText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(dae);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickDaegu() {
 		$(".location-container").hide();
 		var daegu = $("#daeguText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(daegu);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickJeju() {
 		$(".location-container").hide();
 		var jeju = $("#jejuText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(jeju);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickGang() {
 		$(".location-container").hide();
 		var gang = $("#gangneungText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(gang);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickGyeong() {
 		$(".location-container").hide();
 		var gyeong = $("#gyeongjuText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(gyeong);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 	function clickYeo() {
 		$(".location-container").hide();
 		var yeo = $("#yeosuText").html();
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(yeo);
-		$(".lo-placeholder").css("font-weight" , "bold").css("font-size" , "18px").css("margin-top" , "1px");
+		$(".lo-placeholder").css("font-weight", "bold")
+				.css("font-size", "18px").css("margin-top", "1px");
 	}
 </script>
 
@@ -287,10 +294,8 @@
 						</div>
 						<div class="media-body p-2 mt-2">
 							<h3 class="heading mb-3">거품 없는 가격을 보장</h3>
-							<p>
-								게스트와 호스트는 중간 단계 없이 다이렉트로 숙소 예약을 진행 하게 되며, 이에 따른<br>예약 수수료가
-								없습니다.
-							</p>
+							<p>게스트와 호스트는 중간 단계 없이 다이렉트로 숙소 예약을 진행 하게 되며, 이에 따른 예약 수수료가
+								없습니다.</p>
 						</div>
 					</div>
 				</div>
@@ -305,7 +310,7 @@
 							<h3 class="heading mb-3">믿을 수 있는 호스트</h3>
 							<p>
 								숙소에서부터 호텔까지, Azanda. 의 호스트는 <br>게스트가 편히 지낼 수 있도록 모든 사항을
-								세심하게 <br>관리 합니다.
+								세심하게 관리 합니다.
 							</p>
 						</div>
 					</div>
@@ -320,8 +325,8 @@
 						<div class="media-body p-2 mt-2">
 							<h3 class="heading mb-3">Travel Mate</h3>
 							<p>
-								숙소를 조금 더 경제적으로 <br>예약하길 원하는 <br>1인 여행객들을 위한 Azanda. 만의
-								숙소 쉐어<br>매칭 시스템을 <br>만나보세요.
+								숙소를 조금 더 경제적으로 예약하길 원하는 <br>1인 여행객들을 위한 Azanda. 만의 숙소 쉐어<br>매칭
+								시스템을 만나보세요.
 							</p>
 						</div>
 					</div>
@@ -685,7 +690,7 @@
 		</div>
 	</section>
 
-
+	
 
 
 

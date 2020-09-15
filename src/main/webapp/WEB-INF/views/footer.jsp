@@ -54,21 +54,14 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">환불 정책 </h2>
               <ul class="list-unstyled">
-                <li><a href="#" class="py-2 d-block">Azanda.의 환불 정책</a></li>
+                <li><a href="refundPolicy.do" class="py-2 d-block">Azanda.의 환불 정책</a></li>
+                <li><a href="contactus.do" class="py-2 d-block">Contact Us</a></li>
               </ul>
             </div>
           </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Azanda. 챗봇</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-	              </ul>
+	              <script botId="B17078" src="https://www.closer.ai/js/webchat.min.js"> </script>
 	            </div>
             </div>
-          </div>
-        </div>
         <div class="row">
           <div class="col-md-12 text-center">
 
