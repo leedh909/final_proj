@@ -10,6 +10,7 @@
   		<typeAlias type="com.mvc.Final.model.dto.HostDto" alias="hostDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.RequireDto" alias="rqDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.ReservationDto" alias="reservationDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.SearchOption" alias="searchOption"/>
   	</typeAliases>
   
   
@@ -18,6 +19,7 @@
   	<mappers>
   		<mapper resource="/mybatis/login-mapper.xml" />
   		<mapper resource="/mybatis/mypage-mapper.xml" />
+  		<mapper resource="/mybatis/room-mapper.xml" />  		
   	</mappers>
   
   

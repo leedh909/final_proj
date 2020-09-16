@@ -84,33 +84,21 @@
 								<td>${hdto.room_name }</td>
 								<td>${hdto.state }</td>
 								<td>
-				               		<input type="button" value="승인" class="buttonset2" >
+				               		<input type="button" value="승인" class="buttonset2" onclick="location.href='approve.do?seq_h=${hdto.seq_h}'">
 				                        &nbsp;&nbsp;
-				                    <input type="button" value="보류" class="buttonset1" >
+				                    <input type="button" value="보류" class="buttonset1" onclick="location.href='mailform.do?seq_m=${hdto.seq_m}'">
 					            </td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 			<%-- 
-               <%
-                  for(BoardDto dto:list) {
-               %>
-               
-                     <tr>
-                        <td><%=dto.getSeq() %></td>
-                        <td><%=dto.getTitle() %></a></td>
                         <td><a class="" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getWriter() %></td>   <!-- 컨트롤러 만들어서 넣어준다. -->
-                        <td><%=dto.getRegdate() %></td>
                         <td>
 	                        <input type="button" value="승인" onclick="location.href='mypage.do?command=delete&id=<%=dto.getId() %>'" >
 	                        &nbsp;&nbsp;
 	                        <input type="button" value="보류" onclick="location.href='mypage.do?command=delete&id=<%=dto.getId() %>'" >
 	                    </td>
-                     </tr>
-               <%
-                  }
-               %>
                --%>
             </table>
  		</div>

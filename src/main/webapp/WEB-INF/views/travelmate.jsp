@@ -30,19 +30,6 @@
     <link rel="stylesheet" href="css/style.css">
   
    	<style type="text/css">
-  		.mate{
-  			width:950px;
-  			height:200px;
-  			border: 1px solid #F2F2F2;
-  			background-color:white;
-  			position: relative;
- 			left: 150px;
-  		}
-  		.mateimage{
-  			display:block;
-  			width:200px;
-  			height:198px;
-  		}
   		div#s_left{
   			width:500px;
   			height:1200px;
@@ -53,6 +40,20 @@
   			height:1200px;
   			float:left;
   			z-index:1;
+  		}
+  		.mate{
+  			width:950px;
+  			height:200px;
+  			border: 1px solid #F2F2F2;
+  			background-color:white;
+  			position: relative;
+ 			left: 150px;
+ 			top: 100px;
+  		}
+  		.mateimage{
+  			display:block;
+  			width:200px;
+  			height:198px;
   		}
   		.bt{
   			width:138px;
@@ -91,69 +92,13 @@
       </div>
     </div>
 <!-- 검색 -->
-<div class="hero-wrap js-fullheight" style="background-image: url(&quot;images/bg_1.jpg&quot;); height: 400px;">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true" style="height: 937px;">
-          <div class="col-md-9 ftco-animate fadeInUp ftco-animated" data-scrollax=" properties: { translateY: '70%' }" style="transform: translateZ(0px) translateY(0%);">
-            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="opacity: 1; transform: translateZ(0px) translateY(0%);"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> </font></font><br></strong></h1>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="opacity: 1; transform: translateZ(0px) translateY(0%);"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></p>
-            <div class="block-17 my-4">
-              <form action="" method="post" class="d-block d-flex">
-                <div class="fields d-block d-flex">
-                  <!-- <div class="textfield-search one-third">
-                  	<input type="text" class="form-control" placeholder="Ex: food, service, hotel">
-                  </div> -->
-                  <!-- 시/도 -->
-                  <div class="select-wrap one-third">
-                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <select name="" id="" class="form-control" placeholder="키워드 검색">
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">시 /도</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">서울 특별시</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">부산 광역시</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">대구 광역시</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">인천 광역시</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">광주 광역시</font></font></option>
-                      <!-- <option value="">대전광역시</option>
-                      <option value="">/option>
-                      <option value="">경상북도울산광역시</option>
-                      <option value="">세종특별자치시</option>
-                      <option value="">경기도</option>
-                      <option value="">강원도</option>
-                      <option value="">충청북도</option>
-                      <option value="">충청남도</option>
-                      <option value="">전라북도</option>
-                      <option value="">전라남도<</option>
-                      <option value="">경상남도</option>
-                      <option value="">제주특별자치도</option> -->
-                    </select>
-                  </div>
-                  <!-- 시/군/구 -->
-                  <div class="select-wrap one-third">
-                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                    <select name="" id="" class="form-control" placeholder="키워드 검색">
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">어디</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">미국 샌프란시스코</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">베를린 독일</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lodon 영국</font></font></option>
-                      <option value=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">파리 이탈리아</font></font></option>
-                    </select>
-                  </div>
-                </div>
-                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input type="submit" class="search-submit btn btn-primary" value="검색"></font></font>  
-              </form>
-            </div>
-            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-
+<!--  -->
 <div style="height:1200px; padding-top:0px;" class="ftco-section bg-light">
 	<!-- 필터링창 -->
-	<div style="background-color:#FBEFF2;" id="s_left">
+	<div style="background-color:white;" id="s_left">
 		<div style="text-align: center; position: relative; top:50px;">
+			<br><br>
 			<h1 style=""><em>Filtering</em></h1>
 			<br>
 			<div>
@@ -188,8 +133,8 @@
 			<hr>
 		</div>
 	</div>
-	<!-- 리스트 -->
-	<div class="ftco-section bg-light" id="s_right">
+	<!-- 리스트  -->
+	<div id="s_right">
 		<div class="container">
 			<div class="mate">
 				<div style="float:left; width:200px; height:198px;">
@@ -209,7 +154,7 @@
 						</tr>
 						<tr >
 							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
-							<td colspan="3" >여자 / 20대 / 술 (o) / 담배 (o) </td>
+							<td colspan="3" >여자 / 20대 / 술 (o) / 담배 (o)</td>
 						</tr>
 						<tr >
 							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
@@ -218,7 +163,7 @@
 					</table>
 				</div>
 				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.jsp'">matching</button>
+					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 				</div>
 			</div>
 			<br><br>
@@ -249,7 +194,7 @@
 					</table>
 				</div>
 				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.jsp'">matching</button>
+					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 				</div>
 			</div>
 			<br><br>
@@ -280,7 +225,7 @@
 					</table>
 				</div>
 				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.jsp'">matching</button>
+					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 				</div>
 			</div>
 			<br><br>
@@ -311,7 +256,7 @@
 					</table>
 				</div>
 				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.jsp'">matching</button>
+					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 				</div>
 			</div>
 			<br><br>

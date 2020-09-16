@@ -36,52 +36,52 @@
   			border: 1px solid #F2F2F2;
   			background-color:white;
   			position: relative;
- 			left: 150px;
+ 			left: 250px;
   		}
   		div#s_left{
   			width:500px;
-  			height:1200px;
+  			height:1250px;
   			float:left;
   		}
   		div#s_right{
   			width:746.4px;
-  			height:1200px;
+  			height:1250px;
   			float:left;
   			z-index:1;
   		}
   		div#s_footer{
   			width:;
-  			height:650px;
+  			height:900px;
   			clear:left;
   			background-color: #FAFAFA;
   		}
   		.roomdiv1{
   			position: relative;
-  			left: 300px;
+  			left: 350px;
   			top: 50px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		.roomdiv2{
   			position: relative;
-  			left: 810px;
+  			left: 860px;
   			top: -450px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		.roomdiv3{
   			position: relative;
-  			left: 1160px;
+  			left: 1210px;
   			top: -590px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		.roomdiv4{
   			position: relative;
-  			left: 810px;
+  			left: 860px;
   			top: -470px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		.roomdiv5{
   			position: relative;
-  			left: 1160px;
+  			left: 1210px;
   			top: -610px;
   			border-radius: 10px 10px 10px 10px;
   		}
@@ -95,9 +95,22 @@
   			height:240px;
   			border-radius: 10px 10px 10px 10px;
   		}
+  		#btn1{
+  			width:150px;
+  			height:70px;
+  			position: relative;
+  			left: 810px;
+  			top: -400px;
+  		}
+  		#btn2{
+  			width:150px;
+  			height:70px;
+  			position: relative;
+  			left: 970px;
+  			top: -490px;
+  		}
         .btn {
 			background-color: orange;
-			display: inline-block;
 			height: 70px;
 			width: 150px;
 			padding: 15px 30px;
@@ -118,9 +131,18 @@
 			transform: translateY(4px);
 		}
   	</style>
-	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript">
-	
+		function imgbigview(a, b){
+			document.getElementById(b).getElementsByTgName("img").src=a.href;
+			if(document.getElementById(b).style.display=='block'){
+				document.getElementById(b).style.display='none';
+			}else
+			document.getElementById(b).style.display='block';
+		}
+		function hide(c){
+			document.getElementById(c).style.display='none';
+		}
 	</script>     
   </head>
   <body>
@@ -140,10 +162,12 @@
       </div>
     </div>
 <!--  --> 
-<div style="width: ; height:2100px; padding-top:0px;" class="ftco-section bg-light" id="container">
+<div style="width: ; height:2200px; padding-top:0px;" class="ftco-section bg-light" id="container">
 	<!-- left div -->
-	<div style="background-color:#FBEFF2;" id="s_left">
+	<!-- class="ftco-section bg-light"" -->
+	<div style="background-color:white;" id="s_left">
 		<div style="text-align: center; position: relative; top:50px;">
+			<br><br>
 			<h2 style=""><em>숙소 정보</em></h2>
 			<br>
 			<div>
@@ -305,30 +329,56 @@
 	</div>
 	<!-- footer div -->
 	<div id="s_footer" class="s_footer">
-		<div style="text-align: center;">
-			<h1><em>Inner View</em></h1>
-		</div>
-		<div class="roomdiv1" style="background-color: white; height:500px; width:500px;">
-			<img src="images/room-1.jpg" class="room1">
-		</div>
-		<div class="roomdiv2" style="background-color: white; height:140px; width:140px;">
-			<img src="images/room-2.jpg" class="room2">
-		</div>
-	 	<div class="roomdiv3" style="background-color: white; height:140px; width:140px;">
-			<a><img src="images/room-3.jpg" class="room2"></a>
-		</div>
-		<div class="roomdiv4" style="background-color: white; height:140px; width:140px;">
-			<a><img src="images/room-4.jpg" class="room2"></a>
-		</div>
-		<div class="roomdiv5" style="background-color: white; height:140px; width:140px;">
-			<a><img src="images/room-5.jpg" class="room2"></a>
-		</div> 
-		<div>
-			<button type="button" class="btn">Apply</button>
-		</div>
-		<div>
-			<button type="button" class="btn">Cancel</button>
-		</div>
+			<br><br>
+			<div style="text-align: center; background-color: white;">
+				<h1><em>Inner View</em></h1>
+			</div>
+			<div class="roomdiv1" style="background-color: white; height:500px; width:500px;">
+				<a href="images/room-1.jpg" class="room1" onclick="imgbigview(this,'bigimg'); return false;">
+					<img src="images/room-1.jpg" class="room1">
+				</a>
+				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
+					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
+				</div>
+			</div>
+			<div class="roomdiv2" style="background-color: white; height:140px; width:140px;">
+				<a href="images/room-2.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
+					<img src="images/room-2.jpg" class="room2">
+				</a>
+				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
+					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
+				</div>
+			</div>
+		 	<div class="roomdiv3" style="background-color: white; height:140px; width:140px;">
+				<a href="images/room-3.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
+					<img src="images/room-3.jpg" class="room2">
+				</a>
+				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
+					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
+				</div>
+			</div>
+			<div class="roomdiv4" style="background-color: white; height:140px; width:140px;">
+				<a href="images/room-4.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
+					<img src="images/room-4.jpg" class="room2">
+				</a>
+				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
+					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
+				</div>
+			</div>
+			<div class="roomdiv5" style="background-color: white; height:140px; width:140px;">
+				<a href="images/room-5.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
+					<img src="images/room-5.jpg" class="room2">
+				</a>
+				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
+					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
+				</div>
+			</div> 
+			<div>
+				<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='main.do'">Apply</button>
+			</div>
+			<div>
+				<button type="button" id="btn2" class="btn" value="cancel">Cancel</button>
+			</div>
 	</div> 	                
 </div>
 <!-- footer -->

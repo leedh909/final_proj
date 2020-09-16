@@ -30,6 +30,32 @@
 		WHERE M.SEQ_M = R.SEQ_M AND R.SEQ_RM = R2.SEQ_RM AND M.ID = #{login}
 	</select>
 
+	<select id="selectReservation_host" parameterType="String" resultType="reservationDto">
+		SELECT A.SEQ_RE seq_re, M.NAME name, A.CHECK_IN check_in, A.CHECK_OUT check_out, A.PEOPLE people, M.PHONE phone 
+		FROM MEMBER M , 
+		(SELECT R2.SEQ_RE , R2.CHECK_IN , R2.CHECK_OUT , R2.PEOPLE , R2.SEQ_M FROM MEMBER M , HOST H , ROOM R , RESERVATION R2 
+		WHERE M.SEQ_M = H.SEQ_M AND H.SEQ_H = R.SEQ_H AND R.SEQ_RM = R2.SEQ_RM AND M.ID =#{login}) A
+		WHERE M.SEQ_M = A.SEQ_M
+	</select>
+
+	<select id="hostcheck" parameterType="String" resultType="String">
+		SELECT H.STATE state 
+		FROM MEMBER M, HOST H
+		WHERE M.SEQ_M = H.SEQ_M AND M.ID = #{login}
+	</select>
+
+	<update id="approve" parameterType="int">
+		UPDATE HOST 
+		SET STATE = 'Y' 
+		WHERE SEQ_H = #{seq_h}
+	</update>
+
+	<select id="emailinfo" parameterType="int" resultType="String">
+		SELECT EMAIL
+		FROM MEMBER
+		WHERE SEQ_M = #{seq_h}
+	</select>
+
 
 
 
