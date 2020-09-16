@@ -88,7 +88,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(seoul);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	};
 
 	function clickBusan() {
@@ -97,7 +97,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(busan);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickDaejeon() {
 		$(".location-container").hide();
@@ -105,7 +105,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(dae);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickDaegu() {
 		$(".location-container").hide();
@@ -113,7 +113,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(daegu);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickJeju() {
 		$(".location-container").hide();
@@ -121,7 +121,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(jeju);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickGang() {
 		$(".location-container").hide();
@@ -129,7 +129,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(gang);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickGyeong() {
 		$(".location-container").hide();
@@ -137,7 +137,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(gyeong);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 	function clickYeo() {
 		$(".location-container").hide();
@@ -145,7 +145,7 @@
 		$(".lo-placeholder").removeAttr("placeholder");
 		$(".lo-placeholder").val(yeo);
 		$(".lo-placeholder").css("font-weight", "bold")
-				.css("font-size", "18px").css("margin-top", "1px");
+				.css("font-size", "15px").css("margin-top", "5px");
 	}
 </script>
 
@@ -182,7 +182,7 @@
 									<div class="location"
 										style="color: black; margin-left: 30px; padding-top: 6px; font-weight: bold;">위치</div>
 									<input type="text" placeholder="어디로 여행가시나요?"
-										style="border: none; border-right: 0px; border-top: 0px; margin-left: 27px; cursor: pointer; outline: none; margin-top: 7px;"
+										style="border: none; border-right: 0px; border-top: 0px; padding-left: 30px; cursor: pointer; outline: none; margin-top: 7px;"
 										class="lo-placeholder" required readonly="readonly"
 										onclick="locationPopup();">
 									<!-- 8개 도시 div onclick -->

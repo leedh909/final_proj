@@ -388,6 +388,8 @@
   border: 1px solid #888;
   width: 40%;
   height : 320px;
+  border-radius : 5px;
+  
 }
 
 .modal-content_2 {
@@ -397,6 +399,7 @@
   border: 1px solid #888;
   width: 40%;
   height : 450px;
+  border-radius : 5px;
 }
 
 .close_1 {
