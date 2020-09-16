@@ -98,7 +98,7 @@
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
-          <li class="nav-item"><a href="rooms.do" class="nav-link">Rooms</a></li>
+          <li class="nav-item"><a href="rooms.do" class="nav-link">Place to stay</a></li>
        
           <c:choose>
           	<c:when test="${login eq 'null'||login==null }">
