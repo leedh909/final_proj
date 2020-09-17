@@ -101,6 +101,13 @@ public class MypageDaoImpl implements MypageDao{
 		}
 		return email;
 	}
+
+	@Override
+	public int hdelete(int seq_h) {
+		int res = 0;
+		res = sqlSession.delete(NAMESPACE+"hdelete",seq_h);
+		return res;
+	}
 	
 	
 	

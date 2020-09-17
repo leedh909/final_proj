@@ -41,47 +41,6 @@ public class HomeController {
 		return "againlogin";
 	}
 	
-	@RequestMapping("/mypage.do")
-	public String mypage(Model model, HttpSession session) {
-		logger.info("MyPage");
-		String login = (String)session.getAttribute("login");
-
-		//ADMIN의 데이터
-		model.addAttribute("hclist",mbiz.selectHostChk());
-		model.addAttribute("hlist",mbiz.selectHost());
-		model.addAttribute("rqlist",mbiz.selectRequire());
-		
-		//Guest의 데이터
-		model.addAttribute("relist",mbiz.selectReservation(login));
-		
-		return "mypage";
-	}
-	
-	@RequestMapping("/hostpage.do")
-	public String hostpage(Model model,HttpSession session) {
-		logger.info("HostPage");
-		String login = (String)session.getAttribute("login");
-		Date today = new Date();
-		
-		//예약자현황
-		model.addAttribute("relist",mbiz.selectReservation_host(login));
-		model.addAttribute("today",today);
-		model.addAttribute("host",mbiz.host(login));
-		
-		return "hostpage";
-	}
-	
-	@RequestMapping("/approve.do")
-	public String approve(int seq_h) {
-		logger.info("Approve");
-		int res = mbiz.approve(seq_h);
-		System.out.println("res:"+res);
-		if(res>0) {
-			return "redirect:mypage.do";
-		}else {
-			return "redirect:mypage.do";
-		}
-	}
 	
 	@RequestMapping("/travelmate.do")
 	public String travelmate() {

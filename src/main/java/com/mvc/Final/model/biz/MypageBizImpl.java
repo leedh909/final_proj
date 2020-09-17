@@ -55,6 +55,11 @@ public class MypageBizImpl implements MypageBiz{
 	public String email(int seq_m) {
 		return dao.email(seq_m);
 	}
+
+	@Override
+	public int hdelete(int seq_h) {
+		return dao.hdelete(seq_h);
+	}
 	
 	
 	

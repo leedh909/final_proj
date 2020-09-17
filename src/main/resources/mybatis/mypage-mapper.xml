@@ -56,7 +56,10 @@
 		WHERE SEQ_M = #{seq_h}
 	</select>
 
-
+	<delete id="hdelete" parameterType="int">
+		DELETE FROM HOST
+		WHERE SEQ_H = #{seq_h}
+	</delete>
 
 
 
