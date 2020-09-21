@@ -1,5 +1,12 @@
 package com.mvc.Final;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -7,10 +14,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.util.WebUtils;
 
 import com.mvc.Final.model.biz.LoginBiz;
+import com.mvc.Final.model.dto.FileValidator;
 import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.UploadFile;
 
 @Controller
 public class LoginController {
@@ -20,6 +32,8 @@ public class LoginController {
 	@Autowired
 	private LoginBiz lbiz;
 	
+	@Autowired
+	private FileValidator fileValidator;
 	
 	@RequestMapping("/login.do")
 	public String Login(String id, String pw, HttpSession session) {
@@ -49,15 +63,81 @@ public class LoginController {
 	}
 	
 	@RequestMapping("/registres.do")
-	public String registRes(LoginDto ldto) {
+	public String registRes(LoginDto ldto,HttpServletRequest request, Model model, UploadFile uploadFile, BindingResult result) {
 		logger.info("RegistRes");
-		System.out.println("ldto : " +ldto);
-		int res = lbiz.registUser(ldto);
-		System.out.println("res: "+res);
-		if(res>0) {
-			return "redirect:main.do";
+		
+		fileValidator.validate(uploadFile, result);
+		
+		if(result.hasErrors()) {
+			System.out.println("ldto : " +ldto);
+			int res = lbiz.registUser(ldto);
+			System.out.println("res: "+res);
+			if(res>0) {
+				return "redirect:main.do";
+			}else {
+				return "redirect:registform.do";
+			}
 		}else {
-			return "redirect:registform.do";
+			MultipartFile file = uploadFile.getMpfile();
+			String name = ldto.getId()+"image.jpg";
+			
+			UploadFile fileObj = new  UploadFile();
+			fileObj.setName(name);
+			
+			InputStream inputStream = null;
+			OutputStream outputStream = null;
+			
+			
+			try {
+				inputStream = file.getInputStream();
+				
+				String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage/profile");
+				System.out.println("업로드 될 실제 경로: "+path);
+				
+				File storage = new File(path);
+				if(!storage.exists()) {
+					try {
+						storage.mkdirs();
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+				
+				
+				File newFile = new File(path+"/"+name);
+				if(!newFile.exists()) {
+					newFile.createNewFile();
+				}
+				
+				outputStream = new FileOutputStream(newFile);
+				
+				int read = 0;
+				byte[] b = new byte[(int)file.getSize()];
+				
+				while((read=inputStream.read(b)) != -1) {
+					outputStream.write(b,0,read);
+				}
+				
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					inputStream.close();
+					outputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			ldto.setProfile(name);
+			System.out.println("ldto : " +ldto);
+			int res = lbiz.registUser(ldto);
+			System.out.println("res: "+res);
+			if(res>0) {
+				return "redirect:main.do";
+			}else {
+				return "redirect:registform.do";
+			}
 		}
 		
 	}

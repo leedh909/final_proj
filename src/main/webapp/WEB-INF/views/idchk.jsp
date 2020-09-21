@@ -35,11 +35,9 @@
 			<c:choose>
 				<c:when test="${idnotused eq 'true' }">
 					<td>아이디 생성 가능</td>
-					<td>${idnotused }</td>
 				</c:when>
 				<c:otherwise>
 					<td>아이디가 이미 존재합니다.</td>
-					<td>${idnotused }</td>
 				</c:otherwise>
 			</c:choose>
 		</tr>
