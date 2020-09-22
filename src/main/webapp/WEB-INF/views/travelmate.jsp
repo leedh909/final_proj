@@ -256,7 +256,7 @@
 					</table>
 				</div>
 				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
+					<button class="bt" onclick="location.href='travelmatedetail.do'">matching</button>
 				</div>
 			</div>
 			<br><br>

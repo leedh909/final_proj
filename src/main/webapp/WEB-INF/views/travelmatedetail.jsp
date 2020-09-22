@@ -61,7 +61,7 @@
   		.roomdiv1{
   			position: relative;
   			left: 350px;
-  			top: 50px;
+  			top: 25px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		.roomdiv2{
@@ -355,7 +355,7 @@
 						    <img src="images/room-1.jpg" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room1">
 						  </div>
-					  </div>a
+					  </div>
 					  <div class="roomdiv2" style="background-color: black; height:240px; width:340px; ">
 						  <div class="w3-container w3-third" id="room2">
 						    <img src="images/room-2.jpg" style="cursor:pointer" 
