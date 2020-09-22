@@ -98,7 +98,8 @@
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
-          <li class="nav-item"><a href="rooms.do" class="nav-link">place to stay</a></li>
+          <!-- 숙소정보를 보여줄때 사용할듯 -->
+          <!-- <li class="nav-item"><a href="rooms.do" class="nav-link">place to stay</a></li> -->
 
           <c:choose>
           	<c:when test="${login eq 'null'||login==null }">
