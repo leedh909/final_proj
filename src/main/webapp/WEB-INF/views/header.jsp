@@ -98,8 +98,7 @@
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
-          <li class="nav-item"><a href="rooms.do" class="nav-link">Rooms</a></li>
-       
+
           <c:choose>
           	<c:when test="${login eq 'null'||login==null }">
           		 <li class="nav-item cta"><a class="nav-link"><span onclick="loginPopup();">LOGIN</span></a></li>
@@ -113,6 +112,7 @@
 				<li class="nav-item"><a href="mypage.do" class="nav-link">MyPage</a></li>
 				<li class="nav-item"><a href="mypage.jsp" class="nav-link">Host등록</a></li>
 				<li class="nav-item"><a href="hostpage.do" class="nav-link">HostPage</a></li>
+				<li class="nav-item"><a href="rooms.do" class="nav-link">place to stay</a></li>
 				
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
           	</c:otherwise>
