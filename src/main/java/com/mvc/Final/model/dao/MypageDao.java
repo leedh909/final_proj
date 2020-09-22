@@ -18,4 +18,6 @@ public interface MypageDao {
 	public String host(String login);
 	public int approve(int seq_h);
 	public String email(int seq_m);
+	public int hdelete(int seq_h);
+	
 }

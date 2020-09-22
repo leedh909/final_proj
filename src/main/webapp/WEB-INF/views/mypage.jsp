@@ -92,14 +92,6 @@
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
-			<%-- 
-                        <td><a class="" href="BoardController2?command=detail&seq=<%=dto.getSeq()%>"> <%=dto.getWriter() %></td>   <!-- 컨트롤러 만들어서 넣어준다. -->
-                        <td>
-	                        <input type="button" value="승인" onclick="location.href='mypage.do?command=delete&id=<%=dto.getId() %>'" >
-	                        &nbsp;&nbsp;
-	                        <input type="button" value="보류" onclick="location.href='mypage.do?command=delete&id=<%=dto.getId() %>'" >
-	                    </td>
-               --%>
             </table>
  		</div>
  		<div style="padding:100px;">
@@ -129,30 +121,14 @@
 								<td>${hdto.name }</td>
 								<td>${hdto.phone }</td>
 								<td>
-				               		<input type="button" value="탈퇴" class="buttonset1" >
+				               		<input type="button" value="탈퇴" class="buttonset1" onclick="location.href='hdelete.do?seq_h=${hdto.seq_h}'">
 					            </td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
                <%--
-               <%
-                  for(LoginDto ldto: lglist) {
-                     System.out.println("회원: " + session.getAttribute("login") + "=" + ldto.getId());
-               %>
-                     <tr>
-                        <td><%=ldto.getId() %></td>
-                        <td><%=ldto.getName() %></td>
-                        <td><%=ldto.getEmail() %></td>
-                        <td><%=ldto.getRole() %></td>
-                        <td>
                          <input type="button" value="탈퇴!" onclick="location.href='mypage.do?command=delete&id=<%=ldto.getId() %>'" >
-                        </td>
-                     </tr>
-               <%
-                  }
-         
-               %>
                --%>
             </table>
          </div>

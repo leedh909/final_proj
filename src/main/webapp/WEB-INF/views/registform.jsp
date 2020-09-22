@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<%-- <%@ page import="java.util.List" %> --%>
 
 <!DOCTYPE html>
 <html>
@@ -107,6 +109,22 @@
 	    return phone;
 	}
 	
+	//업로드 파일 읽기
+    function uploadImgPreview() {
+    	let fileInfo = document.getElementById("upImgFile").files[0];
+    	let reader = new FileReader();
+
+        reader.onload = function() {
+            document.getElementById("imagepreview").src = reader.result;
+            document.getElementById("imagepreview").innerText = reader.result;
+            document.getElementById("imagepreview").height = 250;
+            document.getElementById("imagepreview").width = 250;
+        };
+
+    	if( fileInfo ) {
+            reader.readAsDataURL( fileInfo );
+        }
+    }
 </script>
 
 <body>
@@ -134,7 +152,7 @@
         </div>
         <div class="row block-9">
           <div class="col-md-6 pr-md-5">
-            <form action="registres.do" method="post" id="resigtform">
+            <form action="registres.do" method="post" id="resigtform" enctype="multipart/form-data">
               <div class="form-group">
                 <input type="text" class="form-control" id="user_id" name="id" title="n" placeholder="ID" required="required">
               </div>
@@ -165,8 +183,19 @@
 			
 			<!--프로필 사진 등록 -->              
 			  <div class="form-group">
-                <input type="text" class="form-control" name="profile" onclick="idChkConfirm();" placeholder="profile" value="null" >
+			  	<%-- <form:form method="post" enctype="multipart/form-data" modelAttribute="uploadFile" action="upload.do" id="fileForm"> --%>
+                <!-- <input type="text" class="form-control" name="profile" onclick="idChkConfirm();" placeholder="profile" value="null" > -->
+                	Profile Image input: 
+                	<input type="file" id="upImgFile" name="mpfile" onChange="uploadImgPreview();" accept="image/*"> 
+                	<!-- <input type="button" onclick="uploadsubmit();" value="업로드"> -->
+                <%-- </form:form> --%>
+                
+               		<input type="hidden" name="profile" value="">
+           
               </div> 
+            <hr>
+            <img id="imagepreview" src="" >
+            
             
               <div class="form-group">
                 <input type="submit" value="가입" class="btn btn-primary py-3 px-5" >
