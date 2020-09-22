@@ -10,14 +10,13 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css"
-	type="text/css" />
+<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 <style type="text/css">
 .pt {
 	margin-top: -9px;
 }
+.mySlides {display:none;} 
 
 .button {
 	border: solid 0.5px;
@@ -47,16 +46,66 @@
 	border-radius: 10px;
 }
 
-.mySlides {
-	display: none
+.grid-container {
+  display: grid;
+  grid-gap: 5px;
+  padding: 10px;
+}
+
+.grid-item {
+  text-align: center;
+  padding: 20px;
+  border-radius : 3px;
+}
+
+.item1 {
+  grid-column: 1 /span 2;;
+  grid-row: 1 / span 2;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 ;
+}
+.item3{
+	grid-column: 4;
+    grid-row:1 ;
 }
 </style>
 
-<script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
-<script type="text/javascript">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
+<script type="text/javascript">
+	$(function() {
+		//input을 datepicker로 선언
+		$("#checkin_date").datepicker();
+		$("#checkout_date").datepicker();
+		//모든 datepicker에 대한 공통 옵션 설정
+		$.datepicker.setDefaults({
+			dateFormat : 'yy-mm-dd' //Input Display Format 변경
+			,showOtherMonths : true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+			,showMonthAfterYear : true //년도 먼저 나오고, 뒤에 월 표시
+			,changeYear : true //콤보박스에서 년 선택 가능
+			,changeMonth : true //콤보박스에서 월 선택 가능                
+			,showOn : "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+			,buttonImage : "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+			,buttonImageOnly : true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+			,buttonText : "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+			,yearSuffix : "년" //달력의 년도 부분 뒤에 붙는 텍스트
+			,monthNamesShort : [ '1', '2', '3', '4', '5', '6', '7', '8','9', '10', '11', '12' ] //달력의 월 부분 텍스트
+			,monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월','8월', '9월', '10월', '11월', '12월' ] //달력의 월 부분 Tooltip 텍스트
+			,dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ] //달력의 요일 부분 텍스트
+			,dayNames : [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일','토요일' ] //달력의 요일 부분 Tooltip 텍스트
+			,minDate : "-1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+			,maxDate : "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)                    
+			});
+		//From의 초기값을 오늘 날짜로 설정
+		$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+		//To의 초기값을 내일로 설정
+		$('#datepicker2').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+	});
 </script>
 </head>
 <body>
@@ -74,24 +123,62 @@
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
-			<!-- 숙소 사진 -->
-			<div class="col-md-12">
-				<div class="row">
-					<div class="col-md-6">사진1</div>
-					<div class="col-md-3">사진2</div>
-					<div class="col-md-3">사진3</div>
-					<div class="row">
-						<div class="col-md-3 col-md-offset-6">사진4</div>
-						<div class="col-md-3">사진5</div>
-					</div>
-
+			
+			<div class="col-md-12"><!-- 숙소 사진 -->
+			<div class="w3-display-container">
+				<div class="grid-container">
+					<div class="grid-item item1">사진1</div>
+					<div class="grid-item item2">사진2</div>
+					<div class="grid-item item3">사진3</div>
+					<div class="grid-item item4">사진4</div>
+					<div class="grid-item item5">사진5</div>
 				</div>
-			</div>
+				<div class="w3-display-bottomright w3-container">
+					<input class="button" type="button" value="전체사진보기" onclick="document.getElementById('id01').style.display='block'"/>
+				</div>
+				
 			<!-- 모달 전체사진보기 -->
-			
-			
+					<div id="id01" class="w3-modal w3-black">
+						<div class="w3-modal-content">
+							<div class="w3-container">
+								<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> 
+								<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height: 100%;"> 
+								<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height: 100%;"> 
+								<img class="mySlides" src="images/room-3.jpg" style="width: 100%; height: 100%;"> 
+								<img class="mySlides" src="images/room-4.jpg" style="width: 100%; height: 100%;">
 
-			<!-- 숙소사진끝 -->
+								<button class="w3-button w3-opacity-8 w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+								<button class="w3-button w3-opacity-8 w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+								<script type="text/javascript">
+									var slideIndex = 1;
+									showDivs(slideIndex);
+
+									function plusDivs(n) {
+										showDivs(slideIndex += n);
+									}
+
+									function showDivs(n) {
+										var i;
+										var x = document
+												.getElementsByClassName("mySlides");
+										x[1].style.display = "block";
+										if (n > x.length) {
+											slideIndex = 1
+										}
+										if (n < 1) {
+											slideIndex = x.length
+										}
+										for (i = 0; i < x.length; i++) {
+											x[i].style.display = "none";
+										}
+										x[slideIndex - 1].style.display = "block";
+									}
+								</script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- 숙소사진끝 -->
 			<div class="row">
 				<div class="col-lg-8">
 
@@ -180,14 +267,11 @@
 							</div>
 							<form action="pay.do">
 								<div>
-									<input type="text" id="checkin_date" class="form-control"
-										placeholder="Date from"> ~ <input type="text"
-										id="checkout_date" class="form-control"
-										placeholder="Date from">
+									<input type="text" id="checkin_date"  placeholder="check in"> ~ 
+									<input type="text" id="checkout_date" placeholder="check out">
 								</div>
 								<div class="col-lg-12 mt-2">
-									<input type="submit" value="예약하기" class="btn btn-primary py-2"
-										style="border-radius: 3px; width: 100%;">
+									<input type="submit" value="예약하기" class="btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
 
 								<hr>
@@ -198,7 +282,7 @@
 
 						</div>
 					</div>
-
+					
 
 
 				</section>
