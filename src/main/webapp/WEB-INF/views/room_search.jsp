@@ -5,18 +5,21 @@
 <head>
 <title>Azanda.</title>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+
 <style type="text/css">
 #kkomap {
 	width: 100%;
-	height: 800px;
 	clear: both;
 	overflow: hidden;
-	display: inline-block;
-	position: sticky;
+	display: flex;
+	flex-direction: column;
+	height:100%;
+	position: sticky;	
 }
+.mySlides {display:none;} 
 
 p {
 	margin-top: 0;
@@ -24,8 +27,8 @@ p {
 }
 
 .map_wrap {
-	position: relative;
 	overflow: hidden;
+	display: flex;
 }
 
 .radius_border {
@@ -113,9 +116,24 @@ p {
 }
 </style>
 <script type="text/javascript">
-	
+var slideIndex = 1;
+showDivs(slideIndex);
 
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
 
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  x[1].style.display = "block";
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
 </script>
 <body>
 
@@ -128,35 +146,34 @@ p {
 	</div>
 	<!--================ End Header =================-->
 
-	<!--================ 본문 =================-->
 
-	<div class="row">
+	<div class="row"><!-- 본문 -->
 
 		<!--================ 숙소 리스트 =================-->
 
 		<div class="col-lg-6">
 			<div class="container">
 				<div class="row">
-
 					<div class="col-lg-12">
 						<div class="col-lg-12">
 							<p>여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인 할 수 있습니다.</p>
 							<hr>
 						</div>
-						<!-- 집 시작 -->
+						
 						<hr>
-						<div class="row">
-							<div class="col-lg-5">
-								<div class="destination">
-									<a href="room_detail.do" target="_blank"
-										class="img img-2 d-flex justify-content-center align-items-center"
-										style="background-image: url(images/restaurant-4.jpg);">
-											<span class="icon-search2"></span>
-									</a>
+						<div class="row"><!-- 집 시작 -->
+							<div class="col-lg-5 ">
+								<div class="w3-content w3-display-container">
+									<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height:100%; display:block;"> 
+									<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height:100%;">
+									<img class="mySlides" src="images/room-3.jpg" style="width: 100%; height:100%;"> 
+									<img class="mySlides" src="images/room-4.jpg" style="width: 100%; height:100%;">
+
+									<button class="w3-button w3-opacity-8 w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+									<button class="w3-button w3-opacity-8 w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 								</div>
 
-								</div>
-							</div>
+							</div><!-- 사진슬라이드 끝 -->
 							<div class="col-lg-7 text">
 								<div>
 									Yeosu의 집 전체
@@ -168,134 +185,37 @@ p {
 									countries</p>
 								<hr>
 								<p class="bottom-area d-flex">
-									<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-										class="ml-auto"><a href="#">Book Now</a></span>
+									<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+									<span class="ml-auto"><a href="#">Book Now</a></span>
 								</p>
-							</div>
-						</div>
-						<!-- 집끝 -->
+							</div><!-- 숙소하나 끝 -->
+							
+						</div><!-- 집끝 -->
+
+						
 					</div>
 
-
-					
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
+					<!--================ 페이지 번호  =================-->
+					<div class="col text-center mt-3 mb-3">
+						<div class="block-27">
+							<ul>
+								<li><a href="#">&lt;</a></li>
+								<li class="active"><span>1</span></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#">&gt;</a></li>
+							</ul>
 						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
 					</div>
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div>
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div>
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div>
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div>
-					<div class="col-lg-7 text">
-						<div>
-							Yeosu의 집 전체
-							<h5>Luxury Restaurant</h5>
-						</div>
-
-
-						<p>Far far away, behind the word mountains, far from the
-							countries</p>
-						<hr>
-						<p class="bottom-area d-flex">
-							<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-								class="ml-auto"><a href="#">Book Now</a></span>
-						</p>
-					</div>
-
-
-
+					<!--================ end 페이지 번호 =================-->
 				</div>
 			</div>
-
-			<!--================ 페이지 번호  =================-->
-			<div class="col text-center">
-				<div class="block-27">
-					<ul>
-						<li><a href="#">&lt;</a></li>
-						<li class="active"><span>1</span></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&gt;</a></li>
-					</ul>
-				</div>
-			</div>
-			<!--================ end 페이지 번호 =================-->
-
-
-		</div>
-		<!--================ 숙소 리스트 끝 =================-->
+		</div><!-- 숙소리스트 끝 -->
 
 		<!--================ 지도 api =================-->
-		<div class="col-lg-6 map_wrap">
+		<div class="col-lg-6 map_wrap sidebar">
 			<div id="kkomap"></div>
 			<!-- 지도타입 컨트롤 div 입니다 -->
 			<div class="custom_typecontrol radius_border">
@@ -311,11 +231,9 @@ p {
 					src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png"
 					alt="축소"></span>
 			</div>
-			<script type="text/javascript"
-				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35"></script>
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35"></script>
 			<!-- services,cluster,drawing 라이브러리 불러오기 -->
-			<script type="text/javascript"
-				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 			<script type="text/javascript">
 				var container = document.getElementById('kkomap');
 				var options = {//지도 생성시 필요한 기본 옵션
@@ -325,37 +243,12 @@ p {
 				};
 
 				var kkomap = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-				// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
-				function setMapType(maptype) {
-					var roadmapControl = document.getElementById('btnRoadmap');
-					var skyviewControl = document.getElementById('btnSkyview');
-					if (maptype === 'roadmap') {
-						map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);
-						roadmapControl.className = 'selected_btn';
-						skyviewControl.className = 'btn';
-					} else {
-						map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);
-						skyviewControl.className = 'selected_btn';
-						roadmapControl.className = 'btn';
-					}
-				}
-
-				// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-				function zoomIn() {
-					map.setLevel(map.getLevel() - 1);
-				}
-
-				// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-				function zoomOut() {
-					map.setLevel(map.getLevel() + 1);
-				}
+				
+			
 			</script>
-		</div>
-		<!--================ end 지도 api =================-->
+		</div><!-- 지도 api 끝 -->
 
-	</div>
-	<!--================ end 본문 =================-->
+	</div><!-- 본문 끝 -->
 
 	<!--================ footer =================-->
 	<div>

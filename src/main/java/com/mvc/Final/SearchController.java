@@ -33,4 +33,9 @@ public class SearchController {
 		
 		return "room_detail";
 	}
+	
+	@RequestMapping("/pay.do")
+	public String pay() {
+		return "payment";
+	}
 }
