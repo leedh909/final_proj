@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_safetyDto {
+public class Rooms_safetyDto {
 	private int seq_safety;
 	private String fire_sensor;
 	private String co_sensor;
@@ -8,11 +8,11 @@ public class rooms_safetyDto {
 	private String fire_off;
 	private int seq_rm;
 	
-	public rooms_safetyDto() {
+	public Rooms_safetyDto() {
 		super();
 	}
 
-	public rooms_safetyDto(int seq_safety, String fire_sensor, String co_sensor, String e_kit, String fire_off, int seq_rm) {
+	public Rooms_safetyDto(int seq_safety, String fire_sensor, String co_sensor, String e_kit, String fire_off, int seq_rm) {
 		super();
 		this.seq_safety = seq_safety;
 		this.fire_sensor = fire_sensor;

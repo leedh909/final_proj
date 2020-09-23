@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_ruleDto {
+public class Rooms_ruleDto {
 	private int seq_rule;
 	private String kid;
 	private String baby;
@@ -9,11 +9,11 @@ public class rooms_ruleDto {
 	private String party;
 	private int seq_rm;
 	
-	public rooms_ruleDto() {
+	public Rooms_ruleDto() {
 		super();
 	}
 
-	public rooms_ruleDto(int seq_rule, String kid, String baby, String pet, String smoke, String party, int seq_rm) {
+	public Rooms_ruleDto(int seq_rule, String kid, String baby, String pet, String smoke, String party, int seq_rm) {
 		super();
 		this.seq_rule = seq_rule;
 		this.kid = kid;

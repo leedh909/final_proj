@@ -1,16 +1,16 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_introDto {
+public class Rooms_introDto {
 	private int seq_intro;
 	private String title;
 	private String context;
 	private int seq_rm;
 	
-	public rooms_introDto() {
+	public Rooms_introDto() {
 		super();
 	}
 
-	public rooms_introDto(int seq_intro, String title, String context, int seq_rm) {
+	public Rooms_introDto(int seq_intro, String title, String context, int seq_rm) {
 		super();
 		this.seq_intro = seq_intro;
 		this.title = title;

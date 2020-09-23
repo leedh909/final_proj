@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_facilityDto {
+public class Rooms_facilityDto {
 	private int seq_facility;
     private String washer;
     private String dryer;
@@ -10,11 +10,11 @@ public class rooms_facilityDto {
     private String parking;
     private int seq_rm;
     
-	public rooms_facilityDto() {
+	public Rooms_facilityDto() {
 		super();
 	}
 
-	public rooms_facilityDto(int seq_facility, String washer, String dryer, String kitchen, String pool, String fitness,
+	public Rooms_facilityDto(int seq_facility, String washer, String dryer, String kitchen, String pool, String fitness,
 			String parking, int seq_rm) {
 		super();
 		this.seq_facility = seq_facility;

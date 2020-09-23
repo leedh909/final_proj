@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class roomsDto {
+public class RoomsDto {
     private int seq_rm;
     private String room_name;
     private String addr;
@@ -14,11 +14,11 @@ public class roomsDto {
     private String checkin;
     private int seq_h;
     
-	public roomsDto() {
+	public RoomsDto() {
 		super();
 	}
 
-	public roomsDto(int seq_rm, String room_name, String addr, int person, int price, String intro, String r_type,
+	public RoomsDto(int seq_rm, String room_name, String addr, int person, int price, String intro, String r_type,
 			int bed_room, int bed, int bath_room, String checkin, int seq_h) {
 		super();
 		this.seq_rm = seq_rm;

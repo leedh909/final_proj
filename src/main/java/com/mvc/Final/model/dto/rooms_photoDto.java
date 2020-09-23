@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_photoDto {
+public class Rooms_photoDto {
 	private int seq_pr;
 	private String p_path;
 	private int seq_intro;

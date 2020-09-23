@@ -1,6 +1,6 @@
 package com.mvc.Final.model.dto;
 
-public class rooms_detailDto {
+public class Rooms_detailDto {
     private int seq_detail;
     private String essential;
     private String heating;
@@ -14,11 +14,11 @@ public class rooms_detailDto {
     private String wifi;
     private int seq_rm;
     
-	public rooms_detailDto() {
+	public Rooms_detailDto() {
 		super();
 	}
 
-	public rooms_detailDto(int seq_detail, String essential, String heating, String aircondition, String iron, String tv,
+	public Rooms_detailDto(int seq_detail, String essential, String heating, String aircondition, String iron, String tv,
 			String shampoo, String hairdry, String desk, String closet, String wifi, int seq_rm) {
 		super();
 		this.seq_detail = seq_detail;
