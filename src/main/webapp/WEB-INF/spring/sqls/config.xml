@@ -10,7 +10,18 @@
   		<typeAlias type="com.mvc.Final.model.dto.HostDto" alias="hostDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.RequireDto" alias="rqDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.ReservationDto" alias="reservationDto"/>
+
   		<typeAlias type="com.mvc.Final.model.dto.SearchOption" alias="searchOption"/>
+  		<typeAlias type="com.mvc.Final.model.dto.SearchRoomDto" alias="searchRoomDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.RoomTotalDto" alias="roomTotalDto"/>
+
+  		<typeAlias type="com.mvc.Final.model.dto.RoomsDto" alias="roomsDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_detailDto" alias="rooms_detailDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_facilityDto" alias="rooms_facilityDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_introDto" alias="rooms_introDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_photoDto" alias="rooms_photoDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_ruleDto" alias="rooms_ruleDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.Rooms_safetyDto" alias="rooms_safetyDto"/>
   	</typeAliases>
   
   
