@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
 <style type="text/css">
@@ -134,6 +138,15 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
 }
+// 검색창 아코디언
+function myFunction(id) {
+	  var x = document.getElementById(id);
+	  if (x.className.indexOf("w3-show") == -1) {
+	    x.className += " w3-show";
+	  } else { 
+	    x.className = x.className.replace(" w3-show", "");
+	  }
+	}
 </script>
 <body>
 
@@ -146,9 +159,18 @@ function showDivs(n) {
 	</div>
 	<!--================ End Header =================-->
 
-
+	<section class="ftco-section ftco-degree-bg">
+	<!--================ 검색창 =====================-->
+		<div class="">
+			<button onclick="myFunction('Demo1')" class="w3-round-xxlarge w3-button w3-block w3-center-align" style="width:40%;">검색창</button>
+		</div>
+		
+		
+		<div id="Demo1" class="w3-hide">
+			<a class="w3-button w3-block w3-left-align" href="#">검색창 활성화</a> 
+		</div>
+		<!--================ 검색창 =====================-->
 	<div class="row"><!-- 본문 -->
-
 		<!--================ 숙소 리스트 =================-->
 
 		<div class="col-lg-6">
@@ -160,9 +182,11 @@ function showDivs(n) {
 							<hr>
 						</div>
 						
+						<!-- 집 시작 -->
+						<div class="row">
 						<hr>
-						<div class="row"><!-- 집 시작 -->
 							<div class="col-lg-5 ">
+							<a href="room_detail.do?seq_rm=32">
 								<div class="w3-content w3-display-container">
 									<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height:100%; display:block;"> 
 									<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height:100%;">
@@ -172,29 +196,40 @@ function showDivs(n) {
 									<button class="w3-button w3-opacity-8 w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 									<button class="w3-button w3-opacity-8 w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 								</div>
-
+							</a>
 							</div><!-- 사진슬라이드 끝 -->
 							<div class="col-lg-7 text">
 								<div>
-									Yeosu의 집 전체
-									<h5>Luxury Restaurant</h5>
+									<c:set var="addrbefore" value="${roomInfo.room.addr}" />
+									<c:set var="addrsplit" value="${fn:split(addrbefore,' ')[1]}"></c:set>
+									Yeosu의 ${searchList.room.r_type} 전체
+									<h5>${searchList.room.room_name}</h5>
 								</div>
 
+								<hr width="100px">
 
-								<p>Far far away, behind the word mountains, far from the
-									countries</p>
-								<hr>
+								<p>
+									<span>최대 인원  ${searchList.room.person}명</span>
+									<span aria-hidden="true"> · </span> 
+									<span>침실 ${searchList.room.bed_room}개</span>
+									<span aria-hidden="true"> · </span> 
+									<span>침대 ${searchList.room.bed}개</span>
+									<span aria-hidden="true"> · </span> 
+									<span>욕실 ${searchList.room.bath_room}개</span>
+								</p>
+								<p>
+									<span></span>
+								</p>
 								<p class="bottom-area d-flex">
 									<span><i class="icon-map-o"></i> San Franciso, CA</span> 
 									<span class="ml-auto"><a href="#">Book Now</a></span>
 								</p>
+								
 							</div><!-- 숙소하나 끝 -->
 							
 						</div><!-- 집끝 -->
-
 						
 					</div>
-
 					<!--================ 페이지 번호  =================-->
 					<div class="col text-center mt-3 mb-3">
 						<div class="block-27">
@@ -249,7 +284,7 @@ function showDivs(n) {
 		</div><!-- 지도 api 끝 -->
 
 	</div><!-- 본문 끝 -->
-
+	</section>
 	<!--================ footer =================-->
 	<div>
 		<jsp:include page="footer.jsp" />

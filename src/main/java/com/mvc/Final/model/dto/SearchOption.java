@@ -8,6 +8,8 @@ public class SearchOption {
 	private LocalDate checkin;	//체크인 날짜
 	private LocalDate checkout;	//체크아웃 날짜
 	private int guestNum;	//게스트 수 
+	private int totalPrice;	//총합계 
+	private boolean travelMate;	//travelmate 여부
 
 	//생성자
 	public SearchOption() {}
@@ -65,7 +67,12 @@ public class SearchOption {
 	public void setGuestNum(int guestNum) {
 		this.guestNum = guestNum;
 	}
-	
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	
 	
 }

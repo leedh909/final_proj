@@ -1,15 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>DirEngine - Free Bootstrap 4 Template by Colorlib</title>
+<title>Azanda.</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
 <style type="text/css">
@@ -34,6 +37,28 @@
 	position: sticky;
 	top: 30px;
 	width: 300px;
+}
+
+.money{
+	border: 0px; 
+	outline: none;
+	font-weight: 600 !important;
+	font-size: 22px !important;
+    line-height: 26px !important;
+}
+
+._plc5prx{
+	-webkit-box-flex: 1 !important;
+    flex-shrink: 1 !important;
+    flex-grow: 1 !important;
+    white-space: normal !important;
+    font-weight: 800 !important;
+}
+
+._1d3ext9m {
+    padding-left: 16px !important;
+    white-space: nowrap !important;
+    font-weight: 800 !important;
 }
 
 #myModalP {
@@ -76,37 +101,11 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-
 <script type="text/javascript">
-	$(function() {
-		//input을 datepicker로 선언
-		$("#checkin_date").datepicker();
-		$("#checkout_date").datepicker();
-		//모든 datepicker에 대한 공통 옵션 설정
-		$.datepicker.setDefaults({
-			dateFormat : 'yy-mm-dd' //Input Display Format 변경
-			,showOtherMonths : true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
-			,showMonthAfterYear : true //년도 먼저 나오고, 뒤에 월 표시
-			,changeYear : true //콤보박스에서 년 선택 가능
-			,changeMonth : true //콤보박스에서 월 선택 가능                
-			,showOn : "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
-			,buttonImage : "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
-			,buttonImageOnly : true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
-			,buttonText : "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
-			,yearSuffix : "년" //달력의 년도 부분 뒤에 붙는 텍스트
-			,monthNamesShort : [ '1', '2', '3', '4', '5', '6', '7', '8','9', '10', '11', '12' ] //달력의 월 부분 텍스트
-			,monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월','8월', '9월', '10월', '11월', '12월' ] //달력의 월 부분 Tooltip 텍스트
-			,dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ] //달력의 요일 부분 텍스트
-			,dayNames : [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일','토요일' ] //달력의 요일 부분 Tooltip 텍스트
-			,minDate : "-1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
-			,maxDate : "+1M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)                    
-			});
-		//From의 초기값을 오늘 날짜로 설정
-		$('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-		//To의 초기값을 내일로 설정
-		$('#datepicker2').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
-	});
+	var dateSelector = document.querySelector('.dateSelector');
+	dateSelector.flatpickr();
 </script>
+
 </head>
 <body>
 
@@ -123,7 +122,15 @@
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
-			
+			<div class="col-lg-12">
+				<h2><b>${roomInfo.room.room_name}</b></h2>
+				<c:set var="addrbefore" value="${roomInfo.room.addr}" />
+				<c:set var="addrsi" value="${fn:split(addrbefore,' ')[0]}"></c:set>
+				<c:set var="addrgu" value="${fn:split(addrbefore,' ')[1]}"></c:set>
+				<p>
+					${addrgu}, ${addrsi}
+				</p>
+			</div>
 			<div class="col-md-12"><!-- 숙소 사진 -->
 			<div class="w3-display-container">
 				<div class="grid-container">
@@ -185,15 +192,16 @@
 					<!-- 숙소 이름 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<div>
-							<h2>OO님이 호스팅하는 OO</h2>
+							
+							<h2><b>OO님이 호스팅하는 ${roomInfo.room.r_type}전체</b></h2>
 							<div>
-								<span>최대 인원 N명</span> 
+								<span>최대 인원 ${roomInfo.room.person}명</span> 
 								<span aria-hidden="true"> · </span> 
-								<span>침실N개</span>
+								<span>침실 ${roomInfo.room.bed_room}개</span>
 								<span aria-hidden="true"> · </span> 
-								<span>침대 N개</span> 
+								<span>침대 ${roomInfo.room.bed}개</span> 
 								<span aria-hidden="true"> · </span> 
-								<span>욕실 N개</span>
+								<span>욕실 ${roomInfo.room.bath_room}개</span>
 							</div>
 						</div>
 						<hr>
@@ -202,8 +210,8 @@
 								<i class="fa fa-home" style="font-size: 30px;"></i>
 							</div>
 							<div class="col-md-11 mt-2">
-								<h5>'집' 전체</h5>
-								<p class="pt">'집'전체를 사용</p>
+								<h5>${roomInfo.room.r_type} 전체</h5>
+								<p class="pt">${roomInfo.room.r_type}전체를 단독으로 사용하시게 됩니다.</p>
 							</div>
 
 							<div class="col-md-1 mt-2 pl-3">
@@ -211,7 +219,7 @@
 							</div>
 							<div class="col-md-11 mt-2">
 								<h5>체크인</h5>
-								<p class="pt">' '를(을) 이용해 체크인 하세요</p>
+								<p class="pt">${roomInfo.room.checkin}을(를) 이용해 체크인 하세요</p>
 							</div>
 
 							<div class="col-md-1 mt-2 pl-3">
@@ -227,7 +235,9 @@
 					<hr>
 					<!-- 집정보 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
-						<div>숙소정보 출력</div>
+						<div>
+							<pre>${roomInfo.intro.context}</pre>
+						</div>
 					</section>
 					<hr>
 
@@ -262,13 +272,12 @@
 					<div class="sticky">
 						<div class="col-lg-12 mt-4 mb-4">
 							<div>
-								<span aria-hidden="true">&#8361;</span> <span aria-hidden="true">/박</span>
-
+								<input type="text" class="money" name="perPrice" readonly="readonly" value="&#8361; ${roomInfo.room.price}"><small>/박</small>
 							</div>
 							<form action="pay.do">
 								<div>
-									<input type="text" id="checkin_date"  placeholder="check in"> ~ 
-									<input type="text" id="checkout_date" placeholder="check out">
+									<input class="checkin_date" id="checkin" name="checkin" placeholder="check in"> ~ 
+									<input class="checkout_date" id="checkout" name="checkout" placeholder="check out" >
 								</div>
 								<div class="col-lg-12 mt-2">
 									<input type="submit" value="예약하기" class="btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
@@ -276,14 +285,13 @@
 
 								<hr>
 								<div>
-									<span style="fontsize: 20px;"><b>총합계</b></span> <span><b>&#8361;</b></span>
+									<span class="_plc5prx">총 합계</span>
+									<span><input class="money _1d3ext9m" type="text" name="totalPrice" value="&#8361; " readonly="readonly"></span>
 								</div>
 							</form>
 
 						</div>
 					</div>
-					
-
 
 				</section>
 
@@ -295,11 +303,17 @@
 					<h2 class="pl-3">위치</h2>
 
 					<div id="kkomap" style="width: 100%; height: 500px;"></div>
+					<c:set var="addrbefore" value="${roomInfo.room.addr}" />
+					<c:set var="addrsi" value="${fn:split(addrbefore,' ')[0]}"></c:set>
+					<c:set var="addrgu" value="${fn:split(addrbefore,' ')[1]}"></c:set>
+					<p class="mt-4">
+						<b>${addrgu}, ${addrsi}</b>
+					</p>
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35&libraries=services"></script>
 					<!-- services,cluster,drawing 라이브러리 불러오기 -->
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 					<script type="text/javascript">
-					
+						
 						var mapContainer = document.getElementById('kkomap'), // 지도를 표시할 div 
 						mapOption = {
 							center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표

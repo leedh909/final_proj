@@ -22,6 +22,12 @@ public class RoomTotalDto {
 		this.rule = rule;
 		this.safety = safety;
 	}
+	
+	public RoomTotalDto(RoomsDto room, Rooms_introDto intro) {
+		super();
+		this.room = room;
+		this.intro = intro;
+	}
 
 	//getter/setter
 	public RoomsDto getRoom() {
