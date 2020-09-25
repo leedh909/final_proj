@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
 import com.mvc.Final.model.dto.SearchOption;
 
@@ -51,6 +52,20 @@ public class SearchDao {
 		}
 		
 		return roomInfo;
+	}
+	
+	//호스트 정보
+	public LoginDto hostInfo(int hostNum) {
+		LoginDto hostInfo = new LoginDto();
+		
+		try {
+			hostInfo = sqlSession.selectOne(NAMESPACE+"hostInfo",hostNum);
+		} catch (Exception e) {
+			System.out.println("error:hostInfo");
+			e.printStackTrace();
+		}
+		
+		return hostInfo;
 	}
 
 }

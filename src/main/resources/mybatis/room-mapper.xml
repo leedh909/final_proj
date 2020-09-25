@@ -105,5 +105,14 @@
 		JOIN SAFETY s ON(r.SEQ_RM = s.SEQ_RM)
 		WHERE r.SEQ_RM = #{seq_rm}
 	</select>
+	
+	<!-- 호스트 정보 -->
+	<select id="hostInfo" parameterType="int" resultType="loginDto">
+		SELECT * 
+		FROM MEMBER 
+		WHERE SEQ_M = (SELECT SEQ_M 
+						FROM HOST 
+						WHERE SEQ_H = #{hostNum})
+	</select>
 
 </mapper>

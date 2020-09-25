@@ -12,6 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="css/room_detail.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
@@ -96,15 +97,22 @@
 	grid-column: 4;
     grid-row:1 ;
 }
+
 </style>
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 <script type="text/javascript">
-	var dateSelector = document.querySelector('.dateSelector');
-	dateSelector.flatpickr();
+function myFunction(x){
+	$(".selector").flatpickr({
+		  enableTime: true,
+		  dateFormat: "Y-m-d H:i",
+		});
+}
+
 </script>
+
 
 </head>
 <body>
@@ -118,7 +126,7 @@
 	</div>
 	<!--================ End Header =================-->
 
-
+	<input type="hidden" value="${roomInfo.room.addr}" id="addr">
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
@@ -144,46 +152,7 @@
 					<input class="button" type="button" value="전체사진보기" onclick="document.getElementById('id01').style.display='block'"/>
 				</div>
 				
-			<!-- 모달 전체사진보기 -->
-					<div id="id01" class="w3-modal w3-black">
-						<div class="w3-modal-content">
-							<div class="w3-container">
-								<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> 
-								<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height: 100%;"> 
-								<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height: 100%;"> 
-								<img class="mySlides" src="images/room-3.jpg" style="width: 100%; height: 100%;"> 
-								<img class="mySlides" src="images/room-4.jpg" style="width: 100%; height: 100%;">
-
-								<button class="w3-button w3-opacity-8 w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-								<button class="w3-button w3-opacity-8 w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-								<script type="text/javascript">
-									var slideIndex = 1;
-									showDivs(slideIndex);
-
-									function plusDivs(n) {
-										showDivs(slideIndex += n);
-									}
-
-									function showDivs(n) {
-										var i;
-										var x = document
-												.getElementsByClassName("mySlides");
-										x[1].style.display = "block";
-										if (n > x.length) {
-											slideIndex = 1
-										}
-										if (n < 1) {
-											slideIndex = x.length
-										}
-										for (i = 0; i < x.length; i++) {
-											x[i].style.display = "none";
-										}
-										x[slideIndex - 1].style.display = "block";
-									}
-								</script>
-							</div>
-						</div>
-					</div>
+					
 				</div>
 			</div><!-- 숙소사진끝 -->
 			<div class="row">
@@ -193,7 +162,7 @@
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<div>
 							
-							<h2><b>OO님이 호스팅하는 ${roomInfo.room.r_type}전체</b></h2>
+							<h2><b>${hostInfo.name}님이 호스팅하는 ${roomInfo.room.r_type}전체</b></h2>
 							<div>
 								<span>최대 인원 ${roomInfo.room.person}명</span> 
 								<span aria-hidden="true"> · </span> 
@@ -271,14 +240,63 @@
 				<section class="col-lg-4 sidebar mt-5">
 					<div class="sticky">
 						<div class="col-lg-12 mt-4 mb-4">
+							<form action="pay.do">
 							<div>
 								<input type="text" class="money" name="perPrice" readonly="readonly" value="&#8361; ${roomInfo.room.price}"><small>/박</small>
 							</div>
-							<form action="pay.do">
-								<div>
-									<input class="checkin_date" id="checkin" name="checkin" placeholder="check in"> ~ 
-									<input class="checkout_date" id="checkout" name="checkout" placeholder="check out" >
-								</div>
+								<div class="_poaz3m" style="border-radius: 8px;"><!-- 체크인 및 인원선택박스 -->
+									<div class="_jro6t0">
+										<div class="_zdxht7">
+											<div class="_e296pg" style="flex: 1 1 0%;">
+												<div class="_sbmagf"
+													style="background: none; border-radius: 8px 8px 0px 0px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
+												<div class="_11wiged"
+													aria-label="날짜 변경하기; 체크인: undefined; 체크아웃: undefined"
+													aria-invalid="false" role="button" tabindex="0">
+													<div class="_1acx77b">
+														<div class="_7eq2v2">체크인</div>
+														<div class="_1ygdnkvm">날짜 추가</div>
+													</div>
+													<div class="_14tl4ml5">
+														<div class="_7eq2v2">체크아웃</div>
+														<div class="_1ygdnkvm">날짜 추가</div>
+													</div>
+												</div>
+												<div class="_t26glb"
+													style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 8px 8px 0px 0px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
+											</div>
+										</div>
+									</div>
+									<div class="_jro6t0">
+										<div class="_bp34sw">
+											<div class="_e296pg" style="flex: 1 1 0%;">
+												<div class="_sbmagf" style="background: none; border-radius: 0px 0px 8px 8px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
+												<div class="_11wiged" aria-expanded="false" aria-haspopup="true"
+													aria-labelledby="guests-label GuestPicker-book_it-trigger"
+													aria-disabled="false" role="button" tabindex="0">
+													<label for="GuestPicker-book_it-trigger" class="_1x080uh">
+													<div class="_7eq2v2">인원</div>
+													<div class="_1wo1vgi" id="GuestPicker-book_it-trigger" aria-invalid="false" aria-disabled="false">
+															<div class="_1ir6ymk">
+																<span>게스트 1명</span>
+															</div>
+														</div></label>
+													<div class="_vgx32s">
+														<svg viewBox="0 0 18 18" role="presentation"
+															aria-hidden="true" focusable="false"
+															style="height: 16px; width: 16px; display: block; fill: currentcolor;">
+															<path
+																d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+																fill-rule="evenodd"></path></svg>
+													</div>
+												</div>
+												<div class="_t26glb"
+													style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 0px 0px 8px 8px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
+											</div>
+											<div></div>
+										</div>
+									</div>
+								</div><!-- 체크인 및 인원선택박스 -->
 								<div class="col-lg-12 mt-2">
 									<input type="submit" value="예약하기" class="btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
@@ -313,6 +331,7 @@
 					<!-- services,cluster,drawing 라이브러리 불러오기 -->
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 					<script type="text/javascript">
+						var address = document.getElementById('addr').value;
 						
 						var mapContainer = document.getElementById('kkomap'), // 지도를 표시할 div 
 						mapOption = {
@@ -336,7 +355,7 @@
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new kakao.maps.services.Geocoder();
 						// 주소로 좌표를 검색합니다
-						geocoder.addressSearch('서울시 강동구 고덕로 131', function(
+						geocoder.addressSearch(address, function(
 								result, status) {
 							// 정상적으로 검색이 완료됐으면 
 							if (status === kakao.maps.services.Status.OK) {
