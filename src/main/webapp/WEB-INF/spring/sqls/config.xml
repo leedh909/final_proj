@@ -13,6 +13,7 @@
 
   		<typeAlias type="com.mvc.Final.model.dto.SearchOption" alias="searchOption"/>
   		<typeAlias type="com.mvc.Final.model.dto.RoomTotalDto" alias="roomTotalDto"/>
+  		<typeAlias type="com.mvc.Final.model.dto.RoomReservationDto" alias="roomReservationDto"/>
 
   		<typeAlias type="com.mvc.Final.model.dto.RoomsDto" alias="roomsDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_detailDto" alias="rooms_detailDto"/>
