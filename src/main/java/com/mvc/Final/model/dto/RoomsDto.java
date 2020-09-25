@@ -13,13 +13,16 @@ public class RoomsDto {
     private int bath_room;
     private String checkin;
     private int seq_h;
+    private String checkin_time;
+    private String checkout_time;
     
 	public RoomsDto() {
 		super();
 	}
 
 	public RoomsDto(int seq_rm, String room_name, String addr, int person, int price, String intro, String r_type,
-			int bed_room, int bed, int bath_room, String checkin, int seq_h) {
+			int bed_room, int bed, int bath_room, String checkin, int seq_h, String checkin_time,
+			String checkout_time) {
 		super();
 		this.seq_rm = seq_rm;
 		this.room_name = room_name;
@@ -33,6 +36,8 @@ public class RoomsDto {
 		this.bath_room = bath_room;
 		this.checkin = checkin;
 		this.seq_h = seq_h;
+		this.checkin_time = checkin_time;
+		this.checkout_time = checkout_time;
 	}
 
 	public int getSeq_rm() {
@@ -131,4 +136,20 @@ public class RoomsDto {
 		this.seq_h = seq_h;
 	}
 
+	public String getCheckin_time() {
+		return checkin_time;
+	}
+
+	public void setCheckin_time(String checkin_time) {
+		this.checkin_time = checkin_time;
+	}
+
+	public String getCheckout_time() {
+		return checkout_time;
+	}
+
+	public void setCheckout_time(String checkout_time) {
+		this.checkout_time = checkout_time;
+	}
+    
 }
