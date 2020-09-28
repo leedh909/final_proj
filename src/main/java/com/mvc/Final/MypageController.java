@@ -1,7 +1,9 @@
 package com.mvc.Final;
 
+import java.io.FileNotFoundException;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.util.WebUtils;
 
 import com.mvc.Final.model.biz.LoginBiz;
 import com.mvc.Final.model.biz.MypageBiz;
@@ -27,9 +30,15 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	private MypageBiz mbiz;
 	
 	@RequestMapping("/mypage.do")
-	public String mypage(Model model, HttpSession session) {
+	public String mypage(Model model, HttpSession session, HttpServletRequest request) {
 		logger.info("MyPage");
 		String login = ((LoginDto)session.getAttribute("login")).getId();
+		System.out.println("login mypage:"+login);
+		
+		String path="\\storage\\profile";
+	
+		System.out.println("저장된 파일 경로: "+path);
+		String filename = login+"image.jpg";
 
 		//ADMIN의 데이터
 		model.addAttribute("hclist",mbiz.selectHostChk());
@@ -38,6 +47,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		
 		//Guest의 데이터
 		model.addAttribute("relist",mbiz.selectReservation(login));
+		model.addAttribute("profile",path+"\\"+filename);
 		
 		return "mypage";
 	}
@@ -79,6 +89,19 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			return "redirect:mypage.do";
 		}
 		
+	}
+	
+	@RequestMapping("/profileupdate.do")
+	public String profileupdate(LoginDto ldto) {
+		logger.info("ProfileUpdate");
+		System.out.println("ldto결과: "+ldto.toString());
+		int res = mbiz.profileupdate(ldto);
+		
+		if(res>0) {
+			return "redirect:mypage.do";
+		}else {
+			return "redirect:mypage.do";
+		}
 	}
 	
 	

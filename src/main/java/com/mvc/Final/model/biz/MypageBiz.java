@@ -3,6 +3,7 @@ package com.mvc.Final.model.biz;
 import java.util.List;
 
 import com.mvc.Final.model.dto.HostDto;
+import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RequireDto;
 import com.mvc.Final.model.dto.ReservationDto;
 
@@ -16,5 +17,6 @@ public interface MypageBiz {
 	public int approve(int seq_h);
 	public String email(int seq_m);
 	public int hdelete(int seq_h);
+	public int profileupdate(LoginDto ldto);
 	
 }

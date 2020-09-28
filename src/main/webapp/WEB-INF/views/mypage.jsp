@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Insert title here</title>
 <style type="text/css">
    .table_th{
@@ -168,11 +169,63 @@
   		
   		<%-- GUEST Page --%>
   		<div style="padding:50px" align="center">
+  			<c:choose>
+	        	<c:when test="${empty login.getProfile()}">
+	        		<img src="storage/profile/baseprofile.jpg" alt="null" style="width:10%" class="w3-circle w3-margin-top">
+	        	</c:when>
+	        	<c:otherwise>
+	        		<img src="storage/profile/${login.getId() }image.jpg" alt="${profile }" style="width:10%" class="w3-circle w3-margin-top">
+	        	</c:otherwise>
+	        </c:choose>
            <h1>${login.getId() } 님 환영합니다.</h1>
         </div>
         
         <!-- 프로필 -->
+        
  		<div style="padding:100px;" align="center">회원수정 가능하게 버튼 넣을 생각중</div>
+ 		<div class="w3-container">
+		  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
+		
+		  <div id="id01" class="w3-modal">
+		    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+		
+		      <div class="w3-center"><br>
+		        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+		        <c:choose>
+		        	<c:when test="${empty login.getProfile()}">
+		        		<img src="storage/profile/baseprofile.jpg" alt="null" style="width:30%" class="w3-circle w3-margin-top">
+		        	</c:when>
+		        	<c:otherwise>
+		        		<img src="storage/profile/${login.getId() }image.jpg" alt="${profile }" style="width:30%" class="w3-circle w3-margin-top">
+		        	</c:otherwise>
+		        </c:choose>
+		        
+		      </div>
+		
+		      <form class="w3-container" action="profileupdate.do">
+		        <div class="w3-section">
+		          <label><b>ID</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="ID" name="id" readonly="readonly" value="${login.getId() }">
+		          <label><b>Password</b></label>
+		          <input class="w3-input w3-border" type="password" placeholder="Input Password" name="pw" required>
+		          <label><b>Name</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Name" name="name" value="${login.getName() }" required>
+		          <label><b>Email</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Email" name="email" value="${login.getEmail() }" required>
+		          <label><b>Phone</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Phone" name="phone" value="${login.getPhone() }" required>
+		          
+		          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Setting</button>
+		        </div>
+		      </form>
+		
+		      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+		        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+		      </div>
+		
+		    </div>
+		  </div>
+		</div>
  		
  		<!-- 예약현황 -->
  		<div style="padding:100px;">

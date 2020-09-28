@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mvc.Final.model.dto.HostDto;
+import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RequireDto;
 import com.mvc.Final.model.dto.ReservationDto;
 
@@ -106,6 +107,13 @@ public class MypageDaoImpl implements MypageDao{
 	public int hdelete(int seq_h) {
 		int res = 0;
 		res = sqlSession.delete(NAMESPACE+"hdelete",seq_h);
+		return res;
+	}
+
+	@Override
+	public int profileupdate(LoginDto ldto) {
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"profileupdate",ldto);
 		return res;
 	}
 	

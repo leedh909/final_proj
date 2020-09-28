@@ -94,7 +94,9 @@ public class LoginController {
 				String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage/profile");
 				System.out.println("업로드 될 실제 경로: "+path);
 				
-				File storage = new File(path);
+				String path2 = path.substring(0,path.indexOf(".metadata"))+"final_proj4\\src\\main\\webapp\\storage\\profile";
+				System.out.println("파일이 저장될 위치: "+path2);
+				File storage = new File(path2);
 				if(!storage.exists()) {
 					try {
 						storage.mkdirs();
@@ -104,7 +106,7 @@ public class LoginController {
 				}
 				
 				
-				File newFile = new File(path+"/"+name);
+				File newFile = new File(path2+"/"+name);
 				if(!newFile.exists()) {
 					newFile.createNewFile();
 				}

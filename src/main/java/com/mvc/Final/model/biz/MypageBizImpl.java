@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.mvc.Final.model.dao.MypageDao;
 import com.mvc.Final.model.dto.HostDto;
+import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RequireDto;
 import com.mvc.Final.model.dto.ReservationDto;
 
@@ -59,6 +60,11 @@ public class MypageBizImpl implements MypageBiz{
 	@Override
 	public int hdelete(int seq_h) {
 		return dao.hdelete(seq_h);
+	}
+
+	@Override
+	public int profileupdate(LoginDto ldto) {
+		return dao.profileupdate(ldto);
 	}
 	
 	

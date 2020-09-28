@@ -2,7 +2,7 @@ package com.mvc.Final.model.dto;
 
 public class LoginDto {
 	
-	private int seq;
+	private int seq_m;
 	private String id;
 	private String pw;
 	private String name;
@@ -17,10 +17,10 @@ public class LoginDto {
 		super();
 	}
 
-	public LoginDto(int seq, String id, String pw, String name, String gender, int age, String email, String phone,
+	public LoginDto(int seq_m, String id, String pw, String name, String gender, int age, String email, String phone,
 			String profile, String role) {
 		super();
-		this.seq = seq;
+		this.seq_m = seq_m;
 		this.id = id;
 		this.pw = pw;
 		this.name = name;
@@ -32,12 +32,12 @@ public class LoginDto {
 		this.role = role;
 	}
 
-	public int getSeq() {
-		return seq;
+	public int getSeq_m() {
+		return seq_m;
 	}
 
-	public void setSeq(int seq) {
-		this.seq = seq;
+	public void setSeq_m(int seq_m) {
+		this.seq_m = seq_m;
 	}
 
 	public String getId() {
@@ -114,9 +114,12 @@ public class LoginDto {
 
 	@Override
 	public String toString() {
-		return "LoginDto [seq=" + seq + ", id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", age="
-				+ age + ", email=" + email + ", phone=" + phone + ", profile=" + profile + ", role=" + role + "]";
+		return "LoginDto [seq_m=" + seq_m + ", id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender
+				+ ", age=" + age + ", email=" + email + ", phone=" + phone + ", profile=" + profile + ", role=" + role
+				+ "]";
 	}
+
+	
 
 	
 	
