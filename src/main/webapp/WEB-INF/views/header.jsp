@@ -105,7 +105,7 @@
           	<c:when test="${login eq 'null'||login==null }">
           		 <li class="nav-item cta"><a class="nav-link"><span onclick="loginPopup();">LOGIN</span></a></li>
           	</c:when>
-          	<c:when test="${login eq 'ADMIN' }">
+          	<c:when test="${login.getId() eq 'ADMIN' }">
          		<li class="nav-item"><a href="mypage.do" class="nav-link">MyPage</a></li>
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
          	</c:when>

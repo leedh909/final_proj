@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mvc.Final.model.biz.LoginBiz;
 import com.mvc.Final.model.biz.MypageBiz;
+import com.mvc.Final.model.dto.LoginDto;
 
 @Controller
 public class MypageController {
@@ -28,7 +29,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping("/mypage.do")
 	public String mypage(Model model, HttpSession session) {
 		logger.info("MyPage");
-		String login = (String)session.getAttribute("login");
+		String login = ((LoginDto)session.getAttribute("login")).getId();
 
 		//ADMIN의 데이터
 		model.addAttribute("hclist",mbiz.selectHostChk());
@@ -44,7 +45,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	@RequestMapping("/hostpage.do")
 	public String hostpage(Model model,HttpSession session) {
 		logger.info("HostPage");
-		String login = (String)session.getAttribute("login");
+		String login = ((LoginDto)session.getAttribute("login")).getId();
 		Date today = new Date();
 		
 		//예약자현황

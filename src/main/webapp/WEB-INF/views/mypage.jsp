@@ -51,7 +51,7 @@
 
  <c:choose>
   	<%--  관리자 Page --%>
-  	<c:when test="${login  eq 'ADMIN'}">
+  	<c:when test="${login.getId()  eq 'ADMIN'}">
   		<div style="padding:50px" align="center">
            <h1>관리자 계정입니다</h1>
         </div>
@@ -168,7 +168,7 @@
   		
   		<%-- GUEST Page --%>
   		<div style="padding:50px" align="center">
-           <h1>${login } 님 환영합니다.</h1>
+           <h1>${login.getId() } 님 환영합니다.</h1>
         </div>
         
         <!-- 프로필 -->

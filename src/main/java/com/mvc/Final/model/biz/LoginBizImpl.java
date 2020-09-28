@@ -26,7 +26,7 @@ public class LoginBizImpl implements LoginBiz{
 		LoginDto ldto = new LoginDto();
 		ldto = dao.login(id, pw);
 		if(ldto != null) {
-			session.setAttribute("login", ldto.getId());
+			session.setAttribute("login", ldto);
 		}
 		
 		return ldto;
