@@ -61,6 +61,11 @@
 		WHERE SEQ_H = #{seq_h}
 	</delete>
 
+	<update id="profileupdate" parameterType="LoginDto">
+		UPDATE MEMBER 
+		SET PW = #{pw}, NAME = #{name}, EMAIL = #{email}, PHONE = #{phone} 
+		WHERE ID = #{id}
+	</update>
 
 
 </mapper>

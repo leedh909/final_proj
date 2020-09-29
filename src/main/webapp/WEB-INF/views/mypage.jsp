@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <title>Insert title here</title>
 <style type="text/css">
    .table_th{
@@ -41,7 +42,25 @@
 
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	//업로드 파일 읽기
+	function uploadImgPreview() {
+		let fileInfo = document.getElementById("upImgFile").files[0];
+		let reader = new FileReader();
+	
+	    reader.onload = function() {
+	        document.getElementById("imagepreview").src = reader.result;
+	        document.getElementById("imagepreview").innerText = reader.result;
+	        document.getElementById("imagepreview").height = 250;
+	        document.getElementById("imagepreview").width = 250;
+	    };
+	
+		if( fileInfo ) {
+	        reader.readAsDataURL( fileInfo );
+	    }
+	}
 
+</script>
 <body>
  <div>
 	<jsp:include page="header.jsp" />
@@ -51,7 +70,7 @@
 
  <c:choose>
   	<%--  관리자 Page --%>
-  	<c:when test="${login  eq 'ADMIN'}">
+  	<c:when test="${login.getId()  eq 'ADMIN'}">
   		<div style="padding:50px" align="center">
            <h1>관리자 계정입니다</h1>
         </div>
@@ -168,11 +187,90 @@
   		
   		<%-- GUEST Page --%>
   		<div style="padding:50px" align="center">
-           <h1>${login } 님 환영합니다.</h1>
+  			<c:choose>
+	        	<c:when test="${empty login.getProfile()}">
+	        		<img src="storage/profile/baseprofile.jpg" alt="null" style="width:10%; height:200px;" class="w3-circle w3-margin-top"
+	        			onclick="document.getElementById('id02').style.display='block'">
+	        	</c:when>
+	        	<c:otherwise>
+		        	<div class="w3-container">
+		        		<img src="storage/profile/${login.getId() }image.jpg?t=${time }" alt="${profile }" style="width:10%; height:200px;" class="w3-circle w3-margin-top"
+		        			onclick="document.getElementById('id02').style.display='block'">
+		        			
+		        		<div id="id02" class="w3-modal">
+						    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width: 400px; height: 400px;">
+						      <header class="w3-container w3-teal"> 
+						        <span onclick="document.getElementById('id02').style.display='none'" 
+						        class="w3-button w3-large w3-display-topright">&times;</span>
+						        <h2>Change the Image</h2>
+						      </header>
+						      <div class="w3-container" style="padding:10px;">
+						        <form method="post" enctype="multipart/form-data" modelAttribute="uploadFile" action="MP_profileupdate.do" id="fileForm">
+						        	<input type="file" id="upImgFile" name="mpfile" onChange="uploadImgPreview();" accept="image/*" required="required">
+						        	<input type="submit" value="업로드">
+						        </form>
+						        <hr>
+           						<img id="imagepreview" src="" >
+						      </div>
+						      <!-- <footer class="w3-container w3-teal">
+						        <p>Modal Footer</p>
+						      </footer> -->
+						    </div>
+						</div>
+		        		
+		        	</div>
+	        	</c:otherwise>
+	        </c:choose>
+           <h1>${login.getId() } 님 환영합니다.</h1>
         </div>
         
         <!-- 프로필 -->
+        
  		<div style="padding:100px;" align="center">회원수정 가능하게 버튼 넣을 생각중</div>
+ 		<div class="w3-container">
+		  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
+		
+		  <div id="id01" class="w3-modal">
+		    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+		
+		      <div class="w3-center"><br>
+		        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+		        <c:choose>
+		        	<c:when test="${empty login.getProfile()}">
+		        		<img src="storage/profile/baseprofile.jpg" alt="null" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
+		        	</c:when>
+		        	<c:otherwise>
+		        		<img src="storage/profile/${login.getId() }image.jpg?t=${time }" alt="${profile }" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
+		        	</c:otherwise>
+		        </c:choose>
+		        
+		      </div>
+		
+		      <form class="w3-container" action="profileupdate.do">
+		        <div class="w3-section">
+		          <label><b>ID</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="ID" name="id" readonly="readonly" value="${login.getId() }">
+		          <label><b>Password</b></label>
+		          <input class="w3-input w3-border" type="password" placeholder="Input Password" name="pw" required>
+		          <label><b>Name</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Name" name="name" value="${login.getName() }" required>
+		          <label><b>Email</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Email" name="email" value="${login.getEmail() }" required>
+		          <label><b>Phone</b></label>
+		          <input class="w3-input w3-border" type="text" placeholder="Phone" name="phone" value="${login.getPhone() }" required>
+		          
+		          <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Setting</button>
+		        </div>
+		      </form>
+		
+		      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+		        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+		      </div>
+		
+		    </div>
+		  </div>
+		</div>
+		
  		
  		<!-- 예약현황 -->
  		<div style="padding:100px;">
