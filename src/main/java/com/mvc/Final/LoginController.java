@@ -94,7 +94,7 @@ public class LoginController {
 				String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage/profile");
 				System.out.println("업로드 될 실제 경로: "+path);
 				
-				String path2 = path.substring(0,path.indexOf(".metadata"))+"final_proj4\\src\\main\\webapp\\storage\\profile";
+				String path2 = path.substring(0,path.indexOf(".metadata"))+"final_proj\\src\\main\\webapp\\storage\\profile";
 				System.out.println("파일이 저장될 위치: "+path2);
 				File storage = new File(path2);
 				if(!storage.exists()) {
