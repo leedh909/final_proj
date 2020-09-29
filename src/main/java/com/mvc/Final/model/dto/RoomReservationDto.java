@@ -7,18 +7,18 @@ public class RoomReservationDto {
 	private int seq_re;	//예약번호
 	private int people;	//인원수
 	private LocalDate r_date;	//예약날짜
-	private LocalDate check_in;	//체크인 날짜
-	private LocalDate check_out;	//체크아웃날짜
+	private String check_in;	//체크인 날짜
+	private String check_out;	//체크아웃날짜
 	private int seq_m;	//예약자
 	private int seq_rm;	//숙소
 	private String mate;	//여행메이트여부
-	private int totalPrice;	//총가격
+	private String totalPrice;	//총가격
 	
 	//생성자
 	public RoomReservationDto() {}
 
-	public RoomReservationDto(int seq_re, int people, LocalDate r_date, LocalDate check_in, LocalDate check_out,
-			int seq_m, int seq_rm, String mate, int totalPrice) {
+	public RoomReservationDto(int seq_re, int people, LocalDate r_date, String check_in, String check_out,
+			int seq_m, int seq_rm, String mate, String totalPrice) {
 		super();
 		this.seq_re = seq_re;
 		this.people = people;
@@ -32,6 +32,12 @@ public class RoomReservationDto {
 	}
 	
 	
+	public RoomReservationDto(String check_in, String check_out, String totalPrice) {
+		this.check_in = check_in;
+		this.check_out = check_out;
+		this.totalPrice = totalPrice;
+	}
+
 	//getter&setter
 	public int getSeq_re() {
 		return seq_re;
@@ -57,19 +63,19 @@ public class RoomReservationDto {
 		this.r_date = r_date;
 	}
 
-	public LocalDate getCheck_in() {
+	public String getCheck_in() {
 		return check_in;
 	}
 
-	public void setCheck_in(LocalDate check_in) {
+	public void setCheck_in(String check_in) {
 		this.check_in = check_in;
 	}
 
-	public LocalDate getCheck_out() {
+	public String getCheck_out() {
 		return check_out;
 	}
 
-	public void setCheck_out(LocalDate check_out) {
+	public void setCheck_out(String check_out) {
 		this.check_out = check_out;
 	}
 
@@ -97,11 +103,11 @@ public class RoomReservationDto {
 		this.mate = mate;
 	}
 
-	public int getTotalPrice() {
+	public String getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	

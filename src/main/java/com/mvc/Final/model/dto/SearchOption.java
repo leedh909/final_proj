@@ -1,12 +1,11 @@
 package com.mvc.Final.model.dto;
 
-import java.time.LocalDate;
 
 public class SearchOption {
 
 	private String local;	//지역
-	private LocalDate checkin;	//체크인 날짜
-	private LocalDate checkout;	//체크아웃 날짜
+	private String checkin;	//체크인 날짜
+	private String checkout;	//체크아웃 날짜
 	private int guestNum;	//게스트 수
 	
 
@@ -18,46 +17,44 @@ public class SearchOption {
 		this.guestNum = 1;
 	}
 	
-	public SearchOption(String local, LocalDate checkin) {
+	public SearchOption(String local, String checkin) {
 		this.local = local;
 		this.checkin = checkin;
 		this.guestNum = 1;
-		this.checkout = checkin.plusDays(1);
 	}
 	
 
-	public SearchOption(String local, LocalDate checkin, int guestNum) {
+	public SearchOption(String local, String checkin, int guestNum) {
 		this.local = local;
 		this.checkin = checkin;
-		this.checkout = checkin.plusDays(1);
 		this.guestNum = guestNum;
 	}
 
-	public SearchOption(String local, LocalDate checkin, LocalDate checkout, int guestNum) {
+	public SearchOption(String local, String checkin, String checkout, int guestNum) {
 		this.local = local;
 		this.checkin = checkin;
 		this.checkout = checkout;
 		this.guestNum = guestNum;
 	}
-	
 
 	//getter,setter
 	public String getLocal() {
 		return local;
 	}
+	
 	public void setLocal(String local) {
 		this.local = local;
 	}
-	public LocalDate getCheckin() {
+	public String getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(LocalDate checkin) {
+	public void setCheckin(String checkin) {
 		this.checkin = checkin;
 	}
-	public LocalDate getCheckout() {
+	public String getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(LocalDate checkout) {
+	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
 	public int getGuestNum() {

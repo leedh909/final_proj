@@ -186,7 +186,7 @@ function myFunction(id) {
 						<div class="row">
 						<hr>
 							<div class="col-lg-5 ">
-							<a href="room_detail.do?seq_rm=32">
+							<a href="room_detail.do?seq_rm=32&guestNum=1&checkin=2020-09-29">
 								<div class="w3-content w3-display-container">
 									<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height:100%; display:block;"> 
 									<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height:100%;">

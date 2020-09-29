@@ -1,7 +1,7 @@
 package com.mvc.Final;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mvc.Final.model.biz.SearchBiz;
 import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.RoomsDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Controller
@@ -46,7 +46,8 @@ public class SearchController {
 	public String room_detail(int seq_rm,SearchOption searchO, Model model) {
 		
 		//숙소 정보 가지고 오기
-		RoomTotalDto roomInfo = biz.roomInfo(seq_rm);
+		RoomTotalDto roomInfo = new RoomTotalDto();
+		roomInfo = biz.roomInfo(seq_rm);
 		
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
@@ -61,21 +62,17 @@ public class SearchController {
 		return "room_detail";
 	}
 	
-	@RequestMapping(value="/ajaxtotalP.do",method=RequestMethod.POST)
-	@ResponseBody
-	public Map<String,Integer> ajaxTotalPrice(){
+	@RequestMapping("/pay.do")
+	public String pay(Model model, RoomReservationDto reservation) {
 		
 		
-		return null;
+		model.addAttribute("reservation",reservation);
+		return "payment";
 	}
 	
-	
-	
-	@RequestMapping("/pay.do")
-	public String pay() {
+	@RequestMapping("/paysucess.do")
+	public String sucess(Model model,RoomReservationDto reservation ) {
 		
-		
-		
-		return "payment";
+		return "redirect:main.do";
 	}
 }

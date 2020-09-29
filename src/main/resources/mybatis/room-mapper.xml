@@ -19,6 +19,8 @@
 		<result column="BATH_ROOM" property="bath_room"/>
 		<result column="CHECKIN" property="checkin"/>
 		<result column="SEQ_H" property="seq_h"/>
+		<result column="CHECKIN_TIME" property="checkin_time"/>
+		<result column="CHECKOUT_TIME" property="checkout_time"/>
 	</resultMap>
 	<resultMap type="rooms_detailDto" id="rooms_detailDto">
 		<result column="SEQ_DETAIL" property="seq_detail"/>

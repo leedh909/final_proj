@@ -11,109 +11,30 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link rel="stylesheet" href="css/room_detail.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-
-<style type="text/css">
-.pt {
-	margin-top: -9px;
-}
-.mySlides {display:none;} 
-
-.button {
-	border: solid 0.5px;
-	background: white;
-	opacity: 1;
-	border-radius: 8px;
-}
-
-.sticky {
-	border: ridge 1px #000000;
-	-moz-border-radius: 13px;
-	-webkit-border-radius: 13px;
-	border-radius: 13px;
-	display: inline-block;
-	position: sticky;
-	top: 30px;
-	width: 300px;
-}
-
-.money{
-	border: 0px; 
-	outline: none;
-	font-weight: 600 !important;
-	font-size: 22px !important;
-    line-height: 26px !important;
-}
-
-._plc5prx{
-	-webkit-box-flex: 1 !important;
-    flex-shrink: 1 !important;
-    flex-grow: 1 !important;
-    white-space: normal !important;
-    font-weight: 800 !important;
-}
-
-._1d3ext9m {
-    padding-left: 16px !important;
-    white-space: nowrap !important;
-    font-weight: 800 !important;
-}
-
-#myModalP {
-	dialoWidth: 600px;
-}
-
-#kkomap {
-	width: 100%;
-	height: 300px;
-	border-radius: 10px;
-}
-
-.grid-container {
-  display: grid;
-  grid-gap: 5px;
-  padding: 10px;
-}
-
-.grid-item {
-  text-align: center;
-  padding: 20px;
-  border-radius : 3px;
-}
-
-.item1 {
-  grid-column: 1 /span 2;;
-  grid-row: 1 / span 2;
-}
-
-.item2 {
-  grid-column: 3;
-  grid-row: 1 ;
-}
-.item3{
-	grid-column: 4;
-    grid-row:1 ;
-}
-
-</style>
-
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="css/room_detail.css">
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-<script type="text/javascript">
-function myFunction(x){
-	$(".selector").flatpickr({
-		  enableTime: true,
-		  dateFormat: "Y-m-d H:i",
-		});
-}
+<!-- flatpickr -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+//체크인 달력
+function inpickr(indate){
+	indate.flatpickr({
+		minDate :"today",	
+		dateFormat: "Y-m-d",
+	});
+};
+//체크아웃 달력
+function outpickr(outdate){
+	outdate.flatpickr({
+		minDate : "today",
+		dateFormat: "Y-m-d",
+	});
+};
 
 </script>
-
-
 </head>
 <body>
 
@@ -125,7 +46,7 @@ function myFunction(x){
 		style="background-image: url('images/bg_5.jpg'); height: 100px;">
 	</div>
 	<!--================ End Header =================-->
-
+	${searchOption.guestNum }, ${searchOption.checkin }, ${searchOption.checkout }
 	<input type="hidden" value="${roomInfo.room.addr}" id="addr">
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
@@ -215,22 +136,41 @@ function myFunction(x){
 						<h2>편의시설</h2>
 
 
-						<button type="button" class="button" data-toggle="modal" data-target="#myModalP">편의시설 모두 보기</button>
+						<button type="button" class="button _13e0raay" style="margin-top:24px;" data-toggle="modal" data-target="#myModalP">편의시설 모두 보기</button>
 						<!-- Modal -->
 						<div class="modal fade" id="myModalP" role="dialog">
 							<div class="modal-dialog">
 
 								<!-- Modal content-->
 								<div class="modal-content">
-									<div class="modal-header">
-										<h2>편의시설</h2>
-										<button type="button" class="close" data-dismiss="modal">×</button>
+									<div class="_1lplc7">
+										<button type="button" class="close" data-dismiss="modal" style="z-index:200">×</button>
 									</div>
-									<div class="modal-body">
-										<p>Some text in the modal.</p>
-									</div>
+									<section class="_1v5ksyp">
+										<div class="_1kb5zmd">
+											<h2 tabindex="-1" class="_14i3z6h">편의시설</h2>
+										</div>
+											<div style="margin-bottom: 60px !important">
+												<div class="_1crk6cd">
+													<h3 tabindex="-1" class="_14i3z6h">기본 편의시설</h3>
+													
+												</div>
+												<div class="_vzrbjl"></div>
+											</div>
+											<div style="margin-bottom: 60px !important">
+												<div class="_1crk6cd">
+													<h3 tabindex="-1" class="_14i3z6h">안전시설</h3>
+												</div>
+											</div>
+											<div style="margin-bottom: 60px !important">
+												<div class="_1crk6cd">
+													<h3 tabindex="-1" class="_14i3z6h">숙소 이용가능</h3>
+												</div>
+											</div>
+								
+								</section>
 
-								</div>
+								</div><!-- modal content -->
 
 							</div>
 						</div>
@@ -239,77 +179,113 @@ function myFunction(x){
 				</div>
 				<section class="col-lg-4 sidebar mt-5">
 					<div class="sticky">
-						<div class="col-lg-12 mt-4 mb-4">
+						<div class="col-lg-12 mt-4 mb-3">
 							<form action="pay.do">
-							<div>
-								<input type="text" class="money" name="perPrice" readonly="readonly" value="&#8361; ${roomInfo.room.price}"><small>/박</small>
-							</div>
-								<div class="_poaz3m" style="border-radius: 8px;"><!-- 체크인 및 인원선택박스 -->
-									<div class="_jro6t0">
-										<div class="_zdxht7">
-											<div class="_e296pg" style="flex: 1 1 0%;">
-												<div class="_sbmagf"
-													style="background: none; border-radius: 8px 8px 0px 0px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
-												<div class="_11wiged"
-													aria-label="날짜 변경하기; 체크인: undefined; 체크아웃: undefined"
-													aria-invalid="false" role="button" tabindex="0">
-													<div class="_1acx77b">
-														<div class="_7eq2v2">체크인</div>
-														<div class="_1ygdnkvm">날짜 추가</div>
-													</div>
-													<div class="_14tl4ml5">
-														<div class="_7eq2v2">체크아웃</div>
-														<div class="_1ygdnkvm">날짜 추가</div>
-													</div>
-												</div>
-												<div class="_t26glb"
-													style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 8px 8px 0px 0px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
-											</div>
+							<input type="hidden" value="">
+								<div class="_13vog1a mb-4">
+									<div class="_80f7zz">
+										<div class="_ymq6as">
+											<span><span class="_pgfqnw" aria-hidden="true">₩${roomInfo.room.price}</span><span
+												class="_1l0ezq0" aria-hidden="true">/박</span></span>
 										</div>
 									</div>
-									<div class="_jro6t0">
-										<div class="_bp34sw">
-											<div class="_e296pg" style="flex: 1 1 0%;">
-												<div class="_sbmagf" style="background: none; border-radius: 0px 0px 8px 8px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
-												<div class="_11wiged" aria-expanded="false" aria-haspopup="true"
-													aria-labelledby="guests-label GuestPicker-book_it-trigger"
-													aria-disabled="false" role="button" tabindex="0">
-													<label for="GuestPicker-book_it-trigger" class="_1x080uh">
-													<div class="_7eq2v2">인원</div>
-													<div class="_1wo1vgi" id="GuestPicker-book_it-trigger" aria-invalid="false" aria-disabled="false">
-															<div class="_1ir6ymk">
-																<span>게스트 1명</span>
+								</div>
+								<div class="_e296pg">
+									<div>
+										<div class="_poaz3m" style="border-radius: 8px;">
+											<div class="_jro6t0">
+												<div class="_zdxht7">
+													<div class="_e296pg" style="flex: 1 1 0%;">
+														<div class="_sbmagf"
+															style="background: none; border-radius: 8px 8px 0px 0px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
+														<div class="_11wiged"
+															aria-label="날짜 변경하기; 체크인: undefined; 체크아웃: undefined"
+															aria-invalid="false" role="button" tabindex="0">
+															<div class="_1acx77b">
+																<div class="_7eq2v2">체크인</div>
+																<div class="_1ygdnkvm">
+																	<input type="text" class="inputdate" name="check_in" id="indate"
+																		onfocus="inpickr(this)" readonly="readonly" value="날짜 추가">
+																</div>
 															</div>
-														</div></label>
-													<div class="_vgx32s">
-														<svg viewBox="0 0 18 18" role="presentation"
-															aria-hidden="true" focusable="false"
-															style="height: 16px; width: 16px; display: block; fill: currentcolor;">
-															<path
-																d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
-																fill-rule="evenodd"></path></svg>
+															<div class="_14tl4ml5">
+																<div class="_7eq2v2">체크아웃</div>
+																<div class="_1ygdnkvm">
+																	<input class="inputdate"type="text" name="check_out" id="outdate"
+																		onfocus="outpickr(this)" readonly="readonly" value="날짜 추가">
+																</div>
+															</div>
+														</div>
+														<div class="_t26glb"
+															style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 8px 8px 0px 0px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
 													</div>
 												</div>
-												<div class="_t26glb"
-													style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 0px 0px 8px 8px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
 											</div>
-											<div></div>
+											<div class="_jro6t0">
+												<div class="_bp34sw">
+													<div class="_e296pg" style="flex: 1 1 0%;">
+														<div class="_sbmagf"
+															style="background: none; border-radius: 0px 0px 8px 8px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
+														<div class="_11wiged" aria-expanded="false"
+															aria-haspopup="true"
+															aria-labelledby="guests-label GuestPicker-book_it-trigger"
+															aria-disabled="false" role="button" tabindex="0">
+															<label for="GuestPicker-book_it-trigger" class="_1x080uh"><div
+																	class="_7eq2v2">인원</div>
+																<div class="_1wo1vgi" id="GuestPicker-book_it-trigger"
+																	aria-invalid="false" aria-disabled="false">
+																	<div class="_1ir6ymk">
+																			<span>게스트 ${searchOption.guestNum }명</span>
+																	</div>
+																</div></label>
+															<div class="_vgx32s">
+																<svg viewBox="0 0 18 18" role="presentation"
+																	aria-hidden="true" focusable="false"
+																	style="height: 16px; width: 16px; display: block; fill: currentcolor;">
+														<path
+																		d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+																		fill-rule="evenodd"></path></svg>
+															</div>
+														</div>
+														<div class="_t26glb"
+															style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 0px 0px 8px 8px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
+													</div>
+													<div></div>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div><!-- 체크인 및 인원선택박스 -->
-								<div class="col-lg-12 mt-2">
-									<input type="submit" value="예약하기" class="btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
 
+								<div class="mt-3">
+									<input type="submit" value="예약하기" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
+								</div>
+
+								<div class="_adhikmk" >
 								<hr>
-								<div>
-									<span class="_plc5prx">총 합계</span>
-									<span><input class="money _1d3ext9m" type="text" name="totalPrice" value="&#8361; " readonly="readonly"></span>
+									 <span class="_plc5prx" style="font-weigth:400 !important;font-size: 16px !important;line-height: 20px !important;">총 합계</span>
+									 <span class="_1d3ext9m _ud8a1c" style="font-weigth:400 !important;font-size: 16px !important;line-height: 20px !important;">₩
+									 	<input type="text" value="150,188" name="totalPrice">
+									 </span>
 								</div>
 							</form>
 
 						</div>
 					</div>
+
+
+
+
+
+
+
+					
+
+
+
+
+
+
 
 				</section>
 
@@ -349,9 +325,8 @@ function myFunction(x){
 						}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 						// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-						var markerImage = new kakao.maps.MarkerImage(imageSrc,
-								imageSize, imageOption), markerPosition = new kakao.maps.LatLng(
-								37.54699, 127.09598); // 마커가 표시될 위치입니다
+						var markerImage = new kakao.maps.MarkerImage(imageSrc,imageSize, imageOption), 
+						markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new kakao.maps.services.Geocoder();
 						// 주소로 좌표를 검색합니다

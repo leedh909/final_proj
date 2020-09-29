@@ -1,5 +1,7 @@
 package com.mvc.Final.model.dto;
 
+import java.util.List;
+
 public class RoomTotalDto {
 
 	private RoomsDto room;	//숙소
@@ -8,13 +10,12 @@ public class RoomTotalDto {
 	private Rooms_introDto intro;	//슉소 소개
 	private Rooms_ruleDto rule;	//숙소 규정
 	private Rooms_safetyDto safety;	//숙소 안전시설
-	
+
 	//생성자
 	public RoomTotalDto() {}
-
+	
 	public RoomTotalDto(RoomsDto room, Rooms_detailDto detail, Rooms_facilityDto facility, Rooms_introDto intro,
 			Rooms_ruleDto rule, Rooms_safetyDto safety) {
-		super();
 		this.room = room;
 		this.detail = detail;
 		this.facility = facility;
@@ -22,14 +23,14 @@ public class RoomTotalDto {
 		this.rule = rule;
 		this.safety = safety;
 	}
-	
+
 	public RoomTotalDto(RoomsDto room, Rooms_introDto intro) {
 		super();
 		this.room = room;
 		this.intro = intro;
 	}
 
-	//getter/setter
+	//getter&setter
 	public RoomsDto getRoom() {
 		return room;
 	}
@@ -77,4 +78,11 @@ public class RoomTotalDto {
 	public void setSafety(Rooms_safetyDto safety) {
 		this.safety = safety;
 	}
+	
+	
+	
+
+	
+	
+		
 }

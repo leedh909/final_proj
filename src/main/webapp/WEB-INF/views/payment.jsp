@@ -8,7 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style type="text/css">
-
+.pt{
+	margin-top: -9px;
+}
 .sticky {
 	border: ridge 1px #000000;
 	-moz-border-radius: 13px;
@@ -25,19 +27,22 @@
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
+//결제
 	IMP.init("imp35592248");
 	function requestPay() {
 		IMP.request_pay({
+			//필수
 			pg : 'inicis', // version 1.1.0부터 지원.
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : '주문명:결제테스트',
 			amount : 14000, //판매 가격
-			buyer_email : 'iamport@siot.do',
-			buyer_name : '구매자이름',
 			buyer_tel : '010-1234-5678',
+			//선택
+			buyer_name : '구매자이름',	
+			name : '주문명:결제테스트',
+			buyer_postcode : '123-456',
 			buyer_addr : '서울특별시 강남구 삼성동',
-			buyer_postcode : '123-456'
+			buyer_email : 'iamport@siot.do',
 		}, function(rsp) {
 			if (rsp.success) {
 				var msg = '결제가 완료되었습니다.';
@@ -45,6 +50,7 @@
 				msg += '상점 거래ID : ' + rsp.merchant_uid;
 				msg += '결제 금액 : ' + rsp.paid_amount;
 				msg += '카드 승인번호 : ' + rsp.apply_num;
+				m_redirect_url: "http://localhost:8787/test/paysucess.do?seq_rm=32"
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
@@ -53,6 +59,17 @@
 		});
 
 	}
+	
+	//mate value값 설정
+	$(function() {
+		$("#mate").change(function() {
+			if ($("#mate").is(":checked")) {
+				$(this).val("Y");
+			} else {
+				$(this).val("N")
+			}
+		});
+	});
 </script>
 </head>
 
@@ -71,12 +88,25 @@
 			<div class="row">
 				<div class="col-lg-8">
 					<div>
-						<h2>확인 및 결제</h2>
+						<h2><b>확인 및 결제</b></h2>
 						<hr>
 					</div>
 					<div>
 						<h4>예약 정보</h4>
-						
+						<div class="col-md-11 mt-2">
+							<h6 class="mt-3">날짜</h6>
+							<p class="pt">${reservation.check_in}~${reservation.check_out}</p>
+						</div>
+						<div class="col-md-11 mt-2">
+							<h6 class="mt-3">게스트</h6>
+							<p class="pt">게스트 명</p>
+						</div>
+						<div class="col-md-11 mt-2">
+							<h6><input type="checkbox" value="N" id="mate" class="from-check-input" name="mate">&nbsp;&nbsp; TravelMate</h6>
+							<p class="pt">
+								Azanda. 에서 새로운 여행 친구를 만나 색다른 여행을 경험 해 보세요. 숙소 경비를 아낄 수 있습니다.
+							</p>
+						</div>
 						<hr>
 					</div>
 					<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
