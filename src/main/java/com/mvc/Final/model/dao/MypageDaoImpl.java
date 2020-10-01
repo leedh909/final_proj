@@ -116,6 +116,14 @@ public class MypageDaoImpl implements MypageDao{
 		res = sqlSession.update(NAMESPACE+"profileupdate",ldto);
 		return res;
 	}
+
+	@Override
+	public int mp_profileupdate(LoginDto ldto) {
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"mp_profileupdate",ldto);
+		return res;
+	}
+	
 	
 	
 	

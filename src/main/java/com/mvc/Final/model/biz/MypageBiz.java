@@ -18,5 +18,6 @@ public interface MypageBiz {
 	public String email(int seq_m);
 	public int hdelete(int seq_h);
 	public int profileupdate(LoginDto ldto);
+	public int mp_profileupdate(LoginDto ldto);
 	
 }
