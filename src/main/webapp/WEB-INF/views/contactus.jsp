@@ -74,7 +74,7 @@
 					</div>
 
 					<form class="contact100-form validate-form" action="#" method="POST">
-						<span class="contact100-form-title">Send Message To Azanda.</span>
+						<span class="contact100-form-title">문의 내용을 보내주세요.</span>
 
 						<div class="wrap-input100 validate-input"
 							data-validate="이름을 입력해주세요.">
