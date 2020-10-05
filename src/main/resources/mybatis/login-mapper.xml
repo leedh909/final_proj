@@ -35,7 +35,11 @@
 		WHERE ID=#{id}
 	</delete>
 	
-	
+	<select id="find_id" parameterType="LoginDto" resultType="String">
+		SELECT ID 
+		FROM MEMBER 
+		WHERE NAME =#{name} AND EMAIL = #{email}
+	</select>
 	
 	
 	

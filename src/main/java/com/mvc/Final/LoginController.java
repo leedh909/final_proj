@@ -5,6 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.WebUtils;
 
@@ -157,6 +160,22 @@ public class LoginController {
 		return "idchk";
 	}
 	
+	@ResponseBody
+	@RequestMapping("/find_id.do")
+	public Map<String,Object> find_id(HttpServletRequest request, Model model, String email, String name) {
+		logger.info("Find ID");
+		System.out.println("확인용  email:"+email+" name:"+name);
+		Map<String,Object> rmap = new HashMap<String,Object>();
+		LoginDto ldto = new LoginDto();
+		ldto.setEmail(email);
+		ldto.setName(name);
+		
+		String res = lbiz.find_id(ldto);
+		System.out.println("RES: "+res);
+		
+		rmap.put("res", res);
+		return rmap;
+	}
 	
 	
 	

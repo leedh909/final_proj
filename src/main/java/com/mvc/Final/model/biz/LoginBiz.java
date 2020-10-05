@@ -15,7 +15,7 @@ public interface LoginBiz {
 	public String idchk(String id);
 	public List<LoginDto> selectAll();
 	public int deleteMem(String deleteid);
-
+	public String find_id(LoginDto ldto);
 	
 	
 }
