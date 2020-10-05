@@ -37,6 +37,7 @@
               <p></p>
              <ul class="list-unstyled">
                 <li><a href="aboutAzanda.do" class="py-2 d-block">About Azanda.</a></li>
+                <li><a href="whatistravelmate.do" class="py-2 d-block">Travel Mate</a></li>
               </ul>
             </div>
           </div>

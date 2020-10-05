@@ -81,6 +81,11 @@ public class HomeController {
 		logger.info("Contact Us");
 		return "contactus";
 	}
+	@RequestMapping("/whatistravelmate.do")
+	public String whatIsTravelMate() {
+		logger.info("What is travel mate");
+		return "whatIsTravelMate";
+	}
 }
 
 	
