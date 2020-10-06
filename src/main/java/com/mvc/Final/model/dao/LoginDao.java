@@ -13,5 +13,6 @@ public interface LoginDao {
 	public List<LoginDto> selectAll();
 	public int deleteMem(String deleteid);
 	public String find_id(LoginDto ldto);
+	public int find_pw(LoginDto ldto);
 	
 }

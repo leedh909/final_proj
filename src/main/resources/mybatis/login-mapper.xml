@@ -41,7 +41,11 @@
 		WHERE NAME =#{name} AND EMAIL = #{email}
 	</select>
 	
-	
+	<update id="find_pw" parameterType="LoginDto">
+		UPDATE MEMBER 
+		SET PW = #{pw} 
+		WHERE ID = #{id}
+	</update>
 	
 	
 </mapper> 

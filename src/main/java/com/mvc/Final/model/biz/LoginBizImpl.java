@@ -58,6 +58,11 @@ public class LoginBizImpl implements LoginBiz{
 		return dao.find_id(ldto);
 	}
 
+	@Override
+	public int find_pw(LoginDto ldto) {
+		return dao.find_pw(ldto);
+	}
+
 	
 
 }

@@ -126,7 +126,7 @@
 						<input style="cursor: pointer;" class="btn1" type="button" value="아이디" id="find_id"
 							onclick="document.getElementById('id01').style.display='block'; result_init();">	
 						<input style="cursor: pointer;" class="btn1" type="button" value="비밀번호 찾기" id="find_pw"
-							onclick="">	
+							onclick="document.getElementById('id02').style.display='block'; result_init2();">	
 						<input style="cursor: pointer;" class="btn2" type="button" value="회원가입"
 							onclick="location.href='registform.do'">
 					</td>
@@ -160,14 +160,14 @@
     			success: function(data){
     				var find_id = data.res;
     				if(find_id == null || find_id ==undefined||find_id=="null"){
-    					$("#result_find_id").append("<h1 style='color:red; text-align:center;'>정보를 다시 "+data.res+"입력해주세요.</h1>");
+    					$("#result_find_id").append("<h1 style='color:red; text-align:center;'>정보를 다시 입력해주세요.</h1>");
     				}else{
     					$("#result_find_id").append("<h1 style='text-align:center;'>"+"회원님의 정보로 등록된 이메일은 <br>"+find_id+"<br> 입니다.</h1>");
     				}
     				
     			},
     			error: function(data){
-    				$("#result_find_id").append("<h1 style='color:red; text-align:center;'>정보를 다시 "+data.res+"입력해주세요.</h1>");
+    				$("#result_find_id").append("<h1 style='color:red; text-align:center;'>정보를 다시 입력해주세요.</h1>");
     			}
     		})
     	}
@@ -198,6 +198,73 @@
 	
 	      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 	        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+	      </div>
+	
+	    </div>
+	  </div>
+	  
+	 <script type="text/javascript">
+    
+    	function result_init2(){
+    		$('#result_find_pw').empty();
+    		$("#find_id2").val('');
+    		$("#find_email2").val('');
+    	}
+    
+    	
+    	function find_pw(){
+    		$('#result_find_pw').empty();
+    		
+    		var formdata = $("#search_pw").serialize();
+    		
+    		$.ajax({
+    			type:'POST',
+    			url:'find_pw.do',
+    			dataType:'JSON',
+    			data:formdata,
+    			success: function(data){
+    				var find_pw = data.result;
+    				console.log(find_pw);
+    				if(find_pw == null || find_pw ==undefined||find_pw=="null"){
+    					$("#result_find_pw").append("<h1 style='color:red; text-align:center;'>정보를 다시 입력해주세요.</h1>");
+    				}else{
+    					$("#result_find_pw").append("<h1 style='text-align:center;'>"+"입력하신 이메일로 <br>임시 비밀번호가 <br>보내졌습니다.</h1>");
+    					$("#result_find_pw").append("<div style='text-align:center; padding-bottom:10px;'><input type='button' class='w3-button w3-black w3-hover-blue' value='확인' onclick='location.href="+"\"main.do\""+"'></div>");
+    				}
+    				
+    			},
+    			error: function(data){
+    				$("#result_find_pw").append("<h1 style='color:red; text-align:center;'>정보를 다시 입력해주세요.</h1>");
+    			}
+    		})
+    	}
+    	
+    </script>
+	  
+	 <!-- 비밀번호 찾기(모달) -->
+	  <div id="id02" class="w3-modal">
+	    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+	
+	      <div class="w3-center"><br>
+	      	<h3>Passward 찾기</h3>
+	        <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>	        
+	      </div>
+	
+	      <form class="w3-container" id="search_pw">
+	        <div class="w3-section">
+	          <label><b>ID</b></label>
+	          <input class="w3-input w3-border" type="text" placeholder="Id" name="id" id="find_id2" required>
+	          <label><b>Email</b></label>
+	          <input class="w3-input w3-border" type="text" placeholder="Email" name="email" id="find_email2"  required >
+	          
+	          <button class="w3-button w3-block w3-green w3-section w3-padding" type="button" onclick="find_pw(); return false;">Search</button>
+	        </div>
+	      </form>
+	      <span id="result_find_pw">
+	      </span>
+	
+	      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+	        <button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
 	      </div>
 	
 	    </div>

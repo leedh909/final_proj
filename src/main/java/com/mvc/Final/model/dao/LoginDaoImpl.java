@@ -86,6 +86,14 @@ public class LoginDaoImpl implements LoginDao{
 		return res;
 	}
 
+	@Override
+	public int find_pw(LoginDto ldto) {
+		
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"find_pw",ldto);
+		return res;
+	}
+
 	
 	
 
