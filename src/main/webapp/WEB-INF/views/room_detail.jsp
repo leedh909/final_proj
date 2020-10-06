@@ -22,39 +22,38 @@
 
 $(function(){
 	//체크인,체크아웃,게스트 수  초기값 
-	if("${searchOption.checkin}" != null ||"${searchOption.checkin}" != ''){
+	if("${searchOption.checkin}" != null && "${searchOption.checkin}" != ''){
 		$("#indate").val("${searchOption.checkin}");
 	}else{
 		$("#indate").val("날짜 선택");
+		
 	}
 	
-	if("${searchOption.checkout}" != null || "${searchOption.checkout}" != ''){
+	if("${searchOption.checkout}" != null && "${searchOption.checkout}" != ''){
 		$("#outdate").val("${searchOption.checkout}");
 	}else{
-		$("#outdate").val("날짜 선택");	
+		$("#outdate").val("날짜 선택");
 	}
 	
-	if("${searchOptioin.guestNum}" != null || "${searchOption.guestNum}" != ''){
+	if("${searchOptioin.guestNum}" != null && "${searchOption.guestNum}" != ''){
 		$("#guestNum").val("게스트"+"${searchOption.guestNum}"+"명")
 	}else{
 		$("#guestNum").val("1");	
 	}
 	
-	//가격 합 구하기 
-	
 });
 
 
 //체크인 달력
-function inpickr(check_in){
-	check_in.flatpickr({
+function inpickr(indate){
+	indate.flatpickr({
 		minDate :"today",	
 		dateFormat: "Y-m-d",
 	});
 };
 //체크아웃 달력
-function outpickr(check_out){
-	check_out.flatpickr({
+function outpickr(outdate){
+	outdate.flatpickr({
 		minDate : "today",
 		dateFormat: "Y-m-d",
 	});
@@ -273,14 +272,14 @@ function outpickr(check_out){
 															<div class="_1acx77b">
 																<label class="_7eq2v2">체크인</label>
 																<div class="_1ygdnkvm">
-																	<input type="text" class="inputdate" name="check_in" id="indate"
-																		onfocus="inpickr(this)" readonly="readonly">
+																	<input type="text" class="ibbl" name="check_in" id="indate"
+																		onfocus="inpickr(this)" readonly="readonly" >
 																</div>
 															</div>
 															<div class="_14tl4ml5">
 																<label class="_7eq2v2">체크아웃</label>
 																<div class="_1ygdnkvm">
-																	<input class="inputdate"type="text" name="check_out" id="outdate"
+																	<input class="ibbl" type="text" name="check_out" id="outdate"
 																		onfocus="outpickr(this)" readonly="readonly" >
 																</div>
 															</div>
@@ -300,11 +299,11 @@ function outpickr(check_out){
 															aria-labelledby="guests-label GuestPicker-book_it-trigger"
 															aria-disabled="false" role="button" tabindex="0">
 															<label for="GuestPicker-book_it-trigger" class="_1x080uh">
-															<div class="_7eq2v2">인원</div>
+															<label class="_7eq2v2">인원</label>
 																<div class="_1wo1vgi" id="GuestPicker-book_it-trigger"
 																	aria-invalid="false" aria-disabled="false">
 																	<div class="_1ir6ymk">
-																		<input type="text" class="inputdate" readonly="readonly" id="guestNum" name="guestNum" value="게스트  1 명" />
+																		<input type="text" class="ibbl" readonly="readonly" id="guestNum" name="guestNum" value="게스트  1 명" />
 																	</div>
 																</div>
 															</label>
@@ -330,7 +329,7 @@ function outpickr(check_out){
 									<input type="submit" value="예약하기" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
 								
-								<div class="_1cvivhm" id="calcul">
+								<div class="_1cvivhm" id="calculdiv">
 
 										<div class="_ud8a1c">
 											<ul class="_1hvzytt">
@@ -338,7 +337,9 @@ function outpickr(check_out){
 													<span class="_bmsen5">
 														<div class="_17y0hv9">
 															<div>
-																<input type="button" class="_ebe4pze" />
+																<span class="_ebe4pze">
+																	<input class="_11o89bi ibbl" type="text" id="cal" readonly="readonly">
+																</span>
 															</div>
 														</div>
 													</span>
@@ -348,7 +349,7 @@ function outpickr(check_out){
 											<ul class="_inlpfr">
 												<li class="_adhikmk">
 													<span class="_plc5prx">총 합계</span>
-													<span class="_1d3ext9m">₩150,188</span>
+													<span class="_1d3ext9m"><input name="totalPrice" type="text" class="_1d3ext9m ibbl">₩150,188</span>
 												</li>
 											</ul>
 										</div>

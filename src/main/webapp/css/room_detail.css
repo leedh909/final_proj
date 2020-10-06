@@ -3,7 +3,7 @@
 }
 .mySlides {display:none;} 
 
-.inputdate {
+.ibbl {
 	width: 100%;
 	padding: 0;
 	border-width: 0;
@@ -13,6 +13,7 @@
 	boder-left: 0px;
 	boder-bottom: 0px;
 	outline: none;
+	box-sizing: border-box;
 }
 .button {
 	border: solid 0.5px;
@@ -491,4 +492,24 @@ li {
 ._ra05uc {
     padding-left: 16px !important;
     white-space: nowrap !important;
+}
+
+._ebe4pze {
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-style: inherit !important;
+    font-variant: inherit !important;
+    line-height: inherit !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    user-select: auto !important;
+    color: rgb(113, 113, 113) !important;
+    text-decoration: underline !important;
+    border-radius: 4px !important;
+    font-weight: 400 !important;
+    outline: none !important;
 }
