@@ -79,6 +79,11 @@ public class Rooms_ruleDto {
 	public void setSeq_rm(int seq_rm) {
 		this.seq_rm = seq_rm;
 	}
+
+	@Override
+	public String toString() {
+		return  kid + "," + baby + "," + pet + "," + smoke + "," + party;
+	}
 	
 	
 }

@@ -3,7 +3,7 @@
 }
 .mySlides {display:none;} 
 
-.inputdate {
+.ibbl {
 	width: 100%;
 	padding: 0;
 	border-width: 0;
@@ -12,6 +12,8 @@
 	border-top: 0px;
 	boder-left: 0px;
 	boder-bottom: 0px;
+	outline: none;
+	box-sizing: border-box;
 }
 .button {
 	border: solid 0.5px;
@@ -378,6 +380,10 @@
     line-height: 20px !important;
 }
 
+li {
+    text-align: -webkit-match-parent;
+}
+
 ._inlpfr {
     border-top: 1px solid rgb(221, 221, 221) !important;
     list-style-type: none !important;
@@ -452,4 +458,58 @@
     border-color: rgb(34, 34, 34) !important;
     background: rgb(255, 255, 255) !important;
     color: rgb(34, 34, 34) !important;
+}
+
+._1cvivhm {
+    margin-top: 24px !important;
+}
+
+._ud8a1c {
+    color: rgb(34, 34, 34) !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+}
+
+._1hvzytt {
+    margin: 0px !important;
+    padding: 0px !important;
+    list-style-type: none !important;
+}
+._ryvszj {
+    padding-bottom: 12px !important;
+    display: flex !important;
+}
+
+._bmsen5 {
+    -webkit-box-flex: 1 !important;
+    flex-shrink: 1 !important;
+    flex-grow: 1 !important;
+    white-space: normal !important;
+}
+
+._ra05uc {
+    padding-left: 16px !important;
+    white-space: nowrap !important;
+}
+
+._ebe4pze {
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-style: inherit !important;
+    font-variant: inherit !important;
+    line-height: inherit !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    user-select: auto !important;
+    color: rgb(113, 113, 113) !important;
+    text-decoration: underline !important;
+    border-radius: 4px !important;
+    font-weight: 400 !important;
+    outline: none !important;
 }

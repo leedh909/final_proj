@@ -95,26 +95,26 @@
 						<h4>예약 정보</h4>
 						<div class="col-md-11 mt-2">
 							<h6 class="mt-3">날짜</h6>
-							<p class="pt">${reservation.check_in}~${reservation.check_out}</p>
+							<p class="pt" tabindex="-1">${reservation.check_in}~${reservation.check_out}</p>
 						</div>
 						<div class="col-md-11 mt-2">
 							<h6 class="mt-3">게스트</h6>
-							<p class="pt">게스트 명</p>
+							<p class="pt" tabindex="-1">게스트 명</p>
 						</div>
 						<div class="col-md-11 mt-2">
 							<h6><input type="checkbox" value="N" id="mate" class="from-check-input" name="mate">&nbsp;&nbsp; TravelMate</h6>
-							<p class="pt">
-								Azanda. 에서 새로운 여행 친구를 만나 색다른 여행을 경험 해 보세요. 숙소 경비를 아낄 수 있습니다.
+							<p class="pt" tabindex="-1">
+								숙소 정원을 초과하는 travelmate는 허용되지 않습니다. 발견 즉시 퇴실 조치 되며, 남은 기간에 대해 환불이 불가합니다.
 							</p>
 						</div>
 						<hr>
 					</div>
 					<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
 						<h4>환불 정책</h4>
-						<p>
+						<p tabindex="-1">
 							12:00 PM 전에 예약을 취소하면 요금전액이 환불됩니다.
 							<br>
-							<a href="#">자세히 알아보기</a>
+							<a href="#" tabindex="-1">자세히 알아보기</a>
 							<br><br>
 						</p>
 					</div>

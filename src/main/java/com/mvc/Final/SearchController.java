@@ -1,7 +1,10 @@
 package com.mvc.Final;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +18,6 @@ import com.mvc.Final.model.biz.SearchBiz;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
-import com.mvc.Final.model.dto.RoomsDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Controller
@@ -43,11 +45,20 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/room_detail.do")
-	public String room_detail(int seq_rm,SearchOption searchO, Model model) {
+	public String room_detail(int seq_rm,SearchOption searchO, Model model,HttpSession session) {
 		
 		//숙소 정보 가지고 오기
 		RoomTotalDto roomInfo = new RoomTotalDto();
 		roomInfo = biz.roomInfo(seq_rm);
+		
+		String[] detail = roomInfo.getDetail().toString().split(",");
+		String[] facility = roomInfo.getFacility().toString().split(",");
+		String[] safety = roomInfo.getSafety().toString().split(",");
+		String[] rule = roomInfo.getRule().toString().split(",");
+		
+		//숙소 예약 날짜 가져오기 
+		Map<String,Object> booked = new HashMap<String,Object>(); 
+		booked = biz.reservationDate(seq_rm);
 		
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
@@ -58,12 +69,19 @@ public class SearchController {
 		//넘겨줄 값 model에 저장
 		model.addAttribute("searchOption", searchO);
 		model.addAttribute("roomInfo",roomInfo);
+		model.addAttribute("detail",detail);
+		model.addAttribute("facility",facility);
+		model.addAttribute("safety",safety);
+		model.addAttribute("rule",rule);
 		model.addAttribute("hostInfo",hostInfo);
+		model.addAttribute("booked",booked);
+		model.addAttribute("session",session);
+		
 		return "room_detail";
 	}
 	
 	@RequestMapping("/pay.do")
-	public String pay(Model model, RoomReservationDto reservation) {
+	public String pay(Model model, RoomReservationDto reservation,HttpSession session) {
 		
 		
 		model.addAttribute("reservation",reservation);

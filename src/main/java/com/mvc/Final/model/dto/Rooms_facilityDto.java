@@ -6,7 +6,8 @@ public class Rooms_facilityDto {
     private String dryer;
     private String kitchen;
     private String pool;
-    private String fitness;
+
+	private String fitness;
     private String parking;
     private int seq_rm;
     
@@ -91,5 +92,10 @@ public class Rooms_facilityDto {
 		this.seq_rm = seq_rm;
 	}
     
+	@Override
+	public String toString() {
+		return  washer + "," + dryer + "," + kitchen + "," + pool
+				+ "," + fitness + "," + parking;
+	}
 
 }
