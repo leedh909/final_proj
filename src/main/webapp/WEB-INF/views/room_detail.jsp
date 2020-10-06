@@ -18,21 +18,48 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<script>
+<script type="text/javascript">
+
+$(function(){
+	//체크인,체크아웃,게스트 수  초기값 
+	if("${searchOption.checkin}" != null ||"${searchOption.checkin}" != ''){
+		$("#indate").val("${searchOption.checkin}");
+	}else{
+		$("#indate").val("날짜 선택");
+	}
+	
+	if("${searchOption.checkout}" != null || "${searchOption.checkout}" != ''){
+		$("#outdate").val("${searchOption.checkout}");
+	}else{
+		$("#outdate").val("날짜 선택");	
+	}
+	
+	if("${searchOptioin.guestNum}" != null || "${searchOption.guestNum}" != ''){
+		$("#guestNum").val("게스트"+"${searchOption.guestNum}"+"명")
+	}else{
+		$("#guestNum").val("1");	
+	}
+	
+	//가격 합 구하기 
+	
+});
+
+
 //체크인 달력
-function inpickr(indate){
-	indate.flatpickr({
+function inpickr(check_in){
+	check_in.flatpickr({
 		minDate :"today",	
 		dateFormat: "Y-m-d",
 	});
 };
 //체크아웃 달력
-function outpickr(outdate){
-	outdate.flatpickr({
+function outpickr(check_out){
+	check_out.flatpickr({
 		minDate : "today",
 		dateFormat: "Y-m-d",
 	});
 };
+
 
 </script>
 </head>
@@ -46,8 +73,7 @@ function outpickr(outdate){
 		style="background-image: url('images/bg_5.jpg'); height: 100px;">
 	</div>
 	<!--================ End Header =================-->
-	${searchOption.guestNum }, ${searchOption.checkin }, ${searchOption.checkout }
-	<input type="hidden" value="${roomInfo.room.addr}" id="addr">
+
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
@@ -69,11 +95,6 @@ function outpickr(outdate){
 					<div class="grid-item item4">사진4</div>
 					<div class="grid-item item5">사진5</div>
 				</div>
-				<div class="w3-display-bottomright w3-container">
-					<input class="button" type="button" value="전체사진보기" onclick="document.getElementById('id01').style.display='block'"/>
-				</div>
-				
-					
 				</div>
 			</div><!-- 숙소사진끝 -->
 			<div class="row">
@@ -126,6 +147,7 @@ function outpickr(outdate){
 					<!-- 집정보 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<div>
+							<pre>${roomInfo.intro.title }</pre>
 							<pre>${roomInfo.intro.context}</pre>
 						</div>
 					</section>
@@ -143,28 +165,73 @@ function outpickr(outdate){
 
 								<!-- Modal content-->
 								<div class="modal-content">
-									<div class="_1lplc7">
+									<!-- <div class="_1lplc7">
 										<button type="button" class="close" data-dismiss="modal" style="z-index:200">×</button>
-									</div>
+									</div> -->
 									<section class="_1v5ksyp">
 										<div class="_1kb5zmd">
 											<h2 tabindex="-1" class="_14i3z6h">편의시설</h2>
 										</div>
 											<div style="margin-bottom: 60px !important">
 												<div class="_1crk6cd">
-													<h3 tabindex="-1" class="_14i3z6h">기본 편의시설</h3>
-													
+													<h3 tabindex="-1" class="_14i3z6h">기본시설</h3>
 												</div>
-												<div class="_vzrbjl"></div>
+												<div class="_vzrbjl">
+													<c:forEach items="${detail}" var="detail">
+														<c:if test="${detail != 'null'}">
+															<c:out value="${detail}" />
+														<hr>
+														</c:if>
+													</c:forEach>
+												</div>
+											</div>
+											<div style="margin-bottom: 60px !important">
+												<div class="_1crk6cd">
+													<h3 tabindex="-1" class="_14i3z6h">편의시설</h3>
+												</div>
+												<div class="_vzrbjl">
+													<c:forEach items="${facility}" var="facility">
+														<c:if test="${facility != 'null'}">
+															<c:out value="${facility}" />
+														<hr>
+														</c:if>
+													</c:forEach>
+												</div>
+											</div>
+											<div style="margin-bottom: 60px !important">
+												<div class="_1crk6cd">
+													<h3 tabindex="-1" class="_14i3z6h">숙소 규정</h3>
+												</div>
+												<div class="_vzrbjl">
+													<c:forEach items="${rule}" var="facility">
+														<c:if test="${rule != 'null'}">
+															<c:out value="${rule}" />
+														<hr>
+														</c:if>
+													</c:forEach>
+												</div>
 											</div>
 											<div style="margin-bottom: 60px !important">
 												<div class="_1crk6cd">
 													<h3 tabindex="-1" class="_14i3z6h">안전시설</h3>
 												</div>
-											</div>
-											<div style="margin-bottom: 60px !important">
-												<div class="_1crk6cd">
-													<h3 tabindex="-1" class="_14i3z6h">숙소 이용가능</h3>
+												<div class="_vzrbjl">
+													<c:choose>
+														<c:when test="${!empty safety}">
+															<c:forEach items="${safety}" var="safety">
+																<c:if test="${safety != 'null'}">
+																	<c:out value="${safety }" />
+																	<hr>
+																</c:if>
+															</c:forEach>
+														</c:when>
+														<c:otherwise>
+															<p style="text-decoration:line-through">
+																<c:out value="화재탐지기"/>
+																<c:out value="일산화 탄소 감지기" />
+															</p>
+														</c:otherwise>
+													</c:choose>
 												</div>
 											</div>
 								
@@ -185,8 +252,10 @@ function outpickr(outdate){
 								<div class="_13vog1a mb-4">
 									<div class="_80f7zz">
 										<div class="_ymq6as">
-											<span><span class="_pgfqnw" aria-hidden="true">₩${roomInfo.room.price}</span><span
-												class="_1l0ezq0" aria-hidden="true">/박</span></span>
+											<span>
+												<span class="_pgfqnw" aria-hidden="true">₩ &nbsp;<fmt:formatNumber value="${roomInfo.room.price}" pattern="#,###" /></span>
+												<span class="_1l0ezq0" aria-hidden="true">/박</span>
+											</span>
 										</div>
 									</div>
 								</div>
@@ -202,17 +271,17 @@ function outpickr(outdate){
 															aria-label="날짜 변경하기; 체크인: undefined; 체크아웃: undefined"
 															aria-invalid="false" role="button" tabindex="0">
 															<div class="_1acx77b">
-																<div class="_7eq2v2">체크인</div>
+																<label class="_7eq2v2">체크인</label>
 																<div class="_1ygdnkvm">
 																	<input type="text" class="inputdate" name="check_in" id="indate"
-																		onfocus="inpickr(this)" readonly="readonly" value="날짜 추가">
+																		onfocus="inpickr(this)" readonly="readonly">
 																</div>
 															</div>
 															<div class="_14tl4ml5">
-																<div class="_7eq2v2">체크아웃</div>
+																<label class="_7eq2v2">체크아웃</label>
 																<div class="_1ygdnkvm">
 																	<input class="inputdate"type="text" name="check_out" id="outdate"
-																		onfocus="outpickr(this)" readonly="readonly" value="날짜 추가">
+																		onfocus="outpickr(this)" readonly="readonly" >
 																</div>
 															</div>
 														</div>
@@ -230,20 +299,20 @@ function outpickr(outdate){
 															aria-haspopup="true"
 															aria-labelledby="guests-label GuestPicker-book_it-trigger"
 															aria-disabled="false" role="button" tabindex="0">
-															<label for="GuestPicker-book_it-trigger" class="_1x080uh"><div
-																	class="_7eq2v2">인원</div>
+															<label for="GuestPicker-book_it-trigger" class="_1x080uh">
+															<div class="_7eq2v2">인원</div>
 																<div class="_1wo1vgi" id="GuestPicker-book_it-trigger"
 																	aria-invalid="false" aria-disabled="false">
 																	<div class="_1ir6ymk">
-																			<span>게스트 ${searchOption.guestNum }명</span>
+																		<input type="text" class="inputdate" readonly="readonly" id="guestNum" name="guestNum" value="게스트  1 명" />
 																	</div>
-																</div></label>
+																</div>
+															</label>
 															<div class="_vgx32s">
 																<svg viewBox="0 0 18 18" role="presentation"
-																	aria-hidden="true" focusable="false"
+																	aria-hidden="true" focusable="true"
 																	style="height: 16px; width: 16px; display: block; fill: currentcolor;">
-														<path
-																		d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
+																<path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
 																		fill-rule="evenodd"></path></svg>
 															</div>
 														</div>
@@ -260,32 +329,34 @@ function outpickr(outdate){
 								<div class="mt-3">
 									<input type="submit" value="예약하기" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
+								
+								<div class="_1cvivhm" id="calcul">
 
-								<div class="_adhikmk" >
-								<hr>
-									 <span class="_plc5prx" style="font-weigth:400 !important;font-size: 16px !important;line-height: 20px !important;">총 합계</span>
-									 <span class="_1d3ext9m _ud8a1c" style="font-weigth:400 !important;font-size: 16px !important;line-height: 20px !important;">₩
-									 	<input type="text" value="150,188" name="totalPrice">
-									 </span>
+										<div class="_ud8a1c">
+											<ul class="_1hvzytt">
+												<li class="_ryvszj">
+													<span class="_bmsen5">
+														<div class="_17y0hv9">
+															<div>
+																<input type="button" class="_ebe4pze" />
+															</div>
+														</div>
+													</span>
+													<span class="_ra05uc">₩130,000</span>
+												</li>
+											</ul>
+											<ul class="_inlpfr">
+												<li class="_adhikmk">
+													<span class="_plc5prx">총 합계</span>
+													<span class="_1d3ext9m">₩150,188</span>
+												</li>
+											</ul>
+										</div>
 								</div>
 							</form>
 
 						</div>
 					</div>
-
-
-
-
-
-
-
-					
-
-
-
-
-
-
 
 				</section>
 
@@ -307,11 +378,12 @@ function outpickr(outdate){
 					<!-- services,cluster,drawing 라이브러리 불러오기 -->
 					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 					<script type="text/javascript">
-						var address = document.getElementById('addr').value;
+						//숙소 주소 
+						var address = "${roomInfo.room.addr}";
 						
 						var mapContainer = document.getElementById('kkomap'), // 지도를 표시할 div 
 						mapOption = {
-							center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+							center : new kakao.maps.LatLng(33.450701, 126.570667),
 							level : 3// 지도의 확대 레벨
 						};
 					
