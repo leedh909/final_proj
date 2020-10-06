@@ -1,5 +1,6 @@
 package com.mvc.Final.model.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
 import com.mvc.Final.model.dto.SearchOption;
 
@@ -17,13 +19,6 @@ public class SearchDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
-	public int countRoom(SearchOption searchO) {
-
-		int count = 0;
-
-		return count;
-	}
 	
 	//검색리스트
 	public List<RoomTotalDto> search(SearchOption searchO) {
@@ -52,6 +47,22 @@ public class SearchDao {
 		}
 		
 		return roomInfo;
+	}
+	
+	//숙소 예약된 날짜 가져오기
+	public List<RoomReservationDto> reservationDate(int seq_rm){
+		
+		List<RoomReservationDto> date = new ArrayList<RoomReservationDto>();
+		
+		try {
+			date = sqlSession.selectList(NAMESPACE+"inoutdate",seq_rm);
+			
+		} catch (Exception e) {
+			System.out.println("error:reservationdate");
+			e.printStackTrace();
+		}
+		
+		return date;
 	}
 	
 	//호스트 정보
