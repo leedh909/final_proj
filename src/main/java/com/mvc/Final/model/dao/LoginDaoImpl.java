@@ -73,6 +73,28 @@ public class LoginDaoImpl implements LoginDao{
 		return 0;
 	}
 
+	@Override
+	public String find_id(LoginDto ldto) {
+		
+		String res = null;
+		try {
+			res = sqlSession.selectOne(NAMESPACE+"find_id",ldto);
+		} catch (Exception e) {
+			System.out.println("[error] : Find ID");
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int find_pw(LoginDto ldto) {
+		
+		int res = 0;
+		res = sqlSession.update(NAMESPACE+"find_pw",ldto);
+		return res;
+	}
+
+	
 	
 
 }

@@ -48,11 +48,19 @@ public class LoginBizImpl implements LoginBiz{
 		return null;
 	}
 
-	
-
 	@Override
 	public int deleteMem(String deleteid) {
 		return 0;
+	}
+
+	@Override
+	public String find_id(LoginDto ldto) {
+		return dao.find_id(ldto);
+	}
+
+	@Override
+	public int find_pw(LoginDto ldto) {
+		return dao.find_pw(ldto);
 	}
 
 	

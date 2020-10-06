@@ -35,9 +35,17 @@
 		WHERE ID=#{id}
 	</delete>
 	
+	<select id="find_id" parameterType="LoginDto" resultType="String">
+		SELECT ID 
+		FROM MEMBER 
+		WHERE NAME =#{name} AND EMAIL = #{email}
+	</select>
 	
-	
-	
+	<update id="find_pw" parameterType="LoginDto">
+		UPDATE MEMBER 
+		SET PW = #{pw} 
+		WHERE ID = #{id}
+	</update>
 	
 	
 </mapper> 

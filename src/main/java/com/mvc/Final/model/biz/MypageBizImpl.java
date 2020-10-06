@@ -66,6 +66,11 @@ public class MypageBizImpl implements MypageBiz{
 	public int profileupdate(LoginDto ldto) {
 		return dao.profileupdate(ldto);
 	}
+
+	@Override
+	public int mp_profileupdate(LoginDto ldto) {
+		return dao.mp_profileupdate(ldto);
+	}
 	
 	
 	

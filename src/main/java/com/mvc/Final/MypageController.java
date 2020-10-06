@@ -179,8 +179,15 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			ldto.setProfile(name);
 			ldto.setId(((LoginDto)session.getAttribute("login")).getId());
 			System.out.println("ldto : " +ldto);
+			int res = mbiz.mp_profileupdate(ldto);
+			if(res >0) {
+				((LoginDto)session.getAttribute("login")).setProfile(name);
+				return "redirect:mypage.do";
+			}else {
+				return "redirect:mypage.do";
+			}
 			
-			return "redirect:mypage.do";
+			
 			
 		}
 		
