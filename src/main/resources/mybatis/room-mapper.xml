@@ -116,5 +116,11 @@
 						FROM HOST 
 						WHERE SEQ_H = #{hostNum})
 	</select>
-
+	
+	<!-- 숙소 예약된 날짜 -->
+	<select id="inoutdate" parameterType="int" resultType="roomReservationDto">
+		SELECT CHECK_IN, CHECK_OUT
+		FROM RESERVATION
+		WHERE SEQ_RM = #{seq_rm}
+	</select>
 </mapper>
