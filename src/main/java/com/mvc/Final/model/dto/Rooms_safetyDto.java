@@ -69,6 +69,13 @@ public class Rooms_safetyDto {
 	public void setSeq_rm(int seq_rm) {
 		this.seq_rm = seq_rm;
 	}
+
+	@Override
+	public String toString() {
+		return fire_sensor + "," + co_sensor + "," + e_kit
+				+ "," + fire_off ;
+	}
+
 	
 	
 	

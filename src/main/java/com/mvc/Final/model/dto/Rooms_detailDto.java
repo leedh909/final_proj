@@ -130,6 +130,13 @@ public class Rooms_detailDto {
 	public void setSeq_rm(int seq_rm) {
 		this.seq_rm = seq_rm;
 	}
+
+	@Override
+	public String toString() {
+		return essential + "," + heating + "," + aircondition
+				+ "," + iron + "," + tv + "," + shampoo + "," + hairdry + "," + desk
+				+ "," + closet + "," + wifi;
+	}
     
     
 
