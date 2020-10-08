@@ -68,16 +68,46 @@
     	cursor: default;
 	}
 
-	.b01_simple_rollover {
-    	color: #ffffff;
-    	padding: 10px;
-    	background-color: #212529;
+	.btnenter{
+		cursor: pointer !important;
+	   display: inline-block !important;
+	   margin: 0px !important;
+	   position: relative !important;
+	   text-align: center !important;
+	   text-decoration: none !important;
+	   border-color: black !important;
+	   width: auto !important;
+	   -ms-touch-action: manipulation !important;
+	   touch-action: manipulation !important;
+	   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+	      Helvetica Neue, sans-serif !important;
+	   font-size: 18px !important;
+	   line-height: 24px !important;
+	   font-weight: 600 !important;
+	   border-radius: 8px !important;
+	   border-width: 1px !important;
+	   border-style: solid !important;
+	   outline: none !important;
+	   padding-top: 16px !important;
+	   padding-bottom: 16px !important;
+	   padding-left: 32px !important;
+	   padding-right: 32px !important;
+	   -webkit-transition: box-shadow 0.2s ease, -webkit-transform 0.1s ease,
+	      transform 0.1s ease !important;
+	   -moz-transition: box-shadow 0.2s ease, transform 0.1s ease !important;
+	   transition: box-shadow 0.2s ease, -ms-transform 0.1s ease,
+	      -webkit-transform 0.1s ease, transform 0.1s ease !important;
+	   border: none !important;
+	   background: -webkit-linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%)
+	      !important;
+	   background: -moz-linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%)
+	      !important;
+	   background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%)
+	      !important;
+	   color: #FFFFFF !important;
 	}
-
-	.b01_simple_rollover:hover {
-    	color: #ffffff;
-    	background-color: #FF1313;
-	}
+	
+	
 	
 	
 	
@@ -179,8 +209,8 @@
 		 </div>
 		 <div class="w3-container">
 			 <div style="width: 50%; height: 350px; float:left; border-right: 1px solid; border-color: lightgray;">
-			 	<h3 style="text-align:center; margin-top: 21%; font-family: 'Nanum Brush Script', cursive; font-size: 38px;">입력하신 ID / PW 가 잘못되었습니다.</h3>
-				<h3 style="text-align:center; font-family: 'Nanum Brush Script', cursive; font-size: 38px;">재입력 바랍니다.</h3>
+			 	<h3 style="text-align:center; margin-top: 21%; font-size: 28px;">입력하신 ID / PW 가 잘못되었습니다.</h3>
+				<h3 style="text-align:center;  font-size: 28px;">재입력 바랍니다.</h3>
 			 </div>
 			 <div style="width: 50%; height: 350px; float:right;">
 			 	<div class="container">
@@ -201,7 +231,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input style="cursor: pointer;" class="button_base b01_simple_rollover"  type="submit" value="login">
+								<input style="border-radius: 3px; width: 100%; cursor: pointer;" class="btn btn-primary py-2"  type="submit" value="login">
 							</td>
 						</tr>
 						<tr>
@@ -229,7 +259,7 @@
 			 		<h6 style="margin-top: 10%; font-family: 'Nanum Brush Script', cursive; font-size:24px;">지금 <span style="color:blue;">회원가입</span>을 하시면 Azanda.의 다양한 이벤트 및 프로모션에 </h6>
 			 		<h6 style="font-family: 'Nanum Brush Script', cursive; font-size:24px;">참여가 가능하며 여러 혜택을 받으실 수 있습니다.</h6>
 			 		<br>
-			 		<input class="w3-white w3-hover-blue" style="cursor: pointer; border:1px solid; border-radius:25%; width: 170px; height: 40px;" class="btn2" type="button" value="Azanda 회원가입"
+			 		<input class="btnenter" class="btn2" type="button" value="Azanda 회원가입"
 						onclick="location.href='registform.do'">
 			 	</div>
 			  </div>
