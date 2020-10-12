@@ -1,0 +1,218 @@
+.pt{
+	margin-top: -9px;
+}
+.sticky {
+	border: ridge 1px #000000;
+	-moz-border-radius: 13px;
+	-webkit-border-radius: 13px;
+	border-radius: 13px;
+	display: inline-block;
+	position: sticky;
+	top: 30px;
+	width: 100%;
+}
+
+._7efq7j {
+    padding: 24px !important;
+    border: 1px solid rgb(221, 221, 221) !important;
+    border-radius: 12px !important;
+}
+._1gw6tte::after {
+    display: -webkit-box !important;
+    display: -moz-box !important;
+    display: -ms-flexbox !important;
+    display: -webkit-flex !important;
+    display: flex !important;
+    content: '' !important;
+}
+._cyffnm {
+    display: flex !important;
+    position: relative !important;
+}
+@media (min-width: 744px)
+._cyffnm {
+    padding-bottom: 8px !important;
+}
+@media (min-width: 744px)
+._8kqo1s {
+    width: 124px !important;
+    height: 106px !important;
+}
+._8kqo1s {
+    -webkit-box-flex: 0 !important;
+    width: 106px !important;
+    height: 106px !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+}
+._1h6n1zu {
+    background-position: 50% 50% !important;
+    background-repeat: no-repeat !important;
+}
+
+._9ofhsl {
+    height: 100% !important;
+    width: 100% !important;
+    position: static !important;
+}
+._ooekcv {
+    -webkit-box-direction: normal !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-pack: justify !important;
+    padding-left: 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-direction: column !important;
+}
+._1ssrgzh {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    max-height: 16px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+}
+._1tn13uh {
+    font-size: 14px !important;
+    line-height: 18px !important;
+    max-height: 36px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    word-break: break-word !important;
+}
+
+._1hunydg {
+    margin-top: 4px !important;
+    color: rgb(113, 113, 113) !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    max-height: 16px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+}
+._npr0qi {
+    border-top-width: 1px !important;
+    border-top-style: solid !important;
+}
+
+._zaj690 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    font-weight: 800 !important;
+}
+
+._14i3z6h {
+    color: inherit !important;
+    font-size: 1em !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+._gmaj6l {
+    display: block !important;
+}
+._hgs47m {
+    display: table !important;
+    width: 100% !important;
+    border-spacing: 0px !important;
+}
+._10ejfg4u {
+    display: table-cell !important;
+    width: 100% !important;
+    vertical-align: middle !important;
+}
+
+._17y0hv9 {
+    display: inline-block !important;
+    position: relative !important;
+}
+._r5cknh {
+    background-color: transparent !important;
+    border: 0px !important;
+    padding: 0px !important;
+    text-align: left !important;
+    text-decoration: underline !important;
+    text-decoration-skip-ink: none !important;
+}
+._ni9axhe {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+._4afltz {
+    white-space: nowrap !important;
+    color: rgb(34, 34, 34) !important;
+}
+
+._17j792vp {
+    margin: 0px !important;
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.375em !important;
+    color: inherit !important;
+}
+._10ejfg4u {
+    display: table-cell !important;
+    width: 100% !important;
+    vertical-align: middle !important;
+}
+
+._1k04cz3c {
+    font-size: 16px !important;
+    line-height: 20px !important;
+    display: inline !important;
+    color: rgb(34, 34, 34) !important;
+    font-weight: 800 !important;
+}
+
+._ejra3kg {
+    font-size: inherit !important;
+    font-family: inherit !important;
+    font-style: inherit !important;
+    font-variant: inherit !important;
+    line-height: inherit !important;
+    appearance: none !important;
+    background: transparent !important;
+    border: 0px !important;
+    cursor: pointer !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    user-select: auto !important;
+    color: rgb(34, 34, 34) !important;
+    text-decoration: underline !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    outline: none !important;
+}
+
+._ni9axhe {
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+._4afltz {
+    white-space: nowrap !important;
+    color: rgb(34, 34, 34) !important;
+}
+
+._ba3mo2p {
+    margin: 0px !important;
+    overflow-wrap: break-word !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    line-height: 1.375em !important;
+    color: inherit !important;
+}
