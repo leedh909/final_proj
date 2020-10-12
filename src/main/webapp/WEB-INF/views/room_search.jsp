@@ -11,142 +11,11 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="css/room_detail.css">
 </head>
-
-<style type="text/css">
-#kkomap {
-	width: 100%;
-	clear: both;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	height:100%;
-	position: sticky;	
-}
-.mySlides {display:none;} 
-
-p {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.map_wrap {
-	overflow: hidden;
-	display: flex;
-}
-
-.radius_border {
-	border: 1px solid #919191;
-	border-radius: 5px;
-}
-
-.custom_typecontrol {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	overflow: hidden;
-	width: 130px;
-	height: 30px;
-	margin: 0;
-	padding: 0;
-	z-index: 1;
-	font-size: 12px;
-	font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
-}
-
-.custom_typecontrol span {
-	display: block;
-	width: 65px;
-	height: 30px;
-	float: left;
-	text-align: center;
-	line-height: 30px;
-	cursor: pointer;
-}
-
-.custom_typecontrol .btn {
-	background: #fff;
-	background: linear-gradient(#fff, #e6e6e6);
-}
-
-.custom_typecontrol .btn:hover {
-	background: #f5f5f5;
-	background: linear-gradient(#f5f5f5, #e3e3e3);
-}
-
-.custom_typecontrol .btn:active {
-	background: #e6e6e6;
-	background: linear-gradient(#e6e6e6, #fff);
-}
-
-.custom_typecontrol .selected_btn {
-	color: #fff;
-	background: #425470;
-	background: linear-gradient(#425470, #5b6d8a);
-}
-
-.custom_typecontrol .selected_btn:hover {
-	color: #fff;
-}
-
-.custom_zoomcontrol {
-	position: absolute;
-	top: 50px;
-	right: 10px;
-	width: 36px;
-	height: 80px;
-	overflow: hidden;
-	z-index: 1;
-	background-color: #f5f5f5;
-}
-
-.custom_zoomcontrol span {
-	display: block;
-	width: 36px;
-	height: 40px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.custom_zoomcontrol span img {
-	width: 15px;
-	height: 15px;
-	padding: 12px 0;
-	border: none;
-}
-
-.custom_zoomcontrol span:first-child {
-	border-bottom: 1px solid #bfbfbf;
-}
-</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-var slideIndex = 1;
-showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  x[1].style.display = "block";
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";  
-}
-// 검색창 아코디언
-function myFunction(id) {
-	  var x = document.getElementById(id);
-	  if (x.className.indexOf("w3-show") == -1) {
-	    x.className += " w3-show";
-	  } else { 
-	    x.className = x.className.replace(" w3-show", "");
-	  }
-	}
 </script>
 <body>
 
@@ -155,20 +24,13 @@ function myFunction(id) {
 		<jsp:include page="header.jsp" />
 	</div>
 	<div class="hero-wrap"
-		style="background-image: url('images/bg_5.jpg'); height: 100px;">
+		style="background-image: url('images/white.png'); height: 100px;">
 	</div>
 	<!--================ End Header =================-->
 
 	<section class="ftco-section ftco-degree-bg">
 	<!--================ 검색창 =====================-->
-		<div class="">
-			<button onclick="myFunction('Demo1')" class="w3-round-xxlarge w3-button w3-block w3-center-align" style="width:40%;">검색창</button>
-		</div>
 		
-		
-		<div id="Demo1" class="w3-hide">
-			<a class="w3-button w3-block w3-left-align" href="#">검색창 활성화</a> 
-		</div>
 		<!--================ 검색창 =====================-->
 	<div class="row"><!-- 본문 -->
 		<!--================ 숙소 리스트 =================-->
@@ -176,31 +38,25 @@ function myFunction(id) {
 		<div class="col-lg-6">
 			<div class="container">
 				<div class="row">
+				
 					<div class="col-lg-12">
 						<div class="col-lg-12">
-							<p>여행 날짜와 게스트 인원수를 입력하면 1박당 총 요금을 확인 할 수 있습니다.</p>
+							<p>Azanda.에서 새로운 여행을 시작해 보세요.</p>
 							<hr>
 						</div>
-						
+						<div class="container">
+						<c:forEach var="searchList" items="${searchList}" varStatus="status">
 						<!-- 집 시작 -->
-						<div class="row">
-						<hr>
+						<div class="row mb-4">
+							<hr>
 							<div class="col-lg-5 ">
-							<a href="room_detail.do?seq_rm=32&guestNum=1&checkin=2020-09-29">
-								<div class="w3-content w3-display-container">
+								<a href="room_detail.do?seq_rm=${searchList.room.seq_rm }&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}">
 									<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height:100%; display:block;"> 
-									<img class="mySlides" src="images/room-2.jpg" style="width: 100%; height:100%;">
-									<img class="mySlides" src="images/room-3.jpg" style="width: 100%; height:100%;"> 
-									<img class="mySlides" src="images/room-4.jpg" style="width: 100%; height:100%;">
-
-									<button class="w3-button w3-opacity-8 w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-									<button class="w3-button w3-opacity-8 w3-display-right" onclick="plusDivs(1)">&#10095;</button>
-								</div>
-							</a>
+								</a>
 							</div><!-- 사진슬라이드 끝 -->
 							<div class="col-lg-7 text">
 								<div>
-									<c:set var="addrbefore" value="${roomInfo.room.addr}" />
+									<c:set var="addrbefore" value="${searchList.room.addr}" />
 									<c:set var="addrsplit" value="${fn:split(addrbefore,' ')[1]}"></c:set>
 									Yeosu의 ${searchList.room.r_type} 전체
 									<h5>${searchList.room.room_name}</h5>
@@ -221,13 +77,14 @@ function myFunction(id) {
 									<span></span>
 								</p>
 								<p class="bottom-area d-flex">
-									<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-									<span class="ml-auto"><a href="#">Book Now</a></span>
+									<span class="ml-auto">Book Now</span>
 								</p>
 								
 							</div><!-- 숙소하나 끝 -->
-							
+					
 						</div><!-- 집끝 -->
+						</c:forEach>
+						</div>
 						
 					</div>
 					<!--================ 페이지 번호  =================-->
@@ -270,16 +127,53 @@ function myFunction(id) {
 			<!-- services,cluster,drawing 라이브러리 불러오기 -->
 			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 			<script type="text/javascript">
-				var container = document.getElementById('kkomap');
-				var options = {//지도 생성시 필요한 기본 옵션
-					center : new kakao.maps.LatLng(33.450701, 126.570667),//지도 중심좌표
-					level : 6
-				//지도 확대,축소 정도
+		
+				//지도 중심좌표 
+				var mapContainer = document.getElementById('kkomap'), // 지도를 표시할 div  
+				mapOption = {
+					center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+					level : 5
+				// 지도의 확대 레벨
 				};
 
-				var kkomap = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-				
-			
+				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+				// 마커를 표시할 위치와 title 객체 배열입니다 
+				var positions = [ {
+					title : '카카오',
+					latlng : new kakao.maps.LatLng(33.450705, 126.570677)
+				}, {
+					title : '생태연못',
+					latlng : new kakao.maps.LatLng(33.450936, 126.569477)
+				}, {
+					title : '텃밭',
+					latlng : new kakao.maps.LatLng(33.450879, 126.569940)
+				}, {
+					title : '근린공원',
+					latlng : new kakao.maps.LatLng(33.451393, 126.570738)
+				} ];
+
+				// 마커 이미지의 이미지 주소입니다
+				var imageSrc = 'images/icons/map_house.ico';
+
+				for (var i = 0; i < positions.length; i++) {
+
+					// 마커 이미지의 이미지 크기 입니다
+					var imageSize = new kakao.maps.Size(64, 69);
+
+					// 마커 이미지를 생성합니다    
+					var markerImage = new kakao.maps.MarkerImage(imageSrc,
+							imageSize);
+
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+						map : map, // 마커를 표시할 지도
+						position : positions[i].latlng, // 마커를 표시할 위치
+						title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+						image : markerImage
+					// 마커 이미지 
+					});
+				}
 			</script>
 		</div><!-- 지도 api 끝 -->
 

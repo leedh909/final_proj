@@ -21,7 +21,7 @@
 <script type="text/javascript">
 
 $(function(){
-	//체크인,체크아웃,게스트 수  초기값 
+	//체크인,체크아웃 초기값 설정
 	if("${searchOption.checkin}" != null && "${searchOption.checkin}" != ''){
 		$("#indate").val("${searchOption.checkin}");
 	}else{
@@ -35,31 +35,58 @@ $(function(){
 		$("#outdate").val("날짜 선택");
 	}
 	
-	if("${searchOptioin.guestNum}" != null && "${searchOption.guestNum}" != ''){
-		$("#guestNum").val("게스트"+"${searchOption.guestNum}"+"명")
+	//게스트 수 초기 설정
+	if("${searchOption.guestNum}" != null && "${searchOption.guestNum}" != ''){
+		$("#guestcount").val("${searchOption.guestNum}");
 	}else{
-		$("#guestNum").val("1");	
+		$("#guestcount").val("1");
 	}
 	
+
 });
 
+//게스트 수 변화
+	function upCount() {
+		var guestAmount = $("#guestcount");
 
-//체크인 달력
-function inpickr(indate){
-	indate.flatpickr({
-		minDate :"today",	
-		dateFormat: "Y-m-d",
-	});
-};
-//체크아웃 달력
-function outpickr(outdate){
-	outdate.flatpickr({
-		minDate : "today",
-		dateFormat: "Y-m-d",
-	});
-};
+		if (guestAmount.val() < "${roomInfo.room.person}") {
+			$("#bnt-up").attr("disabled",false);
+			guestAmount.val(parseInt($("#guestcount").val()) + 1);
+			
+		} else {
+			$("#bnt-up").attr("disabled", true);
+		}
+	};
 
+	function downCount() {
+		var guestAmount = $("#guestcount");
 
+		if (guestAmount.val() > 1) {
+			guestAmount.val(parseInt($("#guestcount").val()) - 1);
+		} else {
+			guestAmount.val(parseInt($("#gusetcount").val()) = 1);
+		}
+	};
+
+	
+	//체크인 달력
+	function inpickr() {
+		indate.flatpickr({
+			minDate : "today",
+			dateFormat : "Y-m-d",
+		});
+		
+	};
+	
+	//체크아웃 달력
+	function outpickr() {
+		
+			outdate.flatpickr({
+				minDate:"today",
+				dateFormat : "Y-m-d",
+			});			
+		
+	};
 </script>
 </head>
 <body>
@@ -69,10 +96,9 @@ function outpickr(outdate){
 		<jsp:include page="header.jsp" />
 	</div>
 	<div class="hero-wrap"
-		style="background-image: url('images/bg_5.jpg'); height: 100px;">
+		style="background-image: url('images/white.png'); height: 100px;">
 	</div>
 	<!--================ End Header =================-->
-
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
@@ -173,7 +199,7 @@ function outpickr(outdate){
 										</div>
 											<div style="margin-bottom: 60px !important">
 												<div class="_1crk6cd">
-													<h3 tabindex="-1" class="_14i3z6h">기본시설</h3>
+													<h3 tabindex="-1" class="_14i3z6h">기본 편의시설</h3>
 												</div>
 												<div class="_vzrbjl">
 													<c:forEach items="${detail}" var="detail">
@@ -186,7 +212,7 @@ function outpickr(outdate){
 											</div>
 											<div style="margin-bottom: 60px !important">
 												<div class="_1crk6cd">
-													<h3 tabindex="-1" class="_14i3z6h">편의시설</h3>
+													<h3 tabindex="-1" class="_14i3z6h">사용가능 공간/시설</h3>
 												</div>
 												<div class="_vzrbjl">
 													<c:forEach items="${facility}" var="facility">
@@ -247,7 +273,7 @@ function outpickr(outdate){
 					<div class="sticky">
 						<div class="col-lg-12 mt-4 mb-3">
 							<form action="pay.do">
-							<input type="hidden" value="">
+							<input type="hidden" name="seq_rm" value="${roomInfo.room.seq_rm}" />
 								<div class="_13vog1a mb-4">
 									<div class="_80f7zz">
 										<div class="_ymq6as">
@@ -273,14 +299,14 @@ function outpickr(outdate){
 																<label class="_7eq2v2">체크인</label>
 																<div class="_1ygdnkvm">
 																	<input type="text" class="ibbl" name="check_in" id="indate"
-																		onfocus="inpickr(this)" readonly="readonly" >
+																		onfocus="inpickr(this)" readonly="readonly" />
 																</div>
 															</div>
 															<div class="_14tl4ml5">
 																<label class="_7eq2v2">체크아웃</label>
 																<div class="_1ygdnkvm">
 																	<input class="ibbl" type="text" name="check_out" id="outdate"
-																		onfocus="outpickr(this)" readonly="readonly" >
+																		onfocus="outpickr(this)" readonly="readonly" value="" />
 																</div>
 															</div>
 														</div>
@@ -294,26 +320,46 @@ function outpickr(outdate){
 													<div class="_e296pg" style="flex: 1 1 0%;">
 														<div class="_sbmagf"
 															style="background: none; border-radius: 0px 0px 8px 8px; top: 0px; left: 0px; right: 0px; bottom: -1px;"></div>
-														<div class="_11wiged" aria-expanded="false"
+														<div class="_11wiged" aria-expanded="false" style="height:100%;"
 															aria-haspopup="true"
 															aria-labelledby="guests-label GuestPicker-book_it-trigger"
 															aria-disabled="false" role="button" tabindex="0">
 															<label for="GuestPicker-book_it-trigger" class="_1x080uh">
-															<label class="_7eq2v2">인원</label>
+																<div class="_7eq2v2">인원</div>
 																<div class="_1wo1vgi" id="GuestPicker-book_it-trigger"
 																	aria-invalid="false" aria-disabled="false">
-																	<div class="_1ir6ymk">
-																		<input type="text" class="ibbl" readonly="readonly" id="guestNum" name="guestNum" value="게스트  1 명" />
+																	<div class="_1y5b6gl pt" align="center">
+																		<div class="_3zlfom" id="GuestPicker-book_it-form-adults-stepper">
+																	<button class="_7hhhl3" type="button" aria-label="차감" id="bnt-down" onclick="downCount();"
+																		data-testid="GuestPicker-book_it-form-adults-stepper-stepper-decrease-button">
+																		<span class="_8ovatg">
+																			<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+																				aria-hidden="true" role="presentation"
+																				focusable="false"
+																				style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+																				<path d="m2 16h28"></path></svg>
+																		</span>
+																	</button>
+																	<div class="_1665lvv">
+																		<input type="text" name="people" readonly id="guestcount" class="ibbl" style="width:100px; text-align:center;" aria-hidden="true"
+																			data-testid="GuestPicker-book_it-form-adults-stepper-stepper-value" />
+																	</div>
+																	<button class="_7hhhl3" type="button" aria-label="추가" id="bnt-up" onclick="upCount();"
+																		data-testid="GuestPicker-book_it-form-adults-stepper-stepper-increase-button">
+																		<span class="_8ovatg"><svg viewBox="0 0 32 32"
+																				xmlns="http://www.w3.org/2000/svg"
+																				aria-hidden="true" role="presentation"
+																				focusable="false"
+																				style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+																				<path d="m2 16h28m-14-14v28"></path></svg></span>
+																	</button>
+																</div>
+																		
+																		
 																	</div>
 																</div>
-															</label>
-															<div class="_vgx32s">
-																<svg viewBox="0 0 18 18" role="presentation"
-																	aria-hidden="true" focusable="true"
-																	style="height: 16px; width: 16px; display: block; fill: currentcolor;">
-																<path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
-																		fill-rule="evenodd"></path></svg>
-															</div>
+
+															</label>	
 														</div>
 														<div class="_t26glb"
 															style="top: 0px; left: 0px; right: 0px; bottom: -1px; border-radius: 0px 0px 8px 8px; border-color: rgb(176, 176, 176); border-width: 1px; z-index: 0;"></div>
@@ -329,7 +375,7 @@ function outpickr(outdate){
 									<input type="submit" value="예약하기" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
 								
-								<div class="_1cvivhm" id="calculdiv">
+								<!-- <div class="_1cvivhm" id="calculdiv">
 
 										<div class="_ud8a1c">
 											<ul class="_1hvzytt">
@@ -337,23 +383,23 @@ function outpickr(outdate){
 													<span class="_bmsen5">
 														<div class="_17y0hv9">
 															<div>
-																<span class="_ebe4pze">
-																	<input class="_11o89bi ibbl" type="text" id="cal" readonly="readonly">
+																<span class="_ebe4pze" id="calResult">
+																	1박당 가격 * 박수 
 																</span>
 															</div>
 														</div>
 													</span>
-													<span class="_ra05uc">₩130,000</span>
+													<span class="_ra05uc" id="resultPrice">최종가</span>
 												</li>
 											</ul>
 											<ul class="_inlpfr">
 												<li class="_adhikmk">
 													<span class="_plc5prx">총 합계</span>
-													<span class="_1d3ext9m"><input name="totalPrice" type="text" class="_1d3ext9m ibbl">₩150,188</span>
+													<span class="_1d3ext9m"><input name="totalPrice" id="totalPrice" style="width:210px; text-align:right;" type="text" class="_1d3ext9m ibbl" value="₩150,188"></span>
 												</li>
 											</ul>
 										</div>
-								</div>
+								</div> -->
 							</form>
 
 						</div>
