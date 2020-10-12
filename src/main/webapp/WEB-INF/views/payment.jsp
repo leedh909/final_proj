@@ -7,21 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style type="text/css">
-.pt{
-	margin-top: -9px;
-}
-.sticky {
-	border: ridge 1px #000000;
-	-moz-border-radius: 13px;
-	-webkit-border-radius: 13px;
-	border-radius: 13px;
-	display: inline-block;
-	position: sticky;
-	top: 30px;
-	width: 300px;
-}
-</style>
+<link rel="stylesheet" href="css/payment.css">
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <!-- iamport.payment.js -->
@@ -35,22 +21,43 @@
 			pg : 'inicis', // version 1.1.0부터 지원.
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			amount : 14000, //판매 가격
-			buyer_tel : '010-1234-5678',
+			amount : 100, //판매 가격
+			buyer_tel : '010-3045-0528',
 			//선택
 			buyer_name : '구매자이름',	
 			name : '주문명:결제테스트',
 			buyer_postcode : '123-456',
 			buyer_addr : '서울특별시 강남구 삼성동',
-			buyer_email : 'iamport@siot.do',
+			buyer_email : 'sayt3103@gmail.com',
 		}, function(rsp) {
-			if (rsp.success) {
-				var msg = '결제가 완료되었습니다.';
-				msg += '고유ID : ' + rsp.imp_uid;
-				msg += '상점 거래ID : ' + rsp.merchant_uid;
-				msg += '결제 금액 : ' + rsp.paid_amount;
-				msg += '카드 승인번호 : ' + rsp.apply_num;
-				m_redirect_url: "http://localhost:8787/test/paysucess.do?seq_rm=32"
+			 if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
+				 var mate = ${"#mate"};
+				 var reservation={
+						"people":'${reservation.people}',
+						"check_in":'${reservation.check_in}',
+						"check_out":'${reservation.check_out}',
+						"seq_m":'${login.seq_m}',
+						"seq_rm":'${room.seq_rm}',
+						"mate":mate,
+						"totalPrice":'${reservation.totalPrice}'
+					};
+			        // jQuery로 HTTP 요청
+			        $.ajax({
+			        	type:"post",
+			        	url:"ajaxmate.do",
+			        	data:stringify(reservation),
+			        	contentType:"application/json",
+			        	dataType="json",
+			        	success:function(msg){
+			        		if(msg.check==true){
+			        			location.href="main.do";
+			        		}
+			        	},
+			        	error:function(){
+			        		alert("insert실패")
+			        	}
+			        
+			        });
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
@@ -80,7 +87,7 @@
 	</div>
 
 	<div class="hero-wrap"
-		style="background-image: url('images/bg_5.jpg'); height: 100px"></div>
+		style="background-image: url('images/white.png'); height: 100px"></div>
 
 	<!-- 본문 -->
 	<section class="ftco-section ftco-degree-bg">
@@ -89,8 +96,8 @@
 				<div class="col-lg-8">
 					<div>
 						<h2><b>확인 및 결제</b></h2>
-						<hr>
 					</div>
+					<hr>
 					<div>
 						<h4>예약 정보</h4>
 						<div class="col-md-11 mt-2">
@@ -99,16 +106,20 @@
 						</div>
 						<div class="col-md-11 mt-2">
 							<h6 class="mt-3">게스트</h6>
-							<p class="pt" tabindex="-1">게스트 명</p>
+							<p class="pt" tabindex="-1">게스트 ${reservation.people }명</p>
 						</div>
-						<div class="col-md-11 mt-2">
-							<h6><input type="checkbox" value="N" id="mate" class="from-check-input" name="mate">&nbsp;&nbsp; TravelMate</h6>
-							<p class="pt" tabindex="-1">
-								숙소 정원을 초과하는 travelmate는 허용되지 않습니다. 발견 즉시 퇴실 조치 되며, 남은 기간에 대해 환불이 불가합니다.
-							</p>
-						</div>
-						<hr>
 					</div>
+					<hr>
+					<div>
+						<div class="col-md-11 mt-2">
+							<h4>TravelMate</h4>
+							<input type="checkbox" value="N" id="mate"
+									class="from-check-input" >&nbsp;&nbsp;TravelMate
+							<p tabindex="-1">숙소 정원을 초과하는 travelmate는 허용되지
+								않습니다. 발견 즉시 퇴실 조치 되며, 남은 기간에 대해 환불이 불가합니다.</p>
+						</div>
+					</div>
+					<hr>
 					<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
 						<h4>환불 정책</h4>
 						<p tabindex="-1">
@@ -118,13 +129,13 @@
 							<br><br>
 						</p>
 					</div>
+					<hr>
 					<div>
-						<hr>
 						<p>
 							아래 버튼을 선택하면, 숙소이용규칙, 환불정책 및 게스트 환불정책에 동의하는 것입니다. 
 						</p>
 					
-						<button onclick="requestPay()">예약하기</button>
+						<button type="button" class="btn btn-primary" onclick="requestPay()">예약하기</button>
 					</div>
 					
 					
@@ -132,7 +143,103 @@
 				</div>
 				<!-- sidebar -->
 				<section class="col-lg-4 sidebar">
-					<div class="sticky"></div>
+					<div class="sticky">
+						<div class="_7efq7j">
+							<div class="_1gw6tte">
+								<div style="-gp-section-max-width: 1128px;">
+									<div data-plugin-in-point-id="LISTING_CARD_DESKTOP"
+										data-section-id="LISTING_CARD_DESKTOP"
+										style="padding-bottom: 24px;">
+										<div class="_cyffnm">
+											<div class="_8kqo1s">
+												<div class="_1h6n1zu"
+													style="display: inline-block; vertical-align: bottom; height: 100%; width: 100%; min-height: 1px;">
+													<img class="_9ofhsl" aria-hidden="true" alt=""
+														id="FMP-target"
+														src="https://a0.muscache.com/im/pictures/miso/Hosting-45712229/original/a9e5a651-b1a7-46d1-8649-dc707e61c389.jpeg?aki_policy=large"
+														data-original-uri="https://a0.muscache.com/im/pictures/miso/Hosting-45712229/original/a9e5a651-b1a7-46d1-8649-dc707e61c389.jpeg?aki_policy=large"
+														style="object-fit: cover; vertical-align: bottom;">
+													<div class="_15p4g025"
+														style="background-image: url(&quot;https://a0.muscache.com/im/pictures/miso/Hosting-45712229/original/a9e5a651-b1a7-46d1-8649-dc707e61c389.jpeg?aki_policy=large&quot;); background-size: cover;"></div>
+												</div>
+											</div>
+											<div class="_ooekcv">
+												<div class="_1ssrgzh">Hangyeong-myeon, 의 ${room.r_type}</div>
+												<div class="_3hmsj pt">
+													<div id="LISTING_CARD_DESKTOP-title" class="_1tn13uh">${room.room_name}</div>
+													<div class="_1hunydg">침대 ${room.bed }개 · 욕실 ${room.beath_room}개</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="_1gw6tte">
+								<div style="-gp-section-max-width: 1128px;">
+									<div class="_npr0qi"
+										style="border-top-color: rgb(221, 221, 221);"></div>
+									<div data-plugin-in-point-id="PRICE_DETAILS_TITLE"
+										data-section-id="PRICE_DETAILS_TITLE"
+										style="padding-top: 24px;">
+										<section>
+											<div class="_zaj690">
+												<h1 tabindex="-1" class="_14i3z6h">요금 세부정보</h1>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+							<div class="_1gw6tte">
+								<div style="-gp-section-max-width: 1128px;">
+									<div style="margin-top: 24px;">
+										<div data-plugin-in-point-id="PRICE_DETAIL"
+											data-section-id="PRICE_DETAIL">
+											<div class="_gmaj6l">
+												<div>
+													<div style="margin-top: 0px;">
+														<div class="_hgs47m">
+															<div class="_10ejfg4u">
+																<div class="_17y0hv9">
+																	<div>
+																		<button type="button" class="_r5cknh">
+																			<div class="_x3c6nv">${calcul }</div>
+																		</button>
+																	</div>
+																</div>
+															</div>
+															<div class="_ni9axhe">
+																<div class="_4afltz">
+																	<span class="_17j792vp"><span>₩<fmt:formatNumber value="${reservation.totalPrice}" pattern="#,###" /></span></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div style="margin-top: 16px;">
+														<div class="_hgs47m">
+															<div class="_10ejfg4u">
+																<div class="_1k04cz3c">
+																	총 합계
+																	<button id="MowebCurrencyPicker_trigger" type="button"
+																		class="_ejra3kg">(KRW)</button>
+																</div>
+															</div>
+															<div class="_ni9axhe">
+																<div class="_4afltz">
+																	<span class="_ba3mo2p"><span>₩<fmt:formatNumber value="${reservation.totalPrice}" pattern="#,###" /></span></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
 				
 				</section>
 			

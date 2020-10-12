@@ -151,5 +151,15 @@ public class RoomsDto {
 	public void setCheckout_time(String checkout_time) {
 		this.checkout_time = checkout_time;
 	}
+
+	@Override
+	public String toString() {
+		return   seq_rm + ", " + room_name + ", " + addr + ", " + person
+				+ ", " + price + ", " + intro + ", " + r_type + ", " + bed_room + ", "
+				+ bed + ", " + bath_room + ", " + checkin + ", " + seq_h + ", "
+				+ checkin_time + ", " + checkout_time;
+	}
+	
+	
     
 }

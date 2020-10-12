@@ -81,17 +81,18 @@
 
 	<resultMap type="roomTotalDto" id="roomPreDtoMap">
 		<collection property="room" resultMap="roomsDto" />
-		<collection property="intro" resultMap="rooms_introDto" />
+		<collection property="detail" resultMap="rooms_detailDto" />
 	</resultMap>
 
 	<!-- 숙소검색시 숙소 리스트 -->
 	<select id="searchlist" parameterType="searchOption" resultMap="roomPreDtoMap">
+		<bind name="address" value="'%' + _parameter.getLocal() + '%'" />
 		SELECT r.*, d.*
 		FROM ROOM r
 		JOIN DETAIL d ON (r.SEQ_RM = d.SEQ_RM )
 		WHERE r.SEQ_H IN (SELECT SEQ_H FROM HOST WHERE STATE = 'Y')
-		AND ADDR LIKE #{local}'%'
-		AND PERSON >= #{guestNum}
+		AND r.ADDR LIKE #{address}
+		AND r.PERSON >= #{guestNum}
 	</select>
 
 	<!-- 숙소 사진 -->
@@ -123,4 +124,16 @@
 		FROM RESERVATION
 		WHERE SEQ_RM = #{seq_rm}
 	</select>
+	
+	<!-- 숙소 정보  -->
+	<select id="room" parameterType="int" resultType="roomsDto">
+		SELECT * FROM ROOM 
+		WHERE SEQ_RM = #{seq_rm}
+	</select>
+	
+	<!-- travlemate insert -->
+	<insert id="travelmate" parameterType="roomReservationDto">
+		INSERT INTO RESERVATION
+		VALUES(SEQ_RE.NEXTVAL,#{people},SYSDATE,#{check_in},#{check_out},#{seq_m},#{seq_rm},#{mate},#{totalPrice})
+	</insert>
 </mapper>

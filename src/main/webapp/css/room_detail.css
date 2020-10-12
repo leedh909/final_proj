@@ -30,7 +30,7 @@
 	display: inline-block;
 	position: sticky;
 	top: 30px;
-	width: 300px;
+	width: 100%;
 }
 
 .money{
@@ -124,6 +124,27 @@
     outline: 0px !important;
 }
 
+._1wo1vgi {
+    height: 56px !important;
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    margin: 0px !important;
+    padding: 26px 36px 0px 12px !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    appearance: none !important;
+    cursor: pointer !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+
 ._1acx77b {
     position: relative !important;
     flex: 1 1 0% !important;
@@ -133,6 +154,7 @@
 }
 
 ._7eq2v2 {
+	heigth: 32px !important;
     position: absolute !important;
     top: 12px !important;
     left: 12px !important;
@@ -230,25 +252,6 @@
     width: 100% !important;
 }
 
-._1wo1vgi {
-    height: 56px !important;
-    width: 100% !important;
-    border: none !important;
-    outline: none !important;
-    margin: 0px !important;
-    padding: 26px 36px 10px 12px !important;
-    background-color: transparent !important;
-    color: inherit !important;
-    font-family: inherit !important;
-    font-size: inherit !important;
-    font-weight: inherit !important;
-    line-height: inherit !important;
-    appearance: none !important;
-    cursor: pointer !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-}
 
 ._1ir6ymk {
     font-size: 14px !important;
@@ -368,7 +371,7 @@
 }
 
 ._1d3ext9m {
-    padding-left: 16px !important;
+    padding-left: 50px !important;
     white-space: nowrap !important;
     font-weight: 800 !important;
 }
@@ -384,12 +387,7 @@ li {
     text-align: -webkit-match-parent;
 }
 
-._inlpfr {
-    border-top: 1px solid rgb(221, 221, 221) !important;
-    list-style-type: none !important;
-    margin: 16px 0px 0px !important;
-    padding: 24px 0px 12px !important;
-}
+
 <!-- -->
 ._1v5ksyp {
     flex: 1 1 auto !important;
@@ -482,6 +480,13 @@ li {
     display: flex !important;
 }
 
+._inlpfr {
+    border-top: 1px solid rgb(221, 221, 221) !important;
+    list-style-type: none !important;
+    margin: 16px 0px 0px !important;
+    padding: 24px 0px 12px !important;
+}
+
 ._bmsen5 {
     -webkit-box-flex: 1 !important;
     flex-shrink: 1 !important;
@@ -512,4 +517,80 @@ li {
     border-radius: 4px !important;
     font-weight: 400 !important;
     outline: none !important;
+}
+
+._3zlfom {
+    -webkit-box-pack: justify !important;
+    -webkit-box-align: center !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 104px !important;
+    height: 32px !important;
+    color: rgb(34, 34, 34) !important;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+._7hhhl3 {
+    -webkit-box-pack: center !important;
+    -webkit-box-align: center !important;
+    -webkit-box-flex: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: rgb(176, 176, 176) !important;
+    color: rgb(113, 113, 113) !important;
+    font-family: inherit !important;
+    outline: none !important;
+    touch-action: manipulation !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgb(255, 255, 255) !important;
+    border-radius: 50% !important;
+}
+
+._1665lvv {
+    position: relative !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+._1665lvv {
+    position: relative !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
+._8ovatg {
+    height: 22px !important;
+    width: 22px !important;
+    padding: 5px !important;
+}
+
+._1y5b6gl {
+    margin-bottom: 24px !important;
+}
+
+._1x080uh {
+    position: relative !important;
+    flex: 1 1 auto !important;
+    padding: 0px !important;
+    width: 100% !important;
+    overflow: hidden !important;
 }

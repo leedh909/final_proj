@@ -78,6 +78,12 @@ public class RoomTotalDto {
 	public void setSafety(Rooms_safetyDto safety) {
 		this.safety = safety;
 	}
+
+	@Override
+	public String toString() {
+		return "RoomTotalDto [room=" + room + ", detail=" + detail + ", facility=" + facility + ", intro=" + intro
+				+ ", rule=" + rule + ", safety=" + safety + "]";
+	}
 	
 	
 	

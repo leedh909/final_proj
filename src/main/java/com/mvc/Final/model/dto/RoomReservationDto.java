@@ -30,6 +30,18 @@ public class RoomReservationDto {
 		this.totalPrice = totalPrice;
 	}
 	
+	public RoomReservationDto(int people, String check_in, String check_out, int seq_m, int seq_rm, String mate,
+			String totalPrice) {
+		super();
+		this.people = people;
+		this.check_in = check_in;
+		this.check_out = check_out;
+		this.seq_m = seq_m;
+		this.seq_rm = seq_rm;
+		this.mate = mate;
+		this.totalPrice = totalPrice;
+	}
+
 	public RoomReservationDto(String check_in, String check_out, String totalPrice) {
 		this.check_in = check_in;
 		this.check_out = check_out;
@@ -39,6 +51,14 @@ public class RoomReservationDto {
 	public RoomReservationDto(String check_in, String check_out) {
 		this.check_in = check_in;
 		this.check_out = check_out;
+	}
+	
+	public RoomReservationDto(int people, String check_in, String check_out, int seq_rm) {
+		super();
+		this.people = people;
+		this.check_in = check_in;
+		this.check_out = check_out;
+		this.seq_rm = seq_rm;
 	}
 
 	//getter&setter

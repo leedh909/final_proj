@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.RoomsDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Repository
@@ -23,10 +24,13 @@ public class SearchDao {
 	//검색리스트
 	public List<RoomTotalDto> search(SearchOption searchO) {
 
-		List<RoomTotalDto> searchList = null;
+		List<RoomTotalDto> searchList = new ArrayList<RoomTotalDto>();
 
 		try {
 			searchList = sqlSession.selectList(NAMESPACE + "searchlist",searchO);
+			
+			
+			
 		} catch (Exception e) {
 			System.out.println("error: searchlist");
 			e.printStackTrace();
@@ -65,18 +69,45 @@ public class SearchDao {
 		return date;
 	}
 	
-	//호스트 정보
-	public LoginDto hostInfo(int hostNum) {
+	//회원 정보
+	public LoginDto memberInfo(int memberNum) {
 		LoginDto hostInfo = new LoginDto();
 		
 		try {
-			hostInfo = sqlSession.selectOne(NAMESPACE+"hostInfo",hostNum);
+			hostInfo = sqlSession.selectOne(NAMESPACE+"hostInfo",memberNum);
 		} catch (Exception e) {
 			System.out.println("error:hostInfo");
 			e.printStackTrace();
 		}
 		
 		return hostInfo;
+	}
+
+	public RoomsDto room(int seq_rm) {
+		RoomsDto room = new RoomsDto();;
+		
+		try {
+			room = sqlSession.selectOne(NAMESPACE+"room",seq_rm);
+		} catch (Exception e) {
+			System.out.println("error:room");
+			e.printStackTrace();
+		}
+		
+		return room;
+	}
+
+	//예약시 reservation 테이블 insert
+	public int reservationDate(RoomReservationDto reservDto) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.insert(NAMESPACE+"travelmate",reservDto);
+		} catch (Exception e) {
+			System.out.println("error:travelmate");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 }
