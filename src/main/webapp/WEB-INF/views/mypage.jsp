@@ -9,12 +9,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
 <title>Insert title here</title>
 <style type="text/css">
    .table_th{
       padding: 20px 30px;
       border-bottom: 1px solid;
-      font-size: 20pt;
+      font-size: 13pt;
    }
    .boardtitle{
       color: blue;
@@ -227,20 +230,22 @@
   	
   	<c:otherwise>
   	<%-- GUEST Page --%>
+  	<div style="width:80%; margin-left: 110px;">
   		<div style="padding:50px; width: 240px;" class="w3-container w3-cell">
   			<c:choose>
 	        	<c:when test="${empty login.getProfile()}">
-	        		<div class="w3-border" style="background-color:white;">
+	        		<div class="w3-border" style="background-color:white; border-style: groove; border-width: 2px;">
 	        			<div class="w3-container">
 	        				<img src="storage/profile/baseprofile.jpg" alt="기본이미지입니다." style="width:200px; height:200px; padding: 15px;" class="w3-circle"
 	        					onclick="document.getElementById('id02').style.display='block'">
 	        			</div>
-	        			<div class="w3-container">
+	        			<div class="w3-container" style="text-align: center;">
 	        				<h1>${login.getId() } 님</h1>
-	        				<h1>환영합니다.</h1>
+	        				<h1  style="font-family: Stylish;">환영합니다.</h1>
 	        			</div>
 	        			<div class="w3-container">
-	        				<button style="margin-left:25%;" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
+	        				<button style="margin-left:25%; margin-bottom: 10px;" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
+	        				
 	        			</div>
 	        		</div>
 	        		
@@ -269,12 +274,12 @@
 		        				<img src="storage/profile/${login.getId() }image.jpg?t=${time }" alt="새로고침 해주세요!" style="width:200px; height:200px;" class="w3-circle w3-margin-top"
 		        					onclick="document.getElementById('id02').style.display='block'">
 		        			</div>
-		        			<div class="w3-container">
+		        			<div class="w3-container" style="text-align: center;">
 		        				<h1>${login.getId() } 님</h1>
-		        				<h1>환영합니다.</h1>
+		        				<h1  style="font-family: Stylish;">환영합니다.</h1>
 		        			</div>
 		        			<div class="w3-container">
-		        				<button style="margin-left:25%;" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
+		        				<button style="margin-left:25%; margin-bottom: 10px;" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">정보수정</button>
 		        			</div>
 	        			</div>
 		        			
@@ -304,14 +309,16 @@
  		
  		<!-- 예약현황 -->
  		<div style="padding:100px; background-color: white; width: 100%;" class="w3-container w3-cell">
- 		  <h1 align="center">예약현황</h1>
- 		  <table border="0" align="center" style="text-align: center">
+ 		  <h1 style="font-family:sofia; font-size:40px;">Announce</h1>
+ 		 <br>
+ 		  <h1 align="center" style=" font-family: monospace;">예약현황</h1>
+ 		  <table align="center" style="text-align: center; border-style:double; border-width: 15px; width: 800px; height: 400px;">
                <col width="200px"><col width="400px">
                <col width="200px"><col width="200px"><col width="200px">
                <thead>
                   <th class="table_th">예약번호</th>
                   <th class="table_th">숙소이름</th> <!-- 이름을 누르면 숙소정보보기? -->
-                  <th class="table_th">체크인 날짜</th>
+                  <th class="table_th">체크인</th>
                   <th class="table_th">인원수</th>  
                   <th class="table_th">가격</th>
                </thead>
@@ -326,11 +333,11 @@
 					<c:otherwise>
 						<c:forEach items="${relist}" var="redto">
 							<tr>
-								<td>${redto.seq_re }</td>
-								<td>${redto.room_name }</td>
+								<td style="font-size: 20px;">${redto.seq_re }</td>
+								<td style="font-size: 15px;">${redto.room_name }</td>
 								<td> <fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${redto.check_in }"/></td>
-								<td>${redto.people }명</td>
-								<td>${redto.price }원</td>
+								<td style="font-size: 20px;">${redto.people }명</td>
+								<td style="font-size: 15px;">${redto.price }원</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
@@ -340,7 +347,7 @@
 
 	</section>
  		</div>
- 		
+ </div>		
  		 <!-- 프로필 -->
 		  <div id="id01" class="w3-modal">
 		    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
