@@ -112,6 +112,15 @@
                                  <h4 style= "margin-left:30px;" ><strong>행사 및 파티 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >행사 및 파티 관련 규정사항을 입력해주세요</h5>
                                    <textarea rows="4" cols="70" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <br><br><br><br><br>
+                                   <hr style="margin-left:30px; width:150%; ">
+                                   <br>
+                                   <h4 style="margin-left:30px;"><strong>체크인  / 체크아웃 시간 설정</strong></h4>
+                                     <h5 style="margin-left:30px;">체크인 / 체크아웃 시간을 설정해주세요</h5>
+                                       <h6 style="margin-left:30px;">체크인 시간</h6>
+                                          <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59"></p>
+                                       <h6 style="margin-left:250px; margin-top: -74px;">체크아웃 시간</h6>
+                                          <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59"></p>
                                </div>
                             </div>
                       

@@ -30,25 +30,69 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <style type="text/css">
-     /*.btn{
-           float:left;
-           padding:20px; 
-           margin-left:30px; 
-           border:1px solid; 
-           width:180px; 
-           height:120px;
-           position:relative;
-        }*/
+  .box-radio-input input[type="radio"]{
+    display:none;
+}
+
+.box-radio-input input[type="radio"] + span{
+    display:inline-block;
+    background:none;
+    border:1px solid #f85959;    
+    padding:0px 10px;
+    text-align:center;
+    line-height:33px;
+    font-size:x-large;
+    font-weight:bold;
+    cursor:pointer;
+    float:left;
+    padding:20px;
+    margin-left:20px;
+    border:1px solid;
+    width:180px;
+    height:120px;
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+    border:1px solid #23a3a7;
+    background:#f85959;
+    color:#fff;
+}
+ 
   </style>
   <script type="text/javascript">
-     function color(obj) {
-         var buttons = obj.form.test;
+      function color(obj) {
+         var radios = obj.form.test;
          for(var i=0,len=buttons.length ; i<len ; i++) {
          buttons[i].style.backgroundColor = "";
          }
          obj.style.backgroundColor = "#f85959";
          obj.style.color = "white";
          }
+
+        function color2(obj) {
+      var buttons = obj.form.test;
+
+      obj.style.backgroundColor = "#f85959";
+      obj.style.color = "white";
+      }
+      //숫자만 출력
+      function onlyNumber(event){
+    	    event = event || window.event;
+    	    var keyID = (event.which) ? event.which : event.keyCode;
+    	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+    	        return;
+    	    else
+    	        return false;
+    	}
+      //문자만 제외
+      function removeChar(event) {
+    	    event = event || window.event;
+    	    var keyID = (event.which) ? event.which : event.keyCode;
+    	    if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+    	        return;
+    	    else
+    	        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    	}
   </script>
   <body>
    <div>
@@ -98,34 +142,33 @@
                          <div style="width:1200px;">
                                     <h4 style= "margin-left:30px;" ><strong>숙소</strong></h4 >
                                     <br> 
-                                    <form>
-                            <input type="button" name="test" class="btn" onclick="color(this)" value="원룸" 
-                             style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px; "/>&nbsp;
-                            <input type="button" name="test" class="btn" onclick="color(this)" value="빌라 " 
-                             style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"/>&nbsp;
-                            <input type="button" name="test" class="btn" onclick="color(this)" value="오피스텔 " 
-                             style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"/>
-                            <input type="button" name="test" class="btn" onclick="color(this)" value="단독주택 " 
-                             style="float:left; padding:20px; margin-left:30px; border:1px solid; width:180px; height:120px;"/>
-                            </form>
-                                      <br><br><br><br><br><br><br>
+                             <form action="rooms.do" method="get">
+                            <label class="box-radio-input"><input type="radio" name="test" value="원룸" checked="checked"><span>원룸</span></label>&nbsp;
+                            <label class="box-radio-input"><input type="radio" name="test" value="빌라"><span>빌라</span></label>&nbsp;
+                            <label class="box-radio-input"><input type="radio" name="test" value="오피스텔"><span>오피스텔</span></label>
+                            <label class="box-radio-input"><input type="radio" name="test" value="단독주택"><span>단독주택</span></label>
+                                      <br><br><br><br>
                                       <hr style= "margin-left:30px; width:108%; ">
                                       <br>
                               <div style="float:left; margin-left:30px;"><h5>숙소 이름: </h5></div>
-                                   <textarea rows="2" cols="50" placeholder="이름을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <textarea rows="2" name="room_name" cols="50" placeholder="이름을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
                                    <br><br><br><br>
                                    <hr style= "margin-left:30px; width:108%; ">
-                                      <br>
-                            </div>
+                                   <br>   
+                  
                             <br><br>
                             <div style="float:left; margin-left:30px;"><h5>숙소 가격: </h5></div>
-                                <textarea rows="1" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;
+                                <textarea onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" rows="1" name="room_price" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;
+                                
                                 <label><h4>₩</h4></label>
+                                 <input type="submit"  value="전송" />
+                                </form>
+                                </div>
                             </div>
-                         </div>
+                         </div>        
                       </div>
                    </div>
-                   
+                     
               <div class="row mt-5">
                 <div class="col text-center">
                   <div class="block-27">
@@ -136,6 +179,7 @@
                   </div>
                 </div>
               </div>
+              
     </section> <!-- .section -->
 
     <div>
