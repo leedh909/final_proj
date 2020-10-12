@@ -11,23 +11,26 @@ public class SearchOption {
 
 	//생성자
 	public SearchOption() {}
-	
+
 	public SearchOption(String local) {
 		this.local = local;
+		this.checkin ="";
+		this.checkout ="";
 		this.guestNum = 1;
 	}
-	
-	public SearchOption(String local, String checkin) {
-		this.local = local;
-		this.checkin = checkin;
-		this.guestNum = 1;
-	}
-	
 
-	public SearchOption(String local, String checkin, int guestNum) {
+	public SearchOption(String local, int guestNum) {
+		this.local = local;
+		this.checkin= "";
+		this.checkout="";
+		this.guestNum = guestNum;
+	}
+
+	public SearchOption(String local, String checkin, String checkout) {
 		this.local = local;
 		this.checkin = checkin;
-		this.guestNum = guestNum;
+		this.checkout = checkout;
+		this.guestNum = 1;
 	}
 
 	public SearchOption(String local, String checkin, String checkout, int guestNum) {
@@ -36,6 +39,8 @@ public class SearchOption {
 		this.checkout = checkout;
 		this.guestNum = guestNum;
 	}
+
+
 
 	//getter,setter
 	public String getLocal() {

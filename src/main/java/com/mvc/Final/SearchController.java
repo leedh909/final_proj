@@ -1,5 +1,8 @@
 package com.mvc.Final;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,13 +14,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mvc.Final.model.biz.SearchBiz;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.RoomsDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Controller
@@ -33,10 +40,20 @@ public class SearchController {
 		//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
 		List<RoomTotalDto> searchList = biz.search(searchO);
 		
+		//주소,숙소 번호 담기 
+		String[] addr = new String[searchList.size()];
+		int[] seq_rm = new int[searchList.size()];
+		for(int i =0;i<searchList.size();i++) {
+			addr[i] = searchList.get(i).getRoom().getAddr();
+			seq_rm[i] = searchList.get(i).getRoom().getSeq_rm();
+		}
+		
+		
 		//검색 리스트 숙소사진 가져오기
 		for(int i=0 ; i<searchList.size(); i++) {
 			
 		}
+		System.out.println("searchList 사이즈 : "+searchList.size());
 		
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("searchOption",searchO);
@@ -45,11 +62,10 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/room_detail.do")
-	public String room_detail(int seq_rm,SearchOption searchO, Model model,HttpSession session) {
+	public String room_detail(int seq_rm,SearchOption searchO, Model model) {
 		
 		//숙소 정보 가지고 오기
-		RoomTotalDto roomInfo = new RoomTotalDto();
-		roomInfo = biz.roomInfo(seq_rm);
+		RoomTotalDto roomInfo =  biz.roomInfo(seq_rm);
 		
 		String[] detail = roomInfo.getDetail().toString().split(",");
 		String[] facility = roomInfo.getFacility().toString().split(",");
@@ -57,12 +73,11 @@ public class SearchController {
 		String[] rule = roomInfo.getRule().toString().split(",");
 		
 		//숙소 예약 날짜 가져오기 
-		Map<String,Object> booked = new HashMap<String,Object>(); 
-		booked = biz.reservationDate(seq_rm);
+		Map<String,Object> booked =  biz.reservationDate(seq_rm);
 		
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
-		LoginDto hostInfo = biz.hostInfo(hostNum);
+		LoginDto hostInfo = biz.memberInfo(hostNum);
 		
 		//숙소 사진 가지고 오기
 		
@@ -75,22 +90,59 @@ public class SearchController {
 		model.addAttribute("rule",rule);
 		model.addAttribute("hostInfo",hostInfo);
 		model.addAttribute("booked",booked);
-		model.addAttribute("session",session);
 		
 		return "room_detail";
 	}
 	
 	@RequestMapping("/pay.do")
 	public String pay(Model model, RoomReservationDto reservation,HttpSession session) {
+		//숙소정보 가져오기
+		RoomsDto room = biz.room(reservation.getSeq_rm());
 		
+		//박수 구하기 
+		String in = reservation.getCheck_in();
+		String out = reservation.getCheck_out();
+		int night = calDate(in,out);
 		
+		//총 가격 계산하기 
+		String totalPrice = Integer.toString(night*room.getPrice());
+		reservation.setTotalPrice(totalPrice);
+		
+		//계산 부분
+		String calculate = "₩"+String.format("%,d",room.getPrice())+" x "+night+"박";
+		
+		//예약자 회원 정보 
+		LoginDto login = ((LoginDto)session.getAttribute("login"));
+		
+		model.addAttribute("calcul",calculate);
+		model.addAttribute("room",room);
 		model.addAttribute("reservation",reservation);
+		model.addAttribute("member",login);
 		return "payment";
 	}
 	
-	@RequestMapping("/paysucess.do")
-	public String sucess(Model model,RoomReservationDto reservation ) {
+	private int calDate(String in, String out) {
+		LocalDate inDate = LocalDate.parse(in,DateTimeFormatter.ISO_DATE);
+		LocalDate outDate = LocalDate.parse(out,DateTimeFormatter.ISO_DATE);
 		
-		return "redirect:main.do";
+		int days = (int) ChronoUnit.DAYS.between(inDate, outDate);
+		
+		return days;
+	}
+
+	@RequestMapping(value="/ajaxmate.do", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String,Boolean> ajaxmate(Model model,@RequestBody RoomReservationDto reservDto) {
+		//결제 성공시 travelmate에 데이터 저장
+		int res = biz.reservation(reservDto);
+		boolean check = false;
+		
+		if(res > 0) {
+			check=true;
+		}
+		
+		Map<String,Boolean> map = new HashMap<String,Boolean>();
+		map.put("check", check);
+		return map;
 	}
 }

@@ -15,6 +15,7 @@ import com.mvc.Final.model.dao.SearchDao;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.RoomsDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Service
@@ -32,9 +33,9 @@ public class SearchBiz {
 		
 		return dao.roomInfo(seq_rm);
 	}
-	//호스트 정보
-	public LoginDto hostInfo(int hostNum) {
-		return dao.hostInfo(hostNum);
+	//회원 정보
+	public LoginDto memberInfo(int memberNum) {
+		return dao.memberInfo(memberNum);
 	}
 	//숙소 예약된 날짜
 	public Map<String,Object> reservationDate(int seq_rm){
@@ -56,5 +57,14 @@ public class SearchBiz {
 		booked.put("outdate", "outdate");
 		
 		return booked;
+	}
+	
+	//payment 페이지에 들어가는 숙소 정보
+	public RoomsDto room(int seq_rm) {
+		return dao.room(seq_rm);
+	}
+	public int reservation(RoomReservationDto reservDto) {
+		
+		return dao.reservationDate(reservDto);
 	}
 }
