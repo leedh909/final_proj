@@ -193,7 +193,7 @@
 
 					<!-- Booking Part -->
 					<div class="block-17 my-4" style="width: 130%; height: 75px;">
-						<form action="" method="post" class="d-block d-flex">
+						<form action="search.do" method="post" class="d-block d-flex">
 							<div class="fields d-block d-flex">
 								<!-- 장소-->
 								<div class="select-wrap one-third" style="cursor: pointer;">
@@ -201,7 +201,7 @@
 										style="color: black; margin-left: 30px; padding-top: 6px; font-weight: bold;">위치</div>
 									<input type="text" placeholder="어디로 여행가시나요?"
 										style="border: none; border-right: 0px; border-top: 0px; padding-left: 30px; cursor: pointer; outline: none; margin-top: 7px;"
-										class="lo-placeholder" required readonly="readonly"
+										class="lo-placeholder" required readonly="readonly" name="local"
 										onclick="locationPopup();">
 									<!-- 8개 도시 div onclick -->
 								</div>
@@ -213,7 +213,7 @@
 										<div class="arrival"
 											style="display: inline-block; float: left; width: 45%;">
 											<label for="arrival" style="margin-left: 7px;">체크인</label><br />
-											<input name="arrival" type="text"
+											<input name="checkin" type="text"
 												onfocus="inpickr(this)" onblur="(this.type='text')"
 												placeholder="체크인 날짜를 선택하세요"
 												style="width: 200px; border: none; margin-left: 7px; cursor: pointer;" />
@@ -227,7 +227,7 @@
 										<div class="departure"
 											style="display: inline-block; float: left; width: 45%;">
 											<label for="arrival" style="margin-left: 7px;">체크아웃</label><br />
-											<input name="departure" type="text"
+											<input name="checkout" type="text"
 												onfocus="outpickr(this)" onblur="(this.type='text')"
 												placeholder="체크아웃 날짜를 선택하세요"
 												style="width: 200px; border: none; margin-left: 7px; cursor: pointer;" />
@@ -239,7 +239,7 @@
 										<label for="guests" style="margin-left: 7px;">인원수</label><br />
 										<button class="counter-btn" type="button" id="cnt-down"
 											style="display: inline-block; height: 40px; text-align: top; vertical-align: top; font-size: 1.5em; font-weight: 300; width: 40px; background: #fff; border: none; margin-bottom: 20px; border-radius: 50%; box-shadow: 1px 3px 20px rgba(17, 17, 17, 0.1); cursor: pointer; outline: none; margin-left: 10px; margin-top: -8px;">-</button>
-										<input type="text" id="guestNo" name="guests" value="0"
+										<input type="text" id="guestNo" name="guestNum" value="0"
 											style="width: 80px; margin: 0 20px; text-align: center; border: none; margin-top: -10px;"
 											readonly />
 										<button class="counter-btn" type="button" id="cnt-up"
