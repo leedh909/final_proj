@@ -21,6 +21,22 @@ public class SearchDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
+	//검색된 숙소 총 개수
+	public int count(SearchOption searchO) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.selectOne(NAMESPACE+"count",searchO);
+		} catch (Exception e) {
+			System.out.println("error: count");
+			e.printStackTrace();
+		}
+		System.out.println("dao에서 count:"+res);
+		return res;
+	}
+
+	
+	
 	//검색리스트
 	public List<RoomTotalDto> search(SearchOption searchO) {
 
@@ -71,16 +87,16 @@ public class SearchDao {
 	
 	//회원 정보
 	public LoginDto memberInfo(int memberNum) {
-		LoginDto hostInfo = new LoginDto();
+		LoginDto memberInfo = new LoginDto();
 		
 		try {
-			hostInfo = sqlSession.selectOne(NAMESPACE+"hostInfo",memberNum);
+			memberInfo = sqlSession.selectOne(NAMESPACE+"memberInfo",memberNum);
 		} catch (Exception e) {
 			System.out.println("error:hostInfo");
 			e.printStackTrace();
 		}
 		
-		return hostInfo;
+		return memberInfo;
 	}
 
 	public RoomsDto room(int seq_rm) {
@@ -109,5 +125,5 @@ public class SearchDao {
 		
 		return res;
 	}
-
+	
 }

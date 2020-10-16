@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mvc.Final.model.biz.SearchBiz;
 import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.Paging;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
 import com.mvc.Final.model.dto.RoomsDto;
@@ -36,28 +37,28 @@ public class SearchController {
 	private SearchBiz biz;
 	
 	@RequestMapping("/search.do")
-	public String search(SearchOption searchO,@RequestParam(defaultValue="1") int curPage, Model model) {
+	public String search(SearchOption searchO, int curPage,Model model) {
+		//검색  된 게시물 개수 
+		int count = biz.count(searchO);
+		//페이지 나누기 관련 처리
+		System.out.println(count+","+curPage);
+		Paging pager = new Paging(count, curPage);
+		int start = pager.getPageBegin();
+		int end = pager.getPageEnd();
+		searchO.setStart(start);
+		searchO.setEnd(end);
 		//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
 		List<RoomTotalDto> searchList = biz.search(searchO);
-		
-		//주소,숙소 번호 담기 
-		String[] addr = new String[searchList.size()];
-		int[] seq_rm = new int[searchList.size()];
-		for(int i =0;i<searchList.size();i++) {
-			addr[i] = searchList.get(i).getRoom().getAddr();
-			seq_rm[i] = searchList.get(i).getRoom().getSeq_rm();
-		}
-		
 		
 		//검색 리스트 숙소사진 가져오기
 		for(int i=0 ; i<searchList.size(); i++) {
 			
 		}
-		System.out.println("searchList 사이즈 : "+searchList.size());
 		
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("searchOption",searchO);
-		
+		model.addAttribute("count",count);
+		model.addAttribute("pager", pager);
 		return "room_search";
 	}
 	
@@ -66,7 +67,7 @@ public class SearchController {
 		
 		//숙소 정보 가지고 오기
 		RoomTotalDto roomInfo =  biz.roomInfo(seq_rm);
-		
+	
 		String[] detail = roomInfo.getDetail().toString().split(",");
 		String[] facility = roomInfo.getFacility().toString().split(",");
 		String[] safety = roomInfo.getSafety().toString().split(",");

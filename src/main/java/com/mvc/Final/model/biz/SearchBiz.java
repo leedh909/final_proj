@@ -5,12 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mvc.Final.LoginController;
 import com.mvc.Final.model.dao.SearchDao;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
@@ -24,6 +21,10 @@ public class SearchBiz {
 	@Autowired
 	private SearchDao dao;
 	
+	//
+	public int count(SearchOption searchO) {
+		return dao.count(searchO);
+	}
 	//검색 조건에 맞는 숙소정보
 	public List<RoomTotalDto> search(SearchOption searchO) {
 		return dao.search(searchO);
@@ -48,13 +49,18 @@ public class SearchBiz {
 		List<String> indate = new ArrayList<String>();
 		List<String> outdate = new ArrayList<String>();
 		
+		for(int i =0; i<date.size() ;i++) {
+		}
+		
+		
 		for(int i=0; i<date.size(); i++) {
 			indate.add(date.get(i).getCheck_in());
 			outdate.add(date.get(i).getCheck_out());
 		}
+		
 	
 		booked.put("indate", indate);
-		booked.put("outdate", "outdate");
+		booked.put("outdate", outdate);
 		
 		return booked;
 	}
@@ -67,4 +73,5 @@ public class SearchBiz {
 		
 		return dao.reservationDate(reservDto);
 	}
+	
 }
