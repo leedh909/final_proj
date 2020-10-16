@@ -569,13 +569,6 @@ li {
     line-height: inherit !important;
 }
 
-._1665lvv {
-    position: relative !important;
-    color: inherit !important;
-    font-family: inherit !important;
-    font-size: inherit !important;
-    line-height: inherit !important;
-}
 
 ._8ovatg {
     height: 22px !important;
@@ -593,4 +586,22 @@ li {
     padding: 0px !important;
     width: 100% !important;
     overflow: hidden !important;
+}
+
+@media (min-width: 1128px)
+._1byskwn {
+    margin-left: -8px !important;
+    margin-right: -8px !important;
+    width: calc(100% + 16px) !important;
+}
+._1byskwn {
+    -webkit-box-pack: start !important;
+    -webkit-box-align: stretch !important;
+    display: flex !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+    width: calc(100% + 12px) !important;
+    margin-left: -6px !important;
+    margin-right: -6px !important;
 }

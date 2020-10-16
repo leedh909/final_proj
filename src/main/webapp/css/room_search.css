@@ -1,12 +1,13 @@
-#kkomap {
+/* #kkomap {
 	width: 100%;
 	clear: both;
 	overflow: hidden;
-	display: flex;
 	flex-direction: column;
 	height:100%;
-	position: sticky;	
-}
+	position: sticky;
+	display: inline-block;
+	top: 0px;
+} */
 .mySlides {display:none;} 
 
 p {
@@ -101,4 +102,88 @@ p {
 
 .custom_zoomcontrol span:first-child {
 	border-bottom: 1px solid #bfbfbf;
+}
+
+<!-- 검색창 -->
+
+.block-17 {
+    background: #fff;
+    overflow: hidden;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 50px;
+}
+
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+.d-block {
+    display: block !important;
+}
+.block-17 form .fields {
+    width: calc(100% - 80px);
+    position: relative;
+}
+.location {
+    color: black;
+    font-weight: bold;
+    margin-left: 25px;
+    padding-top: 10px;
+}
+.block-17 form .fields .one-third:nth-child(2) {
+    border-right: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.block-17 form .fields .select-wrap {
+    position: relative;
+}
+.block-17 form .fields .one-third {
+    width: 50%;
+    background: #fff;
+}
+.block-17 form .fields .one-third:last-child {
+    border-right: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.block-17 form .search-submit {
+    width: 160px;
+    background: #f85959;
+    border: 1px solid #f85959;
+    color: #fff;
+    padding: 12px 10px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+}
+.location-container {
+    display: none;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.grid-location-Popup {
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 20px 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+}
+.grid-location-Popup>div {
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    width: 95%;
+}
+.grid-location-Popup>div>p {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: black;
+    margin-top: 15px;
 }
