@@ -15,9 +15,17 @@ public class RoomsDto {
     private int seq_h;
     private String checkin_time;
     private String checkout_time;
+    private int seq_rm_r;
     
+	public int getSeq_rm_r() {
+		return seq_rm_r;
+	}
+
+	public void setSeq_rm_r(int seq_rm_r) {
+		this.seq_rm_r = seq_rm_r;
+	}
+
 	public RoomsDto() {
-		super();
 	}
 
 	public RoomsDto(int seq_rm, String room_name, String addr, int person, int price, String intro, String r_type,
@@ -38,6 +46,27 @@ public class RoomsDto {
 		this.seq_h = seq_h;
 		this.checkin_time = checkin_time;
 		this.checkout_time = checkout_time;
+		
+	}
+
+	public RoomsDto(String room_name, String addr, int person, int price, String intro, String r_type, int bed_room,
+			int bed, int bath_room, String checkin, int seq_h, String checkin_time, String checkout_time,
+			int seq_rm_r) {
+		super();
+		this.room_name = room_name;
+		this.addr = addr;
+		this.person = person;
+		this.price = price;
+		this.intro = intro;
+		this.r_type = r_type;
+		this.bed_room = bed_room;
+		this.bed = bed;
+		this.bath_room = bath_room;
+		this.checkin = checkin;
+		this.seq_h = seq_h;
+		this.checkin_time = checkin_time;
+		this.checkout_time = checkout_time;
+		this.seq_rm_r = seq_rm_r;
 	}
 
 	public int getSeq_rm() {

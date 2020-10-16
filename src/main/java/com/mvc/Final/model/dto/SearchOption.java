@@ -7,10 +7,18 @@ public class SearchOption {
 	private String checkin;	//체크인 날짜
 	private String checkout;	//체크아웃 날짜
 	private int guestNum;	//게스트 수
+	private int start;
+	private int end;
 	
-
 	//생성자
 	public SearchOption() {}
+
+	public SearchOption(String local, int guestNum, int start, int end) {
+		this.local = local;
+		this.guestNum = guestNum;
+		this.start = start;
+		this.end = end;
+	}
 
 	public SearchOption(String local) {
 		this.local = local;
@@ -68,7 +76,21 @@ public class SearchOption {
 	public void setGuestNum(int guestNum) {
 		this.guestNum = guestNum;
 	}
-	
+	public int getStart() {
+		return start;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
 	
 	
 }

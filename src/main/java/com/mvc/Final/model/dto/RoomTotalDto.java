@@ -1,7 +1,5 @@
 package com.mvc.Final.model.dto;
 
-import java.util.List;
-
 public class RoomTotalDto {
 
 	private RoomsDto room;	//숙소

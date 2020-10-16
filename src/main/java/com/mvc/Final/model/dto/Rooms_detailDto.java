@@ -13,13 +13,22 @@ public class Rooms_detailDto {
     private String closet;
     private String wifi;
     private int seq_rm;
+    private int seq_rm_d;
     
+	public int getSeq_rm_d() {
+		return seq_rm_d;
+	}
+
+	public void setSeq_rm_d(int seq_rm_d) {
+		this.seq_rm_d = seq_rm_d;
+	}
+
 	public Rooms_detailDto() {
 		super();
 	}
 
 	public Rooms_detailDto(int seq_detail, String essential, String heating, String aircondition, String iron, String tv,
-			String shampoo, String hairdry, String desk, String closet, String wifi, int seq_rm) {
+			String shampoo, String hairdry, String desk, String closet, String wifi, int seq_rm,int seq_rm_d) {
 		super();
 		this.seq_detail = seq_detail;
 		this.essential = essential;
@@ -33,6 +42,24 @@ public class Rooms_detailDto {
 		this.closet = closet;
 		this.wifi = wifi;
 		this.seq_rm = seq_rm;
+		this.seq_rm_d = seq_rm_d;
+	}
+
+	public Rooms_detailDto(String essential, String heating, String aircondition, String iron, String tv,
+			String shampoo, String hairdry, String desk, String closet, String wifi, int seq_rm, int seq_rm_d) {
+		super();
+		this.essential = essential;
+		this.heating = heating;
+		this.aircondition = aircondition;
+		this.iron = iron;
+		this.tv = tv;
+		this.shampoo = shampoo;
+		this.hairdry = hairdry;
+		this.desk = desk;
+		this.closet = closet;
+		this.wifi = wifi;
+		this.seq_rm = seq_rm;
+		this.seq_rm_d = seq_rm_d;
 	}
 
 	public int getSeq_detail() {

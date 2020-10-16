@@ -2,7 +2,7 @@ package com.mvc.Final.model.dto;
 
 public class Paging {
 	
-	public static final int PAGE_SCALE = 10;	// 페이지 당 게시물 수
+	public static final int PAGE_SCALE = 2;	// 페이지 당 게시물 수
 	public static final int BLOCK_SCALE = 5;	// 화면당 페이지 수
 	
 	private int curPage;	// 현재 페이지  
@@ -20,6 +20,7 @@ public class Paging {
 	private int blockEnd;	// 현재 페이지 블록의 끝번호
 
 	//생성자
+	
 	//레코드 개수, 현제페이지 번호
 	public Paging(int count ,int curPage) {
 		curBlock = 1;	//현재 페이지 블록 번호
@@ -35,7 +36,7 @@ public class Paging {
 		curBlock = (int)Math.ceil((curPage-1)/BLOCK_SCALE)+1;
 		//현재 페이지 블록의 시작, 끝번호
 		blockBegin =(curBlock-1)*BLOCK_SCALE+1;
-		blockEnd = blockBegin+BLOCK_SCALE+1;
+		blockEnd = blockBegin+BLOCK_SCALE-1;
 		//마지막 블록이 범위초과하지 않도록
 		if(blockEnd > totPage) blockEnd = totPage;
 		//< 눌렀을때 이동할 페이지
@@ -94,7 +95,9 @@ public class Paging {
 	public void setTotBlock() {
 		//전체 페이지 개수 / 10
 		// 91/10 => 9.2
-		totBlock = (int)Math.ceil(totPage / BLOCK_SCALE);
+		totBlock = (int)Math.ceil(totPage*1.0 / BLOCK_SCALE);
+		System.out.println("dto에서 totBlock:"+totBlock);
+		System.out.println("dto에서 totPage:"+totPage);
 	}
 
 	public int getcurBlock() {
