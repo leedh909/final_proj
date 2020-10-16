@@ -193,7 +193,8 @@
 
 					<!-- Booking Part -->
 					<div class="block-17 my-4" style="width: 130%; height: 75px;">
-						<form action="search.do" method="post" class="d-block d-flex">
+						<form action="search.do" class="d-block d-flex">
+						<input type="hidden" name="curPage" value="1">
 							<div class="fields d-block d-flex">
 								<!-- 장소-->
 								<div class="select-wrap one-third" style="cursor: pointer;">
@@ -227,7 +228,7 @@
 										<div class="departure"
 											style="display: inline-block; float: left; width: 45%;">
 											<label for="arrival" style="margin-left: 7px;">체크아웃</label><br />
-											<input name="checkout" type="text"
+											<input name="checkout" type="text" 
 												onfocus="outpickr(this)" onblur="(this.type='text')"
 												placeholder="체크아웃 날짜를 선택하세요"
 												style="width: 200px; border: none; margin-left: 7px; cursor: pointer;" />

@@ -167,7 +167,7 @@
 												<div class="_1ssrgzh">Hangyeong-myeon, 의 ${room.r_type}</div>
 												<div class="_3hmsj pt">
 													<div id="LISTING_CARD_DESKTOP-title" class="_1tn13uh">${room.room_name}</div>
-													<div class="_1hunydg">침대 ${room.bed }개 · 욕실 ${room.beath_room}개</div>
+													<div class="_1hunydg">침대 ${room.bed }개 · 욕실 ${room.bath_room}개</div>
 												</div>
 												
 											</div>

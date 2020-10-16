@@ -37,7 +37,12 @@ $(function(){
 	
 	//게스트 수 초기 설정
 	if("${searchOption.guestNum}" != null && "${searchOption.guestNum}" != ''){
-		$("#guestcount").val("${searchOption.guestNum}");
+		if("${searchOption.guestNum}" == 0){
+			$("#guestcount").val("1");
+			
+		}else{
+			$("#guestcount").val("${searchOption.guestNum}");
+		}
 	}else{
 		$("#guestcount").val("1");
 	}
@@ -67,20 +72,23 @@ $(function(){
 			guestAmount.val(parseInt($("#gusetcount").val()) = 1);
 		}
 	};
+	
 
+	
 	
 	//체크인 달력
 	function inpickr() {
 		indate.flatpickr({
 			minDate : "today",
 			dateFormat : "Y-m-d",
+			
 		});
 		
 	};
 	
 	//체크아웃 달력
 	function outpickr() {
-		
+	
 			outdate.flatpickr({
 				minDate:"today",
 				dateFormat : "Y-m-d",
@@ -102,6 +110,7 @@ $(function(){
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
+			<c:out value="${rule[0]}"/>
 			<div class="col-lg-12">
 				<h2><b>${roomInfo.room.room_name}</b></h2>
 				<c:set var="addrbefore" value="${roomInfo.room.addr}" />
@@ -181,7 +190,13 @@ $(function(){
 					<!-- 편의시설 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<h2>편의시설</h2>
-
+						<div class="_1byskwn my-4">
+							<div class="_19xnuo97">
+								
+								
+							</div>
+						</div>
+						
 
 						<button type="button" class="button _13e0raay" style="margin-top:24px;" data-toggle="modal" data-target="#myModalP">편의시설 모두 보기</button>
 						<!-- Modal -->
@@ -421,9 +436,7 @@ $(function(){
 					<p class="mt-4">
 						<b>${addrgu}, ${addrsi}</b>
 					</p>
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35&libraries=services"></script>
-					<!-- services,cluster,drawing 라이브러리 불러오기 -->
-					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=37eab138db2d17be2dbaeea4157c0d35&&libraries=services,clusterer,drawing"></script>
 					<script type="text/javascript">
 						//숙소 주소 
 						var address = "${roomInfo.room.addr}";
@@ -448,6 +461,7 @@ $(function(){
 						markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new kakao.maps.services.Geocoder();
+						console.log(address);
 						// 주소로 좌표를 검색합니다
 						geocoder.addressSearch(address, function(
 								result, status) {
