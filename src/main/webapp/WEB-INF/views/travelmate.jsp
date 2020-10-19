@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,6 +32,8 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   
    	<style type="text/css">
   		div#s_left{
@@ -73,6 +79,39 @@
   		.tdwidth{
   			width:150px;
   		}
+  		select { 
+  				 -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+  				 -moz-appearance: none; 
+  				 appearance: none; 
+  				 background: url(이미지 경로) no-repeat 95% 50%; /* 화살표 모양의 이미지 */ 
+  		} 
+  		/* IE 10, 11의 네이티브 화살표 숨기기 */ 
+  		select::-ms-expand { 
+  			display: none; 
+  		}
+		select { width: 150px; /* 원하는 너비설정 */ 
+				 padding: .8em .5em; /* 여백으로 높이 설정 */ 
+				 font-family: inherit; /* 폰트 상속 */ 
+				 background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */ 
+				 border: 1px solid #999; border-radius: 0px; /* iOS 둥근모서리 제거 */ 
+				 -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+				 -moz-appearance: none; 
+				 appearance: none; 
+		}
+		.button {
+		    width:100px;
+		    background-color: #f8585b;
+		    border: none;
+		    color:#fff;
+		    padding: 15px 0;
+		    text-align: center;
+		    text-decoration: none;
+		    display: inline-block;
+		    font-size: 15px;
+		    margin: 4px;
+		    cursor: pointer;
+		    border-radius:10px;
+		}
   	</style> 
   </head>
   <body>
@@ -98,169 +137,141 @@
 	<!-- 필터링창 -->
 	<div style="background-color:white;" id="s_left">
 		<div style="text-align: center; position: relative; top:50px;">
+		<form>
 			<br><br>
+			<h1 style=""><em>지역 선택</em></h1>
+			<br>
+			<select style="text-align: center;" name="area" onchange="">
+            <option value="seoul" style="text-align: center;">서울</option>
+            <option value="busan" style="text-align: center;">부산</option>
+            <option value="daejeon" style="text-align: center;">대전</option>
+            <option value="daegu" style="text-align: center;">대구</option>
+            <option value="jeju" style="text-align: center;">제주</option>
+            <option value="gangneung" style="text-align: center;">강릉</option>  
+            <option value="gyeongju" style="text-align: center;">경주</option>  
+            <option value="yeosu" style="text-align: center;">여수</option>  
+        	</select>
+			<br><br><br>
 			<h1 style=""><em>Filtering</em></h1>
 			<br>
 			<div>
-			<label>GENDER: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="M" name="gender" id="male">Man&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="F" name="gender" id="female">Woman&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="GDA" name="alcohol" id="ga">Anything 
+			<label>Kid: </label> &nbsp;&nbsp;&nbsp;
+			<input type="radio" value="kidy" name="kid" id="ky">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+	   		<input type="radio" value="kidn" name="kid" id="kn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="kida" name="kid" id="ka">Anything 
 			</div>
 			<hr>
 			<div>
-			<label>Alcohol: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="ALY" name="alcohol" id="ay">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="ALN" name="alcohol" id="an">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="ALA" name="alcohol" id="aa">Anything 
+			<label>Baby: </label> &nbsp;&nbsp;&nbsp;
+			<input type="radio" value="babyy" name="Baby" id="by">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+	   		<input type="radio" value="babyn" name="Baby" id="bn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="babya" name="Baby" id="ba">Anything 
 			</div>
 			<hr>
 			<div>
-			<label>Smoke: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="SMY" name="smoke" id="sy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="SMN" name="smoke" id="sn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="SMA" name="smoke" id="sa">Anything
+			<label>Pet: </label> &nbsp;&nbsp;&nbsp;
+			<input type="radio" value="pety" name="pet" id="py">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+	   		<input type="radio" value="petn" name="pet" id="pn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="peta" name="pet" id="pa">Anything
 			</div>
 			<hr>
 			<div>
-		    <label>Ages: </label>&nbsp;&nbsp;&nbsp;
-		    <input type="checkbox" name="ages" id="teen" value="teenage"><label for="teen">10대</label>&nbsp;&nbsp;&nbsp;
-		    <input type="checkbox" name="ages" id="twenty" value="twenties"><label for="twenty">20대</label>&nbsp;&nbsp;&nbsp;
-		    <input type="checkbox" name="ages" id="thirty" value="thirties"><label for="thirty">30대</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="ages" id="forty" value="forties"><label for="forty">40대</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="ages" id="fifrty" value="fifties"><label for="fifty">50대</label>&nbsp;&nbsp;&nbsp;
+		    <label>Smoke: </label>&nbsp;&nbsp;&nbsp;
+		    <input type="radio" value="smokey" name="smoke" id="sy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+	   		<input type="radio" value="smoken" name="smoke" id="sn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="smokea" name="smoke" id="sa">Anything
 			</div>
 			<hr>
+			<div>
+			<label>Party: </label> &nbsp;&nbsp;&nbsp;
+			<input type="radio" value="partyy" name="party" id="partyyy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+	   		<input type="radio" value="partyn" name="party" id="partynn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" value="partya" name="party" id="partyaa">Anything 
+			</div>
+			<hr>
+			<br>
+			<input type="button" class="button" value="확인" onclick="">
+		</form>
 		</div>
 	</div>
 	<!-- 리스트  -->
 	<div id="s_right">
 		<div class="container">
-			<div class="mate">
-				<div style="float:left; width:200px; height:198px;">
-				 	<img src="images/mate1.jpg" class="mateimage">
-				</div>
-				<div style="float:left; width:600px; height:198px;">
-					<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>숙소 위치</b></td>
-							<td colspan="3" >kh아파트</td>
+				<c:choose>
+					<c:when test="${empty tmlist }">
+						<tr>
+							<td colspan="4" align="center">--------작성된 글이 없습니다--------</td> 
 						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center" ><b>체크인/체크아웃</b></td>
-							<td >20.08.01 ~ 20.08.05</td>
-							<td bgcolor="#E6E6E6" align="center"><b>인원</b></td>
-							<td align="center">2명</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
-							<td colspan="3" >여자 / 20대 / 술 (o) / 담배 (o)</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
-							<td colspan="3"></td>
-						</tr>
-					</table>
-				</div>
-				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
-				</div>
-			</div>
-			<br><br>
-			<div class="mate">
-				<div style="float:left; width:200px; height:198px;">
-				 	<img src="images/mate2.jpg" class="mateimage">
-				</div>
-				<div style="float:left; width:600px; height:198px;">
-					<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>숙소 위치</b></td>
-							<td colspan="3" >쌍용호텔</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center" ><b>체크인/체크아웃</b></td>
-							<td >20.08.03 ~ 20.08.09</td>
-							<td bgcolor="#E6E6E6" align="center"><b>인원</b></td>
-							<td align="center">4명</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
-							<td colspan="3" >남자 / 20대~30대 / 술 (x) / 담배 (o) </td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
-							<td colspan="3"></td>
-						</tr>
-					</table>
-				</div>
-				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
-				</div>
-			</div>
-			<br><br>
-			<div class="mate">
-				<div style="float:left; width:200px; height:198px;">
-				 	<img src="images/mate3.jpg" class="mateimage">
-				</div>
-				<div style="float:left; width:600px; height:198px;">
-					<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>숙소 위치</b></td>
-							<td colspan="3" >호랑오피스텔</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center" ><b>체크인/체크아웃</b></td>
-							<td >20.08.22 ~ 20.08.23</td>
-							<td bgcolor="#E6E6E6" align="center"><b>인원</b></td>
-							<td align="center">1명</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
-							<td colspan="3" >상관없음 / 40대 / 술 (x) / 담배 (x) </td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
-							<td colspan="3"></td>
-						</tr>
-					</table>
-				</div>
-				<div style="float:right; width:150; height:198px;">
-					<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
-				</div>
-			</div>
-			<br><br>
-			<div class="mate">
-				<div style="float:left; width:200px; height:198px;">
-				 	<img src="images/mate4.jpg" class="mateimage">
-				</div>
-				<div style="float:left; width:600px; height:198px;">
-					<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>숙소 위치</b></td>
-							<td colspan="3" >신라호텔</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center" ><b>체크인/체크아웃</b></td>
-							<td >20.08.01 ~ 20.08.05</td>
-							<td bgcolor="#E6E6E6" align="center"><b>인원</b></td>
-							<td align="center">2명</td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
-							<td colspan="3" >여자 / 20대 / 술 (o) / 담배 (o) </td>
-						</tr>
-						<tr >
-							<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
-							<td colspan="3"></td>
-						</tr>
-					</table>
-				</div>
-				<div style="float:right; width:150; height:198px;">
-					<button class="bt" onclick="location.href='travelmatedetail.do'">matching</button>
-				</div>
-			</div>
-			<br><br>
-			
+					</c:when>
+					<c:otherwise>
+						<c:forEach items="${tmlist }" var="tmdto">
+							<div class="mate">
+								<div style="float:left; width:200px; height:198px;">
+								 	<img src="${tmdto.profile}" class="mateimage">
+								</div>
+								<div style="float:left; width:600px; height:198px;">
+									<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
+										<tr >
+											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>숙소 위치</b></td>
+											<td colspan="3" >${tmdto.addr }</td>
+										</tr>
+										<tr >
+											<td class="tdwidth" bgcolor="#EFF8FB" align="center" ><b>체크인/체크아웃</b></td>
+											<td >
+											<fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${tmdto.check_in }"/> ~ 
+											<fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${tmdto.check_out }"/>
+											</td>
+											<td bgcolor="#EFF8FB" align="center"><b>인원</b></td>
+											<td align="center">${tmdto.people }</td>
+										</tr>
+										<tr >
+											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>필터링</b></td>
+											<td colspan="3" ></td>
+										</tr>
+										<tr >
+											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>기타사항</b></td>
+											<td colspan="3"></td>
+										</tr>
+									</table>
+								</div>
+								<div style="float:right; width:150; height:198px;">
+									<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
+								</div>
+							</div>
+							<br><br>
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
+				<!-- <div class="mate">
+			   		<div style="float:left; width:200px; height:198px;">
+					 	<img src="images/mate1.jpg" class="mateimage">
+					</div>
+					<div style="float:left; width:600px; height:198px;">
+						<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
+							<tr >
+								<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>숙소 위치</b></td>
+								<td colspan="3" >kh아파트</td>
+							</tr>
+							<tr >
+								<td class="tdwidth" bgcolor="#E6E6E6" align="center" ><b>체크인/체크아웃</b></td>
+								<td >20.08.01 ~ 20.08.05</td>
+								<td bgcolor="#E6E6E6" align="center"><b>인원</b></td>
+								<td align="center">2명</td>
+							</tr>
+							<tr >
+								<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>필터링</b></td>
+								<td colspan="3" >여자 / 20대 / 술 (o) / 담배 (o)</td>
+							</tr>
+							<tr >
+								<td class="tdwidth" bgcolor="#E6E6E6" align="center"><b>기타사항</b></td>
+								<td colspan="3"></td>
+							</tr>
+						</table>
+					</div>
+					<div style="float:right; width:150; height:198px;">
+						<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
+					</div>
+				</div> -->
 		</div>
 	</div> 	        
 <!-- 페이징 -->
