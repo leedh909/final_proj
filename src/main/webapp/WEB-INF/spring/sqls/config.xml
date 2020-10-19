@@ -22,6 +22,9 @@
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_photoDto" alias="rooms_photoDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_ruleDto" alias="rooms_ruleDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_safetyDto" alias="rooms_safetyDto"/>
+  
+  		<typeAlias type="com.mvc.Final.model.dto.TravelmateDto" alias="travelmateDto"/>
+  		
   	</typeAliases>
   
   
@@ -30,7 +33,8 @@
   	<mappers>
   		<mapper resource="/mybatis/login-mapper.xml" />
   		<mapper resource="/mybatis/mypage-mapper.xml" />
-  		<mapper resource="/mybatis/room-mapper.xml" />  		
+  		<mapper resource="/mybatis/room-mapper.xml" />  
+  		<mapper resource="/mybatis/travelmate-mapper.xml" /> 		
   	</mappers>
   
   

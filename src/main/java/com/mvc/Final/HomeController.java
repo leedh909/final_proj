@@ -42,13 +42,6 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/travelmate.do")
-	public String travelmate() {
-		logger.info("Travelmate");
-		return "travelmate";
-
-	}
-	
 	@RequestMapping("/aboutAzanda.do")
 	public String aboutAzanda() {
 		logger.info("About Azanda");

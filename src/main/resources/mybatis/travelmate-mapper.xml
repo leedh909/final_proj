@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="travelmate">
+    
+	<select id="travelmateList" parameterType="String" resultType="TravelmateDto" >
+		SELECT M.PROFILE PROFILE, R2.ADDR ADDR, R.CHECK_IN CHECK_IN, R.CHECK_OUT CHECK_OUT, R.PEOPLE PEOPLE, R3.KID KID, R3.BABY BABY, R3.PET PET, R3.SMOKE SMOKE, R3.PARTY PARTY 
+		FROM MEMBER M , RESERVATION R , ROOM R2, RULE R3 
+		WHERE M.SEQ_M = R.SEQ_M AND R.SEQ_RM = R2.SEQ_RM AND R2.SEQ_RM = R3.SEQ_RM
+	</select>
+
+	
+</mapper>

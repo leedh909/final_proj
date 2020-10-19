@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>      
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,8 +37,8 @@
     
    	<style type="text/css">
   		.mapdiv{
-  			width:700px;
-  			height:1000px;
+  			width:1000px;
+  			height:1070px;
   			border: 1px solid #F2F2F2;
   			background-color:white;
   			position: relative;
@@ -47,8 +50,8 @@
   			float:left;
   		}
   		div#s_right{
-  			width:746.4px;
-  			height:1250px;
+  			width:1000px;
+  			height:1200px;
   			float:left;
   			z-index:1;
   		}
@@ -180,7 +183,7 @@
     </div>
 <!--  --> 
 <div style="width: ; height:2200px; padding-top:0px;" class="ftco-section bg-light" id="container">
-	<!-- left div -->
+	<!-- left div (상세) -->
 	<!-- class="ftco-section bg-light"" -->
 	<div style="background-color:white;" id="s_left">
 		<div style="text-align: center; position: relative; top:50px;">
@@ -255,12 +258,12 @@
 			
 		</div>
 	</div>
-	<!-- right div -->
+	<!-- right div (지도)-->
 	<div class="ftco-section bg-light" id="s_right">
 		<div class="mapdiv">
 			<p style="margin-top: -12px">
 		    </p>
-		    <div id="map1" style="width: 100%; height: 1000px;"></div>
+		    <div id="map1" style="width: 100%; height: 1100px;"></div>
 		 
 		    <script type="text/javascript"
 		        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ac84c3461b348c5dd97a194bd252731&libraries=services"></script>
@@ -344,7 +347,7 @@
 		    </script>
 		</div>
 	</div>
-	<!-- footer div -->
+	<!-- footer div (숙소내부이미지) -->
 	<div id="s_footer" class="s_footer">
 			<br><br>
 			<div style="text-align: center; background-color: white;">

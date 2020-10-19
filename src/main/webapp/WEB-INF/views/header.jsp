@@ -97,7 +97,6 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
           <!-- 숙소정보를 보여줄때 사용할듯 -->
           <!-- <li class="nav-item"><a href="rooms.do" class="nav-link">place to stay</a></li> -->
 
@@ -114,6 +113,7 @@
 				<li class="nav-item"><a href="mypage.do" class="nav-link">MyPage</a></li>
 				<li class="nav-item"><a href="rooms.do" class="nav-link">Host등록</a></li>
 				<li class="nav-item"><a href="hostpage.do" class="nav-link">HostPage</a></li>
+				<li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
 				
 				
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
