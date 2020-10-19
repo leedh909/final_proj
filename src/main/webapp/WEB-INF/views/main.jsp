@@ -175,7 +175,7 @@
 	</div>
 
 	<div class="hero-wrap js-fullheight"
-		style="background-image: url('https://a0.muscache.com/im/pictures/18084f37-67e0-400f-bfd8-55eea0e89508.jpg?im_w=1920');">
+		style="background-image: url('https://news.airbnb.com/wp-content/uploads/sites/4/2018/08/10-airship-002-min.jpg?w=2048');">
 		<div class="overlay"></div>
 		<div class="container">
 			<div

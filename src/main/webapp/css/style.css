@@ -2477,9 +2477,6 @@ input[type="button"].btn-block {
   .fade:not(.show) {
     opacity: 0; }
 
-.collapse:not(.show) {
-  display: none; }
-
 .collapsing {
   position: relative;
   height: 0;
@@ -4349,7 +4346,7 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
-.modal-open {
+/* .modal-open {
   overflow: hidden; }
 
 .modal {
@@ -4493,7 +4490,7 @@ button.close {
 
 @media (min-width: 992px) {
   .modal-lg {
-    max-width: 800px; } }
+    max-width: 800px; } } */
 
 .tooltip {
   position: absolute;

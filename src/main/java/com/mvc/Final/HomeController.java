@@ -86,6 +86,7 @@ public class HomeController {
 		logger.info("What is travel mate");
 		return "whatIsTravelMate";
 	}
+	
 }
 
 	
