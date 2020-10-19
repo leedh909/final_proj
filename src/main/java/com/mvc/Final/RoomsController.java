@@ -65,31 +65,6 @@ public class RoomsController {
 	public String rooms2(HttpServletRequest request, RedirectAttributes redirectAttributes) {
 		logger.info("rooms2");
 		
-		 redirectAttributes.addFlashAttribute("addr",rdto.getAddr());
-		 System.out.println("rooms2------>"+rdto.getAddr());
-		 
-
-		String r_type = request.getParameter("test");
-	    String room_name = request.getParameter("room_name");
-	    String price =request.getParameter("room_price");
-
-	    HttpSession session = request.getSession(true);
-		
-	    session.setAttribute("r_type", r_type);
-	    session.setAttribute("room_name", room_name);
-	    session.setAttribute("price", price);
-	    
-	    String Type = (String)session.getAttribute("r_type");
-	    String Name = (String)session.getAttribute("room_name");
-	    String Price = (String)session.getAttribute("price");
-	    
-	    rdto.setR_type(r_type);
-	    rdto.setRoom_name(room_name);
-	    rdto.setPrice(Price);
-	    
-	    System.out.println(rdto.getR_type());
-	    System.out.println(rdto.getRoom_name());
-	    System.out.println(rdto.getPrice());
 
 		return "rooms2"; 
 	
@@ -97,98 +72,7 @@ public class RoomsController {
 	@RequestMapping(value = "/rooms3.do", method=RequestMethod.GET)
 	public String rooms3(HttpServletRequest request, RedirectAttributes redirectAttributes, Model model) {
 		logger.info("rooms3");
-		 redirectAttributes.addFlashAttribute("addr",rdto.getAddr());
-		 redirectAttributes.addFlashAttribute("r_type",rdto.getR_type());
-		 redirectAttributes.addFlashAttribute("room_name",rdto.getRoom_name());
-		 redirectAttributes.addFlashAttribute("price",rdto.getPrice());
-		
-		 System.out.println("rooms2------>"+rdto.getAddr());
-		 System.out.println("rooms3.do--->" + rdto.getR_type());
-		 System.out.println("rooms3.do--->" + rdto.getRoom_name());
-		 System.out.println("rooms3.do--->" + rdto.getPrice());
-		
-		 String person ;
-		 String bath_room;
-		 String bed_room;
-		 
-		    person = request.getParameter("person");
-			bath_room = request.getParameter("bath_room");
-			bed_room = request.getParameter("bed_room");
-			
-		HttpSession session = request.getSession(true);
-		
-		session.setAttribute("person", person);
-	    session.setAttribute("bath_room", bath_room);
-	    session.setAttribute("bed_room", bed_room);
-	    
-	    String Person = (String)session.getAttribute("person");
-	    String Bath_room = (String)session.getAttribute("bath_room");
-	    String Bed_room = (String)session.getAttribute("bed_room");
-	   
-	    rdto.setPerson(Person);
-	    rdto.setBath_room(Bath_room);
-	    rdto.setBed_room(Bed_room);
-        
-        System.out.println("인원수"+rdto.getPerson());
-        System.out.println("욕실수"+rdto.getBath_room());
-        System.out.println("침실수"+rdto.getBed_room());
-	
-	    String essential = request.getParameter("essential");
-        String heating = request.getParameter("heating");
-        String aircon = request.getParameter("aircon");
-        String iron =request.getParameter("iron");
-        String tv = request.getParameter("tv");
-        String shampoo = request.getParameter("shampoo");
-        String hairdry =request.getParameter("hairdry");
-        String desk = request.getParameter("desk");
-        String closet = request.getParameter("closet");
-        String wifi =request.getParameter("wifi");
-        
-        session.setAttribute("essential", essential);
-        session.setAttribute("heating", heating);
-        session.setAttribute("aircon", aircon);
-        session.setAttribute("iron", iron);
-        session.setAttribute("tv", tv);
-        session.setAttribute("shampoo", shampoo);
-        session.setAttribute("hairdry", hairdry);
-        session.setAttribute("desk", desk);
-        session.setAttribute("closet", closet);
-        session.setAttribute("wifi", wifi);
-        
-        String Essential = (String)session.getAttribute("essential");
-        String Heating = (String)session.getAttribute("heating");
-        String Aircon = (String)session.getAttribute("aircon");
-        String Iron = (String)session.getAttribute("iron");
-        String Tv = (String)session.getAttribute("tv");
-        String Shampoo = (String)session.getAttribute("shampoo");
-        String Hairdry = (String)session.getAttribute("hairdry");
-        String Desk = (String)session.getAttribute("desk");
-        String Closet = (String)session.getAttribute("closet");
-        String Wifi = (String)session.getAttribute("wifi");
-       
-        
-        rdetail.setEssential(Essential);
-        rdetail.setHeating(Heating);
-        rdetail.setAircondition(Aircon);
-        rdetail.setIron(Iron);
-        rdetail.setTv(Tv);
-        rdetail.setShampoo(Shampoo);
-        rdetail.setHairdry(Hairdry);
-        rdetail.setDesk(Desk);
-        rdetail.setCloset(Closet);
-        rdetail.setWifi(Wifi);
-        
-        System.out.println("선택항목 : " + rdetail.getEssential()+" "
-                                      + rdetail.getHeating() +" "
-                                      + rdetail.getAircondition() +" "
-        		                      + rdetail.getIron() +" "
-                                      + rdetail.getTv() +" "
-        		                      + rdetail.getShampoo() +" "
-                                      + rdetail.getHairdry() +" "
-                                      + rdetail.getDesk() +" " 
-                                      + rdetail.getCloset() +" "
-                                      + rdetail.getWifi());
-        
+
        return "rooms3";
 
 	
@@ -399,9 +283,7 @@ public class RoomsController {
 		System.out.println("getpet-->" + rule.getPet());
 		System.out.println("getsmoking-->" + rule.getSmoke());
 		System.out.println("getparty-->" + rule.getParty());
-		
-	
-		
+
 		session.setAttribute("checkin_time", checkin_time);
 	    session.setAttribute("checkout_time", checkout_time);
 	    
@@ -453,6 +335,8 @@ public class RoomsController {
         redirectAttributes.addFlashAttribute("pet",rule.getPet());
         redirectAttributes.addFlashAttribute("smoking",rule.getSmoke());
         redirectAttributes.addFlashAttribute("party",rule.getParty());
+        redirectAttributes.addFlashAttribute("checkin_time",rdto.getCheckin_time());
+        redirectAttributes.addFlashAttribute("checkout_time",rdto.getCheckout_time());
         
         System.out.println("rooms------>"+rdto.getAddr());
 		 System.out.println("rooms2.do--->" + rdto.getR_type());
@@ -481,6 +365,13 @@ public class RoomsController {
 		 System.out.println("rooms4.do--->" + rsafe.getCo_sensor());
 		 System.out.println("rooms4.do--->" + rsafe.getE_kit());
 		 System.out.println("rooms4.do--->" + rsafe.getFire_off());
+		 System.out.println("rooms5.do--->" + rule.getKid());
+		 System.out.println("rooms5.do--->" + rule.getBaby());
+		 System.out.println("rooms5.do--->" + rule.getPet());
+		 System.out.println("rooms5.do--->" + rule.getSmoke());
+		 System.out.println("rooms5.do--->" + rule.getParty());
+		 System.out.println("rooms5.do--->" + rdto.getCheckin_time());
+		 System.out.println("rooms5.do--->" + rdto.getCheckout_time());
         
 		
 		String title = request.getParameter("title");
