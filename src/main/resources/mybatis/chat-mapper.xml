@@ -18,7 +18,7 @@
 		SELECT * 
 		FROM CHAT 
 		WHERE ((FROMID = #{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID})) 
-			AND CHATID > (SELECT MAX(CHATID) - #{number} FROM CHAT2 WHERE (FROMID=#{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID}) ORDER BY CHATTIME )
+			AND CHATID > (SELECT MAX(CHATID) - #{number} FROM CHAT WHERE (FROMID=#{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID}) ORDER BY CHATTIME )
 		ORDER BY CHATTIME
 	</select>
 
@@ -41,7 +41,7 @@
 	<select id="chat_box" resultType="ChatDto">
 		SELECT *
 		FROM CHAT
-		WHERE CHATID IN( SELECT MAX(CHATID) FROM CHAT2 WHERE TOID = #{userID} OR FROMID=#{userID} GROUP BY FROMID, TOID)
+		WHERE CHATID IN( SELECT MAX(CHATID) FROM CHAT WHERE TOID = #{userID} OR FROMID=#{userID} GROUP BY FROMID, TOID)
 	</select>
 	
 	<select id="chat_unread" resultType="int" parameterType="map">

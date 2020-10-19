@@ -16,10 +16,15 @@
 				userID: encodeURIComponent(userID)
 			},
 			success: function(data){
-				if(data=="") return;
+				if(data=="") {
+					$('#boxTable').html('');
+					$('#boxTable').append('<tr><td colspan="5"	align="center" style="padding: 50px"> --------대화한 상대가 없습니다.--------</td></tr>');
+					return;
+				}
 				$('#boxTable').html('');
 				var parsed = JSON.parse(data);
 				var result = parsed.result;
+				
 				for(var i = 0; i<result.length; i++){
 					if(result[i][0].value==userID){
 						result[i][0].value = result[i][1].value;
@@ -28,7 +33,9 @@
 					}
 					addBox(result[i][0].value, result[i][1].value, result[i][2].value, result[i][3].value, result[i][4].value);
 				}
+					
 			}
+			
 		});
 	}
 
