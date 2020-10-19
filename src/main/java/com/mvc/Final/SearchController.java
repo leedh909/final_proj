@@ -3,6 +3,7 @@ package com.mvc.Final;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class SearchController {
 	private SearchBiz biz;
 	
 	@RequestMapping("/search.do")
-	public String search(SearchOption searchO, int curPage,Model model) {
+	public String search(SearchOption searchO, @RequestParam(defaultValue="1") int curPage,Model model) {
 		//검색  된 게시물 개수 
 		int count = biz.count(searchO);
 		//페이지 나누기 관련 처리
@@ -67,7 +68,9 @@ public class SearchController {
 		
 		//숙소 정보 가지고 오기
 		RoomTotalDto roomInfo =  biz.roomInfo(seq_rm);
-	
+		
+		System.out.println(roomInfo.getDetail().getDesk());
+		
 		String[] detail = roomInfo.getDetail().toString().split(",");
 		String[] facility = roomInfo.getFacility().toString().split(",");
 		String[] safety = roomInfo.getSafety().toString().split(",");
@@ -75,7 +78,7 @@ public class SearchController {
 		
 		//숙소 예약 날짜 가져오기 
 		Map<String,Object> booked =  biz.reservationDate(seq_rm);
-		
+		System.out.println(booked.get("indate"));
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
 		LoginDto hostInfo = biz.memberInfo(hostNum);
@@ -84,11 +87,11 @@ public class SearchController {
 		
 		//넘겨줄 값 model에 저장
 		model.addAttribute("searchOption", searchO);
-		model.addAttribute("roomInfo",roomInfo);
 		model.addAttribute("detail",detail);
 		model.addAttribute("facility",facility);
-		model.addAttribute("safety",safety);
-		model.addAttribute("rule",rule);
+		model.addAttribute("safety", safety);
+		model.addAttribute("rule", rule);
+		model.addAttribute("roomInfo",roomInfo);
 		model.addAttribute("hostInfo",hostInfo);
 		model.addAttribute("booked",booked);
 		

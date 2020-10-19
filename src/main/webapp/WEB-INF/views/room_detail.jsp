@@ -47,8 +47,21 @@ $(function(){
 		$("#guestcount").val("1");
 	}
 	
+	//날짜 미선택시 submit 비활성화
+	let indate = $("#indate").val();
+	let outdate = $("#outdate").val();
 
+	if(indate =="날짜 선택" || outdate =="날짜 선택"){
+		$("#submit").attr("disabled",true);
+		$("#show").show();
+	}
+	
+
+	
 });
+
+
+
 
 //게스트 수 변화
 	function upCount() {
@@ -73,28 +86,78 @@ $(function(){
 		}
 	};
 	
+	//faltpickr from-to 만들기
+	console.log("${booked}");
+	console.log("${booked.indate}");
+	console.log("${booked.indate.size()}");
+	
+	let arrayin = new Array();
+	let arrayout = new Array();
+	
+	<c:forEach var='itemList' items='${booked.indate}' >
+	arrayin.push('${itemList}');
+	</c:forEach>
+	<c:forEach var="itemList" items="${booked.outdate}">
+	arrayout.push("${itemList}");
+	</c:forEach>
+	console.log(arrayout);
 
-	
-	
+	let disabled = new Array();
+	for (let i = 0; i < arrayin.length; i++) {
+		let dOb = new Object();
+
+		dOb.from = arrayin[i];
+		dOb.to = flatpickr.parseDate(arrayout[i], "Y-m-d");
+
+		disabled.push(dOb);
+	};
+
+	console.log(disabled);
+
 	//체크인 달력
 	function inpickr() {
 		indate.flatpickr({
 			minDate : "today",
 			dateFormat : "Y-m-d",
-			
+			disable : disabled,
+			onValueUpdate : function(selectDates){
+				let outdate = $("#outdate").val();
+				if(outdate != "날짜 선택"){
+					$("#show").hide();
+					$("#submit").removeAttr('disabled');
+				}
+			},
 		});
-		
+
 	};
-	
+
 	//체크아웃 달력
 	function outpickr() {
+
+		outdate.flatpickr({
+			minDate : "today",
+			dateFormat : "Y-m-d",
+			disable : disabled,
+			onValueUpdate : function(selectDates){
+				let indate = $("#indate");
+				if(indate != "날짜 선택"){
+					$("#show").hide();
+					$("#submit").removeAttr('disabled');
+				}
+			},
+		});
+
+	}; 
 	
-			outdate.flatpickr({
-				minDate:"today",
-				dateFormat : "Y-m-d",
-			});			
-		
-	};
+/* 	function outpickr(){
+		outdate.flatpickr({
+			    mode: "range",
+			    minDate: "today",
+			    dateFormat: "Y-m-d",
+			    disable: disabled,
+			
+		});
+	}; */
 </script>
 </head>
 <body>
@@ -110,7 +173,6 @@ $(function(){
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
 			<!--================ 숙소 정보 =================-->
-			<c:out value="${rule[0]}"/>
 			<div class="col-lg-12">
 				<h2><b>${roomInfo.room.room_name}</b></h2>
 				<c:set var="addrbefore" value="${roomInfo.room.addr}" />
@@ -172,7 +234,7 @@ $(function(){
 							</div>
 							<div class="col-md-11 mt-2">
 								<h5>환불 정책</h5>
-								<p class="pt">체크인 30일 전까지 취소하시면 전액이 환불됩니다.</p>
+								<p class="pt">체크인 5일 전까지 취소하시면 전액이 환불됩니다.</p>
 							</div>
 						</div>
 					</section>
@@ -218,7 +280,7 @@ $(function(){
 												</div>
 												<div class="_vzrbjl">
 													<c:forEach items="${detail}" var="detail">
-														<c:if test="${detail != 'null'}">
+														<c:if test="${detail != 'null' && detail != 'NULL'}">
 															<c:out value="${detail}" />
 														<hr>
 														</c:if>
@@ -231,7 +293,7 @@ $(function(){
 												</div>
 												<div class="_vzrbjl">
 													<c:forEach items="${facility}" var="facility">
-														<c:if test="${facility != 'null'}">
+														<c:if test="${facility != 'null' && facility != 'NULL'}">
 															<c:out value="${facility}" />
 														<hr>
 														</c:if>
@@ -243,8 +305,8 @@ $(function(){
 													<h3 tabindex="-1" class="_14i3z6h">숙소 규정</h3>
 												</div>
 												<div class="_vzrbjl">
-													<c:forEach items="${rule}" var="facility">
-														<c:if test="${rule != 'null'}">
+													<c:forEach items="${rule}" var="rule">
+														<c:if test="${rule != 'null' && rule != 'NULL'}">
 															<c:out value="${rule}" />
 														<hr>
 														</c:if>
@@ -256,22 +318,12 @@ $(function(){
 													<h3 tabindex="-1" class="_14i3z6h">안전시설</h3>
 												</div>
 												<div class="_vzrbjl">
-													<c:choose>
-														<c:when test="${!empty safety}">
 															<c:forEach items="${safety}" var="safety">
-																<c:if test="${safety != 'null'}">
-																	<c:out value="${safety }" />
-																	<hr>
-																</c:if>
-															</c:forEach>
-														</c:when>
-														<c:otherwise>
-															<p style="text-decoration:line-through">
-																<c:out value="화재탐지기"/>
-																<c:out value="일산화 탄소 감지기" />
-															</p>
-														</c:otherwise>
-													</c:choose>
+															<c:if test="${safety != 'null' && safety != 'NULL'}">
+															<c:out value="${safety}" />
+														<hr>
+														</c:if>
+													</c:forEach>
 												</div>
 											</div>
 								
@@ -387,7 +439,8 @@ $(function(){
 								</div>
 
 								<div class="mt-3">
-									<input type="submit" value="예약하기" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
+									<p class="" id="show" style="text-align:center;color:red;">예약 날짜를 입력해 주세요.</p>
+									<input type="submit" value="예약하기" id="submit" class=" btn btn-primary py-2" style="border-radius: 3px; width: 100%;">
 								</div>
 								
 								<!-- <div class="_1cvivhm" id="calculdiv">

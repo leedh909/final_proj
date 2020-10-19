@@ -47,7 +47,7 @@
 			        	url:"ajaxmate.do",
 			        	data:stringify(reservation),
 			        	contentType:"application/json",
-			        	dataType="json",
+			        	dataType:"json",
 			        	success:function(msg){
 			        		if(msg.check==true){
 			        			location.href="main.do";
@@ -111,8 +111,8 @@
 					</div>
 					<hr>
 					<div>
-						<div class="col-md-11 mt-2">
 							<h4>TravelMate</h4>
+						<div class="col-md-11 mt-2">
 							<input type="checkbox" value="N" id="mate"
 									class="from-check-input" >&nbsp;&nbsp;TravelMate
 							<p tabindex="-1">숙소 정원을 초과하는 travelmate는 허용되지
@@ -121,9 +121,9 @@
 					</div>
 					<hr>
 					<div class="w3-panel w3-pale-red w3-leftbar w3-border-red">
-						<h4>환불 정책</h4>
+						<h4 class="my-4">환불 정책</h4>
 						<p tabindex="-1">
-							12:00 PM 전에 예약을 취소하면 요금전액이 환불됩니다.
+							5일 전에 예약을 취소하면 요금전액이 환불됩니다.
 							<br>
 							<a href="#" tabindex="-1">자세히 알아보기</a>
 							<br><br>
