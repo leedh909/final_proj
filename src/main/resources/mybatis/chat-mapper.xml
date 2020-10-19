@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="chat">
+
+	<select id="chatList" parameterType="ChatDto" resultType="ChatDto">
+		SELECT * 
+		FROM CHAT 
+		WHERE ((FROMID = #{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID})) AND CHATID > #{chatID}
+		ORDER BY CHATTIME
+	</select>
+	
+	<select id="chatList2" parameterType="map" resultType="ChatDto">
+		SELECT * 
+		FROM CHAT 
+		WHERE ((FROMID = #{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID})) 
+			AND CHATID > (SELECT MAX(CHATID) - #{number} FROM CHAT WHERE (FROMID=#{fromID} AND TOID=#{toID}) OR (FROMID =#{toID} AND TOID=#{fromID}) ORDER BY CHATTIME )
+		ORDER BY CHATTIME
+	</select>
+
+	<insert id="chat_insert" parameterType="map">
+		INSERT INTO CHAT
+		VALUES(SEQ_CHAT.NEXTVAL, #{fromID}, #{toID}, #{chatContent}, SYSDATE,0)
+	</insert>
+
+	<update id="chat_read" parameterType="map">
+		UPDATE CHAT
+		SET CHATREAD=1 WHERE (FROMID = #{toID} AND TOID = #{fromID})
+	</update>
+	
+	<select id="chat_unread_all" resultType="int">
+		SELECT COUNT(CHATID)
+		FROM CHAT
+		WHERE TOID=#{userID} AND CHATREAD=0
+	</select>
+	
+	<select id="chat_box" resultType="ChatDto">
+		SELECT *
+		FROM CHAT
+		WHERE CHATID IN( SELECT MAX(CHATID) FROM CHAT WHERE TOID = #{userID} OR FROMID=#{userID} GROUP BY FROMID, TOID)
+	</select>
+	
+	<select id="chat_unread" resultType="int" parameterType="map">
+		SELECT COUNT(CHATID)
+		FROM CHAT
+		WHERE FROMID=#{fromID} AND TOID=#{toID} AND CHATREAD=0
+	</select>
+	
+	
+</mapper> 
+
+
+

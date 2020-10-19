@@ -13,7 +13,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+<!--     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css"> -->
     <link rel="stylesheet" href="css/animate.css">
     
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -41,7 +45,7 @@
 	}
 </style>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <script type="text/javascript">
 	/* function openwin(){
 		window.open("login2.jsp","_blank","width=400, height=300, left=500, top=400; return=false;");
@@ -80,8 +84,37 @@
 		$('#mask').hide();
 	}
 	
-
+	/* 읽지않은 메세지 */
+	function getUnread(){
+		var userID = '${login.getId()}';
+		$.ajax({
+			type:"POST",
+			url:"chatUnread.do",
+			data:{
+				userID: encodeURIComponent(userID)
+			},
+			success: function(result){
+				console.log("userID: "+userID);
+				console.log("result: "+result);
+				if(result >=1){
+					showUnread(result);
+				}else{
+					showUnread('');
+				}
+			}
+			
+		});
+	}
 	
+	function getInfiniteUnread(){
+		setInterval(function(){
+			getUnread();
+		},4000);
+	}
+	
+	function showUnread(result){
+		$('#unread').html(result);
+	}
 	
 </script>
 <body>
@@ -109,7 +142,8 @@
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
          	</c:when>
          	<c:otherwise>
-         		<li class="nav-item"><a href="mypage.jsp" class="nav-link">Message</a></li>
+         		<li class="nav-item"><a href="find.do" class="nav-link">친구찾기</a></li>
+         		<li class="nav-item"><a href="box.do" class="nav-link">메세지함 <span id="unread" class="label label-info"></span> </a></li>
 				<li class="nav-item"><a href="mypage.do" class="nav-link">MyPage</a></li>
 				<li class="nav-item"><a href="rooms.do" class="nav-link">Host등록</a></li>
 				<li class="nav-item"><a href="hostpage.do" class="nav-link">HostPage</a></li>
@@ -117,6 +151,15 @@
 				
 				
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
+				
+				<script type="text/javascript">
+					$(document).ready(function(){
+						getUnread();
+						getInfiniteUnread();
+					});
+				
+				</script>
+				
           	</c:otherwise>
           </c:choose>
         </ul>
