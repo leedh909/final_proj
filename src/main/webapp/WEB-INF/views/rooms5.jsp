@@ -93,35 +93,37 @@
                   
                          <h1 align="left"><strong>숙소 규정 등록</strong></h1>
                          	
-                        
+                           <form action="rooms5.do" method="get">
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>어린이 / 유아 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >어린이 및 유아 입실 가능 여부 체크해주세요(두개 체크 가능합니다.)</h5>
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="kid" ><label><h5>어린이(2~12세) 가능</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="baby"><label><h5>유아(0~2세) 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="kid" value="어린이" ><label><h5>어린이(2~12세) 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="baby" value="유아"><label><h5>유아(0~2세) 가능</h5></label> &nbsp;
                                  <br>
                                  <hr style= "margin-left:30px; width:150%; ">
                                  <br>
                                  <h4 style= "margin-left:30px;" ><strong>반려동물 / 흡연 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >반려동물 입실 및 흡연 가능 여부 체크해주세요(두개 체크 가능합니다.)</h5>
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="pet" ><label><h5>반려동물(강아지,고양이,기타 등등) 가능</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="rule" id="smoking"><label><h5>흡연 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="pet" value="반려동물" ><label><h5>반려동물(강아지,고양이,기타 등등) 가능</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="smoking" value="흡연"><label><h5>흡연 가능</h5></label> &nbsp;
                                  <br>
                                  <hr style= "margin-left:30px; width:150%; ">
                                  <br>
                                  <h4 style= "margin-left:30px;" ><strong>행사 및 파티 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >행사 및 파티 관련 규정사항을 입력해주세요</h5>
-                                   <textarea rows="4" cols="70" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <textarea rows="4" cols="70" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" name="party"></textarea>
                                    <br><br><br><br><br>
                                    <hr style="margin-left:30px; width:150%; ">
                                    <br>
                                    <h4 style="margin-left:30px;"><strong>체크인  / 체크아웃 시간 설정</strong></h4>
                                      <h5 style="margin-left:30px;">체크인 / 체크아웃 시간을 설정해주세요</h5>
                                        <h6 style="margin-left:30px;">체크인 시간</h6>
-                                          <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59"></p>
+                                          <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkin"></p>
                                        <h6 style="margin-left:250px; margin-top: -74px;">체크아웃 시간</h6>
-                                          <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59"></p>
+                                          <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkout"></p>
+                                            <input type="submit" value="저장">
                                </div>
+                               </form>
                             </div>
                       
                          </div>
@@ -133,11 +135,12 @@
 		            <div class="block-27">
 		              <ul>
 		                <li><a href="rooms4.do"><span>이전</span></a></li>
-		                <li><a href="rooms6.do"><span>다음</span></a></li>
+		                <li style="margin-left:5%"><a href="rooms6.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>
 		        </div>
+		        
           </div> <!-- .col-md-8 -->
         </div>
       </div>

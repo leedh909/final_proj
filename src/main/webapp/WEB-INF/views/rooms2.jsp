@@ -57,6 +57,16 @@
     background:#f85959;
     color:#fff;
 }
+
+  #next{
+     border-top-right-radius: 5px;
+     border-bottom-roght-radius:5px;
+     margin-left:-3px;
+     border: 1px solid;
+     background-color: rgba(0,0,0,0);
+     color:#f85959;
+     padding:5px;
+   }  
  
   </style>
   <script type="text/javascript">
@@ -109,8 +119,9 @@
       </div>
     </div>
 
-
+    <form action="rooms2.do" method="get">
     <section class="ftco-section ftco-degree-bg">
+    
       <div class="container" width="500" height="600">
         <div class="row">
            <div class="col-lg-3 sidebar ftco-animate">
@@ -142,7 +153,6 @@
                          <div style="width:1200px;">
                                     <h4 style= "margin-left:30px;" ><strong>숙소</strong></h4 >
                                     <br> 
-                             <form action="rooms.do" method="get">
                             <label class="box-radio-input"><input type="radio" name="test" value="원룸" checked="checked"><span>원룸</span></label>&nbsp;
                             <label class="box-radio-input"><input type="radio" name="test" value="빌라"><span>빌라</span></label>&nbsp;
                             <label class="box-radio-input"><input type="radio" name="test" value="오피스텔"><span>오피스텔</span></label>
@@ -158,11 +168,10 @@
                   
                             <br><br>
                             <div style="float:left; margin-left:30px;"><h5>숙소 가격: </h5></div>
-                                <textarea onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" rows="1" name="room_price" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;
-                                
+                                <textarea onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" rows="1" name="room_price" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;     
                                 <label><h4>₩</h4></label>
-                                 <input type="submit"  value="전송" />
-                                </form>
+                                  <input type="submit"  value="저장" />
+                                
                                 </div>
                             </div>
                          </div>        
@@ -178,10 +187,9 @@
                     </ul>
                   </div>
                 </div>
-              </div>
-              
+              </div>          
     </section> <!-- .section -->
-
+     </form>
     <div>
       <jsp:include page="footer.jsp" />
    </div>

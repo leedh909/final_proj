@@ -28,6 +28,17 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+   <!--  <script type="text/javascript">
+      function value_check(checked){
+    	  var check = document.getElementsByName("rooms_detail").length;
+    	  
+    	  for(var i=0; i<check; i++){
+    		  if(document.getElementsByName("rooms_detail")[i].checked==true){
+    			  alert(document.getElementsByName("rooms_detail")[i].value);
+    		  }
+    	  }
+      }   
+    </script> --> 
   </head>
   <style type="text/css">
    #box{
@@ -93,54 +104,57 @@
                   
                          <h1 align="left"><strong>객실 정보 및 세부사항 등록</strong></h1>
                          	
-                        
+                         <form action="rooms3.do" method="get">
                          <div>
+                                    
                               		<h4 style= "margin-left:30px;" ><strong>숙박 가능 인원</strong></h4>
                               		<h5 style= "margin-left:30px;" >travelmate와 같이 머무를 것도 고려해주세요</h5>
-                              		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
+                              		<input type="number" min="0" max="100" step="1" name="person" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
                               		 <hr style= "margin-left:30px; width:108%; ">
                               		 <br>
                               		<h4 style= "margin-left:30px;" ><strong>욕실 수</strong></h4>
                               		<h5 style= "margin-left:30px;" >숙소 건물/빌딩 혹은 단지에 있는 공용/공동 욕실이 아닌, 해당 숙소에 있는 욕실만을 세어 설정하세요.</h5>
-                              		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
+                              		<input type="number" min="0" max="100" step="1" name="bath_room" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
                               		<hr style= "margin-left:30px; width:108%; ">
                               		 <br>
                               		<h4 style= "margin-left:30px;" ><strong>침실 수</strong></h4>
                               		<h5 style= "margin-left:30px;" >숙소가 로프트 혹은 스튜디오인 경우 침실 수는 0개입니다.</h5>
-                              		<input type="number" min="0" max="100" step="1" style= "margin-left:30px; width:180px; height:40px; ">
+                              		<input type="number" min="0" max="100" step="1" name="bed_room" style= "margin-left:30px; width:180px; height:40px; ">
                               		<br><br>
                               		<hr style= "margin-left:30px; width:108%; ">
                               		 <br>
                                   <h4 style= "margin-left:30px;" ><strong>세부사항</strong></h4>
                                  <h5 style= "margin-left:30px;" >등록할 숙소에 있는 모든 시설에 체크해주세요</h5>
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="baseball" value="bb"><label><h5>난방</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="football"><label><h5>에어컨</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="basketball"><label><h5>다리미</h5></label>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="essential" value="필수품목(샤워타올,수건,기타 등등)"><label><h5>필수품목(샤워타올,수건,기타 등등)</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="heating" value="난방"><label><h5>난방</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="aircon" value="에어컨"><label><h5>에어컨</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="iron" value="다리미"><label><h5>다리미</h5></label>
                                  <br>
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="baseball" value="bb"><label><h5>TV</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="football"><label><h5>샴푸</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="basketball"><label><h5>헤어드라이기</h5></label>
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="tv" value="TV"><label><h5>TV</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="shampoo" value="샴푸"><label><h5>샴푸</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="hairdry" value="헤어드라이기"><label><h5>헤어드라이기</h5></label>
                                  <br>
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="baseball" value="bb"><label><h5>책상</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="football"><label><h5>옷장</h5></label> &nbsp;
-                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="facility" id="basketball"><label><h5>WIFI</h5></label>
-                               </div>   
-                        
-                               
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="desk" value="책상"><label><h5>책상</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="closet" value="옷장"><label><h5>옷장</h5></label> &nbsp;
+                                 <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="wifi" value="와이파이"><label><h5>WIFI</h5></label>
+                                 <input type="submit" value="저장"/>
+                               </div>
+                               </form>
                             </div>
-                      
+                            
+                            
                          </div>
+                         
                       </div>
                    </div>
-                   
           	 <div class="row mt-5">
 		          <div class="col text-center">
 		            <div class="block-27">
 		              <ul>
 		                <li><a href="rooms2.do"><span>이전</span></a></li>
-		                <li><a href="rooms4.do"><span>다음</span></a></li>
+		                <li style="margin-left:5%"><a href="rooms4.do"><span>다음</span></a></li>
 		              </ul>
 		            </div>
 		          </div>

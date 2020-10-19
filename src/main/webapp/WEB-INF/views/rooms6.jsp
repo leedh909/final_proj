@@ -96,25 +96,27 @@
                   
                          <h1 align="left"><strong>숙소 소개 등록</strong></h1>
                          	
-                        
+                          <form action="rooms6.do" method="get">
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>소개 제목</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >숙소소개를 위한 제목을 입력해주세요</h5>
-                                   <textarea rows="2" cols="50" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
-                                   <br><br><br>
+                                   <textarea rows="2" cols="50" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" name="title"></textarea>
+                                   <br><br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
                                    <h4 style= "margin-left:30px;" ><strong>소개 글</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >등록하신 숙소를 소개해주세요</h5>
-                                   <textarea rows="5" cols="70" placeholder="소개글을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <textarea rows="5" cols="70" placeholder="소개글을 입력해주세요" style="float:left; margin-left:30px;" name="context"></textarea>
                                    <br><br><br><br><br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
                                    <h4 style= "margin-left:30px;" ><strong>숙소 사진 등록</strong></h4>       
                                    <h5 style= "margin-left:30px;" >화면에 보여질 나만의 숙소사진을 등록해주세요</h5>
-                                   <input style="margin-left:30px;" type="file" name="imagefile">
+                                   <input style="margin-left:30px;" type="file" name="imagefile" name="file">
                                    <p style="color:red; font-weight: bold"></p>
+                                   <input type="submit" value="저장">
                                </div>
+                               </form>
                             </div>
                       
                          </div>
@@ -126,7 +128,7 @@
 		            <div class="block-27">
 		              <ul>
 		                <li><a href="rooms5.do"><span>이전</span></a></li>
-		                <li><a href="main.do"><span>완료</span></a></li>
+		                <li style="margin-left:5%"><a href="main.do"><span>완료</span></a></li>
 		              </ul>
 		            </div>
 		          </div>
