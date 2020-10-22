@@ -19,7 +19,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
 $(document).ready(function() {
-	console.log("${path}");
 	//검색창 값 초기 설정 
 	//장소 값 초기 설정
 	if("${searchOption.local}" != null && "${searchOption.local}" !== ''){
@@ -41,8 +40,6 @@ $(document).ready(function() {
 			$("#guestNo").val("${searchOption.guestNum}");
 		}
 	
-	
-
 }); 
 	
 	
@@ -179,7 +176,7 @@ function list(page){
 	
 	<!--================ 검색창 =====================-->
 	 	<!-- Booking Part -->
-					<div class="block-17 my-4" style="width: 80%; height: 70px;">
+	 		<div class="block-17 my-4" style="width: 55%; height: 70px; border:0.2px solid lightgrey; margin:auto;">
 						<form action="search.do" method="post" class="d-block d-flex">
 							<div class="fields d-block d-flex">
 								<!-- 장소-->
@@ -187,7 +184,7 @@ function list(page){
 									<div class="location"
 										style="color: black; margin-left: 30px; padding-top: 6px; font-weight: bold;">위치</div>
 									<input type="text" placeholder="어디로 여행가시나요?" id="local"
-										style="border: none; border-right: 0px; border-top: 0px; padding-left: 30px; cursor: pointer; outline: none; margin-top: 7px;"
+										style="border: none; border-right: 0px; border-top: 0px; padding-left: 30px; cursor: pointer; outline: none; margin-top: 7px; width:100px;"
 										class="lo-placeholder" required readonly="readonly" name="local"
 										onclick="locationPopup();">
 									<!-- 8개 도시 div onclick -->
@@ -195,7 +192,7 @@ function list(page){
 
 
 								<!-- 체크인 체크아웃  -->
-								<div class="select-wrap one-third" style="margin-top: 5px;">
+								<div class="select-wrap one-third" style="margin-top: 5px; ">
 									<div class="dates">
 										<div class="arrival"
 											style="display: inline-block; float: left; width: 45%;">
@@ -209,7 +206,7 @@ function list(page){
 
 								</div>
 								<div class="select-wrap one-third"
-									style="border-right: none; border-left: 1px solid rgba(0, 0, 0, 0.1); margin-top: 5px;">
+									style="border-right: none; border-left: 1px solid rgba(0, 0, 0, 0.1); margin-top: 5px; ">
 									<div class="dates">
 										<div class="departure"
 											style="display: inline-block; float: left; width: 45%;">
@@ -235,7 +232,7 @@ function list(page){
 								</div>
 							</div>
 							<input type="submit" class="search-submit btn btn-primary"
-								value="Search" style="padding-top: 3px; padding-left: 3px;">
+								value="Search" style="padding-top: 3px; padding-left: 3px; width: 120px;">
 						</form>
 					</div>
 
@@ -289,7 +286,7 @@ function list(page){
 							</div>
 						</div>
 					</div>
-
+	 		
 		<!--================ 검색창 =====================-->
 	<div class="row"><!-- 본문 -->
 		<!--================ 숙소 리스트 =================-->
@@ -300,7 +297,10 @@ function list(page){
 				
 					<div class="col-lg-12">
 						<div class="col-lg-12">
-							<p>Azanda.에서 새로운 여행을 시작해 보세요.</p>
+							<div class="_1lbq8dg">
+								<h1 tabindex="-1" class="_14i3z6h">${searchOption.local}의 숙소</h1>
+								<div class="_1snxcqc"  style="padding:-4px;"><p>Azanda.에서 새로운 여행을 시작해 보세요.</p></div>
+							</div>
 							<hr>
 						</div>
 						<div class="container">

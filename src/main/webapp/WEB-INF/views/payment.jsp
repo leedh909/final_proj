@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="css/payment.css">
 <!-- jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript">
@@ -21,43 +21,18 @@
 			pg : 'inicis', // version 1.1.0부터 지원.
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			amount : 100, //판매 가격
-			buyer_tel : '010-3045-0528',
+			amount : 100, //판매 가격 바꿔야함 
+			buyer_tel :' ${login.phone}',
 			//선택
-			buyer_name : '구매자이름',	
+			buyer_name : '${login.name}',	
 			name : '주문명:결제테스트',
-			buyer_postcode : '123-456',
-			buyer_addr : '서울특별시 강남구 삼성동',
-			buyer_email : 'sayt3103@gmail.com',
+			buyer_email : '${login.email}',
 		}, function(rsp) {
 			 if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-				 var mate = ${"#mate"};
-				 var reservation={
-						"people":'${reservation.people}',
-						"check_in":'${reservation.check_in}',
-						"check_out":'${reservation.check_out}',
-						"seq_m":'${login.seq_m}',
-						"seq_rm":'${room.seq_rm}',
-						"mate":mate,
-						"totalPrice":'${reservation.totalPrice}'
-					};
-			        // jQuery로 HTTP 요청
-			        $.ajax({
-			        	type:"post",
-			        	url:"ajaxmate.do",
-			        	data:stringify(reservation),
-			        	contentType:"application/json",
-			        	dataType:"json",
-			        	success:function(msg){
-			        		if(msg.check==true){
-			        			location.href="main.do";
-			        		}
-			        	},
-			        	error:function(){
-			        		alert("insert실패")
-			        	}
-			        
-			        });
+				
+				var msg='결제에 성공하였습니다.';
+				callAjax();	 
+			 
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
@@ -77,6 +52,45 @@
 			}
 		});
 	});
+	
+	//ajax 호출
+	function callAjax(){
+		
+		let mate = $("#mate").val();
+		let reservation={
+			"people":parseInt('${reservation.people}'),
+			"check_in":'${reservation.check_in}',
+			"check_out":'${reservation.check_out}',
+			"seq_m":parseInt('${login.seq_m}'),
+			"seq_rm":parseInt('${room.seq_rm}'),
+			"mate":mate,
+			"totalPrice":'${reservation.totalPrice}'
+		};
+		
+		
+	        $.ajax({
+	        	type:"post",
+	        	url:"ajaxmate.do",
+	        	data:JSON.stringify(reservation),
+	        	contentType:"application/json",
+	        	dataType:"json",
+	        	success:function(msg){
+	        		if(msg.check==true){
+	        			//마이페이지로 보내주기 
+	        			location.href="mypage.do";
+	        			alert("insert성공");
+	        		}else{
+	        			alert("insert실패");
+	        		}
+	        	},
+	        	error:function(){
+	        		alert("통신실패");
+	        	}
+	        
+	        }); 
+	
+	}
+	
 </script>
 </head>
 
@@ -88,7 +102,6 @@
 
 	<div class="hero-wrap"
 		style="background-image: url('images/white.png'); height: 100px"></div>
-
 	<!-- 본문 -->
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
