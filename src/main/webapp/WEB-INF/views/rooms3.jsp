@@ -87,7 +87,7 @@
 	                   <h3 style= "margin-left:40px;">|</h3>
 	               <h5 style="color:#f85959;">3. 객실(세부정보)</h5>
 	                   <h3 style= "margin-left:40px;">|</h3>
-	               <h5>4. 편의 시설 / 안전시설</h5>
+	               <h5>4. 편의 시설 / 안전시설 / 체크인유형</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
@@ -104,7 +104,7 @@
                   
                          <h1 align="left"><strong>객실 정보 및 세부사항 등록</strong></h1>
                          	
-                         <form action="rooms3.do" method="get">
+                         <form action="rooms4.do" method="get">
                          <div>
                                     
                               		<h4 style= "margin-left:30px;" ><strong>숙박 가능 인원</strong></h4>
@@ -125,6 +125,12 @@
                               		<br><br>
                               		<hr style= "margin-left:30px; width:108%; ">
                               		 <br>
+                              		 <h4 style= "margin-left:30px;" ><strong>침대 수</strong></h4>
+                              		<h5 style= "margin-left:30px;" >등록할 숙소에 침대 수를 설정해주세요</h5>
+                              		<input type="number" min="0" max="100" step="1" name="bed" style= "margin-left:30px; width:180px; height:40px; ">
+                              		<br><br>
+                              		<hr style= "margin-left:30px; width:108%; ">
+                              		 <br>
                                   <h4 style= "margin-left:30px;" ><strong>세부사항</strong></h4>
                                  <h5 style= "margin-left:30px;" >등록할 숙소에 있는 모든 시설에 체크해주세요</h5>
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="essential" value="필수품목(샤워타올,수건,기타 등등)"><label><h5>필수품목(샤워타올,수건,기타 등등)</h5></label> &nbsp;
@@ -139,7 +145,17 @@
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="desk" value="책상"><label><h5>책상</h5></label> &nbsp;
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="closet" value="옷장"><label><h5>옷장</h5></label> &nbsp;
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="wifi" value="와이파이"><label><h5>WIFI</h5></label>
-                                 <input type="submit" value="저장"/>
+                                 <br><br>
+                                  <div class="row mt-5">
+					                <div class="col text-center">
+					                  <div class="block-27">
+                                <ul>
+                                	<li><a href="rooms2.do"><span>이전</span></a></li>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="다음" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                 </div>
+                              </div>
+                              </div>  
                                </div>
                                </form>
                             </div>
@@ -149,16 +165,7 @@
                          
                       </div>
                    </div>
-          	 <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="rooms2.do"><span>이전</span></a></li>
-		                <li style="margin-left:5%"><a href="rooms4.do"><span>다음</span></a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+
           </div> <!-- .col-md-8 -->
         </div>
       </div>

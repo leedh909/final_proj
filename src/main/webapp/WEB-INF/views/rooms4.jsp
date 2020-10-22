@@ -76,7 +76,7 @@
 	                   <h3 style= "margin-left:40px;">|</h3>
 	               <h5>3. 객실(세부정보)</h5>
 	                   <h3 style= "margin-left:40px;">|</h3>
-	               <h5 style="color:#f85959;">4. 편의 시설 / 안전시설</h5>
+	               <h5 style="color:#f85959;">4. 편의 시설 / 안전시설 / 체크인유형</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
@@ -91,9 +91,9 @@
                 
                       </div>
                   
-                         <h1 align="left"><strong>편의 시설 / 안전 시설 등록</strong></h1>
+                         <h1 style= "margin-left:150px;"><strong>편의 시설 / 안전 시설 / 체크인 유형 등록</strong></h1>
                          	
-                         <form action="rooms4.do" method="get">
+                         <form action="rooms5.do" method="get">
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>편의시설</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >등록할 숙소에 있는 편의시설에 모두 체크해주세요</h5>
@@ -108,31 +108,35 @@
                                  <hr style= "margin-left:30px; width:150%; ">
                                  
                                  <br>
-                                 <h4 style= "margin-left:30px;" ><strong>안전시설</strong></h4 >       
+                                 <h4 style= "margin-left:30px;" ><strong>안전시설</strong></h4>       
                                    <h5 style= "margin-left:30px;" >등록할 숙소에 있는 안전시설에 모두 체크해주세요</h5>
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="fire_sensor" value="화재 감지기"><label><h5>화재 감지기</h5></label> &nbsp;
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="co_sensor" value="일산화탄소 감지기"><label><h5>일산화탄소 감지기</h5></label> &nbsp;
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="e_kit" value="구급상자"><label><h5>구급상자</h5></label>
                                  <input style= "margin-left:30px; zoom:1.5;" type="checkbox" name="fire_off" value="소화기" ><label><h5>소화기</h5></label> &nbsp;
-                                 <input type="submit" value="저장">
-                               </div>
+                                 <hr style= "margin-left:30px; width:150%; ">
+                                 <br>
+                                 <h4 style= "margin-left:30px;" ><strong>체크인 유형</strong></h4>
+                                 <h5 style= "margin-left:30px;" >입실할때 체크인 할 방법을 입력해주세요</h5>
+                                 <textarea rows="2" cols="32" name="checkin" placeholder="체크인유형을 입력헤주세요" style="float:left; margin-left:30px;" name="context"></textarea>
+                                 <br><br>
+                                <div class="row mt-5">
+					                <div class="col text-center">
+					                  <div class="block-27">
+                                <ul>
+                                	<li><a href="rooms.do"><span>이전</span></a></li>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="다음" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                 </div>
+                              </div>
+                              </div>  
                                </form>
                             </div>
                       
                          </div>
                       </div>
                    </div>
-                   
-          	 <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="rooms3.do"><span>이전</span></a></li>
-		                <li style="margin-left:5%"><a href="rooms5.do"><span>다음</span></a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+                 
           </div> <!-- .col-md-8 -->
         </div>
       </div>

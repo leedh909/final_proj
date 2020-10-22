@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <form action="rooms2.do" method="get">
+    <form action="rooms3.do" method="get">
     <section class="ftco-section ftco-degree-bg">
     
       <div class="container" width="500" height="600">
@@ -134,7 +134,7 @@
                       <h3 style= "margin-left:40px;">|</h3>
                   <h5>3. 객실(세부정보)</h5>
                       <h3 style= "margin-left:40px;">|</h3>
-                  <h5>4. 편의 시설 / 안전시설</h5>
+                  <h5>4. 편의 시설 / 안전시설 / 체크인유형</h5>
                   <h3 style= "margin-left:40px;">|</h3>
                   <h5>5. 숙소 규정</h5>
                   <h3 style= "margin-left:40px;">|</h3>
@@ -170,24 +170,23 @@
                             <div style="float:left; margin-left:30px;"><h5>숙소 가격: </h5></div>
                                 <textarea onkeydown="return onlyNumber(event)" onkeyup="removeChar(event)" rows="1" name="room_price" cols="30" placeholder="가격을 입력해주세요" style="float:left; margin-left:30px; width:180px; height:40px;" ></textarea>&nbsp;     
                                 <label><h4>₩</h4></label>
-                                  <input type="submit"  value="저장" />
-                                
+                                <br><br>
+                                <div class="row mt-5">
+					                <div class="col text-center">
+					                  <div class="block-27">
+                                <ul>
+                                	<li><a href="rooms.do"><span>이전</span></a></li>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="다음" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                 </div>
+                              </div>
+                              </div>  
                                 </div>
                             </div>
                          </div>        
                       </div>
                    </div>
-                     
-              <div class="row mt-5">
-                <div class="col text-center">
-                  <div class="block-27">
-                    <ul>
-                      <li><a href="rooms.do"><span>이전</span></a></li>
-                      <li><a href="rooms3.do"><span>다음</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>          
+        
     </section> <!-- .section -->
      </form>
     <div>
