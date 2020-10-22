@@ -46,10 +46,22 @@
 	                // 우편번호와 주소 정보를 해당 필드에 넣는다.
 	                document.getElementById('sample6_postcode').value = data.zonecode;
 	                document.getElementById("sample6_address").value = addr;
+	                document.getElementById("address").value = addr;
 	                // 커서를 상세주소 필드로 이동한다.
 	                document.getElementById("sample6_detailAddress").focus();
 	            }
 	        }).open();
+	    }
+	    function goData(){
+	        var form = document.userinput;
+	        
+	        form.submit();
+	    }
+	    
+	    
+	    
+	    function eventKeyup2(str){
+	    	$('#detailAddress').val(str);
 	    }
 </script>
 <meta charset="utf-8">
@@ -81,7 +93,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <style type="text/css">
-   #next{
+   #btn{
      border-top-right-radius: 5px;
      border-bottom-roght-radius:5px;
      margin-left:-3px;
@@ -89,7 +101,12 @@
      background-color: rgba(0,0,0,0);
      color:#f85959;
      padding:5px;
-   }  
+     
+   }
+   #btn {
+	
+}
+   
 </style>
 
 <body>
@@ -131,7 +148,7 @@
 							<h3 style="margin-left: 40px;">|</h3>
 							<h5>3. 객실(세부정보)</h5>
 							<h3 style="margin-left: 40px;">|</h3>
-							<h5>4. 편의 시설 / 안전시설</h5>
+							<h5>4. 편의 시설 / 안전시설 / 체크인유형</h5>
 							<h3 style="margin-left: 40px;">|</h3>
 							<h5>5. 숙소 규정</h5>
 							<h3 style="margin-left: 40px;">|</h3>
@@ -177,6 +194,7 @@
                      function test1(){
                            var map2 = $("#sample6_address").val()+" "+$("#sample6_detailAddress").val();
                            console.log(map2);
+                           
                         
                      geocoder2.addressSearch(map2, function(result, status) {
                         
@@ -208,16 +226,30 @@
 								<h5>주소</h5>
 							</div>
 							&nbsp;
-							<form action="rooms.do" method="get">
+				
 							<input style="float: left; margin-left: 30px;" type="text" id="sample6_postcode" placeholder="우편번호">
 							<input  type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">&nbsp;
-							<input  type="text" id="sample6_address" name="sample6_address1" placeholder="주소">
-							<input  type="text" id="sample6_detailAddress" name="sample6_detailAddress2" placeholder="상세주소">&nbsp;
-							<button onclick=test1();>검색</button>
-							</form>	
+							<input  type="text" id="sample6_address" name="sample6_address1" placeholder="주소" >
+							<input  type="text" id="sample6_detailAddress" name="sample6_detailAddress2" placeholder="상세주소" onkeyup="eventKeyup2(this.value)">&nbsp;
+							<button onclick=test1();>검색</button>						
+							<br><br><br>
+						<form name = "testForm" action="rooms2.do" method="get">
+							<input type="hidden" id="address" name="sample6_address1" value="">
+                                 <input type="hidden" id="detailAddress" name="sample6_detailAddress2" value="">
+                 		        <div class="row mt-5">
+                                 <div class="col text-center">
+                                 <div class="block-27">
+                                <ul>
+                                    <li style="margin-left:5%"><a><span><input type="submit" onclick=test1(); value="다음" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                </div>
+                              </div>
+                              </div> 
+						</form>
 						</div>
 					</div>
 
+							
 				</div>
 			</div>
 		</div>
@@ -227,7 +259,7 @@
 				<div class="block-27">
 					<ul>
 					   <!-- <li><a href="rooms.do"><span>이전</span></a></li> -->
-						<li><a href="rooms2.do"><span>다음</span></a></li>
+					<!--  <li style="align-content:space-around; "><a href="rooms2.do" onclick="goData()"><span>다음</span></a></li>-->
 					</ul>
 				</div>
 			</div>

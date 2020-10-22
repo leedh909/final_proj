@@ -76,7 +76,7 @@
 	                   <h3 style= "margin-left:40px;">|</h3>
 	               <h5>3. 객실(세부정보)</h5>
 	                   <h3 style= "margin-left:40px;">|</h3>
-	               <h5>4. 편의 시설 / 안전시설</h5>
+	               <h5>4. 편의 시설 / 안전시설 / 체크인유형</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5 style="color:#f85959;">5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
@@ -93,7 +93,7 @@
                   
                          <h1 align="left"><strong>숙소 규정 등록</strong></h1>
                          	
-                           <form action="rooms5.do" method="get">
+                           <form action="rooms6.do" method="get">
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>어린이 / 유아 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >어린이 및 유아 입실 가능 여부 체크해주세요(두개 체크 가능합니다.)</h5>
@@ -118,10 +118,20 @@
                                    <h4 style="margin-left:30px;"><strong>체크인  / 체크아웃 시간 설정</strong></h4>
                                      <h5 style="margin-left:30px;">체크인 / 체크아웃 시간을 설정해주세요</h5>
                                        <h6 style="margin-left:30px;">체크인 시간</h6>
-                                          <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkin"></p>
-                                       <h6 style="margin-left:250px; margin-top: -74px;">체크아웃 시간</h6>
-                                          <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkout"></p>
-                                            <input type="submit" value="저장">
+                                          <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkin_time"></p>
+                                       <h6 style="margin-left:250px; margin-top: -58px;">체크아웃 시간</h6>
+                                          <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkout_time"></p>
+                                          <br><br>
+                                            <div class="row mt-5">
+					                <div class="col text-center">
+					                  <div class="block-27">
+                                <ul>
+                                	<li><a href="rooms.do"><span>이전</span></a></li>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="다음" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                 </div>
+                              </div>
+                              </div>  
                                </div>
                                </form>
                             </div>
@@ -130,16 +140,7 @@
                       </div>
                    </div>
                    
-          	 <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="rooms4.do"><span>이전</span></a></li>
-		                <li style="margin-left:5%"><a href="rooms6.do"><span>다음</span></a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+
 		        
           </div> <!-- .col-md-8 -->
         </div>

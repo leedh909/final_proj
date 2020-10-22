@@ -37,7 +37,7 @@
   		<mapper resource="/mybatis/room-mapper.xml" />  
   		<mapper resource="/mybatis/travelmate-mapper.xml" /> 		
   		<mapper resource="/mybatis/chat-mapper.xml" />  		
-
+        <mapper resource="/mybatis/hostrooms-mapper.xml"/>
   	</mappers>
   
   

@@ -32,6 +32,24 @@
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript">
+     function uploadImgPreview(){
+    	let fileInfo = document.getElementById("upImgFile").files[0];
+    	let reader = new FileReader();
+    	
+    	reader.onload = function(){
+    		document.getElementById("imagerooms").src = reader.result;
+    		document.getElementById("imagerooms").innerText = reader.result;
+    		document.getElementById("imagerooms").height = 250;
+    		document.getElementById("imagerooms").width = 250;
+    		
+    	};
+    	if(fileInfo){
+    		reader.readAsDataURL(fileInfo);
+    	}
+     };
+  </script>
   <style type="text/css">
    #box{
             left: 20px; 
@@ -79,7 +97,7 @@
 	                   <h3 style= "margin-left:40px;">|</h3>
 	               <h5>3. 객실(세부정보)</h5>
 	                   <h3 style= "margin-left:40px;">|</h3>
-	               <h5>4. 편의 시설 / 안전시설</h5>
+	               <h5>4. 편의 시설 / 안전시설 / 체크인유형</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
 	               <h5>5. 숙소 규정</h5>
 	               <h3 style= "margin-left:40px;">|</h3>
@@ -96,26 +114,43 @@
                   
                          <h1 align="left"><strong>숙소 소개 등록</strong></h1>
                          	
-                          <form action="rooms6.do" method="get">
+                          <form action="insert.do" method="post" enctype="multipart/form-data">
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>소개 제목</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >숙소소개를 위한 제목을 입력해주세요</h5>
-                                   <textarea rows="2" cols="50" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" name="title"></textarea>
+                                   <textarea rows="2" cols="50" name="title" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" name="title"></textarea>
+                                   <br><br><br><br>
+                                   <hr style= "margin-left:30px; width:150%; ">
+                                   <br>
+                                   <h4 style= "margin-left:30px;" ><strong>간단한 소개글</strong></h4 >       
+                                   <h5 style= "margin-left:30px;" >등록하실 숙소의 특징을 간단하게 써주세요</h5>
+                                   <textarea rows="2" cols="50" name="simple" placeholder="간단하게 우리 숙소를 소개해주세요" style="float:left; margin-left:30px;"></textarea>
                                    <br><br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
                                    <h4 style= "margin-left:30px;" ><strong>소개 글</strong></h4 >       
-                                   <h5 style= "margin-left:30px;" >등록하신 숙소를 소개해주세요</h5>
-                                   <textarea rows="5" cols="70" placeholder="소개글을 입력해주세요" style="float:left; margin-left:30px;" name="context"></textarea>
+                                   <h5 style= "margin-left:30px;" >등록하실 숙소를 자세하게 소개해주세요</h5>
+                                   <textarea rows="5" cols="70" name="detail" placeholder="우리 숙소를 자세하게 소개해주세요" style="float:left; margin-left:30px;" name="context"></textarea>
                                    <br><br><br><br><br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
                                    <h4 style= "margin-left:30px;" ><strong>숙소 사진 등록</strong></h4>       
                                    <h5 style= "margin-left:30px;" >화면에 보여질 나만의 숙소사진을 등록해주세요</h5>
-                                   <input style="margin-left:30px;" type="file" name="imagefile" name="file">
+                                      <input type="file" id="upImgFile" name="mpfile" onChange="uploadImgPreview();" accept="image/*"> 
                                    <p style="color:red; font-weight: bold"></p>
-                                   <input type="submit" value="저장">
-                               </div>
+                                     <hr>
+                                     <img id="imagerooms" src="">
+                                     
+                                   <br><br><br>
+                                    <div class="row mt-5">
+					                <div class="col text-center">
+					                  <div class="block-27">
+                                <ul>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="완료" style="background: none; border:none;"></span></a></li>
+                                </ul> 
+                                 </div>
+                              </div>
+                              </div>  
                                </form>
                             </div>
                       
@@ -123,16 +158,7 @@
                       </div>
                    </div>
                    
-          	 <div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="rooms5.do"><span>이전</span></a></li>
-		                <li style="margin-left:5%"><a href="main.do"><span>완료</span></a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+   
           </div> <!-- .col-md-8 -->
         </div>
       </div>
