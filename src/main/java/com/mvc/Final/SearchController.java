@@ -1,13 +1,16 @@
 package com.mvc.Final;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -42,7 +45,6 @@ public class SearchController {
 		//검색  된 게시물 개수 
 		int count = biz.count(searchO);
 		//페이지 나누기 관련 처리
-		System.out.println(count+","+curPage);
 		Paging pager = new Paging(count, curPage);
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
@@ -69,8 +71,6 @@ public class SearchController {
 		//숙소 정보 가지고 오기
 		RoomTotalDto roomInfo =  biz.roomInfo(seq_rm);
 		
-		System.out.println(roomInfo.getDetail().getDesk());
-		
 		String[] detail = roomInfo.getDetail().toString().split(",");
 		String[] facility = roomInfo.getFacility().toString().split(",");
 		String[] safety = roomInfo.getSafety().toString().split(",");
@@ -78,7 +78,6 @@ public class SearchController {
 		
 		//숙소 예약 날짜 가져오기 
 		Map<String,Object> booked =  biz.reservationDate(seq_rm);
-		System.out.println(booked.get("indate"));
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
 		LoginDto hostInfo = biz.memberInfo(hostNum);
@@ -99,30 +98,59 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/pay.do")
-	public String pay(Model model, RoomReservationDto reservation,HttpSession session) {
-		//숙소정보 가져오기
-		RoomsDto room = biz.room(reservation.getSeq_rm());
+	public String pay(Model model, RoomReservationDto reservation,HttpSession session,HttpServletResponse response) {
+		String returnView = "";
+		//여행날짜 checkin, checkout 구분
+		reservation.setCheck_in(reservation.getRangeDate().split(" to ")[0]);
+		reservation.setCheck_out(reservation.getRangeDate().split(" to ")[1]);
 		
-		//박수 구하기 
-		String in = reservation.getCheck_in();
-		String out = reservation.getCheck_out();
-		int night = calDate(in,out);
+		if(((LoginDto)session.getAttribute("login"))!=null){
+			//로그인 했을때 
+			//숙소정보 가져오기
+			RoomsDto room = biz.room(reservation.getSeq_rm());
+			
+			//박수 구하기 
+			String in = reservation.getCheck_in();
+			String out = reservation.getCheck_out();
+			int night = calDate(in,out);
+			
+			//총 가격 계산하기 
+			String totalPrice = Integer.toString(night*room.getPrice());
+			reservation.setTotalPrice(totalPrice);
+			
+			//계산 부분
+			String calculate = "₩"+String.format("%,d",room.getPrice())+" x "+night+"박";
+			
+			//예약자 회원 정보 
+			String loginId = ((LoginDto)session.getAttribute("login")).getId();
+			LoginDto login = biz.idLogin(loginId);
+			
+			model.addAttribute("calcul",calculate);
+			model.addAttribute("room",room);
+			model.addAttribute("reservation",reservation);
+			model.addAttribute("login", login);
+			
+			returnView= "payment";
+		}else {
+			//로그인 안했을때 
+			try {
+				String msg ="로그인이 필요한 서비스 입니다.";
+				PrintWriter out = response.getWriter();
+				response.setContentType("text/html; charset=UTF-8");
+				//로그인페이지로 바꿔줘야함 
+				out.println("<script>alert('"+msg+"');</script>");
+				out.flush();
+				
+				returnView = "againlogin";
+			} catch (IOException e) {
+				System.out.println("printWriter error");
+				e.printStackTrace();
+			}
+			
+		}
 		
-		//총 가격 계산하기 
-		String totalPrice = Integer.toString(night*room.getPrice());
-		reservation.setTotalPrice(totalPrice);
+		return returnView;
 		
-		//계산 부분
-		String calculate = "₩"+String.format("%,d",room.getPrice())+" x "+night+"박";
-		
-		//예약자 회원 정보 
-		LoginDto login = ((LoginDto)session.getAttribute("login"));
-		
-		model.addAttribute("calcul",calculate);
-		model.addAttribute("room",room);
-		model.addAttribute("reservation",reservation);
-		model.addAttribute("member",login);
-		return "payment";
 	}
 	
 	private int calDate(String in, String out) {
@@ -134,19 +162,26 @@ public class SearchController {
 		return days;
 	}
 
+	//예약 테이블 insert
 	@RequestMapping(value="/ajaxmate.do", method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String,Boolean> ajaxmate(Model model,@RequestBody RoomReservationDto reservDto) {
+	public Map<String,Boolean> ajaxmate(@RequestBody RoomReservationDto reservDto) {
+		System.out.println("ajax 들어옴");
 		//결제 성공시 travelmate에 데이터 저장
 		int res = biz.reservation(reservDto);
 		boolean check = false;
 		
 		if(res > 0) {
 			check=true;
+			System.out.println("insert성공");
+		}else {
+			System.out.println("insert실패");
 		}
 		
 		Map<String,Boolean> map = new HashMap<String,Boolean>();
 		map.put("check", check);
 		return map;
 	}
+	
+	
 }

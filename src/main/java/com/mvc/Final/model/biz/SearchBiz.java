@@ -1,5 +1,7 @@
 package com.mvc.Final.model.biz;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,9 +36,14 @@ public class SearchBiz {
 		
 		return dao.roomInfo(seq_rm);
 	}
-	//회원 정보
+	//회원 정보(회원 번호 받았을때)
 	public LoginDto memberInfo(int memberNum) {
 		return dao.memberInfo(memberNum);
+	}
+	
+	//로그인 회원 정보(session에서 가져올때 )
+	public LoginDto idLogin(String loginId) {
+		return dao.idLogin(loginId);
 	}
 	//숙소 예약된 날짜
 	public Map<String,Object> reservationDate(int seq_rm){
@@ -49,16 +56,18 @@ public class SearchBiz {
 		List<String> indate = new ArrayList<String>();
 		List<String> outdate = new ArrayList<String>();
 		
+		//outdate 하루전 날짜 구해서 string 변환 후 추가
 		for(int i =0; i<date.size() ;i++) {
-		}
-		
-		
-		for(int i=0; i<date.size(); i++) {
+			String s = date.get(i).getCheck_out().split(" ")[0];
+			LocalDate transDate = LocalDate.parse(s,DateTimeFormatter.ISO_DATE);
+			LocalDate beforeOutDate = transDate.minusDays(1);
+			String Stringbefore = beforeOutDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+			outdate.add(Stringbefore);
 			indate.add(date.get(i).getCheck_in());
-			outdate.add(date.get(i).getCheck_out());
 		}
 		
-	
+		
 		booked.put("indate", indate);
 		booked.put("outdate", outdate);
 		
@@ -70,8 +79,9 @@ public class SearchBiz {
 		return dao.room(seq_rm);
 	}
 	public int reservation(RoomReservationDto reservDto) {
-		
-		return dao.reservationDate(reservDto);
+		return dao.reservationInsert(reservDto);
 	}
+	
+	
 	
 }

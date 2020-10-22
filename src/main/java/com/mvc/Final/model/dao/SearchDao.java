@@ -92,13 +92,27 @@ public class SearchDao {
 		try {
 			memberInfo = sqlSession.selectOne(NAMESPACE+"memberInfo",memberNum);
 		} catch (Exception e) {
-			System.out.println("error:hostInfo");
+			System.out.println("error:memberInfo");
 			e.printStackTrace();
 		}
 		
 		return memberInfo;
 	}
 
+	//로그인 한 회원 정보 
+	public LoginDto idLogin(String loginId) {
+		LoginDto login = new LoginDto();
+		
+		try {
+			login = sqlSession.selectOne(NAMESPACE+"loginInfo",loginId);
+		} catch (Exception e) {
+			System.out.println("error: sessionInfo");
+			e.printStackTrace();
+		}
+		
+		return login;
+	}
+	
 	public RoomsDto room(int seq_rm) {
 		RoomsDto room = new RoomsDto();;
 		
@@ -113,17 +127,20 @@ public class SearchDao {
 	}
 
 	//예약시 reservation 테이블 insert
-	public int reservationDate(RoomReservationDto reservDto) {
+	public int reservationInsert(RoomReservationDto reservDto) {
 		int res = 0;
 		
 		try {
-			res = sqlSession.insert(NAMESPACE+"travelmate",reservDto);
+			res = sqlSession.insert(NAMESPACE+"reservation",reservDto);
 		} catch (Exception e) {
-			System.out.println("error:travelmate");
+			System.out.println("error:reservation");
 			e.printStackTrace();
 		}
 		
 		return res;
 	}
+
+
+
 	
 }

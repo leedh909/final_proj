@@ -6,7 +6,6 @@ public class Rooms_facilityDto {
     private String dryer;
     private String kitchen;
     private String pool;
-
 	private String fitness;
     private String parking;
     private int seq_rm;

@@ -169,6 +169,13 @@
 						WHERE SEQ_H = #{memberNum})
 	</select>
 	
+	<!-- 로그인한 회원 정보 -->
+	<select id="loginInfo" parameterType="string" resultType="loginDto">
+		SELECT *
+		FROM MEMBER
+		WHERE ID = #{loginId}
+	</select>
+	
 	<!-- 숙소 예약된 날짜 -->
 	<select id="inoutdate" parameterType="int" resultType="roomReservationDto">
 		SELECT CHECK_IN, CHECK_OUT
@@ -182,8 +189,8 @@
 		WHERE SEQ_RM = #{seq_rm}
 	</select>
 	
-	<!-- travlemate insert -->
-	<insert id="travelmate" parameterType="roomReservationDto">
+	<!-- 예약 insert -->
+	<insert id="reservation" parameterType="roomReservationDto">
 		INSERT INTO RESERVATION
 		VALUES(SEQ_RE.NEXTVAL,#{people},SYSDATE,#{check_in},#{check_out},#{seq_m},#{seq_rm},#{mate},#{totalPrice})
 	</insert>

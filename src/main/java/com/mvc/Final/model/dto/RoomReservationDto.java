@@ -13,7 +13,26 @@ public class RoomReservationDto {
 	private int seq_rm;	//숙소
 	private String mate;	//여행메이트여부
 	private String totalPrice;	//총가격
+	private String rangeDate; //여행날짜 범위
 	
+
+
+	public RoomReservationDto(int people, int seq_rm, String totalPrice, String rangeDate) {
+		super();
+		this.people = people;
+		this.seq_rm = seq_rm;
+		this.totalPrice = totalPrice;
+		this.rangeDate = rangeDate;
+	}
+
+	public String getRangeDate() {
+		return rangeDate;
+	}
+
+	public void setRangeDate(String rangeDate) {
+		this.rangeDate = rangeDate;
+	}
+
 	//생성자
 	public RoomReservationDto() {}
 
@@ -32,7 +51,6 @@ public class RoomReservationDto {
 	
 	public RoomReservationDto(int people, String check_in, String check_out, int seq_m, int seq_rm, String mate,
 			String totalPrice) {
-		super();
 		this.people = people;
 		this.check_in = check_in;
 		this.check_out = check_out;
