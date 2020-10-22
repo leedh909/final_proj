@@ -4,8 +4,6 @@ package com.mvc.Final;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.mvc.Final.model.biz.LoginBiz;
-import com.mvc.Final.model.biz.MypageBiz;
+import com.mvc.Final.model.biz.MainviewBiz;
 
 @Controller
 public class HomeController {
@@ -23,15 +20,19 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	private LoginBiz lbiz;
-	
-	@Autowired
-	private MypageBiz mbiz;
+	private MainviewBiz mvbiz;
 	
 	
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("START MAIN", locale);
+		
+	
+		//Guest의 데이터
+		model.addAttribute("mateList",mvbiz.mateList());
+		model.addAttribute("placeList",mvbiz.placeList());
+		
+		
 		return "main";
 	}
 	
