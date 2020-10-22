@@ -4,12 +4,133 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="travelmate">
-    
-	<select id="travelmateList" parameterType="String" resultType="TravelmateDto" >
-		SELECT M.PROFILE PROFILE, R2.ADDR ADDR, R.CHECK_IN CHECK_IN, R.CHECK_OUT CHECK_OUT, R.PEOPLE PEOPLE, R3.KID KID, R3.BABY BABY, R3.PET PET, R3.SMOKE SMOKE, R3.PARTY PARTY 
-		FROM MEMBER M , RESERVATION R , ROOM R2, RULE R3 
-		WHERE M.SEQ_M = R.SEQ_M AND R.SEQ_RM = R2.SEQ_RM AND R2.SEQ_RM = R3.SEQ_RM
+
+	<resultMap id="roomReservationDto" type="roomReservationDto">
+		<result column="SEQ_RE" property="seq_re" />
+		<result column="PEOPLE" property="people" />
+		<result column="R_DATE" property="r_date" />
+		<result column="CHECK_IN" property="check_in" />
+		<result column="CHECK_OUT" property="check_out" />
+		<result column="SEQ_M" property="seq_m" />
+		<result column="SEQ_RM" property="seq_rm" />
+		<result column="MATE" property="mate" />
+		<result column="TOTALPRICE" property="totalPrice" />
+	</resultMap>
+	<resultMap type="roomsDto" id="roomsDto">
+		<result column="SEQ_RM" property="seq_rm" />
+		<result column="ROOM_NAME" property="room_name" />
+		<result column="ADDR" property="addr" />
+		<result column="PERSON" property="person" />
+		<result column="PRICE" property="price" />
+		<result column="INTRO" property="intro" />
+		<result column="R_TYPE" property="r_type" />
+		<result column="BED_ROOM" property="bed_room" />
+		<result column="BED" property="bed" />
+		<result column="BATH_ROOM" property="bath_room" />
+		<result column="CHECKIN" property="checkin" />
+		<result column="SEQ_H" property="seq_h" />
+		<result column="CHECKIN_TIME" property="checkin_time" />
+		<result column="CHECKOUT_TIME" property="checkout_time" />
+	</resultMap>
+	<resultMap type="rooms_detailDto" id="rooms_detailDto">
+		<result column="SEQ_DETAIL" property="seq_detail" />
+		<result column="ESSENTIAL" property="essential" />
+		<result column="HEATING" property="heating" />
+		<result column="ARICONDITION" property="aircondition" />
+		<result column="IRON" property="iron" />
+		<result column="TV" property="tv" />
+		<result column="SHAMPOO" property="shampoo" />
+		<result column="HAIRDRY" property="hairdry" />
+		<result column="DESK" property="desk" />
+		<result column="CLOSET" property="closet" />
+		<result column="WIFI" property="wifi" />
+		<result column="SEEQ_RM" property="seq_rm" />
+	</resultMap>
+	<resultMap type="rooms_facilityDto" id="rooms_facilityDto">
+		<result column="SEQ_FACILITY" property="seq_facility" />
+		<result column="WASHER" property="washer" />
+		<result column="DRYER" property="dryer" />
+		<result column="KITCHEN" property="kitchen" />
+		<result column="POOL" property="pool" />
+		<result column="FITNNESS" property="fitness" />
+		<result column="PARKING" property="parking" />
+		<result column="SEQ_RM" property="seq_rm" />
+	</resultMap>
+	<resultMap type="rooms_ruleDto" id="rooms_ruleDto">
+		<result column="SEQ_RULE" property="seq_rule" />
+		<result column="KID" property="kid" />
+		<result column="BABY" property="baby" />
+		<result column="PET" property="pet" />
+		<result column="SMOKE" property="smoke" />
+		<result column="PARTY" property="party" />
+		<result column="SEQ_RM" property="seq_rm" />
+	</resultMap>
+	<resultMap type="rooms_safetyDto" id="rooms_safetyDto">
+		<result column="SEQ_SAFETY" property="seq_safety" />
+		<result column="FIRE_SENSOR" property="fire_sensor" />
+		<result column="CO_SENSOR" property="co_sensor" />
+		<result column="E_KIT" property="e_kit" />
+		<result column="FIRE_OFF" property="fire_off" />
+		<result column="SEQ_RM" property="seq_rm" />
+	</resultMap>
+	<resultMap type="loginDto" id="loginDto">
+		<result column="SEQ_M" property="seq_m" />
+		<result column="ID" property="id" />
+		<result column="PW" property="pw" />
+		<result column="NAME" property="name" />
+		<result column="GENDER" property="gender" />
+		<result column="AGE" property="age" />
+		<result column="EMAIL" property="email" />
+		<result column="PHONE" property="phone" />
+		<result column="PROFILE" property="profile" />
+		<result column="ROLE" property="role" />
+
+	</resultMap>
+	<resultMap type="roomTotalDto" id="roomTotalDtoMate">
+		<collection property="room" resultMap="roomsDto" />
+		<collection property="detail" resultMap="rooms_detailDto" />
+		<collection property="facility" resultMap="rooms_facilityDto" />
+		<collection property="rule" resultMap="rooms_ruleDto" />
+		<collection property="safety" resultMap="rooms_safetyDto" />
+	</resultMap>
+	<resultMap type="roomTotalDto" id="mateList">
+		<collection property="room" resultMap="roomsDto" />
+		<collection property="rule" resultMap="rooms_ruleDto" />
+		<collection property="reservation" resultMap="roomReservationDto" />
+		<collection property="member" resultMap="loginDto" />
+	</resultMap>
+
+	<!-- travelmate 리스트 뽑기 -->
+	<select id="travelmateList" resultMap="mateList">
+		SELECT R.* ,U.* , R2.* , M.*  
+		FROM ROOM R , RULE U, RESERVATION R2, MEMBER M
+		WHERE R2.MATE = 'Y' AND R.SEQ_RM = U.SEQ_RM AND R.SEQ_RM = R2.SEQ_RM AND M.SEQ_M = R2.SEQ_M
+	</select>
+	
+	<!-- 예약정보 가져오기 -->
+	<select id="reservation" parameterType="int" resultType="roomReservationDto">
+		SELECT * FROM RESERVATION
+		WHERE SEQ_RE = #{seq_re}
+	</select>
+	
+	<!-- travelmate 등록된 숙소 정보 하나선택 -->
+	<select id="mateDetail" parameterType="int"
+		resultMap="roomTotalDtoMate">
+		SELECT r.*,d.*,f.*,u.*,s.*
+		FROM ROOM r
+		JOIN DETAIL d ON(r.SEQ_RM = d.SEQ_RM)
+		JOIN FACILITY f ON(r.SEQ_RM = f.SEQ_RM)
+		JOIN RULE u ON(r.SEQ_RM = u.SEQ_RM)
+		JOIN SAFETY s ON(r.SEQ_RM = s.SEQ_RM)
+		WHERE r.SEQ_RM = #{seq_rm}
 	</select>
 
-	
+	<!-- 회원정보 -->
+	<select id="memberInfo" parameterType="int" resultType="loginDto">
+		SELECT * FROM MEMBER
+		WHERE SEQ_M = #{seq_m}
+	</select>
+
+
+
 </mapper>

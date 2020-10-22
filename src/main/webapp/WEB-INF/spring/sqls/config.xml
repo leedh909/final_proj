@@ -22,8 +22,6 @@
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_photoDto" alias="rooms_photoDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_ruleDto" alias="rooms_ruleDto"/>
   		<typeAlias type="com.mvc.Final.model.dto.Rooms_safetyDto" alias="rooms_safetyDto"/>
-  
-  		<typeAlias type="com.mvc.Final.model.dto.TravelmateDto" alias="travelmateDto"/>
 
   		<typeAlias type="com.mvc.Final.model.dto.ChatDto" alias="chatDto"/>
   		

@@ -207,22 +207,22 @@
 						<c:forEach items="${tmlist }" var="tmdto">
 							<div class="mate">
 								<div style="float:left; width:200px; height:198px;">
-								 	<img src="${tmdto.profile}" class="mateimage">
+								 	<img src="${tmdto.member.profile}" class="mateimage">
 								</div>
 								<div style="float:left; width:600px; height:198px;">
 									<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
 										<tr >
 											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>숙소 위치</b></td>
-											<td colspan="3" >${tmdto.addr }</td>
+											<td colspan="3" >${tmdto.room.addr }</td>
 										</tr>
 										<tr >
 											<td class="tdwidth" bgcolor="#EFF8FB" align="center" ><b>체크인/체크아웃</b></td>
 											<td >
-											<fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${tmdto.check_in }"/> ~ 
-											<fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${tmdto.check_out }"/>
+											<c:out value="${tmdto.reservation.check_in }"/> ~ 
+											<c:out value="${tmdto.reservation.check_out }"/>
 											</td>
 											<td bgcolor="#EFF8FB" align="center"><b>인원</b></td>
-											<td align="center">${tmdto.people }</td>
+											<td align="center">${tmdto.reservation.people }명/${tmdto.room.person }명</td>
 										</tr>
 										<tr >
 											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>필터링</b></td>
@@ -235,7 +235,7 @@
 									</table>
 								</div>
 								<div style="float:right; width:150; height:198px;">
-									<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
+									<button class="bt" type="button" onclick="location.href='travelmatedetail.do?seq_re=${tmdto.reservation.seq_re}'">matching</button>
 								</div>
 							</div>
 							<br><br>

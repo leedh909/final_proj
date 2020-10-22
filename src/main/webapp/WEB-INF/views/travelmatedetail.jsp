@@ -46,7 +46,7 @@
   		}
   		div#s_left{
   			width:500px;
-  			height:1250px;
+  			height:1550px;
   			float:left;
   		}
   		div#s_right{
@@ -163,6 +163,9 @@
 		function hide(c){
 			document.getElementById(c).style.display='none';
 		} */
+		
+		
+		
 	</script>     
   </head>
   <body>
@@ -182,90 +185,169 @@
       </div>
     </div>
 <!--  --> 
-<div style="width: ; height:2200px; padding-top:0px;" class="ftco-section bg-light" id="container">
-	<!-- left div (상세) -->
-	<!-- class="ftco-section bg-light"" -->
-	<div style="background-color:white;" id="s_left">
-		<div style="text-align: center; position: relative; top:50px;">
-			<br><br>
-			<h2 style=""><em>숙소 정보</em></h2>
-			<br>
-			<div>
-			<label>숙소 이름:</label>&nbsp;&nbsp;&nbsp;
-			<p value="">KH아파트</p>
-			<br>
-			<label>숙소 유형:</label>&nbsp;&nbsp;&nbsp;
-			<p value="">아파트</p>
-			<br>
-			<label>적정 인원:</label>&nbsp;&nbsp;&nbsp;
-			<p value="">2~3인</p>
-			<br>
-			<label>침대 갯수: </label> &nbsp;&nbsp;&nbsp;
-			<select name="bed" id="bed" readonly="readonly" style="background-color:#ababab" 
-      		 onFocus="this.initialSelect = this.selectedIndex;" onChange="this.selectedIndex = this.initialSelect;">
-				<option value="zero">0</option>
-				<option value="one">1</option>
-				<option value="two" selected="selected">2</option>
-				<option value="three">3</option>
-				<option value="four">4</option>
-			</select>
-			<br>
-			<label>욕실 갯수: </label> &nbsp;&nbsp;&nbsp;
-			<select name="bathroom" id="bathroom" readonly="readonly" style="background-color:#ababab;" 
-      		 onFocus="this.initialSelect = this.selectedIndex;" onChange="this.selectedIndex = this.initialSelect;">
-				<option value="zero">0</option>
-				<option value="one" selected="selected">1</option>
-				<option value="two">2</option>
-				<option value="three">3</option>
-				<option value="four">4</option>
-			</select>
-			<hr>
-			<br>
-			<h2 style=""><em>Item</em></h2>
-			<input type="checkbox" name="item" id="towel" value="towel" checked="checked" disabled="disabled"><label for="towel">수건</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="soap" value="soap" checked="checked" disabled="disabled"><label for="soap" >비누</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="tissue" value="tissue" disabled="disabled"><label for="towel">휴지</label>&nbsp;&nbsp;&nbsp;
-			<br>
-			<input type="checkbox" name="item" id="heat" value="heat" disabled="disabled"><label for="heat">난방</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="airconditioner" value="airconditioner" disabled="disabled"><label for="airconditioner">에어컨</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="tv" value="tv" checked="checked" disabled="disabled"><label for="tv" >TV</label>&nbsp;&nbsp;&nbsp;
-			<br>
-			<input type="checkbox" name="item" id="refrigerator" value="refrigerator" disabled="disabled"><label for="refrigerator">냉장고</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="gas" value="gas" checked="checked" disabled="disabled"><label for="gas">가스레인지</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="wifi" value="wifi" checked="checked" disabled="disabled"><label for="wifi">WIFI</label>&nbsp;&nbsp;&nbsp;
-			<hr>
-			<br>
-			<h2><em>편의시설</em></h2>
-			<input type="checkbox" name="item" id="towel" value="towel" checked="checked" disabled="disabled"><label for="towel">세탁기</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="soap" value="soap" checked="checked" disabled="disabled"><label for="soap" >건조기</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="tissue" value="tissue" disabled="disabled"><label for="towel">주방</label>&nbsp;&nbsp;&nbsp;
-			<br>
-			<input type="checkbox" name="item" id="towel" value="towel" checked="checked" disabled="disabled"><label for="towel">수영장</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="soap" value="soap" checked="checked" disabled="disabled"><label for="soap" >헬스장</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="tissue" value="tissue" disabled="disabled"><label for="towel">주차장</label>&nbsp;&nbsp;&nbsp;
-			<hr>
-			<br>
-			<h2><em>안전시설</em></h2>
-			<input type="checkbox" name="item" id="towel" value="towel" checked="checked" disabled="disabled"><label for="towel">화재 감지기</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="soap" value="soap" checked="checked" disabled="disabled"><label for="soap" >일산화탄소 감지기</label>&nbsp;&nbsp;&nbsp;
-			<input type="checkbox" name="item" id="tissue" value="tissue" disabled="disabled"><label for="towel">구급상자</label>&nbsp;&nbsp;&nbsp;
-			<hr>
-			<br>
-			
-			<label>Price:</label>
-			<p value="price"><b>$999</b></p>
+<section class="ftco-section ftco-degree-bg">
+	<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div style="text-align: center;">
+				<h1><em>Inner View</em></h1>
 			</div>
-			
+			 		  <div class="roomdiv1" style="background-color: black; height:500px; width:500px; ">
+						  <div class="w3-container w3-third" id="room1">
+						    <img src="images/room-1.jpg" style="cursor:pointer" 
+						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room1">
+						  </div>
+					  </div>
+					  <div class="roomdiv2" style="background-color: black; height:240px; width:340px; ">
+						  <div class="w3-container w3-third" id="room2">
+						    <img src="images/room-2.jpg" style="cursor:pointer" 
+						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
+						  </div>
+					  </div>
+					  <div class="roomdiv3" style="background-color: black; height:240px; width:340px; ">
+						  <div class="w3-container w3-third" id="room2">
+						    <img src="images/room-3.jpg" style="cursor:pointer" 
+						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
+						  </div>
+					  </div>
+					  <div class="roomdiv4" style="background-color: black; height:240px; width:340px; ">
+						  <div class="w3-container w3-third" id="room2">
+						    <img src="images/room-4.jpg" style="cursor:pointer" 
+						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
+						  </div>
+					  </div>
+					  <div class="roomdiv5" style="background-color: black; height:240px; width:340px; ">
+						  <div class="w3-container w3-third" id="room2">
+						    <img src="images/room-5.jpg" style="cursor:pointer" 
+						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
+						  </div>
+					  </div> 
+					</div> 
+					<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+					  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+					  <div class="w3-modal-content w3-animate-zoom">
+					    <img id="img01" style="width:100%; border-radius: 10px 10px 10px 10px; ">
+					  </div>
+					</div>
+		
 		</div>
+	
+		<div class="row">
+			<div class="col-lg-3 sidebar">
+			<div class="sidebar-wrap bg-light ftco-animate fadeInUp ftco-animated">
+						<div>
+							<br><br>
+							<h2 style=""><em>숙소 정보</em></h2>
+							<br>
+							<label style="font-weight: bold;">주소:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.addr } </p>
+							<br>
+							<label style="font-weight: bold;">숙소이름:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.room_name }</p>
+							<br>
+							<label style="font-weight: bold;">숙소 유형:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.r_type }</p>
+							<br>
+							<label style="font-weight: bold;">제한 인원:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.person }명</p>
+							<br>
+							<label style="font-weight: bold;">방 갯수:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.bed_room }개</p>
+							<br>
+							<label style="font-weight: bold;">침대 갯수:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.bed }개</p>
+							<br>
+							<label style="font-weight: bold;">욕실 갯수:</label>&nbsp;&nbsp;&nbsp;
+							<p>${tmddto.room.bath_room }개</p>
+							<br>
+							<label style="font-weight: bold;">가격:</label>&nbsp;&nbsp;&nbsp;
+							<p>${re.totalPrice }원 </p>
+							<br>
+							<hr>
+							<br>
+							<h2 style=""><em>Item</em></h2>
+						<c:forEach items="${detail}" var="detail">
+							<c:if test="${detail !='null' && detail != 'NULL'}">
+							<div class="row">
+								<div class="col-md-1 mt-2 pl-3">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+									<path fill-rule="evenodd" d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"/>
+									</svg>
+								</div>
+								<div class="col-md-11 mt-2">
+									<p class="pt">${detail }</p>
+								</div>
+							</div>
+							</c:if>
+						</c:forEach>
+						<hr>
+							<br>
+							<h2><em>편의시설</em></h2>
+							<hr>
+							<br>
+							<h2><em>안전시설</em></h2>
+							<hr>
+							<br>
+							<h2><em>숙소 규정</em></h2>
+							
+						</div>			
+		</div>
+			</div><!-- col-lg-3 sidebar -->
+			<div class="col-lg-9">
+			
+			
+			</div><!-- col-lg-9 -->
+		</div><!-- row -->
+	</div>	
 	</div>
-	<!-- right div (지도)-->
-	<div class="ftco-section bg-light" id="s_right">
-		<div class="mapdiv">
+	<div class="row"><!-- 지도 row -->
+		<div class="col-lg-12">
+			<div class="mapdiv">
 			<p style="margin-top: -12px">
 		    </p>
 		    <div id="map1" style="width: 100%; height: 1100px;"></div>
+		    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ac84c3461b348c5dd97a194bd252731&amp;libraries=services"></script>
+			<script>
+			var mapContainer = document.getElementById('map1'), // 지도를 표시할 div 
+			    mapOption = {
+			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			        level: 3 // 지도의 확대 레벨
+			    };  
+			
+			// 지도를 생성합니다    
+			var map1 = new kakao.maps.Map(mapContainer, mapOption); 
+			
+			// 주소-좌표 변환 객체를 생성합니다
+			var geocoder = new kakao.maps.services.Geocoder();
+			
+			// 주소로 좌표를 검색합니다
+			geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+			
+			    // 정상적으로 검색이 완료됐으면 
+			     if (status === kakao.maps.services.Status.OK) {
+			
+			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+			
+			        // 결과값으로 받은 위치를 마커로 표시합니다
+			        var marker = new kakao.maps.Marker({
+			            map1: map1,
+			            position: coords
+			        });
+			
+			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+			        var infowindow = new kakao.maps.InfoWindow({
+			            content: '<div style="width:150px;text-align:center;padding:6px 0;">고려</div>'
+			        });
+			        infowindow.open(map1, marker);
+			
+			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+			        map1.setCenter(coords);
+			    } 
+			});    
+			</script>
 		 
-		    <script type="text/javascript"
+		    <!-- <script type="text/javascript"
 		        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ac84c3461b348c5dd97a194bd252731&libraries=services"></script>
 		    <script>
 		        var mapContainer = document.getElementById('map1'), // 지도를 표시할 div 
@@ -344,91 +426,12 @@
 		        for (i = 0; i < myAddress.length; i++) {
 		            myMarker(i + 1, myAddress[i]);
 		        }
-		    </script>
+		    </script> -->
 		</div>
-	</div>
-	<!-- footer div (숙소내부이미지) -->
-	<div id="s_footer" class="s_footer">
-			<br><br>
-			<div style="text-align: center; background-color: white;">
-				<h1><em>Inner View</em></h1>
-			</div>
-			 		  <div class="roomdiv1" style="background-color: black; height:500px; width:500px; ">
-						  <div class="w3-container w3-third" id="room1">
-						    <img src="images/room-1.jpg" style="cursor:pointer" 
-						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room1">
-						  </div>
-					  </div>
-					  <div class="roomdiv2" style="background-color: black; height:240px; width:340px; ">
-						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-2.jpg" style="cursor:pointer" 
-						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
-						  </div>
-					  </div>
-					  <div class="roomdiv3" style="background-color: black; height:240px; width:340px; ">
-						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-3.jpg" style="cursor:pointer" 
-						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
-						  </div>
-					  </div>
-					  <div class="roomdiv4" style="background-color: black; height:240px; width:340px; ">
-						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-4.jpg" style="cursor:pointer" 
-						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
-						  </div>
-					  </div>
-					  <div class="roomdiv5" style="background-color: black; height:240px; width:340px; ">
-						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-5.jpg" style="cursor:pointer" 
-						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
-						  </div>
-					  </div> 
-					</div> 
-					<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-					  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-					  <div class="w3-modal-content w3-animate-zoom">
-					    <img id="img01" style="width:100%; border-radius: 10px 10px 10px 10px; ">
-					  </div>
-					</div>
-		<!-- 	<div class="roomdiv1" style="background-color: white; height:500px; width:500px;">
-				<a href="images/room-1.jpg" class="room1" onclick="imgbigview(this,'bigimg'); return false;">
-					<img src="images/room-1.jpg" class="room1">
-				</a>
-				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
-					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
-				</div>
-			</div>
-			<div class="roomdiv2" style="background-color: white; height:140px; width:140px;">
-				<a href="images/room-2.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
-					<img src="images/room-2.jpg" class="room2">
-				</a>
-				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
-					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
-				</div>
-			</div>
-		 	<div class="roomdiv3" style="background-color: white; height:140px; width:140px;">
-				<a href="images/room-3.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
-					<img src="images/room-3.jpg" class="room2">
-				</a>
-				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
-					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
-				</div>
-			</div>
-			<div class="roomdiv4" style="background-color: white; height:140px; width:140px;">
-				<a href="images/room-4.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
-					<img src="images/room-4.jpg" class="room2">
-				</a>
-				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
-					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
-				</div>
-			</div>
-			<div class="roomdiv5" style="background-color: white; height:140px; width:140px;">
-				<a href="images/room-5.jpg" class="room2" onclick="imgbigview(this,'bigimg'); return false;">
-					<img src="images/room-5.jpg" class="room2">
-				</a>
-				<div id="bigimg" style="display:none; overflow:hidden; border:0px solid #ff6600;" align="center">
-					<img src="" style=" border:1px solid black;" onclick="hide('bigimg')" />
-				</div>-->
+		</div>
+	</div><!-- 지도 row -->
+</section>
+
 			
 			<div>
 				<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='main.do'">Apply</button>
@@ -436,8 +439,7 @@
 			<div>
 				<button type="button" id="btn2" class="btn" value="cancel">Cancel</button>
 			</div> 
-	</div> 	                
-</div>
+	
 <!-- footer -->
     <div>
 		<jsp:include page="footer.jsp" />

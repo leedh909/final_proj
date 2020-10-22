@@ -8,10 +8,25 @@ public class RoomTotalDto {
 	private Rooms_introDto intro;	//슉소 소개
 	private Rooms_ruleDto rule;	//숙소 규정
 	private Rooms_safetyDto safety;	//숙소 안전시설
+	private RoomReservationDto reservation; //숙소 예약
+	private LoginDto member;//회원정보
 
 	//생성자
 	public RoomTotalDto() {}
 	
+	public RoomTotalDto(RoomsDto room, Rooms_detailDto detail, Rooms_facilityDto facility, Rooms_introDto intro,
+			Rooms_ruleDto rule, Rooms_safetyDto safety, RoomReservationDto reservation, LoginDto member) {
+		super();
+		this.room = room;
+		this.detail = detail;
+		this.facility = facility;
+		this.intro = intro;
+		this.rule = rule;
+		this.safety = safety;
+		this.reservation = reservation;
+		this.member = member;
+	}
+
 	public RoomTotalDto(RoomsDto room, Rooms_detailDto detail, Rooms_facilityDto facility, Rooms_introDto intro,
 			Rooms_ruleDto rule, Rooms_safetyDto safety) {
 		this.room = room;
@@ -20,6 +35,24 @@ public class RoomTotalDto {
 		this.intro = intro;
 		this.rule = rule;
 		this.safety = safety;
+	}
+
+	public RoomTotalDto(RoomsDto room, Rooms_detailDto detail, Rooms_facilityDto facility, Rooms_ruleDto rule,
+			Rooms_safetyDto safety) {
+		super();
+		this.room = room;
+		this.detail = detail;
+		this.facility = facility;
+		this.rule = rule;
+		this.safety = safety;
+	}
+
+	public RoomTotalDto(RoomsDto room, Rooms_ruleDto rule, RoomReservationDto reservation, LoginDto member) {
+		super();
+		this.room = room;
+		this.rule = rule;
+		this.reservation = reservation;
+		this.member = member;
 	}
 
 	public RoomTotalDto(RoomsDto room, Rooms_introDto intro) {
@@ -77,6 +110,22 @@ public class RoomTotalDto {
 		this.safety = safety;
 	}
 
+	public RoomReservationDto getReservation() {
+		return reservation;
+	}
+	
+	public void setReservation(RoomReservationDto reservation) {
+		this.reservation = reservation;
+	}
+	
+	public LoginDto getMember() {
+		return member;
+	}
+	
+	public void setMember(LoginDto member) {
+		this.member = member;
+	}
+	
 	@Override
 	public String toString() {
 		return "RoomTotalDto [room=" + room + ", detail=" + detail + ", facility=" + facility + ", intro=" + intro

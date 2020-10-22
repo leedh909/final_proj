@@ -1,12 +1,11 @@
 package com.mvc.Final.model.dto;
 
-import java.time.LocalDate;
 
 public class RoomReservationDto {
 
 	private int seq_re;	//예약번호
 	private int people;	//인원수
-	private LocalDate r_date;	//예약날짜
+	private String r_date;	//예약날짜
 	private String check_in;	//체크인 날짜
 	private String check_out;	//체크아웃날짜
 	private int seq_m;	//예약자
@@ -36,7 +35,7 @@ public class RoomReservationDto {
 	//생성자
 	public RoomReservationDto() {}
 
-	public RoomReservationDto(int seq_re, int people, LocalDate r_date, String check_in, String check_out,
+	public RoomReservationDto(int seq_re, int people, String r_date, String check_in, String check_out,
 			int seq_m, int seq_rm, String mate, String totalPrice) {
 		this.seq_re = seq_re;
 		this.people = people;
@@ -96,11 +95,11 @@ public class RoomReservationDto {
 		this.people = people;
 	}
 
-	public LocalDate getR_date() {
+	public String getR_date() {
 		return r_date;
 	}
 
-	public void setR_date(LocalDate r_date) {
+	public void setR_date(String r_date) {
 		this.r_date = r_date;
 	}
 
