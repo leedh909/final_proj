@@ -25,6 +25,8 @@
 
   		<typeAlias type="com.mvc.Final.model.dto.ChatDto" alias="chatDto"/>
   		
+  		<typeAlias type="com.mvc.Final.model.dto.MainviewDto" alias="mainviewDto"/>
+  		
   		
   	</typeAliases>
   
@@ -38,6 +40,8 @@
   		<mapper resource="/mybatis/travelmate-mapper.xml" /> 		
   		<mapper resource="/mybatis/chat-mapper.xml" />  		
         <mapper resource="/mybatis/hostrooms-mapper.xml"/>
+  		<mapper resource="/mybatis/mainview-mapper.xml" />  		
+
   	</mappers>
   
   

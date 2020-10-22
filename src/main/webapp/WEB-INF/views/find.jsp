@@ -124,7 +124,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td style="width: 150px;"><h5 style="font-weight: 800; font-size:25px; padding-top:7px;">친구 아이디</h5></td>
+					<td style="width: 170px;"><h5 style="font-weight: 800; font-size:25px; padding-top:7px;">친구 아이디</h5></td>
 					<td><input class="form-control" type="text" id="findID" maxlength="20" placeholder="찾을 아이디를 입력하세요."></td>
 				</tr>	
 				<tr>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="mainview">
+
+	<select id="mateList" parameterType="mainviewDto" resultType="mainviewDto">
+		SELECT seq_rm, room_name, addr, seq_mate, profile, check_in, check_out
+		FROM (
+			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, T.SEQ_MATE seq_mate, M.PROFILE profile,R2.CHECK_IN check_in, R2.CHECK_OUT check_out
+			FROM MATE T, ROOM R, RESERVATION R2, MEMBER M
+			WHERE T.SEQ_RE = R2.SEQ_RE AND R2.SEQ_RM = R.SEQ_RM AND R2.SEQ_M = M.SEQ_M
+			ORDER BY DBMS_RANDOM.VALUE
+		)
+		<![CDATA[where rownum <= 2]]>
+	</select>
+	
+	<select id="placeList" parameterType="mainviewDto" resultType="mainviewDto">
+		SELECT seq_rm, room_name, addr, intro, price
+		FROM (
+			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, R.INTRO intro, R.PRICE price
+			FROM ROOM R
+			ORDER BY DBMS_RANDOM.VALUE
+		)
+		<![CDATA[where rownum <= 5]]>
+	</select>
+	
+	
+</mapper> 
+
+
+

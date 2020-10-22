@@ -3,10 +3,11 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
-%>
-<%
 	response.setContentType("text/html; charset=UTF-8");
 %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -307,10 +308,10 @@
 					<p class="browse d-md-flex">
 						<span
 							class="d-flex justify-content-md-center align-items-md-center">
-							<a href="#"><i class="fas fa-hotel"></i>&nbsp;Place To Stay</a>
+							<a href="#place_to_stay"><i class="fas fa-hotel"></i>&nbsp;Place To Stay</a>
 						</span> <span
 							class="d-flex justify-content-md-center align-items-md-center">
-							<a href="#"><i class="fas fa-users"></i>&nbsp;TravelMate</a>
+							<a href="#travel_mate"><i class="fas fa-users"></i>&nbsp;TravelMate</a>
 						</span> <span
 							class="d-flex justify-content-md-center align-items-md-	center">
 							<a href="#footer"><i class="fas fa-headset"></i>&nbsp;Need
@@ -395,51 +396,35 @@
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
-					<span class="subheading">Place To Stay</span>
+					<span class="subheading" id="travel_mate">새로운 여행 친구 만들기</span>
 					<h2 class="mb-4">
-						<strong>Azanda.</strong> 의 추천 숙소
+						<strong>Travel</strong> Mates
 					</h2>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="destination-slider owl-carousel ftco-animate">
-						<div class="item">
-							<div class="destination">
-								<a href="#"
-									class="img d-flex justify-content-center align-items-center"
-									style="background-image: url(images/destination-1.jpg);">
-									<div
-										class="icon d-flex justify-content-center align-items-center">
-										<span class="icon-search2"></span>
+						<c:forEach items="${mateList}" var="mtdto">
+							<div class="item">
+								<div class="destination">
+									<a href="#" class="img d-flex justify-content-center align-items-center"
+										style="background-image: url(storage/profile/baseprofile.jpg);">
+										<div class="icon d-flex justify-content-center align-items-center">
+											<span class="icon-search2"></span>
+										</div>
+									</a>
+									<div class="text p-3">
+										<h3>
+											<a href="#">${mtdto.room_name }</a>
+										</h3>
+										<span class="listing">${mtdto.addr }</span>
 									</div>
-								</a>
-								<div class="text p-3">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<span class="listing">15 Listing</span>
 								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="destination">
-								<a href="#"
-									class="img d-flex justify-content-center align-items-center"
-									style="background-image: url(images/destination-2.jpg);">
-									<div
-										class="icon d-flex justify-content-center align-items-center">
-										<span class="icon-search2"></span>
-									</div>
-								</a>
-								<div class="text p-3">
-									<h3>
-										<a href="#">San Francisco, USA</a>
-									</h3>
-									<span class="listing">20 Listing</span>
-								</div>
-							</div>
-						</div>
+					        </div>
+						</c:forEach>
+					
+						
 						<div class="item">
 							<div class="destination">
 								<a href="#"
@@ -476,42 +461,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="item">
-							<div class="destination">
-								<a href="#"
-									class="img d-flex justify-content-center align-items-center"
-									style="background-image: url(images/destination-5.jpg);">
-									<div
-										class="icon d-flex justify-content-center align-items-center">
-										<span class="icon-search2"></span>
-									</div>
-								</a>
-								<div class="text p-3">
-									<h3>
-										<a href="#">Australia</a>
-									</h3>
-									<span class="listing">3 Listing</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="destination">
-								<a href="#"
-									class="img d-flex justify-content-center align-items-center"
-									style="background-image: url(images/destination-6.jpg);">
-									<div
-										class="icon d-flex justify-content-center align-items-center">
-										<span class="icon-search2"></span>
-									</div>
-								</a>
-								<div class="text p-3">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<span class="listing">3 Listing</span>
-								</div>
-							</div>
-						</div>
+					
 					</div>
 				</div>
 			</div>
@@ -522,172 +472,48 @@
 		<div class="container">
 			<div class="row justify-content-start mb-5 pb-3">
 				<div class="col-md-7 heading-section ftco-animate">
-					<span class="subheading">새로운 여행 친구 만들기</span>
+					<span class="subheading" id="place_to_stay">Place To Stay</span>
 					<h2 class="mb-4">
-						<strong>Travel</strong> Mates
+						<strong>Azanda.</strong> 의 추천 숙소
 					</h2>
 				</div>
 			</div>
 		</div>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="destination">
-						<a href="#"
-							class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url(images/destination-1.jpg);">
-							<div
-								class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<p class="rate">
-										<i class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star-o"></i> <span>8 Rating</span>
-									</p>
+				<c:forEach items="${placeList}" var="pldto">
+					<div class="col-sm col-md-6 col-lg ftco-animate">
+						<div class="destination">
+							<a href="#"
+								class="img img-2 d-flex justify-content-center align-items-center"
+								style="background-image: url(images/destination-1.jpg);">
+								<div
+									class="icon d-flex justify-content-center align-items-center">
+									<span class="icon-search2"></span>
 								</div>
-								<div class="two">
-									<span class="price">$200</span>
+							</a>
+							<div class="text p-3">
+								<div class="d-flex">
+									<div class="one">
+										<h3>
+											<a href="#">${pldto.room_name }</a>
+										</h3>
+									</div>
+									<div class="two">
+										<span class="price">$${pldto.price }</span>
+									</div>
 								</div>
+								<p>${pldto.intro }</p>
+								<hr>
+								<p class="bottom-area d-flex">
+									<span><i class="icon-map-o"></i> ${pldto.addr }</span> 
+								</p>
 							</div>
-							<p>Far far away, behind the word mountains, far from the
-								countries</p>
-							<p class="days">
-								<span>2 days 3 nights</span>
-							</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-									class="ml-auto"><a href="#">Discover</a></span>
-							</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="destination">
-						<a href="#"
-							class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url(images/destination-2.jpg);">
-							<div
-								class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<p class="rate">
-										<i class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star-o"></i> <span>8 Rating</span>
-									</p>
-								</div>
-								<div class="two">
-									<span class="price">$200</span>
-								</div>
-							</div>
-							<p>Far far away, behind the word mountains, far from the
-								countries</p>
-							<p class="days">
-								<span>2 days 3 nights</span>
-							</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-									class="ml-auto"><a href="#">Discover</a></span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="destination">
-						<a href="#"
-							class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url(images/destination-3.jpg);">
-							<div
-								class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<p class="rate">
-										<i class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star-o"></i> <span>8 Rating</span>
-									</p>
-								</div>
-								<div class="two">
-									<span class="price">$200</span>
-								</div>
-							</div>
-							<p>Far far away, behind the word mountains, far from the
-								countries</p>
-							<p class="days">
-								<span>2 days 3 nights</span>
-							</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-									class="ml-auto"><a href="#">Discover</a></span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="destination">
-						<a href="#"
-							class="img img-2 d-flex justify-content-center align-items-center"
-							style="background-image: url(images/destination-4.jpg);">
-							<div
-								class="icon d-flex justify-content-center align-items-center">
-								<span class="icon-search2"></span>
-							</div>
-						</a>
-						<div class="text p-3">
-							<div class="d-flex">
-								<div class="one">
-									<h3>
-										<a href="#">Paris, Italy</a>
-									</h3>
-									<p class="rate">
-										<i class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star"></i> <i class="icon-star"></i> <i
-											class="icon-star-o"></i> <span>8 Rating</span>
-									</p>
-								</div>
-								<div class="two">
-									<span class="price">$200</span>
-								</div>
-							</div>
-							<p>Far far away, behind the word mountains, far from the
-								countries</p>
-							<p class="days">
-								<span>2 days 3 nights</span>
-							</p>
-							<hr>
-							<p class="bottom-area d-flex">
-								<span><i class="icon-map-o"></i> San Franciso, CA</span> <span
-									class="ml-auto"><a href="#">Discover</a></span>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
+				</c:forEach>
+				
+				<!-- <div class="col-sm col-md-6 col-lg ftco-animate">
 					<div class="destination">
 						<a href="#"
 							class="img img-2 d-flex justify-content-center align-items-center"
@@ -725,7 +551,7 @@
 							</p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
