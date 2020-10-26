@@ -42,7 +42,6 @@
   			float:left;
   		}
   		div#s_right{
-  			width:600px;
   			height:1200px;
   			float:left;
   			z-index:1;
@@ -55,11 +54,14 @@
   			position: relative;
  			left: 150px;
  			top: 100px;
+ 			border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
+ 			box-shadow: 5px 5px 5px 5px gray;
   		}
   		.mateimage{
-  			display:block;
+  			/* display:block; */
   			width:200px;
   			height:198px;
+  			border-radius: 20px 0px 0px 20px / 20px 0px 0px 20px;
   		}
   		.bt{
   			width:138px;
@@ -71,6 +73,7 @@
   			cursor: pointer;
 			-webkit-transition-duration: 0.4s;
 			transition-duration: 0.4s;
+			border-radius: 0px 20px 20px 0px / 0px 20px 20px 0px;
   		}
   		.bt:hover{
   			color:white;
@@ -78,6 +81,7 @@
   		}
   		.tdwidth{
   			width:150px;
+  			font-weight: bold;
   		}
   		select { 
   				 -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
@@ -89,7 +93,7 @@
   		select::-ms-expand { 
   			display: none; 
   		}
-		select { width: 150px; /* 원하는 너비설정 */ 
+		select { width: 100px; /* 원하는 너비설정 */ 
 				 padding: .8em .5em; /* 여백으로 높이 설정 */ 
 				 font-family: inherit; /* 폰트 상속 */ 
 				 background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%; /* 네이티브 화살표 대체 */ 
@@ -111,6 +115,11 @@
 		    margin: 4px;
 		    cursor: pointer;
 		    border-radius:10px;
+		}
+		#c_right{
+			position:relative;
+			left:150px;
+			top:800px;
 		}
   	</style> 
   </head>
@@ -158,35 +167,30 @@
 			<label>Kid: </label> &nbsp;&nbsp;&nbsp;
 			<input type="radio" value="kidy" name="kid" id="ky">Yes&nbsp;&nbsp;&nbsp;&nbsp;
 	   		<input type="radio" value="kidn" name="kid" id="kn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="kida" name="kid" id="ka">Anything 
 			</div>
 			<hr>
 			<div>
 			<label>Baby: </label> &nbsp;&nbsp;&nbsp;
 			<input type="radio" value="babyy" name="Baby" id="by">Yes&nbsp;&nbsp;&nbsp;&nbsp;
 	   		<input type="radio" value="babyn" name="Baby" id="bn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="babya" name="Baby" id="ba">Anything 
 			</div>
 			<hr>
 			<div>
 			<label>Pet: </label> &nbsp;&nbsp;&nbsp;
 			<input type="radio" value="pety" name="pet" id="py">Yes&nbsp;&nbsp;&nbsp;&nbsp;
 	   		<input type="radio" value="petn" name="pet" id="pn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="peta" name="pet" id="pa">Anything
 			</div>
 			<hr>
 			<div>
 		    <label>Smoke: </label>&nbsp;&nbsp;&nbsp;
 		    <input type="radio" value="smokey" name="smoke" id="sy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
 	   		<input type="radio" value="smoken" name="smoke" id="sn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="smokea" name="smoke" id="sa">Anything
 			</div>
 			<hr>
 			<div>
 			<label>Party: </label> &nbsp;&nbsp;&nbsp;
 			<input type="radio" value="partyy" name="party" id="partyyy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
 	   		<input type="radio" value="partyn" name="party" id="partynn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="radio" value="partya" name="party" id="partyaa">Anything 
 			</div>
 			<hr>
 			<br>
@@ -199,37 +203,42 @@
 		<div class="container">
 				<c:choose>
 					<c:when test="${empty tmlist }">
+						<br><br><br><br><br><br><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<tr>
-							<td colspan="4" align="center">--------작성된 글이 없습니다--------</td> 
+							<td colspan="4"><b style="font-size:2em; color:#4B8A08; font-weight:bold;">--------현재 등록된 글이 없습니다--------</b></td> 
 						</tr>
 					</c:when>
 					<c:otherwise>
 						<c:forEach items="${tmlist }" var="tmdto">
 							<div class="mate">
-								<div style="float:left; width:200px; height:198px;">
-								 	<img src="${tmdto.member.profile}" class="mateimage">
+								<div style="float:left; width:200px; height:198px; border-radius: 20px 0px 0px 20px / 20px 0px 0px 20px;">
+								 	<img src="storage/profile/${tmdto.member.profile}" class="mateimage">
 								</div>
 								<div style="float:left; width:600px; height:198px;">
-									<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F2F2F2">
+									<table border="1" width ="610px;" height="198px;" align = "center" bordercolor="#F7F2E0">
 										<tr >
-											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>숙소 위치</b></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>숙소 위치</b></td>
 											<td colspan="3" >${tmdto.room.addr }</td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#EFF8FB" align="center" ><b>체크인/체크아웃</b></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center" ><b>체크인/체크아웃</b></td>
 											<td >
 											<c:out value="${tmdto.reservation.check_in }"/> ~ 
 											<c:out value="${tmdto.reservation.check_out }"/>
 											</td>
-											<td bgcolor="#EFF8FB" align="center"><b>인원</b></td>
+											<td class="" bgcolor="#F7F2E0" align="center" style="font-weight: bold;"><b>인원</b></td>
 											<td align="center">${tmdto.reservation.people }명/${tmdto.room.person }명</td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>필터링</b></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>필터링</b></td>
 											<td colspan="3" ></td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#EFF8FB" align="center"><b>기타사항</b></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>기타사항</b></td>
 											<td colspan="3"></td>
 										</tr>
 									</table>
@@ -272,10 +281,9 @@
 						<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 					</div>
 				</div> -->
-		</div>
-	</div> 	        
-<!-- 페이징 -->
-	       <!--  <div class="row mt-5" id="c_right">
+			</div>
+			 <!-- 페이징 -->
+	         <div class="row mt-5" id="c_right">
 	          <div class="col text-center">
 	            <div class="block-27">
 	              <ul>
@@ -289,8 +297,8 @@
 	              </ul>
 	            </div>
 	          </div>
-	        </div> -->
-	        
+	        </div> 
+		</div>
 </div>	        
 <!-- 풋터 -->
     <div id="footer">
