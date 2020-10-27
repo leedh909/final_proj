@@ -19,7 +19,6 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script type="text/javascript">
-
 $(function(){
 //체크인,체크아웃 초기값 설정
 	if(("${searchOption.checkin}" != null && "${searchOption.checkin}" != '')){
@@ -28,7 +27,6 @@ $(function(){
 		$("#rangeDate").val("날짜 선택");
 		
 	}
-
 	/* 	if("${searchOption.checkin}" != null && "${searchOption.checkin}" != ''){
 		$("#indate").val("${searchOption.checkin}");
 	}else{
@@ -58,7 +56,6 @@ $(function(){
 	/* let indate = $("#indate").val();
 	let outdate = $("#outdate").val(); */
 	let rangeDate = $("#rangeDate").val();
-
 	if(rangeDate == "날짜 선택"){
 		$("#submit").attr("disabled",true);
 		$("#show").show();
@@ -75,16 +72,24 @@ $(function(){
 	} */
 	//첫번째 숙소사진 보이게 하기 
 	$(".mySlides:first").css("display","block");
-
+	
+	$("#sendMessage").click(function(){
+		sendMessage();
+	});
 });
-//faltpickr from-to 만들기
-console.log("${booked}");
-console.log("${booked.indate}");
-console.log("${booked.indate.size()}");
+//메시지 보내기
+function sendMessage() {
+	  var x = document.getElementById("Demo");
+	  if (x.className.indexOf("w3-show") == -1) {
+	    x.className += " w3-show";
+	  } else { 
+	    x.className = x.className.replace(" w3-show", "");
+	  }
+	}
 
+//faltpickr from-to 만들기
 let arrayin = new Array();
 let arrayout = new Array();
-
 <c:forEach var='itemList' items='${booked.indate}' >
 arrayin.push('${itemList}');
 </c:forEach>
@@ -92,17 +97,13 @@ arrayin.push('${itemList}');
 arrayout.push("${itemList}");
 </c:forEach>
 console.log(arrayout);
-
 let disabled = new Array();
 for (let i = 0; i < arrayin.length; i++) {
 	let dOb = new Object();
-
 	dOb.from = arrayin[i];
 	dOb.to = flatpickr.parseDate(arrayout[i], "Y-m-d");
-
 	disabled.push(dOb);
 };
-
 function rangepickr(){
 	rangeDate.flatpickr({
 	    mode: "range",
@@ -117,7 +118,6 @@ function rangepickr(){
 		},
 	});
 };
-
 /* //체크인 달력
 function inpickr() {
 	indate.flatpickr({
@@ -132,9 +132,7 @@ function inpickr() {
 			}
 		},
 	});
-
 };
-
 //체크아웃 달력
 function outpickr() {
 	outdate.flatpickr({
@@ -151,18 +149,13 @@ function outpickr() {
 			}
 		},
 	});
-
 };  */
-
-
 //숙소 사진
 var slideIndex = 1;
 showDivs(slideIndex);
-
 function plusDivs(n) {
   showDivs(slideIndex += n);
 }
-
 function showDivs(n) {
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -173,11 +166,9 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
 }
-
 //게스트 수 변화
 	function upCount() {
 		var guestAmount = $("#guestcount");
-
 		if (guestAmount.val() < "${roomInfo.room.person}") {
 			$("#bnt-up").attr("disabled",false);
 			guestAmount.val(parseInt($("#guestcount").val()) + 1);
@@ -186,10 +177,8 @@ function showDivs(n) {
 			$("#bnt-up").attr("disabled", true);
 		}
 	};
-
 	function downCount() {
 		var guestAmount = $("#guestcount");
-
 		if (guestAmount.val() > 1) {
 			guestAmount.val(parseInt($("#guestcount").val()) - 1);
 		} else {
@@ -223,10 +212,9 @@ function showDivs(n) {
 			</div>
 			<div class="col-lg-12"><!-- 숙소 사진 -->
 				<div class="w3-contentw3-display-container" style="margin:0px; wdith:100%;">
-  					<img class="mySlides" src="images/hotel-1.jpg" style="width:100%">
-  					<img class="mySlides" src="images/hotel-2.jpg" style="width:100%">
-  					<img class="mySlides" src="images/hotel-3.jpg" style="width:100%">
-  					<img class="mySlides" src="images/hotel-4.jpg" style="width:100%">
+  					<c:forEach items="${picture }" var="picture">
+	  					<img class="mySlides" src="images/${picture }" style="width:100%">
+  					</c:forEach>
 
   					<button class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
   					<button class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
@@ -254,10 +242,20 @@ function showDivs(n) {
 						</div>
 						<!-- 호스트 프로필 -->
 						<div class="col-lg-3">
-							<div class="profile">
-								<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/baseprofile.jpg">
+							<div class="profile" id="sendMessage" style="z-index:1;">
+								<c:choose>
+									<c:when test="${empty hostInfo.profile}">
+										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/baseprofile.jpg">
+									</c:when>
+									<c:otherwise>
+										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/${hostInfo.profile }">
+									</c:otherwise>
+								</c:choose>
+							      	 <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+								      	<a href="chat.do?toID='+encodeURIComponent(${hostInfo.id })'" class="w3-bar-item w3-button">메시지 보내기</a>
+								    </div>
+							    </div>
 							</div>
-						</div>
 						</div><!-- 숙소 이름 row -->
 						
 						<hr>
@@ -464,6 +462,7 @@ function showDivs(n) {
 						<div class="col-lg-12 mt-4 mb-3">
 							<form action="pay.do">
 							<input type="hidden" name="seq_rm" value="${roomInfo.room.seq_rm}" />
+							<input type="hidden" name="p_path" value="${picture[0] }"/>
 								<div class="_13vog1a mb-4">
 									<div class="_80f7zz">
 										<div class="_ymq6as">
@@ -574,7 +573,6 @@ function showDivs(n) {
 								</div>
 								
 								<!-- <div class="_1cvivhm" id="calculdiv">
-
 										<div class="_ud8a1c">
 											<ul class="_1hvzytt">
 												<li class="_ryvszj">
@@ -632,13 +630,11 @@ function showDivs(n) {
 					
 						// 지도를 생성합니다    
 						var map = new kakao.maps.Map(mapContainer, mapOption);
-
 						var imageSrc = 'images/icons/map_house.ico', // 마커이미지의 주소입니다    
 						imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
 						imageOption = {
 							offset : new kakao.maps.Point(27, 69)
 						}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
 						// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 						var markerImage = new kakao.maps.MarkerImage(imageSrc,imageSize, imageOption), 
 						markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
@@ -652,18 +648,15 @@ function showDivs(n) {
 							if (status === kakao.maps.services.Status.OK) {
 								var coords = new kakao.maps.LatLng(result[0].y,
 										result[0].x);
-
 								// 결과값으로 받은 위치를 마커로 표시합니다
 								var marker = new kakao.maps.Marker({
 									map : map,
 									position : coords,
 									image : markerImage
-
 								});
 								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 								map.setCenter(coords);
 							}
-
 						});
 					</script>
 					<hr>

@@ -9,14 +9,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="css/main.css"> 
+ <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style type="text/css">
+.mySlides{
+	width:100%;
+	height:267px;
+	object-fit:cover;
+	display:none;
+}
+</style>
 <script>
 $(document).ready(function() {
 	//검색창 값 초기 설정 
@@ -39,6 +46,8 @@ $(document).ready(function() {
 	if("${searchOption.guestNum}" != null && "${searchOption.guestNum}" != ''){
 			$("#guestNo").val("${searchOption.guestNum}");
 		}
+	//첫번째 숙소사진 보이게 하기 
+	$(".image .mySlides:first-child").css("display","block");
 	
 }); 
 	
@@ -160,6 +169,25 @@ function list(page){
 	location.href=
 		"search.do?curPage="+page+"&local=${searchOption.local}&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}";
 };
+
+//숙소사진
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = $(event.target).siblings(".mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
 
 </script>
 <body>
@@ -308,8 +336,14 @@ function list(page){
 						<!-- 집 시작 -->
 						<div class="row mb-4">
 							<hr>
-							<div class="col-lg-5 ">
-								<img class="mySlides" src="images/room-1.jpg" style="width: 100%; height:100%; display:block;"> 
+							<div class="col-lg-5">
+								<div class="w3-contentw3-display-container image" style="margin:0px; wdith:100%;">
+									<c:forEach items="${picture.get(searchList.intro.seq_intro)}" var = "picture">
+										<img class="mySlides" src="images/${picture}" style="width:100%">
+				  						<button class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+				  						<button class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+									</c:forEach>
+								</div> 
 							</div><!-- 사진슬라이드 끝 -->
 							<div class="col-lg-7 text">
 								<div>
@@ -331,13 +365,32 @@ function list(page){
 									<span>욕실 ${searchList.room.bath_room}개</span>
 								</p>
 								<p>
-									<span></span>
+									 <c:if test="${searchList.detail.aircondition !='null' && searchList.detail.aircondition !='NULL' }">
+										<span>${searchList.detail.aircondition}</span> <span aria-hidden="true"> · </span> 
+									</c:if>
+									<c:if test="${searchList.detail.wifi != 'null' && searchList.detail.wifi !='NULL'}">
+										<span>${searcchList.detail.wifi}</span> <span aria-hidden="true"> · </span>  
+									</c:if>
+									<c:if test="${searchList.detail.desk !='null' && searchList.detail.desk !='NULL'}">
+										<span>${searchList.detail.desk }</span>  
+									</c:if> 
 								</p>
-								<p class="bottom-area d-flex">
-									<span class="ml-auto"><a target="_blank" href="room_detail.do?seq_rm=${searchList.room.seq_rm_r }&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}">Book Now</a></span>
-								</p>
+								<div style="margin-top:20px; margin-bottom:0px;">
+											<div class="bottom-area d-flex">
+												<span class="ml-auto" style="font-weight: 600 !important; font-size:15px; padding-bottom:-20px !important;" aria-hidden="true">₩
+													&nbsp;<fmt:formatNumber value="${searchList.room.price}"
+														pattern="#,###" /> / 박
+												</span>
+											</div>
+											<p class="bottom-area d-flex">
+												<span class="ml-auto"><a target="_blank"
+													href="room_detail.do?seq_rm=${searchList.room.seq_rm_r }&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}">Book
+														Now</a></span>
+											</p>
+										</div>
+								
 							</div><!-- 숙소하나 끝 -->
-					
+							
 						</div><!-- 집끝 -->
 						</c:forEach>
 						</div>
@@ -395,7 +448,7 @@ function list(page){
 				<c:forEach var='itemList' items='${searchList}'>
 					address.push('${itemList.getRoom().getAddr()}');
 				</c:forEach>
-				<c:forEach var="itemList" items="${searchList}" >
+				<c:forEach var="itemList" items="${searchList}">
 					number.push("${itemList.getRoom().getSeq_rm_r()}");
 				</c:forEach>
 				
@@ -425,7 +478,6 @@ function list(page){
 				let geocoder = new kakao.maps.services.Geocoder();
 				
 				positions.forEach(function(element) {
-					console.log(element);
 					geocoder.addressSearch(element.latlng, function(
 							result, status) {
 						// 정상적으로 검색이 완료됐으면 
@@ -433,11 +485,9 @@ function list(page){
 
 							let coords = new kakao.maps.LatLng(result[0].y,
 									result[0].x);
-							console.log(coords.toString());
-							console.log(coords);
 							let imageSrc = 'images/icons/map_house.ico'
 							// 마커 이미지의 이미지 크기 입니다
-							let imageSize = new kakao.maps.Size(24, 35);
+							let imageSize = new kakao.maps.Size(64, 69);
 					
 							// 마커 이미지를 생성합니다    
 							let markerImage = new kakao.maps.MarkerImage(imageSrc,
@@ -450,7 +500,6 @@ function list(page){
 								title : element.title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 								image : markerImage
 							});
-							console.log(marker);
 							// LatLngBounds 객체에 좌표를 추가합니다
 						    bounds.extend(coords);
 							map.setBounds(bounds);
