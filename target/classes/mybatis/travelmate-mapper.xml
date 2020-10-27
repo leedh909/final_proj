@@ -84,8 +84,19 @@
 		<result column="PHONE" property="phone" />
 		<result column="PROFILE" property="profile" />
 		<result column="ROLE" property="role" />
-
 	</resultMap>
+	<resultMap type="rooms_introDto" id="rooms_introDto">
+		<result column="SEQ_INTRO" property="seq_intro" />
+		<result column="TITLE" property="title" />
+		<result column="CONTEXT" property="context" />
+		<result column="SEQ_RM" property="seq_rm" />
+	</resultMap>
+	<resultMap type="rooms_photoDto" id="rooms_photoDto">
+		<result column="SEQ_RP" property="seq_rp" />
+		<result column="P_PATH" property="p_path" />
+		<result column="SEQ_INTRO" property="seq_intro" />
+	</resultMap>
+	
 	<resultMap type="roomTotalDto" id="roomTotalDtoMate">
 		<collection property="room" resultMap="roomsDto" />
 		<collection property="detail" resultMap="rooms_detailDto" />
@@ -93,18 +104,28 @@
 		<collection property="rule" resultMap="rooms_ruleDto" />
 		<collection property="safety" resultMap="rooms_safetyDto" />
 	</resultMap>
+	<!-- <resultMap type="roomTotalDto" id="roomTotalDtoMate">
+		<collection property="room" resultMap="roomsDto" />
+		<collection property="detail" resultMap="rooms_detailDto" />
+		<collection property="facility" resultMap="rooms_facilityDto" />
+		<collection property="rule" resultMap="rooms_ruleDto" />
+		<collection property="safety" resultMap="rooms_safetyDto" />
+		<collection property="intro" resultMap="rooms_introDto" />
+		<collection property="room_p" resultMap="rooms_photoDto" />
+	</resultMap> -->
 	<resultMap type="roomTotalDto" id="mateList">
 		<collection property="room" resultMap="roomsDto" />
 		<collection property="rule" resultMap="rooms_ruleDto" />
 		<collection property="reservation" resultMap="roomReservationDto" />
 		<collection property="member" resultMap="loginDto" />
+		<collection property="intro" resultMap="rooms_introDto" />
 	</resultMap>
 
 	<!-- travelmate 리스트 뽑기 -->
 	<select id="travelmateList" resultMap="mateList">
-		SELECT R.* ,U.* , R2.* , M.*  
-		FROM ROOM R , RULE U, RESERVATION R2, MEMBER M
-		WHERE R2.MATE = 'Y' AND R.SEQ_RM = U.SEQ_RM AND R.SEQ_RM = R2.SEQ_RM AND M.SEQ_M = R2.SEQ_M
+		SELECT R.* ,U.* , R2.* , M.*, I.*  
+		FROM ROOM R , RULE U, RESERVATION R2, MEMBER M, INTRO I
+		WHERE R2.MATE = 'Y' AND R.SEQ_RM = U.SEQ_RM AND R.SEQ_RM = R2.SEQ_RM AND M.SEQ_M = R2.SEQ_M AND R.SEQ_RM = I.SEQ_RM
 	</select>
 	
 	<!-- 예약정보 가져오기 -->
@@ -114,8 +135,7 @@
 	</select>
 	
 	<!-- travelmate 등록된 숙소 정보 하나선택 -->
-	<select id="mateDetail" parameterType="int"
-		resultMap="roomTotalDtoMate">
+	<select id="mateDetail" parameterType="int" resultMap="roomTotalDtoMate">
 		SELECT r.*,d.*,f.*,u.*,s.*
 		FROM ROOM r
 		JOIN DETAIL d ON(r.SEQ_RM = d.SEQ_RM)
@@ -124,6 +144,17 @@
 		JOIN SAFETY s ON(r.SEQ_RM = s.SEQ_RM)
 		WHERE r.SEQ_RM = #{seq_rm}
 	</select>
+	<!-- <select id="mateDetail" parameterType="int" resultMap="roomTotalDtoMate">
+		SELECT r.*,d.*,f.*,u.*,s.*,i.*,rp.*
+		FROM ROOM r
+		JOIN DETAIL d ON(r.SEQ_RM = d.SEQ_RM)
+		JOIN FACILITY f ON(r.SEQ_RM = f.SEQ_RM)
+		JOIN RULE u ON(r.SEQ_RM = u.SEQ_RM)
+		JOIN SAFETY s ON(r.SEQ_RM = s.SEQ_RM)
+		JOIN INTRO i ON(r.SEQ_RM = i.SEQ_RM)
+		JOIN ROOM_P rp ON(i.SEQ_INTRO = rp.SEQ_INTRO)
+		WHERE r.SEQ_RM = #{seq_rm}
+	</select> -->
 
 	<!-- 회원정보 -->
 	<select id="memberInfo" parameterType="int" resultType="loginDto">

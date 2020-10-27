@@ -119,17 +119,19 @@
   			width:150px;
   			height:70px;
   			position: relative;
-  			left: 440px;
+  			left: 850px;
   			top: 100px;
   			border-radius: 10px 10px 10px 10px;
+  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		#btn2{
   			width:150px;
   			height:70px;
   			position: relative;
-  			left: 610px;
-  			top: 0px;
+  			left: 1050px;
+  			top: 10px;
   			border-radius: 10px 10px 10px 10px;
+  			box-shadow: 2px 2px 2px 2px gray;
   		}
         .btn {
 			background-color: orange;
@@ -145,6 +147,7 @@
 			font-size: 22px;
 			cursor: pointer;
 			box-shadow: 0 9px #B0B0B0;
+			
 		}
 		.btn:hover { background-color: #FF8C00; }
 		.btn:active {
@@ -197,10 +200,40 @@
 		input[id*="answer"]:checked + label em {
 			background-position:0 -180px;
 		}
-		#memberinfo{
-			border:1px solid #red;
-			position: relative;
-			left: 900px;
+		table.type09 {
+		    border-collapse: collapse;
+		    text-align: left;
+		    line-height: 1.5;
+			position:relative;
+			left:800px;
+			box-shadow: 2px 2px 2px 2px gray;
+			border-radius: 10px 10px 10px 10px;
+			font-weight: bold;
+			font-size:20px;
+		}
+		table.type09 thead th {
+		    padding: 10px;
+		    font-weight: bold;
+		    vertical-align: top;
+		    color: #369;
+		    border-bottom: 3px solid #036;
+		    text-align:center;
+		}
+		table.type09 tbody th {
+		    width: 150px;
+		    padding: 10px;
+		    font-weight: bold;
+		    vertical-align: top;
+		    border-bottom: 1px solid #ccc;
+		    background: #F5ECCE;
+		    text-align:center;
+		}
+		table.type09 td {
+		    width: 350px;
+		    padding: 10px;
+		    vertical-align: top;
+		    border-bottom: 1px solid #ccc;
+		    text-align:center;
 		}
 		
   	</style>
@@ -251,7 +284,7 @@
 			</div>
 			 		  <div class="roomdiv1" style="background-color: black; height:500px; width:500px; ">
 						  <div class="w3-container w3-third" id="room1">
-						    <img src="images/room-1.jpg" style="cursor:pointer" 
+						    <img src="" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room1">
 						  </div>
 					  </div>
@@ -425,7 +458,7 @@
 						var geocoder = new kakao.maps.services.Geocoder();
 						
 						// 주소로 좌표를 검색합니다
-						geocoder.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+						geocoder.addressSearch('${tmddto.room.addr }', function(result, status) {
 						
 						    // 정상적으로 검색이 완료됐으면 
 						     if (status === kakao.maps.services.Status.OK) {
@@ -539,27 +572,32 @@
 			 <div class="col-lg-12">
 			 			<br><br><br><br><br>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 		<table name="memberinfo" id="memberinfo">
-			 			<tr>
-			 				<td style="background-color:skyblue; text-align:center;" font-weight:bold;><h3>예약자 정보</h3></td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">아이디</td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">asdsad</td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">이메일</td>
-			 			</tr>
-			 				<td style="background-color:; text-align:center;">asd@asd.asd</td>
-			 			</tr>
-			 		</table>
+			 		<table class="type09">
+				    <thead>
+				    <tr>
+				        <th scope="" style="text-align:center;" colspan="2">예약자 정보</th>
+				    </tr>
+				    </thead>
+				    <tbody>
+				    <tr>
+				        <th scope="row">아이디:</th>
+				        <td>${mateInfo.id }</td>
+				    </tr>
+				    <tr>
+				        <th scope="row">이름:</th>
+				        <td>${mateInfo.name }</td>
+				    </tr>
+				    <tr style="border-radius: 0px 0px 0px 10px;">
+				        <th scope="row" style="border-radius: 0px 0px 0px 10px;" >이메일:</th>
+				        <td>${mateInfo.email }</td>
+				    </tr>
+				    </tbody>
+					</table>
 			 		<div>
-						<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='main.do'">Apply</button>
+						<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='find.do'">채팅하기</button>
 					</div>
 					<div>
-						<button type="button" id="btn2" class="btn" value="cancel">Cancel</button>
+						<button type="button" id="btn2" class="btn" value="cancel" onclick="location.href='travelmate.do'">취소</button>
 					</div> 				
 			 </div>
 		  </div> 

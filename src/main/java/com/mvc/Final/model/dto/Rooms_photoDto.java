@@ -1,7 +1,8 @@
 package com.mvc.Final.model.dto;
 
 public class Rooms_photoDto {
-	private int seq_pr;
+	//seq_pr -> seq_rp로 수정
+	private int seq_rp;
 	private String p_path;
 	private int seq_intro;
 	
@@ -11,10 +12,10 @@ public class Rooms_photoDto {
 		this.p_path = p_path;
 	}
 	public int getSeq_pr() {
-		return seq_pr;
+		return seq_rp;
 	}
 	public void setSeq_pr(int seq_pr) {
-		this.seq_pr = seq_pr;
+		this.seq_rp = seq_pr;
 	}
 	public String getP_path() {
 		return p_path;

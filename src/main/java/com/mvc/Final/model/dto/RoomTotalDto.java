@@ -10,7 +10,8 @@ public class RoomTotalDto {
 	private Rooms_safetyDto safety;	//숙소 안전시설
 	private RoomReservationDto reservation; //숙소 예약
 	private LoginDto member;//회원정보
-
+	private Rooms_photoDto room_p;
+	
 	//생성자
 	public RoomTotalDto() {}
 	
@@ -61,9 +62,41 @@ public class RoomTotalDto {
 		this.detail = detail;
 	}
 	
+	public RoomTotalDto(RoomsDto room, Rooms_introDto intro, Rooms_photoDto room_p) {
+		super();
+		this.room = room;
+		this.intro = intro;
+		this.room_p = room_p;
+	}
+
 	public RoomTotalDto(RoomsDto room, Rooms_introDto intro) {
 		this.room = room;
 		this.intro = intro;
+	}
+
+	public RoomTotalDto(RoomsDto room, Rooms_detailDto detail, Rooms_facilityDto facility, Rooms_introDto intro,
+			Rooms_ruleDto rule, Rooms_safetyDto safety, RoomReservationDto reservation, LoginDto member,
+			Rooms_photoDto room_p) {
+		super();
+		this.room = room;
+		this.detail = detail;
+		this.facility = facility;
+		this.intro = intro;
+		this.rule = rule;
+		this.safety = safety;
+		this.reservation = reservation;
+		this.member = member;
+		this.room_p = room_p;
+	}
+	
+	public RoomTotalDto(RoomsDto room, Rooms_introDto intro, Rooms_ruleDto rule, RoomReservationDto reservation,
+			LoginDto member) {
+		super();
+		this.room = room;
+		this.intro = intro;
+		this.rule = rule;
+		this.reservation = reservation;
+		this.member = member;
 	}
 
 	//getter&setter
@@ -131,6 +164,14 @@ public class RoomTotalDto {
 		this.member = member;
 	}
 	
+	public Rooms_photoDto getRoom_p() {
+		return room_p;
+	}
+
+	public void setRoom_p(Rooms_photoDto room_p) {
+		this.room_p = room_p;
+	}
+
 	@Override
 	public String toString() {
 		return "RoomTotalDto [room=" + room + ", detail=" + detail + ", facility=" + facility + ", intro=" + intro

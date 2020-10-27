@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.Rooms_photoDto;
 
 @Repository
 public class TravelmateDaoImpl {
@@ -70,8 +71,16 @@ public class TravelmateDaoImpl {
 				e.printStackTrace();
 			}
 			
-			
-			
-			return null;
+			return res;
 		}
+
+		/*
+		 * public Rooms_photoDto matePhoto(int seq_intro) { Rooms_photoDto res=new
+		 * Rooms_photoDto();
+		 * 
+		 * try { res=sqlSession.selectOne(NAMESPACE+"mateDetail",seq_intro); } catch
+		 * (Exception e) { System.out.println("error: photo"); e.printStackTrace(); }
+		 * 
+		 * return res; }
+		 */
 }

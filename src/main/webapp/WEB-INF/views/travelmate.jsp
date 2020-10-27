@@ -74,7 +74,22 @@
   			float:left;
   			z-index:1;
   			text-align:center;
+  			overflow:auto; width:1400px; height:1200px;
   		}
+  		div#s_right::-webkit-scrollbar {
+		    width: 10px;
+		  }
+		div#s_right::-webkit-scrollbar-thumb {
+		    background-color: #424242;
+		    border-radius: 10px;
+		    background-clip: padding-box;
+		    border: 2px solid transparent;
+		  }
+		div#s_right::-webkit-scrollbar-track {
+		    background-color: grey;
+		    border-radius: 10px;
+		    box-shadow: inset 0px 0px 5px white;
+		  }
   		.mate{
   			width:950px;
   			height:200px;
@@ -85,6 +100,7 @@
  			top: 100px;
  			border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
  			box-shadow: 5px 5px 5px 5px gray;
+ 			
   		}
   		.mateimage{
   			/* display:block; */
@@ -239,7 +255,7 @@
 		</div>
 	</div>
 	<!-- 리스트  -->
-	<div id="s_right">
+	<div id="s_right" >
 		<div class="container">
 				<c:choose>
 					<c:when test="${empty tmlist }">
@@ -274,12 +290,12 @@
 											<td align="center">${tmdto.reservation.people }명/${tmdto.room.person }명</td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>필터링</b></td>
-											<td colspan="3" ></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>숙소 소개</b></td>
+											<td colspan="3" >${tmdto.intro.context }</td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>기타사항</b></td>
-											<td colspan="3"></td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>행사 및 파티 규정</b></td>
+											<td colspan="3" >${tmdto.rule.party }</td>
 										</tr>
 									</table>
 								</div>
