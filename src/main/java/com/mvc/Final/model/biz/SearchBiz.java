@@ -15,6 +15,7 @@ import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
 import com.mvc.Final.model.dto.RoomsDto;
+import com.mvc.Final.model.dto.Rooms_photoDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Service
@@ -78,9 +79,23 @@ public class SearchBiz {
 	public RoomsDto room(int seq_rm) {
 		return dao.room(seq_rm);
 	}
+	
+	//예약테이블 insert
 	public int reservation(RoomReservationDto reservDto) {
 		return dao.reservationInsert(reservDto);
 	}
+	
+	
+	//search 사진 가져오기 
+	public Map<Integer, Object> picture(int[] seq_intro) {
+		return dao.picture(seq_intro); 
+	}
+	
+	//detail 사진 리스트
+	public List<String> onePicture(int seq_intro) {
+		return dao.onePicture(seq_intro);
+	}
+	
 	
 	
 	

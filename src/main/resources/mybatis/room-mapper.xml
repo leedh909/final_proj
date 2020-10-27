@@ -112,9 +112,10 @@
 	<resultMap type="roomTotalDto" id="roomPreDtoMap">
 		<collection property="room" resultMap="roomsDto_R" />
 		<collection property="detail" resultMap="rooms_detailDto_D" />
+		<collection property="intro" resultMap="rooms_introDto" />
 	</resultMap>
 
-	<!-- 검색된 숙소 갯수  -->
+	<!-- 검색된 숙소 개수  -->
 	<select id="count" parameterType="searchOption" resultType="int">
 		<bind name="address" value="'%' + _parameter.getLocal() + '%'" />
 		SELECT COUNT(*) FROM ROOM 
@@ -128,14 +129,17 @@
 		<bind name="address" value="'%' + _parameter.getLocal() + '%'" />
 		 <include refid="pagingHeader"></include>
 			SELECT r.SEQ_RM AS SEQ_RM_R, r.ROOM_NAME, r.ADDR ,r.PERSON, r.PRICE, r.INTRO, r.R_TYPE, r.BED_ROOM, r.BED, r.BATH_ROOM, r.CHECKIN, r.SEQ_H, r.CHECKIN_TIME, r.CHECKOUT_TIME
-					 ,d.SEQ_DETAIL, d.ESSENTIAL, d.HEATING, d.AIRCONDITION, d.IRON, d.TV, d.SHAMPOO, d.HAIRDRY, d.DESK, d.CLOSET, d.WIFI, d.SEQ_RM AS SEQ_RM_D
+					 ,d.SEQ_DETAIL, d.ESSENTIAL, d.HEATING, d.AIRCONDITION, d.IRON, d.TV, d.SHAMPOO, d.HAIRDRY, d.DESK, d.CLOSET, d.WIFI, d.SEQ_RM AS SEQ_RM_D,
+					 i.SEQ_INTRO
 			FROM ROOM r
 			JOIN DETAIL d ON (r.SEQ_RM = d.SEQ_RM )
+			JOIN INTRO i ON (r.SEQ_RM = i.SEQ_RM)
 			WHERE r.SEQ_H IN (SELECT h.SEQ_H FROM HOST h WHERE STATE = 'Y')
 			AND r.ADDR LIKE #{address}
 			AND r.PERSON >= #{guestNum}
 		<include refid="pagingFooter"></include>
 	</select>
+	
 	<!-- 페이징 sql -->
 	<sql id="pagingHeader">
 		SELECT * FROM (
@@ -147,7 +151,12 @@
 	</sql>
 
 	<!-- 숙소 사진 -->
-
+	<select id="picture" parameterType="int" resultType="string">
+		SELECT P_PATH 
+		FROM ROOM_P
+		WHERE SEQ_INTRO = #{seq_intro}
+	</select>
+	
 	<!-- 숙소 정보 -->
 	<select id="roomInfo" parameterType="int" resultMap="roomTotalDtoMap">
 		SELECT r.*,d.*,f.*,u.*,i.*,s.*

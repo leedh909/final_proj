@@ -5,6 +5,11 @@ public class Rooms_photoDto {
 	private String p_path;
 	private int seq_intro;
 	
+	public Rooms_photoDto() {}
+	
+	public Rooms_photoDto(String p_path) {
+		this.p_path = p_path;
+	}
 	public int getSeq_pr() {
 		return seq_pr;
 	}
