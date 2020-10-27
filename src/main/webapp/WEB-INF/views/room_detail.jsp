@@ -251,9 +251,12 @@ function showDivs(n) {
 										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/${hostInfo.profile }">
 									</c:otherwise>
 								</c:choose>
-							      	 <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-								      	<a href="chat.do?toID='+encodeURIComponent(${hostInfo.id })'" class="w3-bar-item w3-button">메시지 보내기</a>
-								    </div>
+									<c:if test="${session ne 'null' }">
+										 <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border" style="width:20px; text-align:center; margin-top:5px;">
+										  <a href="chat.do?toID='+encodeURIComponent(${hostInfo.id })'" class="w3-bar-item w3-button">메시지 보내기</a>
+							      	 	</div>
+									</c:if>
+							      	
 							    </div>
 							</div>
 						</div><!-- 숙소 이름 row -->
@@ -300,7 +303,7 @@ function showDivs(n) {
 					<section class="col-lg-12 hotel-single mb-4 mt-4">
 						<h2><b>편의시설</b></h2>
 						<div class="_1byskwn my-4">
-							<div class="_19xnuo97">
+							<div class="_19xnuo97" style="width:100% !important;">
 								<div class="row"><!-- detail 4개 -->
 								<c:set var="loop_stop" value="false"/>
 								<c:set var="i" value="1" />
@@ -311,13 +314,13 @@ function showDivs(n) {
 											<c:if test="${i%2 == 0 }">
 										</div><div class="row">
 											</c:if>
-									<div class="col-lg-1 mt-1">
-										<i class="fa fa-calendar" style="font-size: 25px;"></i>
-									</div>
-									<div class="col-lg-5" style="font-size: 25px;">
-										<c:out value="${detail }"></c:out>
-									</div>
-										</c:if>
+										<div class="col-lg-1 pt-3" style="text-align: center;">
+											<i class="fa fa-calendar" style="font-size: 25px;"></i>
+										</div>
+										<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
+											<c:out value="${detail }"></c:out>
+										</div>
+									</c:if>
 										<c:if test="${i eq 5 }">
 											<c:set var="loop_stop" value="true" />
 										</c:if>
@@ -334,10 +337,10 @@ function showDivs(n) {
 											<c:if test="${j%2 == 0 }">
 										</div><div class="row">
 											</c:if>
-									<div class="col-lg-1 mt-1">
+									<div class="col-lg-1 pt-3" style="text-align: center;">
 										<i class="fa fa-calendar" style="font-size: 25px;"></i>
 									</div>
-									<div class="col-lg-5" style="font-size: 25px;">
+									<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
 										<c:out value="${facility }"></c:out>
 									</div>
 										</c:if>
@@ -357,10 +360,10 @@ function showDivs(n) {
 											<c:if test="${z%2 == 0 }">
 										</div><div class="row">
 											</c:if>
-									<div class="col-lg-1 mt-1">
+									<div class="col-lg-1 pt-3" style="text-align: center;">
 										<i class="fa fa-calendar" style="font-size: 25px;"></i>
 									</div>
-									<div class="col-lg-5" style="font-size: 25px;">
+									<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
 										<c:out value="${rule }"></c:out>
 									</div>
 										</c:if>

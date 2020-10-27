@@ -74,7 +74,7 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/room_detail.do")
-	public String room_detail(int seq_rm,SearchOption searchO, Model model) {
+	public String room_detail(int seq_rm,SearchOption searchO, Model model,HttpSession session) {
 		
 		//숙소 정보 가지고 오기
 		RoomTotalDto roomInfo =  biz.roomInfo(seq_rm);
@@ -94,6 +94,16 @@ public class SearchController {
 		int seq_intro = roomInfo.getIntro().getSeq_intro();
 		List<String> picture = biz.onePicture(seq_intro);
 		
+		//로그인 한 회원
+		String id;
+		
+		if(((LoginDto)session.getAttribute("login"))!= null) {
+			id =((LoginDto)session.getAttribute("login")).getId(); 
+		}else {
+			id="null";
+		}
+		
+		System.out.println("id: "+id);
 		//넘겨줄 값 model에 저장
 		model.addAttribute("searchOption", searchO);
 		model.addAttribute("detail",detail);
@@ -104,6 +114,7 @@ public class SearchController {
 		model.addAttribute("hostInfo",hostInfo);
 		model.addAttribute("booked",booked);
 		model.addAttribute("picture",picture);
+		model.addAttribute("session",id);
 		
 		return "room_detail";
 	}

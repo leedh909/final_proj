@@ -340,12 +340,12 @@ function showDivs(n) {
 								<div class="w3-contentw3-display-container image" style="margin:0px; wdith:100%;">
 									<c:forEach items="${picture.get(searchList.intro.seq_intro)}" var = "picture">
 										<img class="mySlides" src="images/${picture}" style="width:100%">
-				  						<button class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-				  						<button class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+				  						<button style="z-index:1;" class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+				  						<button style="z-index:1;" class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 									</c:forEach>
 								</div> 
 							</div><!-- 사진슬라이드 끝 -->
-							<div class="col-lg-7 text">
+							<div class="col-lg-7 text" style="cursor:pointer;"onclick="window.open('room_detail.do?seq_rm=${searchList.room.seq_rm_r }&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}')">
 								<div>
 									<c:set var="addrbefore" value="${searchList.room.addr}" />
 									<c:set var="addrsplit" value="${fn:split(addrbefore,' ')[1]}"></c:set>
@@ -354,39 +354,33 @@ function showDivs(n) {
 								</div>
 
 								<hr width="100px">
-
-								<p>
-									<span>최대 인원  ${searchList.room.person}명</span>
-									<span aria-hidden="true"> · </span> 
-									<span>침실 ${searchList.room.bed_room}개</span>
-									<span aria-hidden="true"> · </span> 
-									<span>침대 ${searchList.room.bed}개</span>
-									<span aria-hidden="true"> · </span> 
-									<span>욕실 ${searchList.room.bath_room}개</span>
-								</p>
-								<p>
-									 <c:if test="${searchList.detail.aircondition !='null' && searchList.detail.aircondition !='NULL' }">
-										<span>${searchList.detail.aircondition}</span> <span aria-hidden="true"> · </span> 
-									</c:if>
-									<c:if test="${searchList.detail.wifi != 'null' && searchList.detail.wifi !='NULL'}">
-										<span>${searcchList.detail.wifi}</span> <span aria-hidden="true"> · </span>  
-									</c:if>
-									<c:if test="${searchList.detail.desk !='null' && searchList.detail.desk !='NULL'}">
-										<span>${searchList.detail.desk }</span>  
-									</c:if> 
-								</p>
-								<div style="margin-top:20px; margin-bottom:0px;">
+										<p style="margin-bottom: 0px !important;">
+											<span>최대 인원 ${searchList.room.person}명</span> 
+											<span aria-hidden="true"> · </span> 
+											<span>침실 ${searchList.room.bed_room}개</span> 
+											<span aria-hidden="true"> · </span> 
+											<span>침대 ${searchList.room.bed}개</span> 
+											<span aria-hidden="true"> · </span> 
+											<span>욕실 ${searchList.room.bath_room}개</span>
+										</p>
+										<p style="padding-top: -9px !important;">
+											<c:if test="${searchList.detail.aircondition ne 'null' && searchList.detail.aircondition ne 'NULL' }">
+												<span>${searchList.detail.aircondition}</span> <span aria-hidden="true"> · </span> 
+											</c:if>
+											<c:if test="${searchList.detail.wifi ne 'null' && searchList.detail.wifi ne'NULL'}">
+												<span>${searcchList.detail.wifi}</span> <span aria-hidden="true"> · </span> 
+											</c:if>
+											<c:if test="${searchList.detail.desk ne'null' && searchList.detail.desk ne'NULL'}">
+												<span>${searchList.detail.desk }</span>
+											</c:if>
+										</p>
+										<div style="margin-top:50px; margin-bottom:0px;">
 											<div class="bottom-area d-flex">
-												<span class="ml-auto" style="font-weight: 600 !important; font-size:15px; padding-bottom:-20px !important;" aria-hidden="true">₩
+												<span class="ml-auto" style="font-weight: 400 !important; font-size:18px; padding-bottom:-20px !important;" aria-hidden="true">₩
 													&nbsp;<fmt:formatNumber value="${searchList.room.price}"
 														pattern="#,###" /> / 박
 												</span>
 											</div>
-											<p class="bottom-area d-flex">
-												<span class="ml-auto"><a target="_blank"
-													href="room_detail.do?seq_rm=${searchList.room.seq_rm_r }&guestNum=${searchOption.guestNum}&checkin=${searchOption.checkin}&checkout=${searchOption.checkout}">Book
-														Now</a></span>
-											</p>
 										</div>
 								
 							</div><!-- 숙소하나 끝 -->
