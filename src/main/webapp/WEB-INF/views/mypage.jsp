@@ -335,7 +335,8 @@
 							<tr>
 								<td style="font-size: 20px;">${redto.seq_re }</td>
 								<td style="font-size: 15px;">${redto.room_name }</td>
-								<td> <fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${redto.check_in }"/></td>
+								<td> <fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${redto.check_in }"/>
+									<br>~<br> <fmt:formatDate pattern="yyyy-MM-dd  HH:mm" value="${redto.check_out }"/></td>
 								<td style="font-size: 20px;">${redto.people }명</td>
 								<td style="font-size: 15px;">${redto.price }원</td>
 							</tr>

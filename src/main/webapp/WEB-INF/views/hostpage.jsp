@@ -15,7 +15,7 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
-
+	var i =0;
     var calendar = new FullCalendar.Calendar(calendarEl, {
       headerToolbar: {
         left: 'prev',
@@ -34,7 +34,7 @@
 				title: '${redto.name}',
 				start: '<fmt:formatDate pattern="yyyy-MM-dd" value="${redto.check_in }"/>',
 				end:'<fmt:formatDate pattern="yyyy-MM-dd" value="${redto.check_out }"/>'
-			}
+			},
 		</c:forEach>
         
       ]

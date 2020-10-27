@@ -25,7 +25,7 @@
 	</select>
 
 	<select id="selectReservation" parameterType="String" resultType="reservationDto">
-		SELECT R.SEQ_RE seq_re, R2.ROOM_NAME room_name, R.R_DATE check_in, R.PEOPLE people, R2.PRICE price 
+		SELECT R.SEQ_RE seq_re, R2.ROOM_NAME room_name, R.CHECK_IN check_in,R.CHECK_OUT check_out, R.PEOPLE people, R.TOTALPRICE price 
 		FROM MEMBER M , RESERVATION R , ROOM R2 
 		WHERE M.SEQ_M = R.SEQ_M AND R.SEQ_RM = R2.SEQ_RM AND M.ID = #{login}
 	</select>
