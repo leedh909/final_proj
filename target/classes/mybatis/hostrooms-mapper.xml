@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="rooms"> 
+     <resultMap type="RoomsDto" id="RoomsDto">
+        <result column="SEQ_RM" property="seq_rm"/>
+		<result column="ROOM_NAME" property="room_name"/>
+		<result column="ADDR" property="addr"/>
+		<result column="PERSON" property="person"/>
+		<result column="PRICE" property="price"/>
+		<result column="INTRO" property="intro"/>
+		<result column="R_TYPE" property="r_type"/>
+		<result column="BED_ROOM" property="bed_room"/>
+		<result column="BED" property="bed"/>
+		<result column="BATH_ROOM" property="bath_room"/>
+		<result column="CHECKIN" property="checkin"/>
+		<result column="SEQ_H" property="seq_h"/>
+		<result column="CHECKIN_TIME" property="checkin_time"/>
+		<result column="CHECKOUT_TIME" property="checkout_time"/>  
+     </resultMap>
+     <resultMap type="Rooms_DetailDto" id="Rooms_DetailDto">
+        <result column="SEQ_DETAIL" property="seq_detail"/>
+		<result column="ESSENTIAL" property="essentail"/>
+		<result column="HEATING" property="heating"/>
+		<result column="AIRCONDITION" property="aircondition"/>
+		<result column="IRON" property="iron"/>
+		<result column="TV" property="tv"/>
+		<result column="SHAMPOO" property="shampoo"/>
+		<result column="HAIRDRY" property="hairdry"/>
+		<result column="DESK" property="desk"/>
+		<result column="CLOSET" property="closet"/>
+		<result column="WIFI" property="wifi"/>
+		<result column="SEQ_RM" property="seq_rm"/>
+     </resultMap>
+     <resultMap type="Rooms_FacilityDto" id="Rooms_FacilityDto">
+        <result column="SEQ_FACILITY" property="seq_facility"/>
+		<result column="WASHER" property="washer"/>
+		<result column="DRYER" property="dryer"/>
+		<result column="KITCHEN" property="kitchen"/>
+		<result column="POOL" property="pool"/>
+		<result column="FITNESS" property="fitness"/>
+		<result column="PARKING" property="parking"/>
+		<result column="SEQ_RM" property="seq_rm"/>
+     </resultMap>
+     <resultMap type="Rooms_SafetyDto" id="Rooms_SafetyDto">
+        <result column="SEQ_SAFETY" property="seq_safety"/>
+		<result column="FIRE_SENSOR" property="fire_sensor"/>
+		<result column="CO_SENSOR" property="co_sensor"/>
+		<result column="E_KIT" property="e_kit"/>
+		<result column="FIRE_OFF" property="fire_off"/>
+		<result column="SEQ_RM" property="seq_rm"/>
+     </resultMap>
+     <resultMap type="Rooms_ruleDto" id="Rooms_ruleDto">
+        <result column="SEQ_RULE" property="seq_rule"/>
+		<result column="KID" property="kid"/>
+		<result column="BABY" property="baby"/>
+		<result column="PET" property="pet"/>
+		<result column="SMOKE" property="smoke"/>
+		<result column="PARTY" property="party"/>
+		<result column="SEQ_RM" property="seq_rm"/>
+     </resultMap>
+     <resultMap type="Rooms_introDto" id="Rooms_introDto">
+        <result column="SEQ_INTRO" property="seq_intro"/>
+		<result column="TITLE" property="title"/>
+		<result column="CONTEXT" property="context"/>
+		<result column="SEQ_RM" property="seq_rm"/>
+     </resultMap>
+     <resultMap type="Rooms_photoDto" id="Rooms_photoDto">
+        <result column="SEQ_RP" property="seq_rp"/>
+		<result column="P_PATH" property="p_path"/>
+		<result column="SEQ_INTRO" property="seq_intro"/>
+     </resultMap>
+       <insert id="inserthost" parameterType="hostDto">
+          INSERT INTO HOST VALUES(SEQ_H.NEXTVAL,#{seq_m},'N')
+      </insert> 
+       <select id="selecthostseq" parameterType="hostDto" resultType="int">
+      	SELECT SEQ_H FROM HOST WHERE SEQ_M= #{seq_m}
+      </select> 
+      <insert id="insert" parameterType="RoomsDto">
+            INSERT INTO ROOM VALUES(SEQ_RM.NEXTVAL,#{room_name},#{addr},#{person},#{price},#{intro},#{r_type},
+            #{bed_room},#{bed},#{bath_room},#{checkin},#{seq_h},#{checkin_time},#{checkout_time})
+     </insert>
+      <select id="selectroomsseq" parameterType="RoomsDto" resultType="int">
+      	SELECT SEQ_RM FROM ROOM WHERE SEQ_H= #{seq_h}
+      </select> 
+      <insert id="insertdetail" parameterType="Rooms_detailDto">
+          INSERT INTO DETAIL VALUES(SEQ_DETAIL.NEXTVAL,#{essential, jdbcType=VARCHAR},#{heating, jdbcType=VARCHAR},#{aircondition, jdbcType=VARCHAR},#{iron, jdbcType=VARCHAR},#{tv, jdbcType=VARCHAR},#{shampoo, jdbcType=VARCHAR},
+           #{hairdry, jdbcType=VARCHAR},#{desk, jdbcType=VARCHAR},#{closet, jdbcType=VARCHAR},#{wifi, jdbcType=VARCHAR},#{seq_rm})
+     </insert>
+     <insert id="insertfacility" parameterType="Rooms_FacilityDto">
+         INSERT INTO FACILITY VALUES(SEQ_FACILITY.NEXTVAL,#{washer, jdbcType=VARCHAR},#{dryer, jdbcType=VARCHAR},#{kitchen, jdbcType=VARCHAR},#{pool, jdbcType=VARCHAR},#{fitness, jdbcType=VARCHAR},#{parking, jdbcType=VARCHAR},#{seq_rm})
+     </insert>
+     <insert id="insertsafety" parameterType="Rooms_safetyDto">
+         INSERT INTO SAFETY VALUES(SEQ_SAFETY.NEXTVAL,#{fire_sensor, jdbcType=VARCHAR},#{co_sensor, jdbcType=VARCHAR},#{e_kit, jdbcType=VARCHAR},#{fire_off, jdbcType=VARCHAR},#{seq_rm})
+     </insert>
+     <insert id="insertrule" parameterType="Rooms_ruleDto">
+        INSERT INTO RULE VALUES(SEQ_RULE.NEXTVAL,#{kid, jdbcType=VARCHAR}, #{baby, jdbcType=VARCHAR}, #{pet, jdbcType=VARCHAR}, #{smoke, jdbcType=VARCHAR}, #{party}, #{seq_rm})
+     </insert>
+     <insert id="insertintro" parameterType="Rooms_introDto">
+        INSERT INTO INTRO VALUES(SEQ_INTRO.NEXTVAL,#{title}, #{context}, #{seq_rm})
+     </insert>
+     <select id="selectintroseq" parameterType="Rooms_introDto" resultType="int">
+      	SELECT SEQ_INTRO FROM INTRO WHERE SEQ_RM= #{seq_rm}
+      </select>
+       <insert id="insertphoto" parameterType="Rooms_photoDto">
+           <!--  INSERT INTO ROOM_P (seq_rp, p_path, seq_intro) VALUES ((select isnull(max(seq_rp), 0) from room_p), #{p_path} #{seq_intro}) -->
+          INSERT INTO ROOM_P VALUES(SEQ_RP.NEXTVAL, #{p_path, jdbcType=VARCHAR}, #{seq_intro}) 
+      </insert> 
+ </mapper> 
+     
