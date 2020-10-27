@@ -55,8 +55,13 @@ public class RoomTotalDto {
 		this.member = member;
 	}
 
+	public RoomTotalDto(RoomsDto room, Rooms_introDto intro, Rooms_detailDto detail) {
+		this.room = room;
+		this.intro = intro;
+		this.detail = detail;
+	}
+	
 	public RoomTotalDto(RoomsDto room, Rooms_introDto intro) {
-		super();
 		this.room = room;
 		this.intro = intro;
 	}

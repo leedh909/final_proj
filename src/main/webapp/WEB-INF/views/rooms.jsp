@@ -92,23 +92,6 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<style type="text/css">
-   #btn{
-     border-top-right-radius: 5px;
-     border-bottom-roght-radius:5px;
-     margin-left:-3px;
-     border: 1px solid;
-     background-color: rgba(0,0,0,0);
-     color:#f85959;
-     padding:5px;
-     
-   }
-   #btn {
-	
-}
-   
-</style>
-
 <body>
 
 	<div>
@@ -125,8 +108,8 @@
 				<div class="col-md-9 ftco-animate text-center"
 					data-scrollax=" properties: { translateY: '70%' }">
 					<h1 class="mb-3 bread"
-						data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">숙소
-						등록</h1>
+						data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">HOST 등록
+						</h1>
 				</div>
 			</div>
 		</div>
@@ -142,7 +125,7 @@
 							<strong>숙소 등록 순서</strong>
 						</h1>
 						<div>
-							<h5 style="color: #f85959;">1. 숙소위치</h5>
+							<h3 style="color: #f85959;">1. 숙소위치</h3>
 							<h3 style="margin-left: 40px;">|</h3>
 							<h5>2. 숙소유형</h5>
 							<h3 style="margin-left: 40px;">|</h3>
@@ -230,8 +213,8 @@
 							<input style="float: left; margin-left: 30px;" type="text" id="sample6_postcode" placeholder="우편번호">
 							<input  type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">&nbsp;
 							<input  type="text" id="sample6_address" name="sample6_address1" placeholder="주소" >
-							<input  type="text" id="sample6_detailAddress" name="sample6_detailAddress2" placeholder="상세주소" onkeyup="eventKeyup2(this.value)">&nbsp;
-							<button onclick=test1();>검색</button>						
+							<button onclick=test1();>검색</button>
+							<input  type="text" id="sample6_detailAddress" name="sample6_detailAddress2" placeholder="상세주소" onkeyup="eventKeyup2(this.value)">&nbsp;						
 							<br><br><br>
 						<form name = "testForm" action="rooms2.do" method="get">
 							<input type="hidden" id="address" name="sample6_address1" value="">

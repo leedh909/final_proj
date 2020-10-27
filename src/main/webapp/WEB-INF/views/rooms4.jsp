@@ -56,7 +56,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">숙소 등록</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">HOST 등록</h1>
           </div>
         </div>
       </div>
@@ -117,8 +117,8 @@
                                  <hr style= "margin-left:30px; width:150%; ">
                                  <br>
                                  <h4 style= "margin-left:30px;" ><strong>체크인 유형</strong></h4>
-                                 <h5 style= "margin-left:30px;" >입실할때 체크인 할 방법을 입력해주세요</h5>
-                                 <textarea rows="2" cols="32" name="checkin" placeholder="체크인유형을 입력헤주세요" style="float:left; margin-left:30px;" name="context"></textarea>
+                                 <h5 style= "margin-left:30px;" >체크인 유형을 입력해주세요</h5>
+                                 <textarea rows="1" cols="28" name="checkin" placeholder="체크인유형을 입력해주세요" style="float:left; margin-left:30px;" name="context"></textarea>
                                  <br><br>
                                 <div class="row mt-5">
 					                <div class="col text-center">

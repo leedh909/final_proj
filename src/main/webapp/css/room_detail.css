@@ -1,7 +1,6 @@
 .pt {
 	margin-top: -9px;
 }
-.mySlides {display:none;} 
 
 .ibbl {
 	width: 100%;
@@ -610,6 +609,7 @@ li {
 	width:100%;
 	height:531px;
 	object-fit:cover;
+	display:none;
 }
 
 .profile{

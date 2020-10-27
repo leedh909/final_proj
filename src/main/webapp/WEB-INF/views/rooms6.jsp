@@ -34,21 +34,44 @@
   </head>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script type="text/javascript">
-     function uploadImgPreview(){
-    	let fileInfo = document.getElementById("upImgFile").files[0];
-    	let reader = new FileReader();
-    	
-    	reader.onload = function(){
-    		document.getElementById("imagerooms").src = reader.result;
-    		document.getElementById("imagerooms").innerText = reader.result;
-    		document.getElementById("imagerooms").height = 250;
-    		document.getElementById("imagerooms").width = 250;
-    		
-    	};
-    	if(fileInfo){
-    		reader.readAsDataURL(fileInfo);
-    	}
-     };
+  function uploadImgPreview() {
+
+  	let fileList = document.getElementById( "upImgFiles" ).files;
+
+		function readAndPreview( fileList ) {
+
+
+			if ( /\.(jpe?g|png|gif)$/i.test( fileList.name ) ) {
+				let reader = new FileReader();
+				reader.addEventListener( "load", function() {
+					let image = new Image();
+
+					image.width = "250";
+					image.height = "250";
+					image.title = fileList.name;
+					image.src = this.result;
+
+					document.getElementById( "thumbnailImgs" ).appendChild( image );
+
+				}, false );
+
+				if( fileList ) {
+					reader.readAsDataURL( fileList );
+
+				}
+			}
+		}
+
+  	if( fileList ) {
+
+		[].forEach.call( fileList, readAndPreview );
+
+      }
+
+  }
+  function insertalert(){
+	  alert("등록되었습니다");
+  }
   </script>
   <style type="text/css">
    #box{
@@ -77,7 +100,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">숙소 등록</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">HOST 등록</h1>
           </div>
         </div>
       </div>
@@ -118,7 +141,7 @@
                          <div>
                               		<h4 style= "margin-left:30px;" ><strong>소개 제목</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >숙소소개를 위한 제목을 입력해주세요</h5>
-                                   <textarea rows="2" cols="50" name="title" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" name="title"></textarea>
+                                   <textarea rows="2" cols="35" name="title" placeholder="제목을 입력해주세요" style="float:left; margin-left:30px;" name="title"></textarea>
                                    <br><br><br><br>
                                    <hr style= "margin-left:30px; width:150%; ">
                                    <br>
@@ -136,17 +159,20 @@
                                    <br>
                                    <h4 style= "margin-left:30px;" ><strong>숙소 사진 등록</strong></h4>       
                                    <h5 style= "margin-left:30px;" >화면에 보여질 나만의 숙소사진을 등록해주세요</h5>
-                                      <input type="file" id="upImgFile" name="mpfile" onChange="uploadImgPreview();" accept="image/*"> 
+                                   <!-- <input type="file" id="upImgFiles" onChange="uploadImgPreview();" accept="image/*" multiple/> 
                                    <p style="color:red; font-weight: bold"></p>
                                      <hr>
-                                     <img id="imagerooms" src="">
-                                     
+                                       <!-- <img id="imagerooms" src="">
+                                       <div id="thumnailImgs"></div> -->
+                                        <input type="file" id="upImgFiles" name="mpfile" onChange="uploadImgPreview();" accept="image/*" multiple>
+                                          <hr style= "margin-left:30px; width:150%; "/>
+                                            <div id="thumbnailImgs"></div>
                                    <br><br><br>
                                     <div class="row mt-5">
 					                <div class="col text-center">
 					                  <div class="block-27">
                                 <ul>
-                                    <li style="margin-left:5%"><a><span><input type="submit"  value="완료" style="background: none; border:none;"></span></a></li>
+                                    <li style="margin-left:5%"><a><span><input type="submit"  value="완료" style="background: none; border:none;" onclick="insertalert();"></span></a></li>
                                 </ul> 
                                  </div>
                               </div>

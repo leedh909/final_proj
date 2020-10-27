@@ -1,7 +1,9 @@
 package com.mvc.Final.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
 import com.mvc.Final.model.dto.RoomsDto;
+import com.mvc.Final.model.dto.Rooms_photoDto;
 import com.mvc.Final.model.dto.SearchOption;
 
 @Repository
@@ -31,7 +34,6 @@ public class SearchDao {
 			System.out.println("error: count");
 			e.printStackTrace();
 		}
-		System.out.println("dao에서 count:"+res);
 		return res;
 	}
 
@@ -44,9 +46,6 @@ public class SearchDao {
 
 		try {
 			searchList = sqlSession.selectList(NAMESPACE + "searchlist",searchO);
-			
-			
-			
 		} catch (Exception e) {
 			System.out.println("error: searchlist");
 			e.printStackTrace();
@@ -113,6 +112,7 @@ public class SearchDao {
 		return login;
 	}
 	
+	//payment 페이지에 들어가는 숙소 정보
 	public RoomsDto room(int seq_rm) {
 		RoomsDto room = new RoomsDto();;
 		
@@ -139,6 +139,47 @@ public class SearchDao {
 		
 		return res;
 	}
+
+	//search 사진 가져오기
+	public Map<Integer,Object> picture(int[] seq_intro) {
+		
+		List<String> resmapper = new ArrayList<String>();
+		
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("seq_intro", seq_intro);
+
+		Map<Integer,Object> res = new HashMap<Integer,Object>();
+		try {
+			for(int i =0 ; i<seq_intro.length;i++) {
+				resmapper = sqlSession.selectList(NAMESPACE+"picture",seq_intro[i]);
+				
+				res.put(seq_intro[i], resmapper);
+			}
+		} catch (Exception e) {
+			System.out.println("error: picture");
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
+
+	//detail 사진 가져오기
+	public List<String> onePicture(int seq_intro) {
+
+		List<String> res = new ArrayList<String>();
+		
+		try {
+			res = sqlSession.selectList(NAMESPACE+"picture",seq_intro);
+		} catch (Exception e) {
+			System.out.println("error: onePicture");
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
+
 
 
 
