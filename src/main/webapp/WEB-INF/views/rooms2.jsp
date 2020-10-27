@@ -66,8 +66,13 @@
      background-color: rgba(0,0,0,0);
      color:#f85959;
      padding:5px;
-   }  
- 
+   }
+   
+   h5:hover {
+	color: #f85959;
+	cursor: pointer;
+}
+   
   </style>
   <script type="text/javascript">
       function color(obj) {
@@ -113,7 +118,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">숙소 등록</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">HOST 등록</h1>
           </div>
         </div>
       </div>
@@ -161,7 +166,7 @@
                                       <hr style= "margin-left:30px; width:108%; ">
                                       <br>
                               <div style="float:left; margin-left:30px;"><h5>숙소 이름: </h5></div>
-                                   <textarea rows="2" name="room_name" cols="50" placeholder="이름을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
+                                   <textarea rows="2" name="room_name" cols="20" placeholder="이름을 입력해주세요" style="float:left; margin-left:30px;" ></textarea>
                                    <br><br><br><br>
                                    <hr style= "margin-left:30px; width:108%; ">
                                    <br>   

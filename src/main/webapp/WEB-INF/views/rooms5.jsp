@@ -56,7 +56,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">숙소 등록</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">HOST 등록</h1>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
                                  <br>
                                  <h4 style= "margin-left:30px;" ><strong>행사 및 파티 규정</strong></h4 >       
                                    <h5 style= "margin-left:30px;" >행사 및 파티 관련 규정사항을 입력해주세요</h5>
-                                   <textarea rows="4" cols="70" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" name="party"></textarea>
+                                   <textarea rows="3" cols="35" placeholder="규정사항을 입력해주세요" style="float:left; margin-left:30px;" name="party"></textarea>
                                    <br><br><br><br><br>
                                    <hr style="margin-left:30px; width:150%; ">
                                    <br>

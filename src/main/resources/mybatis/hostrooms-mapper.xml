@@ -68,24 +68,24 @@
 		<result column="CONTEXT" property="context"/>
 		<result column="SEQ_RM" property="seq_rm"/>
      </resultMap>
-      <!--  <resultMap type="Rooms_photoDto" id="Rooms_photoDto">
+     <resultMap type="Rooms_photoDto" id="Rooms_photoDto">
         <result column="SEQ_RP" property="seq_rp"/>
 		<result column="P_PATH" property="p_path"/>
 		<result column="SEQ_INTRO" property="seq_intro"/>
-      </resultMap> -->
-      <insert id="inserthost" parameterType="hostDto">
+     </resultMap>
+       <insert id="inserthost" parameterType="hostDto">
           INSERT INTO HOST VALUES(SEQ_H.NEXTVAL,#{seq_m},'N')
-      </insert>
-      <select id="selecthostseq" parameterType="hostDto" resultType="int">
+      </insert> 
+       <select id="selecthostseq" parameterType="hostDto" resultType="int">
       	SELECT SEQ_H FROM HOST WHERE SEQ_M= #{seq_m}
-      </select>
+      </select> 
       <insert id="insert" parameterType="RoomsDto">
             INSERT INTO ROOM VALUES(SEQ_RM.NEXTVAL,#{room_name},#{addr},#{person},#{price},#{intro},#{r_type},
             #{bed_room},#{bed},#{bath_room},#{checkin},#{seq_h},#{checkin_time},#{checkout_time})
      </insert>
-     <select id="selectroomsseq" parameterType="RoomsDto" resultType="int">
+      <select id="selectroomsseq" parameterType="RoomsDto" resultType="int">
       	SELECT SEQ_RM FROM ROOM WHERE SEQ_H= #{seq_h}
-      </select>
+      </select> 
       <insert id="insertdetail" parameterType="Rooms_detailDto">
           INSERT INTO DETAIL VALUES(SEQ_DETAIL.NEXTVAL,#{essential, jdbcType=VARCHAR},#{heating, jdbcType=VARCHAR},#{aircondition, jdbcType=VARCHAR},#{iron, jdbcType=VARCHAR},#{tv, jdbcType=VARCHAR},#{shampoo, jdbcType=VARCHAR},
            #{hairdry, jdbcType=VARCHAR},#{desk, jdbcType=VARCHAR},#{closet, jdbcType=VARCHAR},#{wifi, jdbcType=VARCHAR},#{seq_rm})
@@ -102,11 +102,12 @@
      <insert id="insertintro" parameterType="Rooms_introDto">
         INSERT INTO INTRO VALUES(SEQ_INTRO.NEXTVAL,#{title}, #{context}, #{seq_rm})
      </insert>
-     <!--  <select id="selectintroseq" parameterType="Rooms_introDto" resultType="int">
-        SELECT SEQ_INTRO FROM ROOM_P WHERE SEQ_RM= #{seq_rm}
-     </select>
-     <insert id="insertphoto" parameterType="Rooms_photoDto">
-        INSERT INTO ROOM_P VALUES(SEQ_RP.NEXTVAL,#{p_path},#{seq_intro})
-     </insert> -->
+     <select id="selectintroseq" parameterType="Rooms_introDto" resultType="int">
+      	SELECT SEQ_INTRO FROM INTRO WHERE SEQ_RM= #{seq_rm}
+      </select>
+       <insert id="insertphoto" parameterType="Rooms_photoDto">
+           <!--  INSERT INTO ROOM_P (seq_rp, p_path, seq_intro) VALUES ((select isnull(max(seq_rp), 0) from room_p), #{p_path} #{seq_intro}) -->
+          INSERT INTO ROOM_P VALUES(SEQ_RP.NEXTVAL, #{p_path, jdbcType=VARCHAR}, #{seq_intro}) 
+      </insert> 
  </mapper> 
      
