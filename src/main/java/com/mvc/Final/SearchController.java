@@ -5,11 +5,11 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -44,24 +44,32 @@ public class SearchController {
 	public String search(SearchOption searchO, @RequestParam(defaultValue="1") int curPage,Model model) {
 		//검색  된 게시물 개수 
 		int count = biz.count(searchO);
+		
 		//페이지 나누기 관련 처리
 		Paging pager = new Paging(count, curPage);
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		searchO.setStart(start);
 		searchO.setEnd(end);
+		
 		//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
 		List<RoomTotalDto> searchList = biz.search(searchO);
 		
 		//검색 리스트 숙소사진 가져오기
-		for(int i=0 ; i<searchList.size(); i++) {
-			
+		int seq_intro[] = new int[searchList.size()];
+		for(int i =0 ; i<searchList.size();i++) {
+			seq_intro[i] = searchList.get(i).getIntro().getSeq_intro();
 		}
+		
+		Map<Integer,Object> picture = new HashMap<Integer,Object>();
+		picture = biz.picture(seq_intro);
 		
 		model.addAttribute("searchList", searchList);
 		model.addAttribute("searchOption",searchO);
 		model.addAttribute("count",count);
 		model.addAttribute("pager", pager);
+		model.addAttribute("picture",picture);
+		
 		return "room_search";
 	}
 	
@@ -83,6 +91,8 @@ public class SearchController {
 		LoginDto hostInfo = biz.memberInfo(hostNum);
 		
 		//숙소 사진 가지고 오기
+		int seq_intro = roomInfo.getIntro().getSeq_intro();
+		List<String> picture = biz.onePicture(seq_intro);
 		
 		//넘겨줄 값 model에 저장
 		model.addAttribute("searchOption", searchO);
@@ -93,12 +103,13 @@ public class SearchController {
 		model.addAttribute("roomInfo",roomInfo);
 		model.addAttribute("hostInfo",hostInfo);
 		model.addAttribute("booked",booked);
+		model.addAttribute("picture",picture);
 		
 		return "room_detail";
 	}
 	
 	@RequestMapping("/pay.do")
-	public String pay(Model model, RoomReservationDto reservation,HttpSession session,HttpServletResponse response) {
+	public String pay(Model model,String p_path ,RoomReservationDto reservation,HttpSession session,HttpServletResponse response) {
 		String returnView = "";
 		//여행날짜 checkin, checkout 구분
 		reservation.setCheck_in(reservation.getRangeDate().split(" to ")[0]);
@@ -129,6 +140,7 @@ public class SearchController {
 			model.addAttribute("room",room);
 			model.addAttribute("reservation",reservation);
 			model.addAttribute("login", login);
+			model.addAttribute("picture",p_path);
 			
 			returnView= "payment";
 		}else {
