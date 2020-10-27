@@ -8,7 +8,12 @@
 	display: inline-block;
 	top: 0px;
 } */
-.mySlides {display:none;} 
+.mySlides{
+	width:100%;
+	height:202px;
+	object-fit:cover;
+	display:none;
+} 
 
 p {
 	margin-top: 0;
