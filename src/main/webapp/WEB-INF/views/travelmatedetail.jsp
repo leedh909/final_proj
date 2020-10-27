@@ -38,12 +38,11 @@
    	<style type="text/css">
   		.mapdiv{
   			width:1000px;
-  			height:800px;
+  			height:870px;
   			border: 1px solid #F2F2F2;
   			background-color:white;
   			position: relative;
  			left: 50px;
- 			box-shadow: 2px 2px 2px 2px gray;
   		}
   		div#s_left{
   			width:500px;
@@ -67,35 +66,30 @@
   			left: -10px;
   			top: 25px;
   			border-radius: 10px 10px 10px 10px;
-  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		.roomdiv2{
   			position: relative;
   			left: 500px;
   			top: -475px;
   			border-radius: 10px 10px 10px 10px;
-  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		.roomdiv3{
   			position: relative;
   			left: 850px;
   			top: -715px;
   			border-radius: 10px 10px 10px 10px;
-  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		.roomdiv4{
   			position: relative;
   			left: 500px;
   			top: -695px;
   			border-radius: 10px 10px 10px 10px;
-  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		.roomdiv5{
   			position: relative;
   			left: 850px;
   			top: -935px;
   			border-radius: 10px 10px 10px 10px;
-  			box-shadow: 2px 2px 2px 2px gray;
   		}
   		#room1{
   			width:500px;
@@ -120,7 +114,7 @@
   			height:70px;
   			position: relative;
   			left: 440px;
-  			top: 100px;
+  			top: -110px;
   			border-radius: 10px 10px 10px 10px;
   		}
   		#btn2{
@@ -128,7 +122,7 @@
   			height:70px;
   			position: relative;
   			left: 610px;
-  			top: 0px;
+  			top: -200px;
   			border-radius: 10px 10px 10px 10px;
   		}
         .btn {
@@ -166,7 +160,6 @@
 			cursor:pointer;
 			position:relative;
 			font-size:25px;
-			box-shadow: 2px 2px 2px 2px gray;
 		}
 		input[id*="answer"] + label em{
 			position:absolute;
@@ -197,12 +190,6 @@
 		input[id*="answer"]:checked + label em {
 			background-position:0 -180px;
 		}
-		#memberinfo{
-			border:1px solid #red;
-			position: relative;
-			left: 900px;
-		}
-		
   	</style>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript">
@@ -297,7 +284,7 @@
 							<!-- 숙소정보 -->
 							<input type="radio" name="accordion" id="answer01">
 							<label for="answer01">숙소 정보<em></em></label>
-								<div style="box-shadow: 2px 2px 2px 2px gray; text-align:center;"><p>
+								<div><p>
 								<label style="font-weight: bold; ">주소: &nbsp; ${tmddto.room.addr }</label>
 								<label style="font-weight: bold; ">숙소이름: &nbsp; ${tmddto.room.room_name }</label>
 								<label style="font-weight: bold; ">숙소 유형: &nbsp; ${tmddto.room.r_type }</label>
@@ -310,10 +297,10 @@
 							<!-- 아이템 -->	
 							<input type="radio" name="accordion" id="answer02">
 							<label for="answer02">Item<em></em></label>
-							<div style="box-shadow: 2px 2px 2px 2px gray;"><p>
+							<div><p>
 							<c:forEach items="${detail}" var="detail">
 								<c:if test="${detail !='null' && detail != 'NULL'}">
-								<div class="row" style="text-align:center; text-align:center;">
+								<div class="row" style="text-align:center;">
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<p class="pt" style="font-weight:bold; text-align:center;">${detail }
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -328,7 +315,7 @@
 							<!-- 편의시설 -->
 							<input type="radio" name="accordion" id="answer03">
 							<label for="answer03">편의 시설<em></em></label>
-							<div  style="box-shadow: 2px 2px 2px 2px gray; text-align:center;"><p>
+							<div style="text-align:center;"><p>
 							<c:forEach items="${facility}" var="facility">
 								<c:if test="${facility !='null' && facility != 'NULL'}">
 								<div class="row" style="text-align:center;">
@@ -346,7 +333,7 @@
 								<!-- 안전시설 -->
 								<input type="radio" name="accordion" id="answer04">
 								<label for="answer04">안전 시설<em></em></label>
-								<div style="box-shadow: 2px 2px 2px 2px gray; text-align:center;"><p>
+								<div><p>
 								<c:forEach items="${safety}" var="safety">
 									<c:if test="${safety !='null' && safety != 'NULL'}">
 									<div class="row" style="text-align:center;">
@@ -364,10 +351,10 @@
 								<!-- 숙소 규정 -->
 								<input type="radio" name="accordion" id="answer05">
 								<label for="answer05">숙소 규정<em></em></label>
-								<div style="box-shadow: 2px 2px 2px 2px gray;"><p>
+								<div><p>
 								<c:forEach items="${rule}" var="rule">
 									<c:if test="${rule !='null' && rule != 'NULL'}">
-									<div class="row" style="text-align:center; text-align:center;">
+									<div class="row" style="text-align:center;">
 										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										<p class="pt" style="font-weight:bold; text-align:center;">${rule }
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -409,7 +396,7 @@
 						<div class="mapdiv">
 						<p style="margin-top: -12px">
 					    </p>
-					    <div id="map1" style="width: 100%; height: 800px; box-shadow: 2px 2px 2px 2px gray;"></div>
+					    <div id="map1" style="width: 100%; height: 900px;"></div>
 					    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ac84c3461b348c5dd97a194bd252731&amp;libraries=services"></script>
 						<script>
 						var mapContainer = document.getElementById('map1'), // 지도를 표시할 div 
@@ -536,33 +523,15 @@
 		 </div><!-- row -->
 	</div>	
 		 <div class="row">
-			 <div class="col-lg-12">
-			 			<br><br><br><br><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 		<table name="memberinfo" id="memberinfo">
-			 			<tr>
-			 				<td style="background-color:skyblue; text-align:center;" font-weight:bold;><h3>예약자 정보</h3></td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">아이디</td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">asdsad</td>
-			 			</tr>
-			 			<tr>
-			 				<td style="background-color:; text-align:center;">이메일</td>
-			 			</tr>
-			 				<td style="background-color:; text-align:center;">asd@asd.asd</td>
-			 			</tr>
-			 		</table>
-			 		<div>
-						<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='main.do'">Apply</button>
-					</div>
-					<div>
-						<button type="button" id="btn2" class="btn" value="cancel">Cancel</button>
-					</div> 				
-			 </div>
-		  </div> 
+		 <div class="col-lg-12">
+		 		<div>
+					<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='main.do'">Apply</button>
+				</div>
+				<div>
+					<button type="button" id="btn2" class="btn" value="cancel">Cancel</button>
+				</div> 				
+		 </div>
+		 </div> 
 </section>
 
 <!-- footer -->

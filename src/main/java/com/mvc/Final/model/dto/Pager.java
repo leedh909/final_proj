@@ -2,7 +2,7 @@ package com.mvc.Final.model.dto;
 
 public class Pager {
 	
-	public static final int PAGE_SCALE = 3;	// 페이지 당 게시물 수
+	public static final int PAGE_SCALE = 4;	// 페이지 당 게시물 수
 	public static final int BLOCK_SCALE = 5;	// 화면당 페이지 수
 	
 	private int curPage;	// 현재 페이지  
