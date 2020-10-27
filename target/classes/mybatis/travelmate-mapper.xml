@@ -36,7 +36,7 @@
 		<result column="SEQ_DETAIL" property="seq_detail" />
 		<result column="ESSENTIAL" property="essential" />
 		<result column="HEATING" property="heating" />
-		<result column="ARICONDITION" property="aircondition" />
+		<result column="AIRCONDITION" property="aircondition" />
 		<result column="IRON" property="iron" />
 		<result column="TV" property="tv" />
 		<result column="SHAMPOO" property="shampoo" />

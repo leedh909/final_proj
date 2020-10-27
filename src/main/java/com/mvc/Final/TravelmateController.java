@@ -9,11 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.mvc.Final.model.biz.SearchBiz;
 import com.mvc.Final.model.biz.TravelmateBizImpl;
 import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.Paging;
+import com.mvc.Final.model.dto.Pager;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.SearchOption;
 
 @Controller
 public class TravelmateController {
@@ -23,6 +29,9 @@ public class TravelmateController {
 
 	@Autowired
 	private TravelmateBizImpl tmbiz;
+	
+	@Autowired
+	private SearchBiz biz;
 	
 	@RequestMapping("/travelmate.do")
 	public String travelmate(Model model) {
@@ -60,6 +69,10 @@ public class TravelmateController {
 	    String[] safety = roominfo.getSafety().toString().split(",");
 	    String[] rule = roominfo.getRule().toString().split(",");
 
+	    //결과값이 안나올때 콘솔에 출력해주는 습관을 갖자
+	    //for(int i=0;i<detail.length;i++) {
+	    //	System.out.println("detail"+i+ ": "+detail[i]);
+	    //}
 	    model.addAttribute("tmddto",roominfo);
 		model.addAttribute("mateInfo",mateInfo);
 		model.addAttribute("detail",detail);
@@ -69,12 +82,51 @@ public class TravelmateController {
 		model.addAttribute("re",re);
 		
 		return "travelmatedetail";
-
 	}
 	
+	@RequestMapping("/matesearch.do")
+	public String search(SearchOption searchO, @RequestParam(defaultValue="1") int curPage,Model model) {
+		//검색  된 게시물 개수 
+				int count = biz.count(searchO);
+				//페이지 나누기 관련 처리
+				Paging pager = new Paging(count, curPage);
+				int start = pager.getPageBegin();
+				int end = pager.getPageEnd();
+				searchO.setStart(start);
+				searchO.setEnd(end);
+				//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
+				List<RoomTotalDto> searchList = biz.search(searchO);
+				
+				//검색 리스트 숙소사진 가져오기
+				for(int i=0 ; i<searchList.size(); i++) {
+					
+				}
+				
+				model.addAttribute("searchList", searchList);
+				model.addAttribute("searchOption",searchO);
+				model.addAttribute("count",count);
+				model.addAttribute("pager", pager);
+		
+		return "travelmate";
+	}
 	
-
-
+	/*
+	 * @RequestMapping("/matelist.do") public ModelAndView
+	 * matelist(@RequestParam(defaultValue="1") int curPage,
+	 * 
+	 * @RequestParam(defaultValue="all") String search_option,
+	 * 
+	 * @RequestParam(defaultValue="") String keyword)throws Exception{ int
+	 * count=1000; //레코드갯수 Pager pager=new Pager(count,curPage); int
+	 * start=pager.getPageBegin(); int end=pager.getPageEnd(); List<RoomTotalDto>
+	 * roomList = new ArrayList<RoomTotalDto>(); roomList = tmbiz.selectList();
+	 * //mate 정보
+	 * 
+	 * 
+	 * return "A";
+	 * 
+	 * }
+	 */
 
 
 }
