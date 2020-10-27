@@ -39,17 +39,19 @@ public class LoginController {
 	private FileValidator fileValidator;
 	
 	@RequestMapping("/login.do")
-	public String Login(String id, String pw, HttpSession session) {
+	public String Login(String id, String pw, HttpSession session, HttpServletRequest request) {
 		logger.info("Login");
 		LoginDto ldto = lbiz.login(id, pw, session);
-		
+		String referer = request.getHeader("Referer");
 		if(ldto != null) {
 			System.out.println("login success (" + ldto.getId() + ")");
-			return "redirect:main.do";
+		    return "redirect:"+ referer;
 		}else {
 			return "redirect:againlogin.do";
 		}
 		
+		
+
 	}
 	
 	@RequestMapping("/logout.do")
