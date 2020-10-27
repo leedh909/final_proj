@@ -6,9 +6,7 @@ public class Rooms_introDto {
 	private String context;
 	private int seq_rm;
 	
-	public Rooms_introDto() {
-		super();
-	}
+	public Rooms_introDto() {}
 
 	public Rooms_introDto(int seq_intro, String title, String context, int seq_rm) {
 		super();
@@ -17,6 +15,7 @@ public class Rooms_introDto {
 		this.context = context;
 		this.seq_rm = seq_rm;
 	}
+
 
 	public int getSeq_intro() {
 		return seq_intro;
