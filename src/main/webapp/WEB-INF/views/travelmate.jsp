@@ -34,17 +34,46 @@
     <link rel="stylesheet" href="css/style.css">
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    	/* function value_check(){
+    		var select_obj='';
+    		$('input[type="select"]:checked').each(function (index){
+    			if(index != 0){
+    				select_obj += ',';
+    			}
+    			select_obj += $(this).val();
+    		});
+    		
+    		alert(select_obj);
+    	} */
+    	
+    	/* $("select[name=셀렉트박스name]").val(); */
+    	
+    	function value_check(){
+    		var select_obj='';
+    		$('input[type="radio"]:checked').each(function (index){
+    			if(index != 0){
+    				select_obj += ',';
+    			}
+    			select_obj += $(this).val();
+    		});
+    		
+    		alert(select_obj);
+    	}
+    </script>
   
    	<style type="text/css">
   		div#s_left{
   			width:500px;
   			height:1200px;
   			float:left;
+  			text-align:center;
   		}
   		div#s_right{
   			height:1200px;
   			float:left;
   			z-index:1;
+  			text-align:center;
   		}
   		.mate{
   			width:950px;
@@ -68,16 +97,17 @@
   			height:198px; 
   			border:1px solid #E6E6E6;
   			background-color: rgba(0,0,0,0);
-  			color:skyblue;
+  			color:#F7F2E0;
   			padding:5px;
   			cursor: pointer;
 			-webkit-transition-duration: 0.4s;
 			transition-duration: 0.4s;
 			border-radius: 0px 20px 20px 0px / 0px 20px 20px 0px;
+			font-size:20px;
   		}
   		.bt:hover{
   			color:white;
-  			background-color: skyblue;
+  			background-color: #F7F2E0;
   		}
   		.tdwidth{
   			width:150px;
@@ -119,7 +149,8 @@
 		#c_right{
 			position:relative;
 			left:150px;
-			top:800px;
+			top:250px;
+			text-align:center;
 		}
   	</style> 
   </head>
@@ -146,55 +177,64 @@
 	<!-- 필터링창 -->
 	<div style="background-color:white;" id="s_left">
 		<div style="text-align: center; position: relative; top:50px;">
-		<form>
+		<form action="travelmate.do">
 			<br><br>
-			<h1 style=""><em>지역 선택</em></h1>
-			<br>
-			<select style="text-align: center;" name="area" onchange="">
-            <option value="seoul" style="text-align: center;">서울</option>
-            <option value="busan" style="text-align: center;">부산</option>
-            <option value="daejeon" style="text-align: center;">대전</option>
-            <option value="daegu" style="text-align: center;">대구</option>
-            <option value="jeju" style="text-align: center;">제주</option>
-            <option value="gangneung" style="text-align: center;">강릉</option>  
-            <option value="gyeongju" style="text-align: center;">경주</option>  
-            <option value="yeosu" style="text-align: center;">여수</option>  
+			<h1 style=""><em>지역</em></h1>
+			<select style="text-align: center;" name="local" id="local" onchange="">
+	            <option name="local" style="text-align: center;">서울</option>
+	            <option name="local" style="text-align: center;">부산</option>
+	            <option name="local" style="text-align: center;">대전</option>
+	            <option name="local" style="text-align: center;">대구</option>
+	            <option name="local" style="text-align: center;">제주</option>
+	            <option name="local" style="text-align: center;">강릉</option>  
+	            <option name="local" style="text-align: center;">경주</option>  
+	            <option name="local" style="text-align: center;">여수</option>  
+        	</select>
+        	<br><br>
+        	<h1 style=""><em>인원</em></h1>
+			<select style="text-align: center;" id="people" onchange="">
+	            <option name="person" value="1" style="text-align: center;">1명 </option>
+	            <option name="person" value="2" style="text-align: center;">2명</option>
+	            <option name="person" value="3" style="text-align: center;">3명</option>
+	            <option name="person" value="4" style="text-align: center;">4명</option>
+        	</select>
+        	<br><br>
+        	<h1 style=""><em>방 갯수</em></h1>
+			<select style="text-align: center;" id="room" onchange="">
+	            <option name="bed_room" value="1" style="text-align: center;">1개 </option>
+	            <option name="bed_room" value="2" style="text-align: center;">2개</option>
+	            <option name="bed_room" value="3" style="text-align: center;">3개</option>
+	            <option name="bed_room" value="4" style="text-align: center;">4개</option>
         	</select>
 			<br><br><br>
 			<h1 style=""><em>Filtering</em></h1>
 			<br>
 			<div>
-			<label>Kid: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="kidy" name="kid" id="ky">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="kidn" name="kid" id="kn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<label style="font-weight: bold;">Kid: </label> 
+			<input type="radio" value="kid" name="kid" id="ky">Yes
+	   		<input type="radio" value="null" name="kid" id="kn">No
 			</div>
 			<hr>
 			<div>
-			<label>Baby: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="babyy" name="Baby" id="by">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="babyn" name="Baby" id="bn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<label style="font-weight: bold;">Baby: </label> 
+			<input type="radio" value="baby" name="Baby" id="by">Yes
+	   		<input type="radio" value="null" name="Baby" id="bn">No
 			</div>
 			<hr>
 			<div>
-			<label>Pet: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="pety" name="pet" id="py">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="petn" name="pet" id="pn">No&nbsp;&nbsp;&nbsp;&nbsp;
+			<label style="font-weight: bold;">Pet: </label>
+			<input type="radio" value="pet" name="pet" id="py">Yes
+	   		<input type="radio" value="null" name="pet" id="pn">No
 			</div>
 			<hr>
 			<div>
-		    <label>Smoke: </label>&nbsp;&nbsp;&nbsp;
-		    <input type="radio" value="smokey" name="smoke" id="sy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="smoken" name="smoke" id="sn">No&nbsp;&nbsp;&nbsp;&nbsp;
-			</div>
-			<hr>
-			<div>
-			<label>Party: </label> &nbsp;&nbsp;&nbsp;
-			<input type="radio" value="partyy" name="party" id="partyyy">Yes&nbsp;&nbsp;&nbsp;&nbsp;
-	   		<input type="radio" value="partyn" name="party" id="partynn">No&nbsp;&nbsp;&nbsp;&nbsp;
+		    <label style="font-weight: bold;">Smoke: </label>
+		    <input type="radio" value="smokey" name="smoke" id="sy">Yes
+	   		<input type="radio" value="null" name="smoke" id="sn">No
 			</div>
 			<hr>
 			<br>
-			<input type="button" class="button" value="확인" onclick="">
+			<input type="submit" class="button" value="확인" onclick="value_check()">
 		</form>
 		</div>
 	</div>
@@ -281,7 +321,6 @@
 						<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 					</div>
 				</div> -->
-			</div>
 			 <!-- 페이징 -->
 	         <div class="row mt-5" id="c_right">
 	          <div class="col text-center">
@@ -299,6 +338,7 @@
 	          </div>
 	        </div> 
 		</div>
+	</div>
 </div>	        
 <!-- 풋터 -->
     <div id="footer">
