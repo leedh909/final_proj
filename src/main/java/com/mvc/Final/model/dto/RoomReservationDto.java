@@ -13,6 +13,7 @@ public class RoomReservationDto {
 	private String mate;	//여행메이트여부
 	private String totalPrice;	//총가격
 	private String rangeDate; //여행날짜 범위
+	private int seq_intro;
 	
 
 

@@ -9,6 +9,7 @@ import com.mvc.Final.model.dao.TravelmateDaoImpl;
 import com.mvc.Final.model.dto.LoginDto;
 import com.mvc.Final.model.dto.RoomReservationDto;
 import com.mvc.Final.model.dto.RoomTotalDto;
+import com.mvc.Final.model.dto.Rooms_photoDto;
 
 @Service
 public class TravelmateBizImpl {
@@ -31,6 +32,17 @@ public class TravelmateBizImpl {
 	public LoginDto memberInfo(int seq_m) {
 		return tmdao.memberInfo(seq_m);
 	}
+
+	public List<String> photo(int seq_intro) {
+		return tmdao.photoinfo(seq_intro);
+	}
+	
+	
+
+	/*
+	 * public Rooms_photoDto matePhoto(int seq_intro) { return
+	 * tmdao.matePhoto(seq_intro); }
+	 */
 
 
 }
