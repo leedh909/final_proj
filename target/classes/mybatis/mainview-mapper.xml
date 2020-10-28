@@ -8,11 +8,11 @@
 <mapper namespace="mainview">
 
 	<select id="mateList" parameterType="mainviewDto" resultType="mainviewDto">
-		SELECT seq_rm, room_name, addr, seq_mate, profile, check_in, check_out, seq_re
+		SELECT seq_rm, room_name, addr, profile, check_in, check_out, seq_re
 		FROM (
-			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, T.SEQ_MATE seq_mate, M.PROFILE profile,R2.CHECK_IN check_in, R2.CHECK_OUT check_out, R2.SEQ_RE seq_re
-			FROM MATE T, ROOM R, RESERVATION R2, MEMBER M
-			WHERE T.SEQ_RE = R2.SEQ_RE AND R2.SEQ_RM = R.SEQ_RM AND R2.SEQ_M = M.SEQ_M
+			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, M.PROFILE profile, R2.CHECK_IN check_in, R2.CHECK_OUT check_out, R2.SEQ_RE seq_re
+			FROM ROOM R, RESERVATION R2, MEMBER M
+			WHERE R2.SEQ_RM = R.SEQ_RM AND R2.SEQ_M = M.SEQ_M AND R2.MATE = 'Y'
 			ORDER BY DBMS_RANDOM.VALUE
 		)
 		<![CDATA[where rownum <= 4]]>

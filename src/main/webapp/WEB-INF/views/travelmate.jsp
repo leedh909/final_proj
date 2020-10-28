@@ -49,18 +49,7 @@
     	
     	/* $("select[name=셀렉트박스name]").val(); */
     	
-    	function value_check(){
-    		var select_obj='';
-    		$('input[type="radio"]:checked').each(function (index){
-    			if(index != 0){
-    				select_obj += ',';
-    			}
-    			select_obj += $(this).val();
-    		});
-    		
-    		alert(select_obj);
-    		
-    	}
+    	
     </script>
   
    	<style type="text/css">
