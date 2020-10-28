@@ -131,7 +131,7 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
 
-		  <li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
+		  
           <!-- 숙소정보를 보여줄때 사용할듯 -->
           <!-- <li class="nav-item"><a href="rooms.do" class="nav-link">place to stay</a></li> -->
 
@@ -144,6 +144,7 @@
 				<li class="nav-item cta"><a href="logout.do" class="nav-link"><span>LOGOUT</span></a></li>
          	</c:when>
          	<c:otherwise>
+	         	<li class="nav-item"><a href="travelmate.do" class="nav-link">TravelMate</a></li>
          		<li class="nav-item"><a href="find.do" class="nav-link">친구찾기</a></li>
          		<li class="nav-item"><a href="box.do" class="nav-link">메세지함 <span id="unread" class="label label-info" style="background-color:#5bc0de;    display: inline; padding: .2em .6em .3em;
     				font-size: 75%; font-weight: 700; line-height: 1; color: #fff; text-align: center; 

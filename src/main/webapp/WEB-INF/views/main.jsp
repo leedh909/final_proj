@@ -484,9 +484,9 @@
 				<c:forEach items="${placeList}" var="pldto">
 					<div class="col-sm col-md-6 col-lg ftco-animate">
 						<div class="destination">
-							<a href="#"
+							<a href="room_detail.do?seq_rm=${pldto.seq_rm }"
 								class="img img-2 d-flex justify-content-center align-items-center"
-								style="background-image: url(images/destination-1.jpg);">
+								style="background-image: url(storage/rooms/${pldto.hostid}roomimage1.JPG);">
 								<div
 									class="icon d-flex justify-content-center align-items-center">
 									<span class="icon-search2"></span>
@@ -500,7 +500,7 @@
 										</h3>
 									</div>
 									<div class="two">
-										<span class="price">$${pldto.price }</span>
+										<span class="price" style="font-size:14px;" >${pldto.price}원 </span>
 									</div>
 								</div>
 								<p>${pldto.intro }</p>

@@ -721,7 +721,7 @@ public class RoomsController {
 			   int i =0;
 			for (MultipartFile mf : fileList) {
 				i++;
-				String name = ((LoginDto)session.getAttribute("login")).getId()+"roomimage"+i+".jpg";
+				String name = ((LoginDto)session.getAttribute("login")).getId()+"roomimage"+i+".JPG";
 				String originFileName = mf.getOriginalFilename(); // 원본 파일 명
 				long fileSize = mf.getSize(); // 파일 사이즈
 

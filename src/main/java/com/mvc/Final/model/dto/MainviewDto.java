@@ -10,6 +10,7 @@ public class MainviewDto {
     private String addr;
     private String intro;
     private int price;
+    private	String hostid;
     
     //Travelmate 소개에 필요한 정보
     private int seq_mate;
@@ -19,14 +20,15 @@ public class MainviewDto {
     
     public MainviewDto() {}
 
-	public MainviewDto(int seq_rm, String room_name, String addr, String intro, int price, int seq_mate, String profile,
-			Date check_in, Date check_out) {
+	public MainviewDto(int seq_rm, String room_name, String addr, String intro, int price, String hostid, int seq_mate,
+			String profile, Date check_in, Date check_out) {
 		super();
 		this.seq_rm = seq_rm;
 		this.room_name = room_name;
 		this.addr = addr;
 		this.intro = intro;
 		this.price = price;
+		this.hostid = hostid;
 		this.seq_mate = seq_mate;
 		this.profile = profile;
 		this.check_in = check_in;
@@ -73,6 +75,14 @@ public class MainviewDto {
 		this.price = price;
 	}
 
+	public String getHostid() {
+		return hostid;
+	}
+
+	public void setHostid(String hostid) {
+		this.hostid = hostid;
+	}
+
 	public int getSeq_mate() {
 		return seq_mate;
 	}
@@ -104,6 +114,8 @@ public class MainviewDto {
 	public void setCheck_out(Date check_out) {
 		this.check_out = check_out;
 	}
+
+	
     
 	
     

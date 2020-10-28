@@ -220,27 +220,56 @@
 	}
 
 	function addChat(chatName, chatContent, chatTime){
-		$('#chatList').append('<div class="row">'+
-				'<div class="col-lg-12">'+
-				'<div class="media">'+
-				'<a class="pull-left" href="#">'+
-				'<img class="media-object img-circle" style="width:30px; height:30px;" src="storage/profile/baseprofile.jpg" alt="">'+
-				'</a>'+
-				'<div class="media-body">'+
-				'<h4 class="media-heading">'+
-				chatName+
-				'<span class="small pull-right">'+
-				chatTime +
-				'</span>'+
-				'</h4>'+
-				'<p>'+
-				chatContent+
-				'</p>'+
-				'</div>'+
-				'</div>'+
-				'</div>'+
-				'</div>'+
-				'<hr>');
+		
+		if(chatName=='나'){
+			$('#chatList').append('<div class="row">'+
+					'<div class="col-lg-12">'+
+					'<div class="media">'+
+					'<a class="pull-left" href="#">'+
+					'<img class="media-object img-circle" style="width:30px; height:30px;" src="storage/profile/${login.getId()  }image.JPG" alt="">'+
+					'</a>'+
+					'<div class="media-body">'+
+					'<h4 class="media-heading">'+
+					chatName+
+					'<span class="small pull-right">'+
+					chatTime +
+					'</span>'+
+					'</h4>'+
+					'<p>'+
+					chatContent+
+					'</p>'+
+					'</div>'+
+					'</div>'+
+					'</div>'+
+					'</div>'+
+					'<hr>');
+			
+		}else{
+			$('#chatList').append('<div class="row">'+
+					'<div class="col-lg-12">'+
+					'<div class="media">'+
+					'<a class="pull-left" href="#">'+
+					'<img class="media-object img-circle" style="width:30px; height:30px;" src="storage/profile/${toID}image.JPG" alt="">'+
+					'</a>'+
+					'<div class="media-body">'+
+					'<h4 class="media-heading">'+
+					chatName+
+					'<span class="small pull-right">'+
+					chatTime +
+					'</span>'+
+					'</h4>'+
+					'<p>'+
+					chatContent+
+					'</p>'+
+					'</div>'+
+					'</div>'+
+					'</div>'+
+					'</div>'+
+					'<hr>');
+			
+		}
+		
+		
 		$('#chatList').scrollTop($('#chatList')[0].scrollMeight);
 		
 	}

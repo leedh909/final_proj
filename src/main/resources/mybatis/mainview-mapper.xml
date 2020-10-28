@@ -19,10 +19,11 @@
 	</select>
 	
 	<select id="placeList" parameterType="mainviewDto" resultType="mainviewDto">
-		SELECT seq_rm, room_name, addr, intro, price
+		SELECT seq_rm, room_name, addr, intro, price, hostid
 		FROM (
-			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, R.INTRO intro, R.PRICE price
-			FROM ROOM R
+			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, R.INTRO intro, R.PRICE price, M.ID hostid
+			FROM ROOM R, MEMBER M, HOST H
+			WHERE R.SEQ_H = H.SEQ_H AND M.SEQ_M = H.SEQ_M
 			ORDER BY DBMS_RANDOM.VALUE
 		)
 		<![CDATA[where rownum <= 5]]>
