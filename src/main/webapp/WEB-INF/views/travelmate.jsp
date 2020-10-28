@@ -49,22 +49,12 @@
     	
     	/* $("select[name=셀렉트박스name]").val(); */
     	
-    	function value_check(){
-    		var select_obj='';
-    		$('input[type="radio"]:checked').each(function (index){
-    			if(index != 0){
-    				select_obj += ',';
-    			}
-    			select_obj += $(this).val();
-    		});
-    		
-    		alert(select_obj);
-    	}
+    	
     </script>
   
    	<style type="text/css">
   		div#s_left{
-  			width:500px;
+  			width:350px;
   			height:1200px;
   			float:left;
   			text-align:center;
@@ -74,7 +64,8 @@
   			float:left;
   			z-index:1;
   			text-align:center;
-  			overflow:auto; width:1400px; height:1200px;
+  			overflow:auto;
+  			width:70%;
   		}
   		div#s_right::-webkit-scrollbar {
 		    width: 10px;
@@ -85,19 +76,20 @@
 		    background-clip: padding-box;
 		    border: 2px solid transparent;
 		  }
-		div#s_right::-webkit-scrollbar-track {
+	/* 	div#s_right::-webkit-scrollbar-track {
 		    background-color: grey;
 		    border-radius: 10px;
 		    box-shadow: inset 0px 0px 5px white;
-		  }
+		  } */
   		.mate{
   			width:950px;
   			height:200px;
   			border: 1px solid #F2F2F2;
   			background-color:white;
   			position: relative;
- 			left: 150px;
- 			top: 100px;
+ 			left: 10px;
+ 			margin-top:25px;
+ 			margin-bottom:25px;
  			border-radius: 20px 20px 20px 20px / 20px 20px 20px 20px;
  			box-shadow: 5px 5px 5px 5px gray;
  			
@@ -170,7 +162,7 @@
 		}
   	</style> 
   </head>
-  <body style="width:2000px;">
+  <body>
 <!-- 헤더 -->    
 	<div id="header">
 		<jsp:include page="header.jsp" />
@@ -197,6 +189,7 @@
 			<br><br>
 			<h1 style=""><em>지역</em></h1>
 			<select style="text-align: center;" name="local" id="local" onchange="">
+	            <option name="local" style="text-align: center;">전체</option>
 	            <option name="local" style="text-align: center;">서울</option>
 	            <option name="local" style="text-align: center;">부산</option>
 	            <option name="local" style="text-align: center;">대전</option>
@@ -208,45 +201,51 @@
         	</select>
         	<br><br>
         	<h1 style=""><em>인원</em></h1>
-			<select style="text-align: center;" id="people" onchange="">
-	            <option name="person" value="1" style="text-align: center;">1명 </option>
-	            <option name="person" value="2" style="text-align: center;">2명</option>
-	            <option name="person" value="3" style="text-align: center;">3명</option>
-	            <option name="person" value="4" style="text-align: center;">4명</option>
+			<select style="text-align: center;" id="people" name="person" onchange="">
+	            <option  value="0" style="text-align: center;">선택</option>
+	            <option  value="1" style="text-align: center;">1명</option>
+	            <option  value="2" style="text-align: center;">2명</option>
+	            <option  value="3" style="text-align: center;">3명</option>
+	            <option  value="4" style="text-align: center;">4명</option>
         	</select>
         	<br><br>
         	<h1 style=""><em>방 갯수</em></h1>
-			<select style="text-align: center;" id="room" onchange="">
-	            <option name="bed_room" value="1" style="text-align: center;">1개 </option>
-	            <option name="bed_room" value="2" style="text-align: center;">2개</option>
-	            <option name="bed_room" value="3" style="text-align: center;">3개</option>
-	            <option name="bed_room" value="4" style="text-align: center;">4개</option>
+			<select style="text-align: center;" id="room" name="bed_room" onchange="">
+	            <option  value="0" style="text-align: center;">선택 </option>
+	            <option  value="1" style="text-align: center;">1개 </option>
+	            <option  value="2" style="text-align: center;">2개</option>
+	            <option  value="3" style="text-align: center;">3개</option>
+	            <option value="4" style="text-align: center;">4개</option>
         	</select>
 			<br><br><br>
 			<h1 style=""><em>Filtering</em></h1>
 			<br>
 			<div>
 			<label style="font-weight: bold;">Kid: </label> 
-			<input type="radio" value="kid" name="kid" id="ky">Yes
+			<input type="radio" value="어린이" name="kid" id="ky">Yes
 	   		<input type="radio" value="null" name="kid" id="kn">No
+	   		<input type="radio" value="no" name="kid" id="kall" checked="checked">상관없음
 			</div>
 			<hr>
 			<div>
 			<label style="font-weight: bold;">Baby: </label> 
-			<input type="radio" value="baby" name="Baby" id="by">Yes
+			<input type="radio" value="유아" name="Baby" id="by">Yes
 	   		<input type="radio" value="null" name="Baby" id="bn">No
+	   		<input type="radio" value="no" name="Baby" id="ball" checked="checked">상관없음
 			</div>
 			<hr>
 			<div>
 			<label style="font-weight: bold;">Pet: </label>
-			<input type="radio" value="pet" name="pet" id="py">Yes
+			<input type="radio" value="반려동물" name="pet" id="py">Yes
 	   		<input type="radio" value="null" name="pet" id="pn">No
+	   		<input type="radio" value="no" name="pet" id="pall" checked="checked">상관없음
 			</div>
 			<hr>
 			<div>
 		    <label style="font-weight: bold;">Smoke: </label>
-		    <input type="radio" value="smokey" name="smoke" id="sy">Yes
+		    <input type="radio" value="흡연" name="smoke" id="sy">Yes
 	   		<input type="radio" value="null" name="smoke" id="sn">No
+	   		<input type="radio" value="no" name="smoke" id="sall" checked="checked">상관없음
 			</div>
 			<hr>
 			<br>
@@ -290,8 +289,8 @@
 											<td align="center">${tmdto.reservation.people }명/${tmdto.room.person }명</td>
 										</tr>
 										<tr >
-											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>숙소 소개</b></td>
-											<td colspan="3" >${tmdto.intro.context }</td>
+											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>숙소 이름</b></td>
+											<td colspan="3" >${tmdto.intro.title }</td>
 										</tr>
 										<tr >
 											<td class="tdwidth" bgcolor="#F7F2E0" align="center"><b>행사 및 파티 규정</b></td>
@@ -337,7 +336,7 @@
 						<button class="bt" type="button" onclick="location.href='travelmatedetail.do'">matching</button>
 					</div>
 				</div> -->
-			 <!-- 페이징 -->
+			 <!--  페이징
 	         <div class="row mt-5" id="c_right">
 	          <div class="col text-center">
 	            <div class="block-27">
@@ -352,7 +351,7 @@
 	              </ul>
 	            </div>
 	          </div>
-	        </div> 
+	        </div>  -->
 		</div>
 	</div>
 </div>	        

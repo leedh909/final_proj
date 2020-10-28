@@ -122,11 +122,53 @@
 		<collection property="intro" resultMap="rooms_introDto" />
 	</resultMap>
 
-	<!-- travelmate 리스트 뽑기 -->
-	<select id="travelmateList" resultMap="mateList">
+	<!-- travelmate 리스트 뽑기 근데 이게 첫화면에 나와야하는거야?ㅇㅇㅇㅇㅇㅇ 첫화면에 모든게 나와야함 이론대로아아오키 잠시만 글링-->
+	<select id="travelmateList" resultMap="mateList" parameterType="java.util.HashMap">
 		SELECT R.* ,U.* , R2.* , M.*, I.*  
 		FROM ROOM R , RULE U, RESERVATION R2, MEMBER M, INTRO I
 		WHERE R2.MATE = 'Y' AND R.SEQ_RM = U.SEQ_RM AND R.SEQ_RM = R2.SEQ_RM AND M.SEQ_M = R2.SEQ_M AND R.SEQ_RM = I.SEQ_RM
+		 <if test="local != null and !local.equals('전체')">
+		   AND R.ADDR LIKE '%'||#{local}||'%'
+		 </if>
+		 <if test="person != null and person != 0">
+		   AND R.PERSON = #{person}
+		 </if>
+		 <if test="bed_room != null and bed_room != 0">
+		   AND R.BED_ROOM = #{bed_room}
+		 </if>
+		 <choose>
+		 	<when test="kid != null and kid.equals('어린이')">
+				AND U.KID = #{kid}
+		 	</when>
+		 	<when test="kid != null and kid.equals('null')">
+		 		AND U.KID IS NULL 
+		 	</when>
+		 </choose>
+		 <choose>
+		 	<when test="Baby != null and Baby.equals('유아')">
+				AND U.BABY = #{Baby}
+		 	</when>
+		 	<when test="Baby != null and Baby.equals('null')">
+		 		AND U.BABY IS NULL 
+		 	</when>
+		 </choose>
+		 <choose>
+		 	<when test="pet != null and pet.equals('반려동물')">
+		 		AND U.PET = #{pet}
+		 	</when>
+		 	<when test="pet != null and pet.equals('null')">
+		 		AND U.PET IS NULL
+		 	</when>
+		 </choose>
+		 <choose> 
+		 	<when test="smoke != null and smoke.equals('흡연')">
+		 		AND U.SMOKE = #{smoke}
+		 	</when>
+		 	<when test="smoke != null and smoke.equals('null')">
+		 		AND U.SMOKE IS NULL
+		 	</when>
+		 </choose>
+		
 	</select>
 	
 	<!-- 예약정보 가져오기 -->

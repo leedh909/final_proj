@@ -594,7 +594,7 @@
 				    </tbody>
 					</table>
 			 		<div>
-						<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='find.do'">채팅하기</button>
+						<button type="button" id="btn1" class="btn" value="apply" onclick="location.href='chat.do?toID=${mateInfo.id}'">채팅하기</button>
 					</div>
 					<div>
 						<button type="button" id="btn2" class="btn" value="cancel" onclick="location.href='travelmate.do'">취소</button>

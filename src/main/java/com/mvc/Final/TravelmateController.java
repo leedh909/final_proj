@@ -1,7 +1,9 @@
 package com.mvc.Final;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,12 +37,27 @@ public class TravelmateController {
 	private SearchBiz sbiz;
 	
 	@RequestMapping("/travelmate.do")
-	public String travelmate(Model model) {
+	public String travelmate(Model model, String local, String person, String bed_room, String kid, String Baby, String pet, String smoke) {
 		logger.info("Travelmate");
+		System.out.println("local string:"+local);
+		System.out.println("kid:"+kid);
+		
+		Map<String, String> map = new HashMap<String,String>();
+		map.put("local", local);
+		map.put("person", person);
+		map.put("bed_room",bed_room);
+		map.put("kid", kid);
+		map.put("Baby", Baby);
+		map.put("pet", pet);
+		map.put("smoke", smoke); // 맵퍼 : ㅇㅇ
+		System.out.println("smoke:"+smoke);
+		System.out.println("local:"+map.get("local"));
+		System.out.println("person:"+map.get("person"));
+		System.out.println("bed_room:"+map.get("bed_room"));
 		
 		//mate 'Y' 인 roomlist 가져오기
 		List<RoomTotalDto> roomList = new ArrayList<RoomTotalDto>();
-		roomList = tmbiz.selectList();
+		roomList = tmbiz.selectList(map);
 		//mate 정보 
 		for(int i=0; i<roomList.size();i++) {
 			

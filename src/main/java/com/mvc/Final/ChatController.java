@@ -1,8 +1,13 @@
 package com.mvc.Final;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mvc.Final.model.biz.ChatBiz;
 import com.mvc.Final.model.biz.LoginBiz;
 import com.mvc.Final.model.dto.ChatDto;
+import com.mvc.Final.model.dto.LoginDto;
 
 @Controller
 public class ChatController {
@@ -29,11 +35,29 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 	
 	
 	@RequestMapping("/chat.do")
-	public String chat2(Model model, String toID) {
+	public String chat2(Model model, String toID, HttpSession session,HttpServletResponse response) {
 		logger.info("Chat");
+		String returnView = "";
 		System.out.println("chat.do 의 toID: "+toID);
-		model.addAttribute("toID",toID);
-		return "chat";
+		if((LoginDto)session.getAttribute("login")!=null) {
+			model.addAttribute("toID",toID);
+			returnView = "chat";
+		}else {
+			try {
+				String msg ="로그인이 필요한 서비스 입니다.";
+				PrintWriter out = response.getWriter();
+				response.setContentType("text/html; charset=UTF-8");
+				//로그인페이지로 바꿔줘야함 
+				out.println("<script>alert('"+msg+"');</script>");
+				out.flush();
+				
+				returnView = "againlogin";
+			} catch (IOException e) {
+				System.out.println("printWriter error");
+				e.printStackTrace();
+			}
+		}
+		return returnView;
 	}
 	
 	@RequestMapping("/find.do")
