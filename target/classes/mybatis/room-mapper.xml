@@ -137,6 +137,7 @@
 			WHERE r.SEQ_H IN (SELECT h.SEQ_H FROM HOST h WHERE STATE = 'Y')
 			AND r.ADDR LIKE #{address}
 			AND r.PERSON >= #{guestNum}
+			ORDER BY r.ADDR
 		<include refid="pagingFooter"></include>
 	</select>
 	
