@@ -5,6 +5,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mypage">
+    <resultMap type="rqDto" id="rqDto">
+        <result column="SEQ_RQ" property="seq_rq"/>
+		<result column="RQ_ID" property="rq_id"/>
+		<result column="RQ_NAME" property="rq_name"/>
+		<result column="RQ_TITLE" property="rq_title"/>
+		<result column="RQ_CONTEXT" property="rq_context"/>
+		<result column="RQ_DATE" property="rq_date"/>  
+     </resultMap>
 
 	<select id="selectHost" resultType="hostDto">
 		SELECT H.SEQ_H seq_h, M.ID id, M.NAME name, M.PHONE phone
@@ -23,7 +31,10 @@
 		FROM REQUIREMENTS
 		ORDER BY SEQ_RQ DESC
 	</select>
-
+    <insert id="insertrq" parameterType="rqDto">
+      INSERT INTO REQUIREMENTS VALUES(SEQ_RQ.NEXTVAL, #{rq_id}, #{rq_name}, #{rq_title}, #{rq_context}, SYSDATE)
+   </insert>
+   
 	<select id="selectReservation" parameterType="String" resultType="reservationDto">
 		SELECT R.SEQ_RE seq_re, R2.ROOM_NAME room_name, R.CHECK_IN check_in,R.CHECK_OUT check_out, R.PEOPLE people, R.TOTALPRICE price 
 		FROM MEMBER M , RESERVATION R , ROOM R2 

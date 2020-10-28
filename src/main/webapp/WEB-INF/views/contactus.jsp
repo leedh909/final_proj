@@ -73,7 +73,7 @@
 						<img src="images/img-01.png" alt="IMG">
 					</div>
 
-					<form class="contact100-form validate-form" action="#" method="POST">
+					<form class="contact100-form validate-form" action="insertcontact.do" method="GET">
 						<span class="contact100-form-title">문의 내용을 보내주세요.</span>
 
 						<div class="wrap-input100 validate-input"

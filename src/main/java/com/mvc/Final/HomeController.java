@@ -1,8 +1,10 @@
 
 package com.mvc.Final;
 
-import java.util.Date;
 import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mvc.Final.model.biz.MainviewBiz;
+import com.mvc.Final.model.biz.RequireBiz;
+import com.mvc.Final.model.dto.LoginDto;
+import com.mvc.Final.model.dto.RequireDto;
 
 @Controller
 public class HomeController {
@@ -21,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private MainviewBiz mvbiz;
+	
+	@Autowired
+	private RequireBiz rbiz;
 	
 	
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
@@ -70,15 +78,37 @@ public class HomeController {
 		return "refundPolicy";
 	}
 	
-	@RequestMapping("/contactus.do")
-	public String contactUs() {
+	@RequestMapping(value= "/insertcontact.do", method = RequestMethod.GET)
+	public String contactUs(HttpServletRequest request, HttpSession session, String name, String title, String Message) {
 		logger.info("Contact Us");
-		return "contactus";
+		RequireDto rdto = new RequireDto();
+		
+		String id = ((LoginDto)session.getAttribute("login")).getId();
+		
+		rdto.setRq_id(id);
+		rdto.setRq_name(name);
+		rdto.setRq_title(title);
+		rdto.setRq_context(Message);
+		
+		 System.out.println("getname-->" + rdto.getRq_name());
+	     System.out.println("gettitle-->" + rdto.getRq_title());
+	     System.out.println("getcontext-->" + rdto.getRq_context());
+	     
+	     rbiz.insertrequire(rdto);
+	     
+		  
+		return "main";
 	}
 	@RequestMapping("/whatistravelmate.do")
 	public String whatIsTravelMate() {
 		logger.info("What is travel mate");
 		return "whatIsTravelMate";
+	}
+	
+	@RequestMapping("/contactus.do")
+	public String contactUs() {
+		logger.info("Contact Us");
+		return "contactus";
 	}
 	
 }
