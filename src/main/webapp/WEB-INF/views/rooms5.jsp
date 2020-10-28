@@ -119,7 +119,7 @@
                                      <h5 style="margin-left:30px;">체크인 / 체크아웃 시간을 설정해주세요</h5>
                                        <h6 style="margin-left:30px;">체크인 시간</h6>
                                           <p style="margin-left:30px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkin_time"></p>
-                                       <h6 style="margin-left:250px; margin-top: -58px;">체크아웃 시간</h6>
+                                       <h6 style="margin-left:250px; margin-top: -71px;">체크아웃 시간</h6>
                                           <p style="margin-left:250px;"><input type="time" value="00:00" min="00:00" max="23:59" name="checkout_time"></p>
                                           <br><br>
                                             <div class="row mt-5">
