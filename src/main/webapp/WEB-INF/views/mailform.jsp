@@ -12,6 +12,7 @@
 	<h2 align="center">메일 보내기</h2>
 	
     <form action="mailSending.do" method="post">
+   		<input type="hidden" name="seq_h" value="${seq_h }">
       <div align="center" style="padding-top:20px;">
       	<div>상대 이메일</div>
         <input type="text" name="tomail" size="200" style="width: 30%" value="${email }" readonly="readonly">

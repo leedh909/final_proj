@@ -17,6 +17,7 @@ public class MainviewDto {
     private String profile;
     private Date check_in;
     private Date check_out;
+    private int seq_re;
     
     public MainviewDto() {}
 

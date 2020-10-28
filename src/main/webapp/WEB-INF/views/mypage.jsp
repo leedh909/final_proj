@@ -141,7 +141,7 @@
 									<td>
 					               		<input type="button" value="승인" class="buttonset2" onclick="location.href='approve.do?seq_h=${hdto.seq_h}'">
 					                        &nbsp;&nbsp;
-					                    <input type="button" value="보류" class="buttonset1" onclick="location.href='mailform.do?seq_m=${hdto.seq_m}'">
+					                    <input type="button" value="보류" class="buttonset1" onclick="location.href='mailform.do?seq_m=${hdto.seq_m}&seq_h=${hdto.seq_h }'">
 						            </td>
 								</tr>
 							</c:forEach>
