@@ -103,6 +103,7 @@
 		<collection property="facility" resultMap="rooms_facilityDto" />
 		<collection property="rule" resultMap="rooms_ruleDto" />
 		<collection property="safety" resultMap="rooms_safetyDto" />
+		<collection property="intro" resultMap="rooms_introDto" />
 	</resultMap>
 	<!-- <resultMap type="roomTotalDto" id="roomTotalDtoMate">
 		<collection property="room" resultMap="roomsDto" />
@@ -136,13 +137,19 @@
 	
 	<!-- travelmate 등록된 숙소 정보 하나선택 -->
 	<select id="mateDetail" parameterType="int" resultMap="roomTotalDtoMate">
-		SELECT r.*,d.*,f.*,u.*,s.*
+		SELECT r.*,d.*,f.*,u.*,s.*,i.*
 		FROM ROOM r
 		JOIN DETAIL d ON(r.SEQ_RM = d.SEQ_RM)
 		JOIN FACILITY f ON(r.SEQ_RM = f.SEQ_RM)
 		JOIN RULE u ON(r.SEQ_RM = u.SEQ_RM)
 		JOIN SAFETY s ON(r.SEQ_RM = s.SEQ_RM)
+		JOIN INTRO i ON(i.SEQ_RM = r.SEQ_RM)
 		WHERE r.SEQ_RM = #{seq_rm}
+	</select>
+	<select id="photo" parameterType="int"  resultType="String" >
+		SELECT P_PATH
+		FROM ROOM_P 
+		WHERE SEQ_INTRO = #{seq_intro}
 	</select>
 	<!-- <select id="mateDetail" parameterType="int" resultMap="roomTotalDtoMate">
 		SELECT r.*,d.*,f.*,u.*,s.*,i.*,rp.*

@@ -27,6 +27,14 @@ public class TravelmateDaoImpl {
 			
 			try {
 				tmdto = sqlSession.selectList(NAMESPACE+"travelmateList"); //mapper의 id와 일치시켜야함
+				if(tmdto.isEmpty()) {
+					System.out.println("데이터 안담아옴");
+				}
+				
+				for(int i =0 ; i<tmdto.size();i++) {
+					System.out.println(tmdto.get(i).getIntro());
+				}
+				
 			} catch (Exception e) {
 				System.out.println("error: travelmatelist");
 				e.printStackTrace();
@@ -68,6 +76,19 @@ public class TravelmateDaoImpl {
 				res=sqlSession.selectOne(NAMESPACE+"memberInfo",seq_m);
 			} catch (Exception e) {
 				System.out.println("error: memberInfo");
+				e.printStackTrace();
+			}
+			
+			return res;
+		}
+
+		public List<String> photoinfo(int seq_intro) {
+			List<String> res= new ArrayList<String>();
+			
+			try {
+				res=sqlSession.selectList(NAMESPACE+"photo",seq_intro);
+			} catch (Exception e) {
+				System.out.println("error: photoinfo");
 				e.printStackTrace();
 			}
 			

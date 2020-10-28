@@ -42,6 +42,12 @@ public class TravelmateController {
 		List<RoomTotalDto> roomList = new ArrayList<RoomTotalDto>();
 		roomList = tmbiz.selectList();
 		//mate 정보 
+		for(int i=0; i<roomList.size();i++) {
+			
+			System.out.println(roomList.get(i).getIntro().getContext());
+		}
+		
+		
 		
 		model.addAttribute("tmlist",roomList);
 		
@@ -64,8 +70,8 @@ public class TravelmateController {
 		RoomTotalDto roominfo = tmbiz.mateDetail(seq_rm);
 		
 		//숙소 사진
-		//int seq_intro = re.getSeq_rm();
-		//Rooms_photoDto photoinfo = tmbiz.matePhoto(seq_intro);
+		int seq_intro = roominfo.getIntro().getSeq_intro();
+		List<String> roomphoto = tmbiz.photo(seq_intro);
 		
 		String[] detail = roominfo.getDetail().toString().split(",");
 	    String[] facility = roominfo.getFacility().toString().split(",");
@@ -84,7 +90,7 @@ public class TravelmateController {
 		model.addAttribute("safety",safety);
 		model.addAttribute("rule",rule);
 		model.addAttribute("re",re);
-		//model.addAttribute("photoinfo",photoinfo);
+		model.addAttribute("roomphoto",roomphoto);
 		
 		return "travelmatedetail";
 	}

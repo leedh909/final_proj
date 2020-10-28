@@ -284,31 +284,31 @@
 			</div>
 			 		  <div class="roomdiv1" style="background-color: black; height:500px; width:500px; ">
 						  <div class="w3-container w3-third" id="room1">
-						    <img src="" style="cursor:pointer" 
+						    <img src="storage/rooms/${roomphoto[0] }" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room1">
 						  </div>
 					  </div>
 					  <div class="roomdiv2" style="background-color: black; height:240px; width:340px; ">
 						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-2.jpg" style="cursor:pointer" 
+						    <img src="storage/rooms/${roomphoto[1] }" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
 						  </div>
 					  </div>
 					  <div class="roomdiv3" style="background-color: black; height:240px; width:340px; ">
 						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-3.jpg" style="cursor:pointer" 
+						    <img src="storage/rooms/${roomphoto[2] }" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
 						  </div>
 					  </div>
 					  <div class="roomdiv4" style="background-color: black; height:240px; width:340px; ">
 						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-4.jpg" style="cursor:pointer" 
+						    <img src="storage/rooms/${roomphoto[3] }" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
 						  </div>
 					  </div>
 					  <div class="roomdiv5" style="background-color: black; height:240px; width:340px; ">
 						  <div class="w3-container w3-third" id="room2">
-						    <img src="images/room-5.jpg" style="cursor:pointer" 
+						    <img src="storage/rooms/${roomphoto[4] }" style="cursor:pointer" 
 						   	 onclick="onClick(this)" class="w3-hover-opacity" id="room2">
 						  </div>
 					  </div> 

@@ -33,6 +33,12 @@ public class TravelmateBizImpl {
 		return tmdao.memberInfo(seq_m);
 	}
 
+	public List<String> photo(int seq_intro) {
+		return tmdao.photoinfo(seq_intro);
+	}
+	
+	
+
 	/*
 	 * public Rooms_photoDto matePhoto(int seq_intro) { return
 	 * tmdao.matePhoto(seq_intro); }
