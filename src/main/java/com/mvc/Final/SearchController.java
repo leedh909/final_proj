@@ -54,9 +54,6 @@ public class SearchController {
 		
 		//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
 		List<RoomTotalDto> searchList = biz.search(searchO);
-		System.out.println(searchList.get(0).getDetail().getAircondition());
-		System.out.println(searchList.get(0).getDetail().getDesk());
-		System.out.println(searchList.get(0).getDetail().getWifi());
 		
 		//검색 리스트 숙소사진 가져오기
 		int seq_intro[] = new int[searchList.size()];
@@ -92,10 +89,12 @@ public class SearchController {
 		//호스트 정보가지고오기 
 		int hostNum = roomInfo.getRoom().getSeq_h();
 		LoginDto hostInfo = biz.memberInfo(hostNum);
+		System.out.println("host: "+hostInfo.getProfile());
 		
 		//숙소 사진 가지고 오기
 		int seq_intro = roomInfo.getIntro().getSeq_intro();
 		List<String> picture = biz.onePicture(seq_intro);
+		
 		
 		//로그인 한 회원
 		String id;
