@@ -170,7 +170,7 @@
 		}
   	</style> 
   </head>
-  <body>
+  <body style="width:2000px;">
 <!-- 헤더 -->    
 	<div id="header">
 		<jsp:include page="header.jsp" />
