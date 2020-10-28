@@ -46,7 +46,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		long time = new Date().getTime();
 	
 		System.out.println("저장된 파일 경로: "+path);
-		String filename = login+"image.jpg";
+		String filename = login+"image.JPG";
 
 		//ADMIN의 데이터
 		model.addAttribute("hclist",mbiz.selectHostChk());
@@ -124,7 +124,7 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 			
 		}else {
 			MultipartFile file = uploadFile.getMpfile();
-			String name = ((LoginDto)session.getAttribute("login")).getId()+"image.jpg";
+			String name = ((LoginDto)session.getAttribute("login")).getId()+"image.JPG";
 			
 			UploadFile fileObj = new  UploadFile();
 			fileObj.setName(name);

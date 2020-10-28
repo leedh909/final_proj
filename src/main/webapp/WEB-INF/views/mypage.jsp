@@ -141,7 +141,7 @@
 									<td>
 					               		<input type="button" value="승인" class="buttonset2" onclick="location.href='approve.do?seq_h=${hdto.seq_h}'">
 					                        &nbsp;&nbsp;
-					                    <input type="button" value="보류" class="buttonset1" onclick="location.href='mailform.do?seq_m=${hdto.seq_m}'">
+					                    <input type="button" value="보류" class="buttonset1" onclick="location.href='mailform.do?seq_m=${hdto.seq_m}&seq_h=${hdto.seq_h }'">
 						            </td>
 								</tr>
 							</c:forEach>
@@ -236,7 +236,7 @@
 	        	<c:when test="${empty login.getProfile()}">
 	        		<div class="w3-border" style="background-color:white; border-style: groove; border-width: 2px;">
 	        			<div class="w3-container">
-	        				<img src="storage/profile/baseprofile.jpg" alt="기본이미지입니다." style="width:200px; height:200px; padding: 15px;" class="w3-circle"
+	        				<img src="storage/profile/baseprofile.JPG" alt="기본이미지입니다." style="width:200px; height:200px; padding: 15px;" class="w3-circle"
 	        					onclick="document.getElementById('id02').style.display='block'">
 	        			</div>
 	        			<div class="w3-container" style="text-align: center;">
@@ -271,7 +271,7 @@
 		        	<div class="w3-container">
 		        		<div class="w3-border" style="background-color:white;">
 		        			<div class="w3-container">
-		        				<img src="storage/profile/${login.getId() }image.jpg?t=${time }" alt="새로고침 해주세요!" style="width:200px; height:200px;" class="w3-circle w3-margin-top"
+		        				<img src="storage/profile/${login.getId() }image.JPG?t=${time }" alt="새로고침 해주세요!" style="width:200px; height:200px;" class="w3-circle w3-margin-top"
 		        					onclick="document.getElementById('id02').style.display='block'">
 		        			</div>
 		        			<div class="w3-container" style="text-align: center;">
@@ -357,10 +357,10 @@
 		        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
 		        <c:choose>
 		        	<c:when test="${empty login.getProfile()}">
-		        		<img src="storage/profile/baseprofile.jpg" alt="null" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
+		        		<img src="storage/profile/baseprofile.JPG" alt="null" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
 		        	</c:when>
 		        	<c:otherwise>
-		        		<img src="storage/profile/${login.getId() }image.jpg?t=${time }" alt="${profile }" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
+		        		<img src="storage/profile/${login.getId() }image.JPG?t=${time }" alt="${profile }" style="width:30%; height:200px;" class="w3-circle w3-margin-top">
 		        	</c:otherwise>
 		        </c:choose>
 		        

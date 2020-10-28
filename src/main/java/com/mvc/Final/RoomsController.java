@@ -74,12 +74,14 @@ public class RoomsController {
 	   
 	   int seq_hh = rbiz.selecthostseq(hdto);
 	   System.out.println("seq_hh: "+seq_hh);
+	   
 	   if(seq_hh == 0) {
 		   int hres = rbiz.inserthost(hdto);
 		   if(hres>0) {
 			   System.out.println("호스트 테이블 컬럼 생성");
 			   int seq_h = rbiz.selecthostseq(hdto);
 			   hdto.setSeq_h(seq_h);
+			   System.out.println("seq_h: "+seq_h);
 		   }
 		   
 	   }
@@ -721,7 +723,7 @@ public class RoomsController {
 			   int i =0;
 			for (MultipartFile mf : fileList) {
 				i++;
-				String name = ((LoginDto)session.getAttribute("login")).getId()+"roomimage"+i+".jpg";
+				String name = ((LoginDto)session.getAttribute("login")).getId()+"roomimage"+i+".JPG";
 				String originFileName = mf.getOriginalFilename(); // 원본 파일 명
 				long fileSize = mf.getSize(); // 파일 사이즈
 
@@ -784,6 +786,7 @@ public class RoomsController {
 //		   System.out.println("seq_intro: "+seq_intro);
 //		    photo.setSeq_intro(seq_intro);
 //		   rbiz.insertphoto(photo);
+			System.out.println("숙소 등록을 완료하였습니다.");
 		  
 		return "main";
 		

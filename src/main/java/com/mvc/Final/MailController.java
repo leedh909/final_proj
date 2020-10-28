@@ -37,14 +37,15 @@ public class MailController {
 	
 	
 	@RequestMapping("/mailform.do")
-	public String mailForm(Model model, int seq_m) {
+	public String mailForm(Model model, int seq_m, int seq_h) {
 		logger.info("MailForm");
 		model.addAttribute("email",mbiz.email(seq_m));
+		model.addAttribute("seq_h",seq_h);
 		return "mailform";
 	}
 	
 	@RequestMapping("/mailSending.do")
-	public String mailSending(HttpServletRequest request) {
+	public String mailSending(HttpServletRequest request, int seq_h) {
 		
 		logger.info("MailSending");
 		
@@ -68,7 +69,15 @@ public class MailController {
 			e.printStackTrace();
 		}
 		
-		return "redirect:mypage.do";
+		System.out.println("seq_h: "+seq_h);
+		int res = mbiz.hdelete(seq_h);
+		System.out.println("res: "+res);
+		if(res>0) {
+			return "redirect:mypage.do";
+		}else {
+			return "redirect:mypage.do";
+		}
+		
 	}
 	
 	

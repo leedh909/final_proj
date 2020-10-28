@@ -84,7 +84,7 @@ public class LoginController {
 			}
 		}else {
 			MultipartFile file = uploadFile.getMpfile();
-			String name = ldto.getId()+"image.jpg";
+			String name = ldto.getId()+"image.JPG";
 			
 			UploadFile fileObj = new  UploadFile();
 			fileObj.setName(name);

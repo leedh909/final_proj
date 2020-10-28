@@ -408,8 +408,8 @@
 						<c:forEach items="${mateList}" var="mtdto">
 							<div class="item">
 								<div class="destination">
-									<a href="#" class="img d-flex justify-content-center align-items-center"
-										style="background-image: url(storage/profile/baseprofile.jpg);">
+									<a href="travelmatedetail.do?seq_re=${mtdto.seq_re }" class="img d-flex justify-content-center align-items-center"
+										style="background-image: url(storage/profile/${mtdto.profile}.JPG);">
 										<div class="icon d-flex justify-content-center align-items-center">
 											<span class="icon-search2"></span>
 										</div>
@@ -423,7 +423,6 @@
 								</div>
 					        </div>
 						</c:forEach>
-					
 						
 						<div class="item">
 							<div class="destination">
@@ -440,24 +439,6 @@
 										<a href="#">Lodon, UK</a>
 									</h3>
 									<span class="listing">10 Listing</span>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="destination">
-								<a href="#"
-									class="img d-flex justify-content-center align-items-center"
-									style="background-image: url(images/destination-4.jpg);">
-									<div
-										class="icon d-flex justify-content-center align-items-center">
-										<span class="icon-search2"></span>
-									</div>
-								</a>
-								<div class="text p-3">
-									<h3>
-										<a href="#">Lion, Singapore</a>
-									</h3>
-									<span class="listing">3 Listing</span>
 								</div>
 							</div>
 						</div>
@@ -484,9 +465,9 @@
 				<c:forEach items="${placeList}" var="pldto">
 					<div class="col-sm col-md-6 col-lg ftco-animate">
 						<div class="destination">
-							<a href="#"
+							<a href="room_detail.do?seq_rm=${pldto.seq_rm }"
 								class="img img-2 d-flex justify-content-center align-items-center"
-								style="background-image: url(images/destination-1.jpg);">
+								style="background-image: url(storage/rooms/${pldto.hostid}roomimage1.JPG);">
 								<div
 									class="icon d-flex justify-content-center align-items-center">
 									<span class="icon-search2"></span>
@@ -500,7 +481,7 @@
 										</h3>
 									</div>
 									<div class="two">
-										<span class="price">$${pldto.price }</span>
+										<span class="price" style="font-size:14px;" >${pldto.price}원 </span>
 									</div>
 								</div>
 								<p>${pldto.intro }</p>
