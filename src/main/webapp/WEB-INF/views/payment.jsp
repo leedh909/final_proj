@@ -21,7 +21,7 @@
 			pg : 'inicis', // version 1.1.0부터 지원.
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			amount : 100, //판매 가격 바꿔야함 
+			amount : '${reservation.totalPrice}', //판매 가격 바꿔야함 
 			buyer_tel :' ${login.phone}',
 			//선택
 			buyer_name : '${login.name}',	
@@ -34,8 +34,8 @@
 				callAjax();	 
 			 
 			} else {
-				var msg = '결제에 실패하였습니다.';
-				msg += '에러내용 : ' + rsp.error_msg;
+				var msg = '결제를 취소하였습니다.';
+				msg += rsp.error_msg;
 			}
 			alert(msg);
 		});
@@ -169,7 +169,7 @@
 													style="display: inline-block; vertical-align: bottom; height: 100%; width: 100%; min-height: 1px;">
 													<img class="_9ofhsl" aria-hidden="true" alt=""
 														id="FMP-target"
-														src="${picture }"
+														src="storage/rooms/${picture }"
 														style="object-fit: cover; vertical-align: bottom;">
 													<div class="_15p4g025"
 														style="background-image: url(&quot;https://a0.muscache.com/im/pictures/miso/Hosting-45712229/original/a9e5a651-b1a7-46d1-8649-dc707e61c389.jpeg?aki_policy=large&quot;); background-size: cover;"></div>

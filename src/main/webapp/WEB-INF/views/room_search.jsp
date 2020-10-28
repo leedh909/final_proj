@@ -339,7 +339,7 @@ function showDivs(n) {
 							<div class="col-lg-5">
 								<div class="w3-contentw3-display-container image" style="margin:0px; wdith:100%;">
 									<c:forEach items="${picture.get(searchList.intro.seq_intro)}" var = "picture">
-										<img class="mySlides" src="images/${picture}" style="width:100%">
+										<img class="mySlides" src="storage/rooms/${picture}" style="width:100%">
 				  						<button style="z-index:1;" class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
 				  						<button style="z-index:1;" class="w3-button w3-white w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 									</c:forEach>
@@ -364,14 +364,20 @@ function showDivs(n) {
 											<span>욕실 ${searchList.room.bath_room}개</span>
 										</p>
 										<p style="padding-top: -9px !important;">
-											<c:if test="${searchList.detail.aircondition ne 'null' && searchList.detail.aircondition ne 'NULL' }">
-												<span>${searchList.detail.aircondition}</span> <span aria-hidden="true"> · </span> 
+											<c:if test="${searchList.detail.aircondition ne 'NULL' && searchList.detail.aircondition ne null && searchList.detail.aircondition ne ' '}">
+												<span>${searchList.detail.aircondition }</span> 
+												<span aria-hidden="true"> &#183; </span> 
 											</c:if>
-											<c:if test="${searchList.detail.wifi ne 'null' && searchList.detail.wifi ne'NULL'}">
-												<span>${searcchList.detail.wifi}</span> <span aria-hidden="true"> · </span> 
+											<c:if test="${searchList.detail.desk ne 'NULL' && searchList.detail.desk ne null && searchList.detail.aircondition ne ' '}">
+												<span>${searchList.detail.desk }</span> 
+												<span aria-hidden="true"> &#183; </span> 
 											</c:if>
-											<c:if test="${searchList.detail.desk ne'null' && searchList.detail.desk ne'NULL'}">
-												<span>${searchList.detail.desk }</span>
+											<c:if test="${searchList.detail.tv ne 'NULL' && searchList.detail.tv ne null && searchList.detail.aircondition ne ' '}">
+												<span>${searchList.detail.tv }</span> 
+												<span aria-hidden="true"> &#183; </span> 
+											</c:if>
+											<c:if test="${searchList.detail.wifi ne 'NULL' && searchList.detail.wifi ne null && searchList.detail.aircondition ne ' '}">
+												<span>${searchList.detail.wifi}</span> 
 											</c:if>
 										</p>
 										<div style="margin-top:50px; margin-bottom:0px;">

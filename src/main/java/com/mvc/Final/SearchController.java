@@ -54,6 +54,9 @@ public class SearchController {
 		
 		//검색조건에 맞는 호스트 등록된 숙소정보, 세부사항 
 		List<RoomTotalDto> searchList = biz.search(searchO);
+		System.out.println(searchList.get(0).getDetail().getAircondition());
+		System.out.println(searchList.get(0).getDetail().getDesk());
+		System.out.println(searchList.get(0).getDetail().getWifi());
 		
 		//검색 리스트 숙소사진 가져오기
 		int seq_intro[] = new int[searchList.size()];
@@ -103,7 +106,6 @@ public class SearchController {
 			id="null";
 		}
 		
-		System.out.println("id: "+id);
 		//넘겨줄 값 model에 저장
 		model.addAttribute("searchOption", searchO);
 		model.addAttribute("detail",detail);

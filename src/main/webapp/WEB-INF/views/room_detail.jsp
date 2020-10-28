@@ -213,7 +213,7 @@ function showDivs(n) {
 			<div class="col-lg-12"><!-- 숙소 사진 -->
 				<div class="w3-contentw3-display-container" style="margin:0px; wdith:100%;">
   					<c:forEach items="${picture }" var="picture">
-	  					<img class="mySlides" src="images/${picture }" style="width:100%">
+	  					<img class="mySlides" src="storage/rooms/${picture }" style="width:100%">
   					</c:forEach>
 
   					<button class="w3-button w3-white w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
@@ -245,7 +245,7 @@ function showDivs(n) {
 							<div class="profile" id="sendMessage" style="z-index:1;">
 								<c:choose>
 									<c:when test="${empty hostInfo.profile}">
-										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/baseprofile.jpg">
+										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/baseprofile.JPG">
 									</c:when>
 									<c:otherwise>
 										<img style="object-fit:cover; width:100%; height:100%;" src="storage/profile/${hostInfo.profile }">
@@ -293,8 +293,8 @@ function showDivs(n) {
 					<!-- 집정보 -->
 					<section class="col-md-12 hotel-single mb-4 mt-4">
 						<div>
-							<pre>${roomInfo.intro.title }</pre>
-							<pre>${roomInfo.intro.context}</pre>
+							<pre style="font-size:20px; white-space: pre-wrap; ">${roomInfo.intro.title}</pre>
+							<pre style="font-size:17px; white-space: pre-wrap; ">${roomInfo.intro.context}</pre>
 						</div>
 					</section>
 					<hr>
@@ -315,7 +315,7 @@ function showDivs(n) {
 										</div><div class="row">
 											</c:if>
 										<div class="col-lg-1 pt-3" style="text-align: center;">
-											<i class="fa fa-calendar" style="font-size: 25px;"></i>
+											<i class="far fa-hand-point-right" style="font-size:25px;"></i>
 										</div>
 										<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
 											<c:out value="${detail }"></c:out>
@@ -338,7 +338,7 @@ function showDivs(n) {
 										</div><div class="row">
 											</c:if>
 									<div class="col-lg-1 pt-3" style="text-align: center;">
-										<i class="fa fa-calendar" style="font-size: 25px;"></i>
+										<i class="far fa-hand-point-right" style="font-size: 25px;"></i>
 									</div>
 									<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
 										<c:out value="${facility }"></c:out>
@@ -361,7 +361,7 @@ function showDivs(n) {
 										</div><div class="row">
 											</c:if>
 									<div class="col-lg-1 pt-3" style="text-align: center;">
-										<i class="fa fa-calendar" style="font-size: 25px;"></i>
+										<i class="far fa-hand-point-right" style="font-size: 25px;"></i>
 									</div>
 									<div class="col-lg-5 pt-1" style="font-size: 25px; padding-left:0px;">
 										<c:out value="${rule }"></c:out>

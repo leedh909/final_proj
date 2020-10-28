@@ -23,6 +23,23 @@ public class Rooms_detailDto {
 		this.seq_rm_d = seq_rm_d;
 	}
 
+	public Rooms_detailDto(int seq_detail, String essential, String heating, String aircondition, String iron,
+			String tv, String shampoo, String hairdry, String desk, String closet, String wifi, int seq_rm_d) {
+		super();
+		this.seq_detail = seq_detail;
+		this.essential = essential;
+		this.heating = heating;
+		this.aircondition = aircondition;
+		this.iron = iron;
+		this.tv = tv;
+		this.shampoo = shampoo;
+		this.hairdry = hairdry;
+		this.desk = desk;
+		this.closet = closet;
+		this.wifi = wifi;
+		this.seq_rm_d = seq_rm_d;
+	}
+
 	public Rooms_detailDto() {
 		super();
 	}
