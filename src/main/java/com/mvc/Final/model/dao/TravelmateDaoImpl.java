@@ -2,6 +2,7 @@ package com.mvc.Final.model.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,12 @@ public class TravelmateDaoImpl {
 	private SqlSessionTemplate sqlSession;
 	
 	//mate 'y'인 room정보 
-		public List<RoomTotalDto> selectList() {
+		public List<RoomTotalDto> selectList(Map<String, String> map) {
 
 			List<RoomTotalDto> tmdto = new ArrayList<RoomTotalDto>();
 			
 			try {
-				tmdto = sqlSession.selectList(NAMESPACE+"travelmateList"); //mapper의 id와 일치시켜야함
+				tmdto = sqlSession.selectList(NAMESPACE+"travelmateList",map); //mapper의 id와 일치시켜야함
 				if(tmdto.isEmpty()) {
 					System.out.println("데이터 안담아옴");
 				}

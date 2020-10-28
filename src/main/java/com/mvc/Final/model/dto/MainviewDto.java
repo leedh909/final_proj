@@ -22,7 +22,7 @@ public class MainviewDto {
     public MainviewDto() {}
 
 	public MainviewDto(int seq_rm, String room_name, String addr, String intro, int price, String hostid, int seq_mate,
-			String profile, Date check_in, Date check_out) {
+			String profile, Date check_in, Date check_out, int seq_re) {
 		super();
 		this.seq_rm = seq_rm;
 		this.room_name = room_name;
@@ -34,6 +34,7 @@ public class MainviewDto {
 		this.profile = profile;
 		this.check_in = check_in;
 		this.check_out = check_out;
+		this.seq_re = seq_re;
 	}
 
 	public int getSeq_rm() {
@@ -116,6 +117,15 @@ public class MainviewDto {
 		this.check_out = check_out;
 	}
 
+	public int getSeq_re() {
+		return seq_re;
+	}
+
+	public void setSeq_re(int seq_re) {
+		this.seq_re = seq_re;
+	}
+
+	
 	
     
 	

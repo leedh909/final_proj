@@ -23,7 +23,7 @@
 		FROM (
 			SELECT R.SEQ_RM seq_rm, R.ROOM_NAME room_name, R.ADDR addr, R.INTRO intro, R.PRICE price, M.ID hostid
 			FROM ROOM R, MEMBER M, HOST H
-			WHERE R.SEQ_H = H.SEQ_H AND M.SEQ_M = H.SEQ_M
+			WHERE R.SEQ_H = H.SEQ_H AND M.SEQ_M = H.SEQ_M AND H.STATE = 'Y'
 			ORDER BY DBMS_RANDOM.VALUE
 		)
 		<![CDATA[where rownum <= 5]]>
